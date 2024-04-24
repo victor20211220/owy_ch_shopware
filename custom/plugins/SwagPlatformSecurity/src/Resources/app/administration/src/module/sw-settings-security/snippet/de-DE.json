@@ -1,0 +1,23 @@
+{
+    "sw-settings-security": {
+        "notification": {
+            "title": "Sicherheitsplugin",
+            "message": "Bitte aktualisieren Sie das Sicherheits-Plugin auf die neueste Version"
+        },
+        "general": {
+            "cardTitle": "Verfügbare Fixes",
+            "textHeadline": "Sicherheitsplugin",
+            "mainMenuItemGeneral": "Security Plugin",
+            "description": "Behebt bekannte Probleme in älteren Shopware-Versionen",
+            "buttonSave": "Speichern",
+            "noFixes": "Dein System ist geschützt gegen alle bekannten Lücken.",
+            "alert": "Achtung, dies sind wichtige Sicherheitsupdates für Deinen Shop! Deaktivierst du eine oder mehrere der Optionen, öffnet das bekannte Sicherheitslücken. Du solltest Dir also sicher sein, was Du tust und die Sicherheitsupdates nur temporär deaktivieren."
+        },
+        "fixes": {
+            "NEXT-23915": {
+                "label": "NEXT-23915 - Behebt Löschung von Bestellungen bei schnellem Abbruch der Bestellbearbeitung",
+                "tooltip": ""
+            }
+        }
+    }
+}

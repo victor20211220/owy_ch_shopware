@@ -1,0 +1,25 @@
+{% block block_acris_store_headline_group %}
+    {% block block_acris_store_headline_group_column %}
+        <div class="col-12" data-cms-element-id="{{ element.id }}">
+            <div class="cms-element-acris-store-headline-group">
+                <div class="d-lg-flex">
+                    {% block block_acris_store_headline_group_column_slider %}
+                        <div class="m-0 w-100 boxgrid-slider swiper-container js-boxgrid-slider"
+                             data-acris-look-swiper-slider="true">
+                            {% block block_acris_store_headline_group_column_slider_row %}
+                                <div class="row boxgrid-slider-wrapper half-gutters swiper-wrapper acris-store-headline-group-grid">
+                                    {% block block_acris_store_headline_group_column_inner %}
+                                        {% block block_acris_store_headline_group_column_inner_column1 %}
+                                            {% set element = block.slots.getSlot('column1') %}
+                                            {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                                        {% endblock %}
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% block cbax_lexicon_page_detail_product_listing %}
+
+    <div class="cms-element-product-listing-wrapper" data-listing="true">
+        <div class="cms-element-product-listing">
+
+            {% block cbax_lexicon_page_detail_product_listing_headline %}
+                {% if lexiconEntry.translated.headline %}
+                    <div class="lexicon-detail-product-headline">
+                        <h2>{{ lexiconEntry.translated.headline }}</h2>
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% block cbax_lexicon_page_detail_product_listing_row %}
+                <div class="row cms-listing-row js-listing-wrapper {{ productTemplate }}">
+                    {% for product in lexiconEntryProducts %}
+                        {% block cbax_lexicon_page_detail_product_listing_column %}
+                            <div class="cms-listing-col {{ productBoxStyle }}">
+                                {% block cbax_lexicon_page_detail_product_listing_item %}
+                                    {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {layout: productBoxLayout} %}
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    {% endfor %}
+                </div>
+            {% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}

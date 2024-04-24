@@ -1,0 +1,13 @@
+{% block sw_cms_block_owy_category_tree_teaser_preview %}
+<div class="sw-cms-preview-owy-category-tree-teaser">
+    <div class="sw-cms-block-category-placeholder-listing">
+        <div class="sw-cms-block-owy-category-tree-teaser__placeholder--container">
+            <div class="sw-cms-block-owy-category-tree-teaser__placeholder--container--item" v-for="(n, index) in 3" :key="index">
+                <div class="sw-cms-block-owy-category-tree-teaser__placeholder"></div>
+                <p>{{ $tc('sw-cms.blocks.textimage.categoryTreeTeaser.displayName') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

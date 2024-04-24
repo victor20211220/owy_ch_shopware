@@ -1,0 +1,57 @@
+
+.is-lexicon  .lexicon-newest-entries .col-12 {
+    padding: 0;
+}
+ 
+.is-lexicon .column-list .cms-listing-col {
+     width: 100% ; 
+     padding: 0;
+}
+.is-lexicon .column-list  .keyword-box {
+    min-height: auto !important;
+    border: 1px solid #fff !important;
+ 
+}
+ 
+.is-lexicon .column-list  .keyword-box .keyword-description {
+    margin-bottom: 0;
+}
+.is-lexicon .column-list  .keyword-box .keyword-action {
+    display: none;
+}
+.cms-block-cbax-lexicon-latest-entries h1,
+.cms-block-cbax-lexicon-navigation+.cms-block-text h2 {
+    display: none;
+}
+.cms-block-cbax-lexicon-navigation+.cms-block-text .cms-block-container{
+    padding: 0 !important;
+}
+.is-lexicon .cms-element-cbax-lexicon-navigation .lexicon-navigation-panel {
+    background: #fff !important;
+    border: 1px solid $sw-border-color !important;
+    
+    padding: 5px 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-evenly;
+    border-left: none !important;
+    border-radius: 0 !important;
+    border-right: none !important;
+}
+.is-lexicon .cms-element-cbax-lexicon-navigation .lexicon-link-panel {
+    display: none;
+}
+ 
+.is-lexicon .cms-element-cbax-lexicon-navigation .lexicon-navigation-panel a.btn.btn-secondary {
+    background: transparent;
+    border: none;
+    color: #000;
+    font-size: 16px !important;
+}
+.is-lexicon .cms-element-cbax-lexicon-navigation .lexicon-navigation-panel button.btn.disabled.btn-sm {
+    background: transparent;
+    border: none;font-size: 16px !important;
+}
+.cms-block-cbax-lexicon-navigation >.cms-block-container {
+    padding-bottom: 0 !important;
+}

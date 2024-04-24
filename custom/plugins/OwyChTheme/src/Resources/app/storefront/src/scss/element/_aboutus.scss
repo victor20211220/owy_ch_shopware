@@ -1,0 +1,42 @@
+.about-contentbox {
+	display: flex;
+	.colleft {
+		float: left;
+		margin: 5px 0 0;
+		width: 20%;
+		img {
+			max-width: 250px;
+			width: 100%;
+			height: auto;
+		}
+	}
+	.colright {
+		float: left;
+		margin-left: 25px;
+		width: 75%;
+	}
+}
+
+@media (max-width: 768px) {
+    .about-contentbox {
+        flex-wrap: wrap;
+        .colright {
+            padding-left: 0px;
+        }
+    }    
+}
+@media (max-width: 600px) {
+    .about-contentbox {
+        .colleft {
+            float: left;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .colright {
+            float: left;
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+    
+}

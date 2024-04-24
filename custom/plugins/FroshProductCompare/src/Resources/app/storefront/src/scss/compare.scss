@@ -1,0 +1,117 @@
+@import 'abstract.scss';
+
+.compare-product-container {
+    min-height: 300px;
+}
+
+.comparison-table {
+    width: 100%;
+    font-size: .875rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    table {
+        width: unset!important;
+        min-width: 41rem;
+        table-layout: fixed;
+
+        thead {
+            background-color: $comparison-heading-color;
+        }
+
+        tbody {
+            tr:first-child, th {
+                background-color: $comparison-heading-color;
+            }
+
+            .accordion-button {
+                box-shadow: none!important;
+
+                &:focus {
+                    box-shadow: none!important;
+                }
+            }
+        }
+
+        tbody+tbody {
+            border-top-width: 1px;
+        }
+
+        &.table-bordered th, &.table-bordered td {
+            padding: $table-cell-padding;
+            border-top: $table-border-width solid $table-border-color;
+        }
+
+        .is-feature-item {
+            .comparison-item-title {
+                color: $success;
+            }
+        }
+    }
+
+    .table-bordered thead {
+        td {
+            border-bottom-width: 1px;
+            background-color: $white;
+        }
+    }
+
+    .comparison-item {
+        position: relative;
+        background-color: transparent;
+        text-align: center;
+
+        .comparison-item-thumb {
+            display: block;
+            width: 5rem;
+            margin-right: auto;
+            margin-bottom: .75rem;
+            margin-left: auto;
+        }
+
+        .comparison-item-thumb>img {
+            display: block;
+            width: 100%
+        }
+
+        .product-image-link {
+            align-items: flex-start;
+        }
+
+        .comparison-item-title {
+            display: block;
+            width: 100%;
+            margin-bottom: 14px;
+            color: #222;
+            font-weight: 600;
+            text-decoration: none
+        }
+
+        .compare-item-remove-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 99;
+
+            .icon {
+                color: $white;
+            }
+        }
+    }
+
+    .product-price-info {
+        margin: 0;
+        p {
+            margin: 0;
+        }
+
+        .product-price-unit {
+            height: auto;
+        }
+    }
+
+    .filter-property-select-preview.color-on-printer {
+        margin-right: 3px;
+    }
+}

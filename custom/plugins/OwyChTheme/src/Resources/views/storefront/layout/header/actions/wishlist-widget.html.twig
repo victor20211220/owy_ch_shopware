@@ -1,0 +1,45 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/wishlist-widget.html.twig'%}
+{# {% block layout_header_actions_wishlist_widget %}
+    <span class="header-wishlist-icon">
+        <img src="{{ asset('storefront/assets/images/icons/wishlist.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+         <label> {{ 'OwyChTheme.navigation.shopnav.link3' |trans |sw_sanitize}} </label>
+    </span>
+   
+    <span class="badge badge-primary header-wishlist-badge"
+          id="wishlist-basket"
+          data-wishlist-storage="true"
+          data-wishlist-storage-options="{{ wishlistStorageOptions|json_encode }}"
+          data-wishlist-widget="true"
+    ></span>
+{% endblock %} #}
+
+
+
+{% block layout_header_actions_wishlist_widget %}
+    {% set showCounter = showCounter ?? true %}
+
+    {% if showCounter %}
+        <span class="header-wishlist-icon">
+            <img src="{{ asset('storefront/assets/images/icons/wishlist.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+            <label> {{ 'OwyChTheme.navigation.shopnav.link3' |trans |sw_sanitize}} </label>
+        </span>
+    {% endif %}
+
+    {% set wishlistStorageOptions = {
+        listPath: path('frontend.wishlist.product.list'),
+        mergePath: path('frontend.wishlist.product.merge'),
+        pageletPath: path('frontend.wishlist.product.merge.pagelet'),
+    } %}
+
+    {% set wishlistWidgetOptions = { showCounter: showCounter } %}
+
+    <span class="badge bg-primary header-wishlist-badge"
+          id="wishlist-basket"
+          data-wishlist-storage="true"
+          data-wishlist-storage-options="{{ wishlistStorageOptions|json_encode }}"
+          data-wishlist-widget="true"
+          data-wishlist-widget-options="{{ wishlistWidgetOptions|json_encode }}"
+    ></span>
+{% endblock %}
+
+

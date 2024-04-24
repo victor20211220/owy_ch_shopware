@@ -1,0 +1,87 @@
+<sw-page>
+    <template slot="search-bar">
+        <sw-search-bar
+            initialSearchType="Mail Archive"
+            :initialSearch="term"
+            @search="onSearch">
+        </sw-search-bar>
+    </template>
+    <template slot="smart-bar-header">
+        <h2>{{ $tc('frosh-mail-archive.title') }}</h2>
+    </template>
+    <template slot="content">
+        <sw-entity-listing
+            v-if="items"
+            :items="items"
+            :columns="columns"
+            :isLoading="isLoading"
+            :repository="mailArchiveRepository"
+        >
+            <template slot="column-receiver" slot-scope="{ item }">
+                <span v-for="(element, index) in item.receiver">
+                    {{ element }} &lt;<a :href='`mailto:${index}`'>{{ index }}</a>&gt;
+                </span>
+            </template>
+
+            <template slot="column-createdAt" slot-scope="{ item }">
+                {{ item.createdAt | date({hour: '2-digit', minute: '2-digit', second: '2-digit'}) }}
+                <template v-if="item.transportState === 'failed'">
+                    <sw-icon
+                        name="regular-exclamation-triangle"
+                        color="#f00"
+                        class="frosh-mail-archive__data-grid-danger-icon"
+                        v-tooltip="{
+                            message: $tc('frosh-mail-archive.list.columns.transportFailed')
+                        }"
+                        small></sw-icon>
+                </template>
+            </template>
+
+            <template slot="detail-action" slot-scope="{ item }">
+                <sw-context-menu-item class="sw-entity-listing__context-menu-show-action"
+                                      :routerLink="{ name: 'frosh.mail.archive.detail', params: { id: item.id } }">
+                    {{ $tc('frosh-mail-archive.list.columns.action') }}
+                </sw-context-menu-item>
+            </template>
+        </sw-entity-listing>
+    </template>
+
+    <sw-sidebar slot="sidebar">
+        <sw-sidebar-item
+            icon="regular-undo"
+            :title="$tc('frosh-mail-archive.list.sidebar.refresh')"
+            @click="onRefresh">
+        </sw-sidebar-item>
+
+        <sw-sidebar-item icon="regular-filter"
+                         :title="$tc('frosh-mail-archive.list.sidebar.filter')">
+            <sw-text-field :label="$tc('frosh-mail-archive.list.sidebar.filters.search')"
+                           v-model="filter.term"></sw-text-field>
+
+            <sw-entity-single-select
+                v-model="filter.salesChannelId"
+                :label="$tc('frosh-mail-archive.list.sidebar.filters.salesChannel')"
+                entity="sales_channel"
+            ></sw-entity-single-select>
+
+            <sw-entity-single-select
+                v-model="filter.customerId"
+                :label="$tc('frosh-mail-archive.list.sidebar.filters.customer')"
+                entity="customer"
+            >
+                <template #result-label-property="{ item, index, searchTerm, getKey }">
+                    <sw-highlight-text
+                        :text="`${getKey(item, 'firstName')} ${getKey(item, 'lastName')}${getKey(item, 'lastName') ? ' (' + getKey(item, 'lastName') + ')' : ''}`"
+                        :searchTerm="searchTerm">
+                    </sw-highlight-text>
+                </template>
+            </sw-entity-single-select>
+
+            <sw-button
+                variant="ghost"
+                @click="resetFilter">
+                {{ $tc('frosh-mail-archive.list.sidebar.filters.resetFilter') }}
+            </sw-button>
+        </sw-sidebar-item>
+    </sw-sidebar>
+</sw-page>

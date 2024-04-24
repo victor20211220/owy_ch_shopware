@@ -1,0 +1,12 @@
+{
+    "acris-store-locator": {
+        "general": {
+            "mainMenuItemMoreSettings": "More Settings",
+            "mainMenuItemGeneral": "Store Locator",
+            "descriptionTextModule": "Add more stores to complement your Store Locator."
+        },
+        "index": {
+            "textHeadline": "Store Locator"
+        }
+    }
+}

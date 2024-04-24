@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Search Advanced</title>
+        <title lang="de-DE">Erweiterte Suche</title>
+
+        <input-field type="bool">
+            <name>searchCategories</name>
+            <label>Search in Categories</label>
+            <label lang="de-DE">Kategorien durchsuchen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>searchManufacturer</name>
+            <label>Search in manufacturers</label>
+            <label lang="de-DE">Hersteller durchsuchen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>searchCms</name>
+            <label>Search in Shopping worlds / CMS</label>
+            <label lang="de-DE">Einkaufserlebnisse/CMS durchsuchen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>searchCmsConfig</name>
+            <label>Additional search configuration in Shopping worlds / CMS</label>
+            <label lang="de-DE">Zusätzliche Suchkonfiguration in Einkaufserlebnissen/CMS</label>
+            <helpText>Specify optionally which JSON fields in CMS elements should be searched additionally (e.g. config.text -> enter text only). Multiple fields can be separated by comma.</helpText>
+            <helpText lang="de-DE">Optional angeben, welche JSON-Felder in CMS-Elementen zusätzlich durchsucht werden sollen (z.B. "config.text" -> nur "text" eingeben). Mehrere Felder können durch Komma getrennt werden.</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>useSynonyms</name>
+            <label>Use synonyms/search word substitutions</label>
+            <label lang="de-DE">Synonyme/Suchwortersetzungen verwenden</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>logQueries</name>
+            <label>Log search queries</label>
+            <label lang="de-DE">Suchbegriffe protokollieren</label>
+            <defaultValue>0</defaultValue>
+            <helpText>The suggestion search is triggered frequently (depending on the typing speed for each single letter) - this can lead to very many entries in the search log.</helpText>
+            <helpText lang="de-DE">Die Vorschlagssuche wird häufig ausgelöst (je nach Tippgeschwindigkeit für jeden einzelnen getippten Buchstaben) - das kann zu sehr vielen Einträgen im Suchlog führen.</helpText>
+            <options>
+                <option>
+                    <id>0</id>
+                    <name>no</name>
+                    <name lang="de-DE">nein</name>
+                </option>
+                <option>
+                    <id>1</id>
+                    <name>Log search only</name>
+                    <name lang="de-DE">Nur die normale Suche protokollieren</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>Log normal and suggestion search</name>
+                    <name lang="de-DE">Normale + Vorschlagssuche protokollieren</name>
+                </option>
+            </options>
+        </input-field>
+
+        <component name="sw-entity-single-select">
+            <name>searchManufacturerCmsPage</name>
+            <entity>category</entity>
+            <label>Category for manufacturer search (optional)</label>
+            <label lang="de-DE">Kategorie für Herstellersuche (optional)</label>
+        </component>
+    </card>
+</config>

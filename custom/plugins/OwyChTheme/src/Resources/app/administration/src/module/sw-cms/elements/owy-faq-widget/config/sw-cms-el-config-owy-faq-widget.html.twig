@@ -1,0 +1,290 @@
+{% block sw_cms_el_config_owy_faq_widget %}
+    <sw-tabs class="sw-cms-el-config-owy_faq_widget__tabs" defaultItem="tab1">
+
+        <template slot-scope="{ active }" >
+            {% block sw_cms_el_config_owy_faq_widgettab_tab1 %}
+            <sw-tabs-item title="Tab 1"
+                          name="tab1"
+                          :activeTab="active">
+               Tab 1
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_faq_widget_tab2 %}
+            <sw-tabs-item title="Tab 2"
+                          name="tab2"
+                          :activeTab="active">
+                Tab 2
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_faq_widget_tab3 %}
+                <sw-tabs-item title="Tab 3"
+                              name="tab3"
+                              :activeTab="active">
+                    Tab 3
+                </sw-tabs-item>
+            {% endblock %}
+            {% block sw_cms_el_config_owy_faq_widget_tab4 %}
+                <sw-tabs-item title="Tab 4"
+                              name="tab4"
+                              :activeTab="active">
+                    Tab 4
+                </sw-tabs-item>
+            {% endblock %}
+        </template>
+
+
+        <template slot="content" slot-scope="{ active }">
+            {% block sw_cms_el_owy_faq_widget_config_tab1 %}
+            <sw-container v-if="active === 'tab1'" class="sw-cms-el-config-owy_faq_widget__tab-tab1">
+                <sw-text-field
+                        v-model="element.config.heading.value"
+                        label="Heading"
+                />
+                <sw-text-field
+                        v-model="element.config.faq1.value"
+                        label="FAQ 1"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer1.value"
+                        type="textarea"
+                        label="FAQ Answer 1"
+                >
+                </sw-textarea-field>
+                <sw-text-field
+                        v-model="element.config.faq2.value"
+                        label="FAQ 2"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer2.value"
+                        type="textarea"
+                        label="FAQ Answer 2"
+                >
+                </sw-textarea-field>
+
+
+                <sw-text-field
+                        v-model="element.config.faq3.value"
+                        label="FAQ 3"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer3.value"
+                        type="textarea"
+                        label="FAQ Answer 3"
+                >
+                </sw-textarea-field>
+
+                <sw-text-field
+                        v-model="element.config.faq4.value"
+                        label="FAQ 4"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer4.value"
+                        type="textarea"
+                        label="FAQ Answer 4"
+                >
+                </sw-textarea-field>
+
+
+            </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_faq_widget_config_tab2 %}
+            <sw-container v-if="active === 'tab2'" class="sw-cms-el-config-owy_faq_widget__tab-tab2">
+                <sw-text-field
+                        v-model="element.config.faq5.value"
+                        label="FAQ 5"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer5.value"
+                        type="textarea"
+                        label="FAQ Answer 5"
+                >
+                </sw-textarea-field>
+                <sw-text-field
+                        v-model="element.config.faq6.value"
+                        label="FAQ 6"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer6.value"
+                        type="textarea"
+                        label="FAQ Answer 6"
+                >
+                </sw-textarea-field>
+
+
+                <sw-text-field
+                        v-model="element.config.faq7.value"
+                        label="FAQ 7"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer7.value"
+                        type="textarea"
+                        label="FAQ Answer 7"
+                >
+                </sw-textarea-field>
+
+                <sw-text-field
+                        v-model="element.config.faq8.value"
+                        label="FAQ 8"
+                />
+                <sw-textarea-field
+                        v-model="element.config.answer8.value"
+                        type="textarea"
+                        label="FAQ Answer 8"
+                >
+                </sw-textarea-field>
+            </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_faq_widget_config_tab3 %}
+                <sw-container v-if="active === 'tab3'" class="sw-cms-el-config-owy_faq_widget__tab-tab3">
+                    <sw-text-field
+                            v-model="element.config.faq9.value"
+                            label="FAQ 9"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer9.value"
+                            type="textarea"
+                            label="FAQ Answer 9"
+                    >
+                    </sw-textarea-field>
+                    <sw-text-field
+                            v-model="element.config.faq10.value"
+                            label="FAQ 10"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer10.value"
+                            type="textarea"
+                            label="FAQ Answer 10"
+                    >
+                    </sw-textarea-field>
+
+
+                    <sw-text-field
+                            v-model="element.config.faq11.value"
+                            label="FAQ 11"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer11.value"
+                            type="textarea"
+                            label="FAQ Answer 11"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-text-field
+                            v-model="element.config.faq12.value"
+                            label="FAQ 12"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer12.value"
+                            type="textarea"
+                            label="FAQ Answer 12"
+                    >
+                    </sw-textarea-field>
+                </sw-container>
+            {% endblock %}
+
+
+            {% block sw_cms_el_owy_faq_widget_config_tab4 %}
+                <sw-container v-if="active === 'tab3'" class="sw-cms-el-config-owy_faq_widget__tab-tab3">
+                    <sw-text-field
+                            v-model="element.config.faq13.value"
+                            label="FAQ 13"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer13.value"
+                            type="textarea"
+                            label="FAQ Answer 13"
+                    >
+                    </sw-textarea-field>
+                    <sw-text-field
+                            v-model="element.config.faq14.value"
+                            label="FAQ 14"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer14.value"
+                            type="textarea"
+                            label="FAQ Answer 14"
+                    >
+                    </sw-textarea-field>
+
+
+                    <sw-text-field
+                            v-model="element.config.faq15.value"
+                            label="FAQ 15"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer15.value"
+                            type="textarea"
+                            label="FAQ Answer 15"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-text-field
+                            v-model="element.config.faq16.value"
+                            label="FAQ 16"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer16.value"
+                            type="textarea"
+                            label="FAQ Answer 16"
+                    >
+                    </sw-textarea-field>
+                </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_faq_widget_config_tab4 %}
+                <sw-container v-if="active === 'tab4'" class="sw-cms-el-config-owy_faq_widget__tab-tab4">
+                    <sw-text-field
+                            v-model="element.config.faq17.value"
+                            label="FAQ 17"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer17.value"
+                            type="textarea"
+                            label="FAQ Answer 17"
+                    >
+                    </sw-textarea-field>
+                    <sw-text-field
+                            v-model="element.config.faq18.value"
+                            label="FAQ 18"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer18.value"
+                            type="textarea"
+                            label="FAQ Answer 18"
+                    >
+                    </sw-textarea-field>
+
+
+                    <sw-text-field
+                            v-model="element.config.faq19.value"
+                            label="FAQ 19"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer19.value"
+                            type="textarea"
+                            label="FAQ Answer 19"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-text-field
+                            v-model="element.config.faq20.value"
+                            label="FAQ 20"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.answer20.value"
+                            type="textarea"
+                            label="FAQ Answer 20"
+                    >
+                    </sw-textarea-field>
+                </sw-container>
+            {% endblock %}
+
+
+        </template>
+    </sw-tabs>
+
+{% endblock %}

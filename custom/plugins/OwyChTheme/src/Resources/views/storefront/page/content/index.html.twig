@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/page/content/index.html.twig' %}
+
+{% block cms_breadcrumb %}
+    {% if page.cmsPage.translated.name != 'SubCategories' %}
+        <div class="breadcrumb cms-breadcrumb container">
+            {% sw_include '@Storefront/storefront/layout/breadcrumb.html.twig' with {
+                context: context,
+                category: page.header.navigation.active
+            } only %}
+        </div>
+    {% endif %}
+{% endblock %}
+

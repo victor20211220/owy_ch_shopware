@@ -1,0 +1,61 @@
+{% block sw_product_image %}
+    <div
+        class="acris-store-image"
+        :class="storeImageClasses"
+    >
+        <template v-if="!isPlaceholder">
+            {% block acris_store_image_preview %}
+                <sw-media-preview-v2
+                    class="acris-store-image__image"
+                    :source="mediaId"
+                    :hide-tooltip="false"
+                />
+
+                <sw-label
+                    v-if="showCoverLabel && isCover"
+                    class="acris-store-image__cover-label"
+                    variant="primary"
+                    size="medium"
+                    appearance="pill"
+                >
+                    {{ $tc('acris-stores.mediaForm.coverSubline') }}
+                </sw-label>
+            {% endblock %}
+            <sw-context-button class="acris-store-image__context-button">
+                {% block acris_store_image_context %}
+                    {% block acris_store_image_context_cover_action %}
+                        <sw-context-menu-item
+                            v-if="showCoverLabel && !isCover"
+                            class="acris-store-image__button-cover"
+                            @click="$emit('acris-store-image-cover')"
+                        >
+                            {{ $tc('acris-stores.mediaForm.buttonAsCover') }}
+                        </sw-context-menu-item>
+                    {% endblock %}
+
+                    {% block acris_store_image_context_delete_action %}
+                        <sw-context-menu-item
+                            variant="danger"
+                            class="acris-store-image__button-delete"
+                            @click="$emit('acris-store-image-delete')"
+                        >
+                            {{ $tc('acris-stores.mediaForm.buttonRemove') }}
+                        </sw-context-menu-item>
+                    {% endblock %}
+                {% endblock %}
+            </sw-context-button>
+        </template>
+        <template
+            v-else
+            class="is--invalid-drag"
+        >
+            {% block acris_store_image_placeholder %}
+                <sw-icon
+                    class="acris-store-image__placeholder-icon"
+                    :name="'default-object-image'"
+                    :small="true"
+                />
+            {% endblock %}
+        </template>
+    </div>
+{% endblock %}

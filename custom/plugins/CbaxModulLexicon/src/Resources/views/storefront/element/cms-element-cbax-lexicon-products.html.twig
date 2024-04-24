@@ -1,0 +1,50 @@
+{% block element_cbax_lexicon_products %}
+    {%  set config = element.fieldConfig.elements %}
+
+    {% set lexiconEntry = element.data.getEntry() %}
+    {% set lexiconEntryProducts = element.data.getSalesChannelProducts() %}
+
+    {# Products #}
+    {% block cbax_lexicon_page_detail_products %}
+
+        {% if lexiconEntry %}
+
+            {% if lexiconEntryProducts and lexiconEntryProducts|length > 0 %}
+
+                {% if lexiconEntry.productLayout == "standard" %}
+                    {% set productBoxLayout="standard" %}
+                    {% set productBoxStyle="col-sm-6 col-lg-6 col-xl-4" %}
+                {% elseif lexiconEntry.productLayout == "image" %}
+                    {% set productBoxLayout="image" %}
+                    {% set productBoxStyle="col-sm-6 col-lg-6 col-xl-4" %}
+                {% elseif lexiconEntry.productLayout == "minimal" %}
+                    {% set productBoxLayout="minimal" %}
+                    {% set productBoxStyle="col-sm-6 col-lg-6 col-xl-4" %}
+                {% else %}
+                    {% set productBoxLayout="standard" %}
+                    {% set productBoxStyle="col-sm-6 col-lg-6 col-xl-4" %}
+                {% endif %}
+                
+                {% if lexiconEntry.productTemplate == "slider" %}
+                    {% sw_include '@Storefront/storefront/cbax-lexicon/component/slider.html.twig' %}
+                {% endif %}
+
+                {% if lexiconEntry.productTemplate != "slider" %}
+
+                    {% block cbax_lexicon_page_detail_entry_listing %}
+						
+                        {% set productTemplate=lexiconEntry.productTemplate %}
+                        
+                        {% sw_include '@Storefront/storefront/cbax-lexicon/component/product-listing.html.twig' %}
+
+                    {% endblock %}
+
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+
+    {% endblock %}
+
+{% endblock %}

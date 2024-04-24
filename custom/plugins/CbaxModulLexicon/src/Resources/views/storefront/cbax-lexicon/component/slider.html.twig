@@ -1,0 +1,63 @@
+{% block cbax_lexicon_page_slider %}
+
+{% if not element %}
+    {%  set element = {} %}
+{% endif %}
+
+{% set sliderConfig = {
+    'title': {
+        'name': 'title',
+        'source': 'static',
+        'value': lexiconEntry.translated.headline
+    },
+    'border': {
+        'name': 'border',
+        'source': 'static',
+        'value': false
+    },
+    'rotate': {
+        'name': 'rotate',
+        'source': 'static',
+        'value': false
+    },
+    'elMinWidth': {
+        'name': 'elMinWidth',
+        'source': 'static',
+        'value': lexiconEntry.productSliderWidth
+    },
+    'navigation': {
+        'name': 'navigation',
+        'source': 'static',
+        'value': true
+    },
+    'verticalAlign': {
+        'name': 'verticalAlign',
+        'source': 'static',
+        'value': null
+    },
+    'boxLayout': {
+        'name': 'boxLayout',
+        'source': 'static',
+        'value': 'minimal'
+    },
+    'displayMode': {
+        'name': 'displayMode',
+        'source': 'static',
+        'value': 'standard'
+    }
+} %}
+
+{% set element = {
+	'type': 'product-slider',
+    'data': {
+        'products': {
+            'elements': lexiconEntryProducts
+        }
+    }
+} %}
+
+{% block cbax_lexicon_page_slider_inner %}
+    {% sw_include "@Storefront/storefront/element/cms-element-product-slider.html.twig" %}
+{% endblock %}
+
+{% endblock %}

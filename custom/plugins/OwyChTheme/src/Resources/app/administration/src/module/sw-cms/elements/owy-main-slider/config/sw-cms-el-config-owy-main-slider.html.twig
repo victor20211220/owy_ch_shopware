@@ -1,0 +1,180 @@
+{% block sw_cms_el_config_owy_main_slider %}
+    <sw-tabs class="sw-cms-el-config-owy_main_slider_slider__tabs" defaultItem="tab1">
+
+        <template slot-scope="{ active }" >
+            {% block sw_cms_el_config_owy_main_slider_tab_tab1 %}
+            <sw-tabs-item title="Tab 1"
+                          name="tab1"
+                          :activeTab="active">
+               Tab 1
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_main_slider_tab2 %}
+            <sw-tabs-item title="Tab 2"
+                          name="tab2"
+                          :activeTab="active">
+                Tab 2
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_main_slider_tab3 %}
+                <sw-tabs-item title="Tab 3"
+                              name="tab3"
+                              :activeTab="active">
+                    Tab 3
+                </sw-tabs-item>
+            {% endblock %}
+        </template>
+
+
+        <template slot="content" slot-scope="{ active }">
+            {% block sw_cms_el_owy_main_slider_config_tab1 %}
+            <sw-container v-if="active === 'tab1'" class="sw-cms-el-config-owy_main_slider__tab-tab1">
+                <sw-media-field required v-model="element.config.desktopImage1.value" label="Desktop Image 1"/>
+                <sw-media-field required v-model="element.config.mobileImage1.value" label="Mobile Image 1"/>
+                <sw-url-field
+                        label="Link 1"
+                        v-model="element.config.link1.value"
+                        placeholder="Link 1"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+                <sw-media-field required v-model="element.config.desktopImage2.value" label="Desktop Image 2"/>
+                <sw-media-field required v-model="element.config.mobileImage2.value" label="Mobile Image 2"/>
+                <sw-url-field
+                        label="Link 2"
+                        v-model="element.config.link2.value"
+                        placeholder="Link 2"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+
+
+                <sw-media-field required v-model="element.config.desktopImage3.value" label="Desktop Image 3"/>
+                <sw-media-field required v-model="element.config.mobileImage3.value" label="Mobile Image 3"/>
+                <sw-url-field
+                        label="Link 3"
+                        v-model="element.config.link3.value"
+                        placeholder="Link 3"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+
+                <sw-media-field required v-model="element.config.desktopImage4.value" label="Desktop Image 4"/>
+                <sw-media-field required v-model="element.config.mobileImage4.value" label="Mobile Image 4"/>
+                <sw-url-field
+                        label="Link 4"
+                        v-model="element.config.link4.value"
+                        placeholder="Link 4"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+            </sw-container>
+            {% endblock %}
+
+            {# general settings tab ends #}
+
+            {% block sw_cms_el_owy_main_slider_config_tab2 %}
+            <sw-container v-if="active === 'tab2'" class="sw-cms-el-config-owy_main_slider__tab-tab2">
+                <sw-media-field required v-model="element.config.desktopImage5.value" label="Desktop Image 5"/>
+                <sw-media-field required v-model="element.config.mobileImage5.value" label="Mobile Image 5"/>
+                <sw-url-field
+                        label="Link 5"
+                        v-model="element.config.link5.value"
+                        placeholder="Link 5"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+
+                <sw-media-field required v-model="element.config.desktopImage6.value" label="Desktop Image 6"/>
+                <sw-media-field required v-model="element.config.mobileImage6.value" label="Mobile Image 6"/>
+                <sw-url-field
+                        label="Link 6"
+                        v-model="element.config.link6.value"
+                        placeholder="Link 6"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+
+                <sw-media-field required v-model="element.config.desktopImage7.value" label="Desktop Image 7"/>
+                <sw-media-field required v-model="element.config.mobileImage7.value" label="Mobile Image 7"/>
+                <sw-url-field
+                        label="Link 7"
+                        v-model="element.config.link7.value"
+                        placeholder="Link 7"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+
+                <sw-media-field required v-model="element.config.desktopImage8.value" label="Desktop Image 8"/>
+                <sw-media-field required v-model="element.config.mobileImage8.value" label="Mobile Image 8"/>
+                <sw-url-field
+                        label="Link 8"
+                        v-model="element.config.link8.value"
+                        placeholder="Link 8"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+            </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_main_slider_config_tab3 %}
+                <sw-container v-if="active === 'tab3'" class="sw-cms-el-config-owy_main_slider__tab-tab2">
+                    <sw-media-field required v-model="element.config.desktopImage9.value" label="Desktop Image 9"/>
+                    <sw-media-field required v-model="element.config.mobileImage9.value" label="Mobile Image 9"/>
+                    <sw-url-field
+                            label="Link 9"
+                            v-model="element.config.link9.value"
+                            placeholder="Link 9"
+                            :error="null"
+                            :omitUrlHash="false"
+                            :omitUrlSearch="false"
+                    >
+                    </sw-url-field>
+
+
+                    <sw-media-field required v-model="element.config.desktopImage10.value" label="Desktop Image 10"/>
+                    <sw-media-field required v-model="element.config.mobileImage10.value" label="Mobile Image 10"/>
+                    <sw-url-field
+                            label="Link 10"
+                            v-model="element.config.link10.value"
+                            placeholder="Link 10"
+                            :error="null"
+                            :omitUrlHash="false"
+                            :omitUrlSearch="false"
+                    >
+                    </sw-url-field>
+
+
+                </sw-container>
+            {% endblock %}
+
+        </template>
+    </sw-tabs>
+
+{% endblock %}

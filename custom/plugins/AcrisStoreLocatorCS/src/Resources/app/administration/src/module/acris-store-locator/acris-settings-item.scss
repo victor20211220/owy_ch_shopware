@@ -1,0 +1,15 @@
+[id^=acris].sw-settings-item, .acris-settings-item.sw-settings-item {
+    .sw-settings-item__icon.background--enabled {
+        background-color: #a6c836;
+    }
+    &:hover {
+        color: darken(#a6c836, 10%);
+
+        .sw-settings-item__icon.background--enabled {
+            background-color: darken(#a6c836, 10%);
+        }
+    }
+    .sw-icon > svg {
+        color: white;
+    }
+}

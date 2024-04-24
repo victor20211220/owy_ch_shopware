@@ -1,0 +1,229 @@
+{
+    "acris-stores": {
+        "general": {
+            "mainMenuItemGeneral": "Stores",
+            "descriptionTextModule": "Add more stores to complement your Store Locator.",
+            "placeholderSearchBar": "Search"
+        },
+        "list": {
+            "textStores": "Store Locator (dealers, stores, branches)",
+            "buttonAddStores": "Add store",
+            "buttonCalcLatLong": "Update longitude & latitude for all stores",
+            "columnInternalId": "Internal id",
+            "columnCompanyname": "Company name",
+            "columnStoreGroupName": "Group name",
+            "columnPriority": "Priority",
+            "columnStreet": "Street",
+            "columnZip": "Zip code",
+            "columnCity": "City",
+            "columnCountry": "Country",
+            "columnLongitude": "Longitude",
+            "columnLatitude": "Latitude",
+            "columnStoreLocator": "Active",
+            "contextMenuView": "View",
+            "contextMenuDelete": "Delete",
+            "contentEmpty": "There are no stores.",
+            "contextMenuDuplicate": "Duplicate",
+            "contextMenuEdit": "Edit",
+            "messageEmpty": "No stores yet",
+            "messageSaveError": "Store could not be saved.",
+            "messageSaveSuccess": "Store has been saved.",
+            "modalTitleDelete": "Delete store",
+            "textDeleteConfirm": "Are you sure you want to delete this store?",
+            "buttonCancel": "Cancel",
+            "buttonDelete": "Delete",
+            "titleSidebarItemRefresh": "Refresh",
+            "titleSidebarItemFilter": "Filter",
+            "titleCalculateSuccess": "Success",
+            "titleCalculateInfo": "Info",
+            "titleCalculateError": "Error",
+            "messageCalculateSuccess": "The longitude and latitude could be updated successfully",
+            "messageCalculateError": "The latitude and longitude could not be updated. Please check the permissions of your Google API key.",
+            "messageCalculateErrorNoStores": "There are currently no stores created. The longitude and latitude could not be updated.",
+            "messageCalculateErrorNoResult": "There is no result for provided address. Please check your address data: ",
+            "messageCalculateErrorApiKey": "The provided API key is invalid.",
+            "messageStoresWithError": "There was error during update of longitude & latitude for stores: ",
+            "labelProgressModal": "The longitude and latitude are calculated ...",
+            "orderDeliveryStoreLabel": "Store"
+        },
+        "detail": {
+            "textHeadline": "Store settings",
+            "buttonSave": "Save",
+            "buttonCancel": "Cancel",
+            "buttonEdit": "Edit",
+            "buttonCalculate": "Calculate longitude and latitude automatically",
+            "cardGeneral": "General",
+            "cardIdCompany": "Company Information",
+            "cardIdStoreLocator": "Store Locator Information",
+            "cardLayout": "Layout",
+            "cardMedia": "Media",
+            "cardCheckout": "Display at checkout",
+            "subtitle": "Store page",
+            "fieldTitleLabelInternalId": "Internal id",
+            "fieldTitlePlaceholderInternalId": "Enter internal id...",
+            "fieldTitleLabelCompanyName": "Company name",
+            "fieldTitlePlaceholderCompanyName": "ACRIS E-Commerce GmbH",
+            "fieldTitleLabelCompanyStoreGroup": "Group",
+            "fieldTitlePlaceholderCompanyStoreGroup": "Select group...",
+            "fieldTitleLabelSalesChannel": "Restrict to sales channels",
+            "fieldTitlePlaceholderSalesChannel": "Select sales channels...",
+            "fieldTitleHelpTextSalesChannel": "If no sales channel is selected, then this store will be displayed on all sales channels",
+
+            "fieldTitleLabelCompanyDepartment": "Department",
+            "fieldTitlePlaceholderCompanyDepartment": "E-Commerce",
+            "fieldTitleLabelCompanyCity": "City",
+            "fieldTitlePlaceholderCompanyCity": "Linz",
+            "fieldTitleLabelCompanyZipcode": "Zip code",
+            "fieldTitlePlaceholderCompanyZipcode": "4040",
+            "fieldTitleLabelCompanyStreet": "Street and Number",
+            "fieldTitlePlaceholderCompanyStreet": "Am Pfenningberg 60",
+            "fieldTitleLabelCompanyCountry": "Country",
+            "fieldTitlePlaceholderCompanyCountry": "Austria",
+            "fieldTitleLabelCompanyCountryState": "State",
+            "fieldTitlePlaceholderCompanyCountryState": "Enter state...",
+            "fieldTitleLabelCompanyPhone": "Phone number",
+            "fieldTitlePlaceholderCompanyPhone": "+43 720 303750",
+            "fieldTitleLabelCompanyEmail": "Email",
+            "fieldTitlePlaceholderCompanyEmail": "office@acris.at",
+            "fieldTitleLabelCompanyUrl": "URL",
+            "fieldTitlePlaceholderCompanyUrl": "www.acris-ecommerce.at",
+            "fieldTitleLabelOpeningHours": "Openings hours",
+            "fieldTitlePlaceholderOpeningHours": "Enter the opening hours here...",
+            "fieldTitleLabelLocatorActive": "Active",
+            "fieldTitleHelptextLocatorActive": "Set store locator to active",
+            "fieldTitleLabelLocatorLng": "Longitude",
+            "fieldTitlePlaceholderLocatorLng": "14.360901",
+            "fieldTitleHelptextLocatorLng": "The value is needed to determine the position on Google Maps.",
+            "fieldTitleLabelLocatorLat": "Latitude",
+            "fieldTitlePlaceholderLocatorLat": "48.324029",
+            "fieldTitleHelptextLocatorLat": "The value is needed to determine the position on Google Maps.",
+            "fieldTitleLabelPriority": "Priority",
+            "fieldTitlePlaceholderPriority": "Enter priority...",
+            "fieldTitleHelpTextPriority": "The stores will be sorted in store group detail list based on priority.",
+            "cardSeo": "SEO",
+            "fieldTitleLabelSeoUrl": "SEO url",
+            "fieldTitlePlaceholderSeoUrl": "Enter SEO url...",
+            "fieldTitleHelpTextSeoUrl": "For SEO url you can enter just string/word and you can use \"/\" in url (not at beginning of the url).\n The entered SEO url will be generated and it will be used together with Shopware path. Example: \"custom/store\". The SEO path template can be changed in Settings>Shop>SEO.",
+            "fieldTitleLabelMetaTitle": "Meta title",
+            "fieldTitlePlaceholderMetaTitle": "Enter meta title...",
+            "fieldTitleHelpTextMetaTitle": "The meta title will be displayed at store page in Storefront.",
+            "fieldTitleLabelMetaDescription": "Meta description",
+            "fieldTitlePlaceholderMetaDescription": "Enter meta description...",
+            "fieldTitleHelpTextMetaDescription": "The meta description will be displayed at store page in Storefront.",
+            "fieldTitleLabelCheckoutRule": "Assigned Rules",
+            "fieldTitlePlaceholderCheckoutRule": "Select rule...",
+            "fieldTitleHelpTextCheckoutRule": "The store is displayed in the single selection during checkout if one of the assigned rules applies (OR operation). If no rule is assigned, the store is always displayed in the single selection.",
+
+            "titleSaveError": "Error",
+            "titleSaveSuccess": "Success",
+            "titleCalculateError": "Fehler",
+            "messageSaveError": "Store \"{name}\" could not be saved.",
+            "messageSaveSuccess": "Store \"{name}\" has been saved.",
+            "messageCalculateError": "The longitude and latitude could not be calculated automatically. Please check the permissions of your Google API key."
+        },
+        "import-export-profile": {
+            "storeLabel": "Store Locator"
+        },
+        "orderData": {
+            "orderDeliveryStoreCard": "Store information for deliveries",
+            "orderDeliveryStoreLabel": "Delivery:",
+            "orderDeliveryStore": {
+                "name": "Name:",
+                "department": "Department:",
+                "street": "Street and number:",
+                "zipcode": "Zip code:",
+                "city": "City:",
+                "countryName": "Country:",
+                "phone": "Phone:",
+                "email": "Email:",
+                "url": "Url:",
+                "opening_hours": "Opening hours:"
+            }
+        },
+        "cms": {
+            "pageTypeCmsInCmsStores": "Store detail page",
+            "pageTypeCmsInCmsStoresPages": "Store detail pages",
+            "pageTypeCmsInCmsStoresCategory": "ACRIS Store",
+            "elements": {
+                "acris-store-group": {
+                    "label": "Store group listing",
+                    "tooltipSettingDisabled" : "This element's store group data is automatically loaded. The content just shows a sample preview.",
+                    "labelGroup": "Store group",
+                    "placeholderGroup": "Select store group...",
+                    "labelType": "Display type",
+                    "placeholderType": "Select display type...",
+                    "optionMapListing": "Display map and store listing",
+                    "optionListing": "Display store listing"
+                },
+                "acris-store-locator": {
+                    "label": "Store locator page"
+                },
+                "acris-store-google-map": {
+                    "label": "All stores map",
+                    "tooltipSettingDisabled" : "This element's store data is automatically loaded. The content just shows a sample preview.",
+                    "labelStore": "Store",
+                    "placeholderStore": "Select store..."
+                },
+                "acris-store-details": {
+                    "label": "Store details",
+                    "storeName": "Store name",
+                    "storeDepartment": "Department",
+                    "addressStreet": "Street and number",
+                    "zipcodeCity": "Zipcode",
+                    "phone": "Phone",
+                    "url": "Url",
+                    "openingHours": "Opening hours",
+                    "tooltipSettingDisabled" : "This element's store data is automatically loaded. The content just shows a sample preview.",
+                    "labelStore": "Store",
+                    "placeholderStore": "Select store..."
+                }
+            },
+            "blocks": {
+                "acris-store-locator-page": {
+                    "label": "Store locator page"
+                },
+                "acris-store-headline-google-map": {
+                    "label": "All stores map"
+                },
+                "acris-store-group": {
+                    "label": "Store group listing"
+                }
+            }
+        },
+        "mediaForm": {
+            "coverSubline": "Cover",
+            "buttonAsCover": "Use as cover",
+            "buttonRemove": "Remove"
+        }
+    },
+    "sw-seo-url-template-card": {
+        "routeNames": {
+            "frontend-storeLocator-detail": "Store detail page",
+            "frontend-storeLocator-storeGroup": "Store group page"
+        }
+    },
+    "sw-cms": {
+        "elements": {
+            "acrisStoreDetails": {
+                "label": "Store details"
+            },
+            "acrisStoreGoogleMap": {
+                "label": "Store detail map"
+            }
+        },
+        "components": {
+            "acrisStoreLocator": {
+
+            }
+        }
+    },
+    "acris-cms-missing-element-modal": {
+        "cmsMissingElementModal": {
+            "headline": "Missing elements",
+            "title": "The element <span>{element}</span> is missing in this store locator page. | The elements <span>{element}</span> are missing in this store locator page.",
+            "subtitle": "Customers visiting this page will miss out on important store locator information.",
+            "paragraph": "Do you want to save the layout anyway?",
+            "buttonSave": "Save layout"
+        }
+    }
+}

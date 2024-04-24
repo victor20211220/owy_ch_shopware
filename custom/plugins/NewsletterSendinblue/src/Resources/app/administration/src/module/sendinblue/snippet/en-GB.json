@@ -1,0 +1,36 @@
+{
+    "sw-privileges": {
+        "additional_permissions": {
+            "system": {
+                "sendinblue": "Brevo"
+            }
+        }
+    },
+    "sendinblue": {
+        "header": "Brevo",
+        "general": {
+            "mainMenuItemGeneral": "Brevo",
+            "mainHeader": "Brevo",
+            "accountConfigurationTitle" : "Settings",
+            "conversionTrackingTitle" : "Conversion-Tracking"
+        },
+        "settingForm": {
+            "connectToSib" : "Connect to Brevo",
+            "salesChannels" : "Sales channel",
+            "pluginSettings" : "Plugin Settings",
+            "disconnectButton" : "Disconnect",
+            "conversionTrackingSwitch" : "Activate",
+            "buttonLabelSave": "Save",
+            "buttonLabelConfirm" : "Confirm",
+            "buttonLabelCancel" : "Cancel",
+            "titleSaveSuccess": "Settings",
+            "titleSaveError": "Settings Error",
+            "titleDisconnectDialog": "Disconnect",
+            "messageDisconnectDialog": "Do you really want to disconnect?",
+            "messageSaveSuccess": "Settings saved successfully",
+            "messageSaveError": "Settings are not saved",
+            "messageConnectedSuccess": "Connected successfully with company ID: ",
+            "messageConnectedError": "Not connected"
+        }
+    }
+}

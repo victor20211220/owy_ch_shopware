@@ -1,0 +1,2091 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Artikelgruppen sprachcodes="D">
+  <Artikelgruppe>
+    <Nummer>00s</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Schnäppchen</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>01</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Kameras / Blitzgeräte / Filter</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>01m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 01</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>02</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Objektive DC + DG</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>02m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 02</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>03</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Objektive DN</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>03m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 03</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>04</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Objektive DN</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>04m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 04</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>05</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Reserve</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>05m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 05</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>06</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Objektive Cine</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>07</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>BRAUN Ferngläser / Projektoren</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>08</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>DURACELL Batterien</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>09</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>PROCOLOR</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>10</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>AVER / TLS / VEGA / SENNHEISER / VIEWSONIC / PETA</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>10m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 10</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>11</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>B+W Filter 007/010/HTC/ND-Vario/802/803/806/810/S03/701/702/101</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>11m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 11</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>12</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>B+W Filter 102/103/106/110/022/040/090/091/092/093/486/403</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>13</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>B+W Filter 415/NL1/NL2/NL3/NL4/NL5/NL10/684/686/688/SP/Serie/Zubehör 1</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>14</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>B+W Filter 007/010/HTC/ND-Vario/802/803/806/810/S03/093/486/711/712/713/714</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>15</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>QUANTUM</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>16</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>DIVERSES</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>17</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>18</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SCHNEIDER</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>19</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>MANFROTTO</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>20</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>MULTIBLITZ</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>20m</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Miete 20</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>21</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Service / Reparaturen</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>22</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>23</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>SIGMA Sonnenblenden / Zubehör</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>24</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>25</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>PLANISTAR</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>26</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>WERTBERICHTIGUNG</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>27</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>28</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>29</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>30</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TETENAL Schwarz/Weiss Chemikalien</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>31</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TETENAL Farbchemikalien</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>32</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TETENAL Hilfsmittel</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>33</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TETENAL Schwarz/Weiss Papier Vario</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>34</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TETENAL Schwarz/Weiss Papier Gradation</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>35</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD></BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>36</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TETENAL Inkjet-Papier</BezeichnungD>
+    <ZusatzD>Warengruppe</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>KM</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Kleinmengenzuschlag</BezeichnungD>
+    <ZusatzD></ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>PP</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>Porto und Verpackung</BezeichnungD>
+    <ZusatzD></ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>RMA</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>RMA</BezeichnungD>
+    <ZusatzD></ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S1</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>ONLINESHOP</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S100</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 110 ND 3.0</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S101</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Infrarotfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S102</Nummer>
+    <Pos></Pos>
+    <Parent>S101</Parent>
+    <BezeichnungD>B+W 092 Dunkelrot 695</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S103</Nummer>
+    <Pos></Pos>
+    <Parent>S101</Parent>
+    <BezeichnungD>B+W 093 Schwarzrot 830</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S104</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Schwarz-Weiss-Filter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S105</Nummer>
+    <Pos></Pos>
+    <Parent>S104</Parent>
+    <BezeichnungD>B+W 022 Gelb 495</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S106</Nummer>
+    <Pos></Pos>
+    <Parent>S104</Parent>
+    <BezeichnungD>B+W 040 Orange 550</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S107</Nummer>
+    <Pos></Pos>
+    <Parent>S104</Parent>
+    <BezeichnungD>B+W 090 Hellrot 590</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S108</Nummer>
+    <Pos></Pos>
+    <Parent>S104</Parent>
+    <BezeichnungD>B+W 091 Rot 630</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S11</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S110</Nummer>
+    <Pos></Pos>
+    <Parent>S23</Parent>
+    <BezeichnungD>B+W 486 UV/IR Sperrfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S111</Nummer>
+    <Pos></Pos>
+    <Parent>S23</Parent>
+    <BezeichnungD>B+W 491 Redhancer-Filter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S112</Nummer>
+    <Pos></Pos>
+    <Parent>S23</Parent>
+    <BezeichnungD>B+W 403 UV Durchlassfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S113</Nummer>
+    <Pos></Pos>
+    <Parent>S23</Parent>
+    <BezeichnungD>B+W 415 UV Sperrfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S114</Nummer>
+    <Pos></Pos>
+    <Parent>S23</Parent>
+    <BezeichnungD>B+W KR 1.5 Skylight</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S115</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Nahlinsen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S116</Nummer>
+    <Pos></Pos>
+    <Parent>S115</Parent>
+    <BezeichnungD>NL-1</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S117</Nummer>
+    <Pos></Pos>
+    <Parent>S115</Parent>
+    <BezeichnungD>NL-2</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S118</Nummer>
+    <Pos></Pos>
+    <Parent>S115</Parent>
+    <BezeichnungD>NL-3</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S119</Nummer>
+    <Pos></Pos>
+    <Parent>S115</Parent>
+    <BezeichnungD>NL-4</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S12</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Aufnahme</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S120</Nummer>
+    <Pos></Pos>
+    <Parent>S115</Parent>
+    <BezeichnungD>NL-5</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S121</Nummer>
+    <Pos></Pos>
+    <Parent>S115</Parent>
+    <BezeichnungD>NL-10 Makro</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S122</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 701 Grauverlaufsfilter 50%</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S123</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 702 Grauverlaufsfilter 25%</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S124</Nummer>
+    <Pos></Pos>
+    <Parent>S24</Parent>
+    <BezeichnungD>B+W 684 Sterngitter 4x</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S125</Nummer>
+    <Pos></Pos>
+    <Parent>S24</Parent>
+    <BezeichnungD>B+W 686 Sterngitter 6x</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S126</Nummer>
+    <Pos></Pos>
+    <Parent>S24</Parent>
+    <BezeichnungD>B+W 688 Sterngitter 8x</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S127</Nummer>
+    <Pos></Pos>
+    <Parent>S24</Parent>
+    <BezeichnungD>B+W Weichzeichner Soft Pro</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S128</Nummer>
+    <Pos></Pos>
+    <Parent>S24</Parent>
+    <BezeichnungD>B+W 655 Soft-Image-Filter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S13</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Filter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S130</Nummer>
+    <Pos></Pos>
+    <Parent>S11</Parent>
+    <BezeichnungD>Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S131</Nummer>
+    <Pos></Pos>
+    <Parent>S12</Parent>
+    <BezeichnungD>Digitale SLR-Kameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S132</Nummer>
+    <Pos></Pos>
+    <Parent>S131</Parent>
+    <BezeichnungD>Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S133</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S134</Nummer>
+    <Pos></Pos>
+    <Parent>S133</Parent>
+    <BezeichnungD>Filterreinigung &amp; Transport</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S135</Nummer>
+    <Pos></Pos>
+    <Parent>S133</Parent>
+    <BezeichnungD>Adapterringe</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S136</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W ND Vario</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S137</Nummer>
+    <Pos></Pos>
+    <Parent>S14</Parent>
+    <BezeichnungD>Blitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S138</Nummer>
+    <Pos></Pos>
+    <Parent>S137</Parent>
+    <BezeichnungD>Zubehör Studioblitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S139</Nummer>
+    <Pos></Pos>
+    <Parent>S14</Parent>
+    <BezeichnungD>Dauerlicht</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S14</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Licht</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S140</Nummer>
+    <Pos></Pos>
+    <Parent>S139</Parent>
+    <BezeichnungD>Halogenleuchten</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S141</Nummer>
+    <Pos></Pos>
+    <Parent>S137</Parent>
+    <BezeichnungD>Studioblitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S142</Nummer>
+    <Pos></Pos>
+    <Parent>S14</Parent>
+    <BezeichnungD>Akkusysteme</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S143</Nummer>
+    <Pos></Pos>
+    <Parent>S14</Parent>
+    <BezeichnungD>Studiogeneratoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S144</Nummer>
+    <Pos></Pos>
+    <Parent>S143</Parent>
+    <BezeichnungD>Studiogeneratoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S145</Nummer>
+    <Pos></Pos>
+    <Parent>S143</Parent>
+    <BezeichnungD>Blitzköpfe</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S146</Nummer>
+    <Pos></Pos>
+    <Parent>S44</Parent>
+    <BezeichnungD>Beamer Deckenlifte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S147</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Projektionswände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S148</Nummer>
+    <Pos></Pos>
+    <Parent>S147</Parent>
+    <BezeichnungD>Elektrische Wand- und Deckenleinwände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S149</Nummer>
+    <Pos></Pos>
+    <Parent>S147</Parent>
+    <BezeichnungD>Manuelle Wand- und Deckenleinwände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S15</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Digitale Fotografie</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S150</Nummer>
+    <Pos></Pos>
+    <Parent>S147</Parent>
+    <BezeichnungD>Transportable Rahmenprojektionswände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S151</Nummer>
+    <Pos></Pos>
+    <Parent>S147</Parent>
+    <BezeichnungD>Rahmenprojektionswände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S153</Nummer>
+    <Pos></Pos>
+    <Parent>S14</Parent>
+    <BezeichnungD>Batteriesysteme</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S154</Nummer>
+    <Pos></Pos>
+    <Parent>S153</Parent>
+    <BezeichnungD>Zubehör Batteriesysteme</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S155</Nummer>
+    <Pos></Pos>
+    <Parent>S153</Parent>
+    <BezeichnungD>Batteriesysteme</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S158</Nummer>
+    <Pos></Pos>
+    <Parent>S137</Parent>
+    <BezeichnungD>Zubehör Reportageblitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S16</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Energie</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S163</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Interaktive Systeme</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S165</Nummer>
+    <Pos></Pos>
+    <Parent>S163</Parent>
+    <BezeichnungD>Whiteboards</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S168</Nummer>
+    <Pos></Pos>
+    <Parent>S11</Parent>
+    <BezeichnungD>Film-Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S169</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Mikrofone</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S17</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Multimedia</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S170</Nummer>
+    <Pos></Pos>
+    <Parent>S12</Parent>
+    <BezeichnungD>Digitale Kompaktkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S171</Nummer>
+    <Pos></Pos>
+    <Parent>S170</Parent>
+    <BezeichnungD>Digitale Kompaktkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S172</Nummer>
+    <Pos></Pos>
+    <Parent>S170</Parent>
+    <BezeichnungD>Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S173</Nummer>
+    <Pos></Pos>
+    <Parent>S131</Parent>
+    <BezeichnungD>Digitale SLR-Kameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S174</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>SIGMA DG UV MC</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S175</Nummer>
+    <Pos></Pos>
+    <Parent>S91</Parent>
+    <BezeichnungD>SIGMA Zirkular Pol SLIM MC</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S176</Nummer>
+    <Pos></Pos>
+    <Parent>S137</Parent>
+    <BezeichnungD>Ringblitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S177</Nummer>
+    <Pos></Pos>
+    <Parent>S137</Parent>
+    <BezeichnungD>Reportageblitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S178</Nummer>
+    <Pos></Pos>
+    <Parent>S11</Parent>
+    <BezeichnungD>Zoom-Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S179</Nummer>
+    <Pos></Pos>
+    <Parent>S11</Parent>
+    <BezeichnungD>Festbrennweiten</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S18</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Labortechnik</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S180</Nummer>
+    <Pos></Pos>
+    <Parent>S11</Parent>
+    <BezeichnungD>Konverter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S181</Nummer>
+    <Pos></Pos>
+    <Parent>S11</Parent>
+    <BezeichnungD>DN-Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S182</Nummer>
+    <Pos></Pos>
+    <Parent>S18</Parent>
+    <BezeichnungD>Fotochemikalien</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S184</Nummer>
+    <Pos></Pos>
+    <Parent>S182</Parent>
+    <BezeichnungD>Schwarz/Weiss Chemikalien</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S185</Nummer>
+    <Pos></Pos>
+    <Parent>S182</Parent>
+    <BezeichnungD>Farbchemikalien</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S186</Nummer>
+    <Pos></Pos>
+    <Parent>S182</Parent>
+    <BezeichnungD>Hilfsmittel</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S188</Nummer>
+    <Pos></Pos>
+    <Parent>S18</Parent>
+    <BezeichnungD>Schwarz/Weiss Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S189</Nummer>
+    <Pos></Pos>
+    <Parent>S15</Parent>
+    <BezeichnungD>Inkjet-Papiere</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S19</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Optik</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S191</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Office/Photo Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S192</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Photoquality Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S193</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Inkjet Rollen-Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S194</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Fine Art Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S195</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Kabel</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S196</Nummer>
+    <Pos></Pos>
+    <Parent>S195</Parent>
+    <BezeichnungD>DVI-D Kabel</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S197</Nummer>
+    <Pos></Pos>
+    <Parent>S195</Parent>
+    <BezeichnungD>HDMI Kabel</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S198</Nummer>
+    <Pos></Pos>
+    <Parent>S195</Parent>
+    <BezeichnungD>VGA Kabel</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S199</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Signalverstärker</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S2</Nummer>
+    <Pos></Pos>
+    <Parent>S1</Parent>
+    <BezeichnungD>Default Category</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S20</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Neuheiten</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S200</Nummer>
+    <Pos></Pos>
+    <Parent>S199</Parent>
+    <BezeichnungD>Digital Signalverstärker</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S201</Nummer>
+    <Pos></Pos>
+    <Parent>S199</Parent>
+    <BezeichnungD>Analog Signalverstärker</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S202</Nummer>
+    <Pos></Pos>
+    <Parent>S44</Parent>
+    <BezeichnungD>Steuerungen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S203</Nummer>
+    <Pos></Pos>
+    <Parent>S44</Parent>
+    <BezeichnungD>Tischanschlussmodule</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S204</Nummer>
+    <Pos></Pos>
+    <Parent>S147</Parent>
+    <BezeichnungD>Zubehör zu Leinwänden</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S205</Nummer>
+    <Pos></Pos>
+    <Parent>S46</Parent>
+    <BezeichnungD>Grossbildschirm-Wagen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S206</Nummer>
+    <Pos></Pos>
+    <Parent>S46</Parent>
+    <BezeichnungD>Multimedia-Möbel</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S207</Nummer>
+    <Pos></Pos>
+    <Parent>S46</Parent>
+    <BezeichnungD>OHP Tische</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S208</Nummer>
+    <Pos></Pos>
+    <Parent>S46</Parent>
+    <BezeichnungD>DV-Projektorentische</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S209</Nummer>
+    <Pos></Pos>
+    <Parent>S46</Parent>
+    <BezeichnungD>Rednerpulte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S210</Nummer>
+    <Pos></Pos>
+    <Parent>S37</Parent>
+    <BezeichnungD>Zubehör zu Daten-Video-Projektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S211</Nummer>
+    <Pos></Pos>
+    <Parent>S37</Parent>
+    <BezeichnungD>Daten-Video-Projektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S212</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Digital Signage</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S213</Nummer>
+    <Pos></Pos>
+    <Parent>S212</Parent>
+    <BezeichnungD>Commercial Displays</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S214</Nummer>
+    <Pos></Pos>
+    <Parent>S163</Parent>
+    <BezeichnungD>Interaktive Displays</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S215</Nummer>
+    <Pos></Pos>
+    <Parent>S212</Parent>
+    <BezeichnungD>Wall Mount E-Poster</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S216</Nummer>
+    <Pos></Pos>
+    <Parent>S212</Parent>
+    <BezeichnungD>Floor Stand E-Poster</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S217</Nummer>
+    <Pos></Pos>
+    <Parent>S212</Parent>
+    <BezeichnungD>Network Media Player / Slot-in-PC</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S219</Nummer>
+    <Pos></Pos>
+    <Parent>S137</Parent>
+    <BezeichnungD>Zubehör Ringblitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S220</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Sigma DN-Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S221</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Sigma Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S222</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Sigma Kompaktkamera / Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S223</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Rollei 6x6</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S224</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Rodenstock-Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S225</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Digitale Bilderrahmen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S226</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Diaprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S227</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Präsentationstechnik</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S228</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Projektionsmöbel und Seminartische</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S229</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Schienensystem</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S23</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Spezialfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S230</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Procolor Projektionswände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S231</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Schmidtwerk Projektionswände</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S232</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Laborgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S233</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Diverses</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S234</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>SIGMA Protector</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S235</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>SIGMA WR Protector</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S236</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>SIGMA WR UV Filter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S237</Nummer>
+    <Pos></Pos>
+    <Parent>S91</Parent>
+    <BezeichnungD>SIGMA WR CIRCULAR PL Filter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S238</Nummer>
+    <Pos></Pos>
+    <Parent>S139</Parent>
+    <BezeichnungD>LED-Leuchten</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S24</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Effektfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S246</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Office Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S247</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Photo Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S248</Nummer>
+    <Pos></Pos>
+    <Parent>S189</Parent>
+    <BezeichnungD>Premium Papier</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S249</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Sigma SLR-Kamera / Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S250</Nummer>
+    <Pos></Pos>
+    <Parent>S5</Parent>
+    <BezeichnungD>Sigma Blitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S251</Nummer>
+    <Pos></Pos>
+    <Parent>S91</Parent>
+    <BezeichnungD>B+W Zirkular Pol HTC Käsemann</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S252</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Tablet- und Laptopladewagen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S253</Nummer>
+    <Pos></Pos>
+    <Parent>S252</Parent>
+    <BezeichnungD>Lade- und Synchronisationswagen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S254</Nummer>
+    <Pos></Pos>
+    <Parent>S252</Parent>
+    <BezeichnungD>Lade- und Synchronisationsschrank</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S255</Nummer>
+    <Pos></Pos>
+    <Parent>S252</Parent>
+    <BezeichnungD>Ladewagen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S256</Nummer>
+    <Pos></Pos>
+    <Parent>S252</Parent>
+    <BezeichnungD>Ladeschrank</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S257</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>SIGMA WR Ceramic Protector</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S258</Nummer>
+    <Pos></Pos>
+    <Parent>S3</Parent>
+    <BezeichnungD>Systemkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S259</Nummer>
+    <Pos></Pos>
+    <Parent>S258</Parent>
+    <BezeichnungD>Systemkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S260</Nummer>
+    <Pos></Pos>
+    <Parent>S258</Parent>
+    <BezeichnungD>Zubehör</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S261</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 802 ND 0.6</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S262</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 803 ND 0.9</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S263</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 806 ND 1.8</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S264</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 810 ND 3.0</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S265</Nummer>
+    <Pos></Pos>
+    <Parent>S133</Parent>
+    <BezeichnungD>Filterhalter / Filteradapter für Flächenfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S266</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 815 ND 4.5</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S267</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Filter Kits</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S268</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 711 GND 0.3</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S269</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 712 GND 0.6</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S270</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 713 GND 0.9</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S271</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 714 GND 1.2</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S3</Nummer>
+    <Pos></Pos>
+    <Parent>S2</Parent>
+    <BezeichnungD>Produkte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S31</Nummer>
+    <Pos></Pos>
+    <Parent>S15</Parent>
+    <BezeichnungD>Dia- und Negativscanner</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S37</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Daten-Video-Projektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S38</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Dokumentenkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S4</Nummer>
+    <Pos></Pos>
+    <Parent>S2</Parent>
+    <BezeichnungD>Miete</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S41</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Hellraumprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S44</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Installationstechnik</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S46</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Medienmobiliar</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S47</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Digitale Bilderrahmen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S5</Nummer>
+    <Pos></Pos>
+    <Parent>S2</Parent>
+    <BezeichnungD>Schnäppchen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S51</Nummer>
+    <Pos></Pos>
+    <Parent>S18</Parent>
+    <BezeichnungD>Leuchtpulte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S52</Nummer>
+    <Pos></Pos>
+    <Parent>S19</Parent>
+    <BezeichnungD>Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S54</Nummer>
+    <Pos></Pos>
+    <Parent>S4</Parent>
+    <BezeichnungD>Kompaktkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S55</Nummer>
+    <Pos></Pos>
+    <Parent>S4</Parent>
+    <BezeichnungD>Systemkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S56</Nummer>
+    <Pos></Pos>
+    <Parent>S4</Parent>
+    <BezeichnungD>Objektive</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S57</Nummer>
+    <Pos></Pos>
+    <Parent>S4</Parent>
+    <BezeichnungD>Blitzgeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S58</Nummer>
+    <Pos></Pos>
+    <Parent>S4</Parent>
+    <BezeichnungD>Projektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S61</Nummer>
+    <Pos></Pos>
+    <Parent>S2</Parent>
+    <BezeichnungD>Poker</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S68</Nummer>
+    <Pos></Pos>
+    <Parent>S38</Parent>
+    <BezeichnungD>Dokumentenkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S69</Nummer>
+    <Pos></Pos>
+    <Parent>S38</Parent>
+    <BezeichnungD>Zubehör Dokumentenkameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S71</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Diaprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S72</Nummer>
+    <Pos></Pos>
+    <Parent>S71</Parent>
+    <BezeichnungD>Diaprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S73</Nummer>
+    <Pos></Pos>
+    <Parent>S71</Parent>
+    <BezeichnungD>Zubehör zu Diaprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S74</Nummer>
+    <Pos></Pos>
+    <Parent>S17</Parent>
+    <BezeichnungD>Aufsichtsprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S75</Nummer>
+    <Pos></Pos>
+    <Parent>S74</Parent>
+    <BezeichnungD>Aufsichtsprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S76</Nummer>
+    <Pos></Pos>
+    <Parent>S74</Parent>
+    <BezeichnungD>Zubehör zu Aufsichtsprojektoren</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S77</Nummer>
+    <Pos></Pos>
+    <Parent>S16</Parent>
+    <BezeichnungD>Ladegeräte</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S78</Nummer>
+    <Pos></Pos>
+    <Parent>S44</Parent>
+    <BezeichnungD>Beamer Deckenhalterungen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S79</Nummer>
+    <Pos></Pos>
+    <Parent>S44</Parent>
+    <BezeichnungD>LCD-Halterungen</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S80</Nummer>
+    <Pos></Pos>
+    <Parent>S15</Parent>
+    <BezeichnungD>Grafik Tabletts</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S81</Nummer>
+    <Pos></Pos>
+    <Parent>S15</Parent>
+    <BezeichnungD>Video-Kameras</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S82</Nummer>
+    <Pos></Pos>
+    <Parent>S52</Parent>
+    <BezeichnungD>Serie &quot;Opera&quot; Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S83</Nummer>
+    <Pos></Pos>
+    <Parent>S52</Parent>
+    <BezeichnungD>Serie &quot;Ultralit&quot; Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S84</Nummer>
+    <Pos></Pos>
+    <Parent>S52</Parent>
+    <BezeichnungD>Serie &quot;Mono&quot; Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S85</Nummer>
+    <Pos></Pos>
+    <Parent>S52</Parent>
+    <BezeichnungD>Serie &quot;Standard&quot; Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S86</Nummer>
+    <Pos></Pos>
+    <Parent>S52</Parent>
+    <BezeichnungD>Serie &quot;Trekking&quot; Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S87</Nummer>
+    <Pos></Pos>
+    <Parent>S52</Parent>
+    <BezeichnungD>Serie &quot;Premium&quot; Ferngläser</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S88</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>UV- und Schutzfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S89</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>B+W 007 Clear</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S90</Nummer>
+    <Pos></Pos>
+    <Parent>S88</Parent>
+    <BezeichnungD>B+W 010 UV-Haze</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S91</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Polarisationsfilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S92</Nummer>
+    <Pos></Pos>
+    <Parent>S91</Parent>
+    <BezeichnungD>Zirkular Pol AUC Käsemann</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S93</Nummer>
+    <Pos></Pos>
+    <Parent>S91</Parent>
+    <BezeichnungD>B+W Zirkular Pol S03</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S94</Nummer>
+    <Pos></Pos>
+    <Parent>S91</Parent>
+    <BezeichnungD>Linear Pol SSX</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S95</Nummer>
+    <Pos></Pos>
+    <Parent>S13</Parent>
+    <BezeichnungD>Graufilter</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S96</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 101 ND 0.3</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S97</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 102 ND 0.6</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S98</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 103 ND 0.9</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>S99</Nummer>
+    <Pos></Pos>
+    <Parent>S95</Parent>
+    <BezeichnungD>B+W 106 ND 1.8</BezeichnungD>
+    <ZusatzD>Artikelkategorie Magento</ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+  <Artikelgruppe>
+    <Nummer>TEST</Nummer>
+    <Pos></Pos>
+    <Parent></Parent>
+    <BezeichnungD>TEST</BezeichnungD>
+    <ZusatzD></ZusatzD>
+    <LangtextD></LangtextD>
+  </Artikelgruppe>
+</Artikelgruppen>

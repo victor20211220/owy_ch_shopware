@@ -1,0 +1,8 @@
+{
+    "name": "sendinblue",
+    "version": "1.0.0",
+    "description": "Administration for Sendinblue",
+    "main": "index.js",
+    "author": "Sendinblue GmbH",
+    "license": "MIT"
+}

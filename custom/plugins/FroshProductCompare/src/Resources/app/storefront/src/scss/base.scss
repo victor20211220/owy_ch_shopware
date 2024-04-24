@@ -1,0 +1,50 @@
+@import 'abstract.scss';
+@import 'compare.scss';
+@import 'print.scss';
+
+.compare-button {
+    margin-top: 10px;
+    .btn-compare {
+        @extend .btn-lg;
+        @include button-variant($buy-btn-bg, $buy-btn-bg);
+
+        &.is-added-to-compare {
+            @include button-variant($disabled-btn-bg, $disabled-btn-bg);
+        }
+    }
+}
+
+.compare-float-button {
+    @extend .scroll-up-button;
+    left: 1.5rem;
+    right: unset;
+    transition: unset;
+    &.is-visible {
+        transition: 0.45s cubic-bezier(0.3, 0, 0.15, 1);
+    }
+
+    .badge {
+        position: absolute;
+        top: -25%;
+    }
+}
+
+.product-compare-main-header {
+    margin-bottom: 1.5rem;
+}
+
+.compare-menu-btn {
+    .badge {
+        display: none;
+        position: absolute;
+        right: -5px;
+    }
+}
+
+.is-visible {
+    .compare-menu-btn {
+        .badge {
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.newsletter-inner {
+    border-bottom: 1px solid $sw-border-color;
+
+    .col-sm-12.col-md-3 {
+        display        : flex;
+        justify-content: flex-start;
+        align-content  : center;
+        flex-wrap      : wrap;
+    }
+
+    input#form-email {
+        width: 80%;
+
+    }
+}
+form {
+	.btn {
+		&.btn-primary {
+			&.float-end {
+				min-width: 180px;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 767px) {
+    .newsletter-inner {
+        padding-top: 15px;
+        margin: 0;
+        input#form-email {
+            width: 100%;
+        }
+    }
+    .shopware_surname_confirm {
+        & + button {
+            &.btn {
+                &.btn-primary {
+                    &.float-end {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+    
+}

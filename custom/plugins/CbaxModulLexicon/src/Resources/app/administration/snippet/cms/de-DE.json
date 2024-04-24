@@ -1,0 +1,272 @@
+{
+    "cbax-lexicon": {
+        "productDetail": {
+            "lexiconEntrySelection": {
+                "title": "Lexikon",
+                "label": "Coolbax Lexikoneinträge, denen dieses Produkt zugeordnet ist",
+                "placeholder": "Keine Lexikoneinträge",
+                "helpText": "Nur anwendbar auf Einträge, bei denen nicht als Listentyp Dynamische Produktgruppe ausgewählt ist."
+            }
+        },
+        "seo": {
+            "success": "Erfolg",
+            "error": "Fehler",
+            "unknown": "Unbekannter Fehler",
+            "text": "SEO Url's für die Lexicon Seiten erzeugen",
+            "link": "Mehr Infos zu den Fehlern in den Shopware Logs",
+            "button": "Generierung Starten",
+            "deleteButton": "Löschen Starten",
+            "deleteText": "Alle SEO Url's der Lexicon Seiten löschen",
+            "deleteSuccess": "Die Lexicon Seo Urls wurden gelöscht.",
+            "deleteError": "Fehler beim Löschen der Lexicon SEO Url's!",
+            "cancelButton": "Abbrechen",
+            "confirmButton": "Löschen",
+            "deleteInfoText": "Beim Löschen aller Lexikon SEO Url's geht auch deren Historie verloren. Deshalb sollte man nur bei Problemen löschen.",
+            "deleteConfirmText": "Möchten Sie wirklich löschen?"
+        },
+        "seoConfigInfo": {
+            "text": "Z.B.: Lexikon - ohne Domain - Aufruf: http://www.mein-shop.de/lexikon - nach Änderung den Cache löschen und die SEO Url's neu erzeugen. Bitte beachten: SEO Url's können nur einmal vergeben werden. Wenn Sie z.B. schon eine Kategorie Lexikon haben, dann ist diese SEO Url schon vergeben und wird nicht noch einmal erzeugt.",
+            "link": "Handbuch"
+        },
+        "cmsConfigInfo": {
+            "text": "Die Einstellungen für die Elemente der Lexikonseiten können Sie jetzt direkt bei den entsprechenden Elementen in den Erlebniswelten machen!",
+            "link": "Zu den Erlebniswelten"
+        },
+        "sorting": {
+            "labelLexicon": "Lexikonseiten (Coolbax)"
+        },
+        "create": {
+            "labelLexicon": "Lexikonseiten (Coolbax)",
+            "labelLexiconGeneral": "Coolbax Lexikon",
+            "labelLexiconIndex": "Coolbax Lexikon Übersicht",
+            "labelLexiconDetail": "Coolbax Lexikon Detail",
+            "labelLexiconContent": "Coolbax Lexikon Inhalt",
+            "labelLexiconListing": "Coolbax Lexikon Listing"
+        }
+    },
+    "blocks": {
+        "text": {
+            "cbax-lexicon-text": {
+                "general": {
+                    "label": "Lexikon Text"
+                }
+            }
+        },
+        "cbax-lexicon": {
+            "cbax-lexicon-latest-entries": {
+                "general": {
+                    "label": "Lexikon neueste Einträge"
+                }
+            },
+            "cbax-lexicon-sidebar": {
+                "general": {
+                    "label": "Lexikon Sidebar"
+                }
+            },
+            "cbax-lexicon-popular-entries": {
+                "general": {
+                    "label": "Lexikon meist gelesene Einträge"
+                }
+            },
+            "cbax-lexicon-letter-entries": {
+                "general": {
+                    "label": "Lexikon Einträge für diesen Buchstaben"
+                }
+            },
+            "cbax-lexicon-entry": {
+                "general": {
+                    "label": "Lexikon Eintrag"
+                }
+            },
+            "cbax-lexicon-products": {
+                "general": {
+                    "label": "Lexikon Produkt Listing"
+                }
+            },
+            "cbax-lexicon-navigation": {
+                "general": {
+                    "label": "Lexikon Navigation"
+                }
+            },
+            "cbax-lexicon-content": {
+                "general": {
+                    "label": "Lexikon Inhaltsverzeichnis"
+                }
+            }
+        }
+    },
+
+    "elements": {
+        "no-settings": "Keine Einstellungen",
+        "detail-page-only": "Funktioniert nur in Lexikon Detail Seite!",
+        "listing-page-only": "Funktioniert nur in Lexikon Listing Seite!",
+        "wrong-page-type-alert": "Dieses Element funktioniert hier nicht! Es benötigt eine Cms Page vom Typ Coolbax Lexikon.",
+        "cbax-lexicon-text": {
+            "general": {
+                "label": "Lexikon Text"
+            },
+            "config": {
+                "content": "Text wird im Shop mit Lexikon Links dargestellt"
+
+
+            }
+        },
+        "cbax-lexicon-latest-entries": {
+            "general": {
+                "label": "Lexikon neueste Einträge"
+            },
+            "config": {
+                "label": {
+                    "headline": "Überschrift",
+                    "template": "Template",
+                    "entryNumber": "Anzahl"
+                },
+                "template": {
+					"listing_1col": "Liste",
+                    "listing_2col": "Zweispaltig",
+                    "listing_3col": "Dreispaltig",
+                    "listing_4col": "Vierspaltig",
+                    "slider": "Slider"
+                }
+            }
+        },
+        "cbax-lexicon-popular-entries": {
+            "general": {
+                "label": "Lexikon meistgelesene Einträge"
+            },
+            "config": {
+                "label": {
+                    "headline": "Überschrift",
+                    "template": "Template",
+                    "entryNumber": "Anzahl"
+                },
+                "template": {
+					"listing_1col": "Liste",
+                    "listing_2col": "Zweispaltig",
+                    "listing_3col": "Dreispaltig",
+                    "listing_4col": "Vierspaltig",
+                    "slider": "Slider"
+                }
+            }
+        },
+        "cbax-lexicon-letter-entries": {
+            "general": {
+                "label": "Lexikon Einträge für diesen Buchstaben"
+            },
+            "component": {
+                "letterHeader": " Beiträge in dieser Lexikon Kategorie"
+            },
+            "config": {
+                "label": {
+                    "headline": "Überschrift",
+                    "template": "Template",
+                    "entryNumber": "Anzahl",
+					"buttonVariant": "Button Variante",
+					"buttonSize": "Button Größe"
+                },
+                "template": {
+					"listing_1col": "Liste",
+                    "listing_2col": "Zweispaltig",
+                    "listing_3col": "Dreispaltig",
+                    "listing_4col": "Vierspaltig",
+                    "slider": "Slider"
+                },
+				"buttonVariant": {
+					"optionValuePrimary": "Primary",
+					"optionValueOutlinePrimary": "Outline Primary",
+					"optionValueSecondary": "Secondary",
+					"optionValueOutlineSecondary": "Outline Secondary",
+					"optionValueInfo": "Info",
+					"optionValueOutlineInfo": "Outline Info",
+					"optionValueLight": "Light",
+					"optionValueOutlineLight": "Outline Light",
+					"optionValueLink": "Link"
+                },
+				"buttonSize": {
+					"optionValueSmall": "Klein",
+					"optionValueMedium": "Medium",
+					"optionValueLarge": "Groß"
+                }
+            }
+        },
+        "cbax-lexicon-navigation": {
+            "general": {
+                "label": "Lexikon Navigation"
+            },
+            "config": {
+                "label": {
+                    "navigation": "Navigation",
+                    "duration": "Scroll-Geschwindigkeit",
+                    "stop": "Scroll-Abstand zu Eintrag"
+                },
+                "placeholder": {
+                    "navigation": "Bei Klick zu den Buchstaben scrollen",
+                    "duration": "500",
+                    "stop": "5"
+                },
+                "navigation": {
+                    "scroll": "Bei Klick zu den Buchstaben scrollen",
+                    "click": "Bei Klick alle anderen Buchstaben ausblenden"
+                }
+            }
+        },
+        "cbax-lexicon-content": {
+            "general": {
+                "label": "Lexikon Inhaltsverzeichnis"
+            },
+            "component": {
+                "letterHeader": " 2 Beiträge in dieser Lexikon Kategorie"
+            }
+        },
+        "cbax-lexicon-entry": {
+            "general": {
+                "label": "Lexikon Eintrag"
+            }
+        },
+        "cbax-lexicon-products": {
+            "general": {
+                "label": "Lexikon Produkt Listing"
+            },
+            "no-settings": "Die Einstellungen werden direkt auf den Detailseiten der Lexikon Einträge gemacht."
+        },
+        "cbax-lexicon-sidebar": {
+            "general": {
+                "label": "Lexikon Sidebar"
+            },
+            "component": {
+                "headline": "Lexikon L"
+            }
+        }
+    },
+
+    "cbaxmodullexicon": {
+        "updateNotification": {
+            "default": {
+                "title": "Einstellungen prüfen",
+                "message": "Das Lexicon verwendet jetzt Erlebniswelten Templates für die Lexikonseiten. Diese werden in den Plugin Einstellungen festgelegt und in den Erlebniswelten gestaltet. Es gibt 4 Muster Templates als Default.",
+                "action": "Zu den Erlebniswelten",
+                "titleImportantUpdate": "Wichtiges Update"
+            }
+        }
+    },
+
+    "sw-cms": {
+        "detail": {
+            "label": {
+                "pageType": {
+                    "cbax_lexicon": "Lexikonseite"
+                }
+            }
+        },
+        "components": {
+            "cmsListItem": {
+                "defaultLayoutLexiconDetail": "Standard Lexikon Detail",
+                "defaultLayoutLexiconIndex": "Standard Lexikon Übersicht",
+                "defaultLayoutLexiconListing": "Standard Lexikon Listing",
+                "defaultLayoutLexiconContent": "Standard Lexikon Inhalt"
+            }
+        }
+    }
+}
+
+

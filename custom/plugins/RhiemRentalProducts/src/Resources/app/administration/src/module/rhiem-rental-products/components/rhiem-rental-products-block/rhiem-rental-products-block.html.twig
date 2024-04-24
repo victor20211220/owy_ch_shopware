@@ -1,0 +1,35 @@
+{% block rhiem_rental_products_content_card_block_config %}
+	<sw-card :title="$tc('rhiem-rental-products.config.blockedDays.title')" :is-loading="isLoading">
+		{% block rhiem_rental_products_content_card_block_config_remove_blocked_days %}
+			<sw-field
+				v-model="actualConfigData['RhiemRentalProducts.config.removeBlockedDays']"
+				v-tooltip.left="{ message: $tc('rhiem-rental-products.config.blockedDays.removeBlockedDaysTooltip') }"
+				type="switch"
+				:label="$tc('rhiem-rental-products.config.blockedDays.removeBlockedDays')"/>
+		{% endblock %}
+
+		{% block rhiem_rental_products_content_card_block_config_weekdays %}
+			<sw-multi-select
+				:label="$tc('rhiem-rental-products.config.blockedDays.blockedWeekdays')"
+				:options="blockableDays"
+				v-model="actualConfigData['RhiemRentalProducts.config.blockedWeekdays']"/>
+		{% endblock %}
+
+		{% block rhiem_rental_products_content_card_block_config_show_dates %}
+			<div class="sw-field">
+				<div class="sw-field__label">
+					<label>
+						{{ $tc('rhiem-rental-products.config.blockedDays.blockedDates') }}
+					</label>
+				</div>
+				<v-calendar
+					:value="null"
+					:attributes="attributes"
+					:columns="3"
+					@dayclick="onDayClick"
+					:key="componentKey"
+					ref="calendar"/>
+			</div>
+		{% endblock %}
+	</sw-card>
+{% endblock %}

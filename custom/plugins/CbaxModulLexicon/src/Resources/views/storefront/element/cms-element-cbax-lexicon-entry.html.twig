@@ -1,0 +1,17 @@
+{% block element_cbax_lexicon_entry %}
+    {%  set config = element.fieldConfig.elements %}
+
+    {% set lexiconEntry = element.data.getEntry() %}
+
+    {# Entry #}
+    {% block cbax_lexicon_page_detail_entry %}
+
+        {% if lexiconEntry %}
+
+            {% sw_include '@Storefront/storefront/cbax-lexicon/component/text-detail.html.twig' %}
+
+        {% endif %}
+
+    {% endblock %}
+
+{% endblock %}

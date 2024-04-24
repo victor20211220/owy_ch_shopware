@@ -1,0 +1,42 @@
+{
+    "name": "acris/store-locator",
+    "description": "ACRIS Store Locator",
+    "version": "v4.0.3",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Acris\\StoreLocator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ACRIS E-Commerce GmbH",
+            "homepage": "https://www.acris-ecommerce.at/"
+        }
+    ],
+    "require": {
+        "shopware/core": ">=6.5.1.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Acris\\StoreLocator\\AcrisStoreLocatorCS",
+        "plugin-icon": "src/Resources/config/plugin.png",
+        "copyright": "(c) by ACRIS E-Commerce GmbH",
+        "label": {
+            "de-DE": "Store Locator",
+            "en-GB": "Store Locator"
+        },
+        "description": {
+            "de-DE": "Händler, Geschäfte oder Filialen können entweder über dem Menüpunkt Inhalt > Store Locator oder Eintellungen > Plugins > Store Locator hinzugefügt werden. Sobald der Store Locator aktiv ist werden diese auf der Google Maps Karte gefunden.",
+            "en-GB": "Stores can be added either via the menu item Content > Store Locator or Settings > Plugins > Store Locator. As soon as the store locator is active, they will be found on the Google Maps map."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://www.acris.at",
+            "en-GB": "https://www.acris.at/en"
+        },
+        "supportLink": {
+            "de-DE": "https://www.acris.at/kontakt/",
+            "en-GB": "https://www.acris.at/en/contact"
+        }
+    }
+}

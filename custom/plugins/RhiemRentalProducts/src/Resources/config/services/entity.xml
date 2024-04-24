@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service id="Rhiem\RhiemRentalProducts\Extension\Content\Product\ProductExtension">
+            <tag name="shopware.entity.extension" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Extension\System\Tax\TaxExtension">
+            <tag name="shopware.entity.extension" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Entities\RentalProduct\RentalProductDefinition">
+            <tag name="shopware.entity.definition" entity="rental_product" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Entities\RentalProductPrice\RentalProductPriceDefinition">
+            <tag name="shopware.entity.definition" entity="rental_product_price" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Entities\RentalProductDepositPrice\RentalProductDepositPriceDefinition">
+            <tag name="shopware.entity.definition" entity="rental_product_deposit_price" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,35 @@
+{
+  "name": "ott/selectline-import",
+  "description": "sw6 selectline import",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ottscho-IT, Daniel Naumann",
+      "homepage": "https://ottscho-it-service.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ott\\SelectlineImport\\": "src/"
+    }
+  },
+  "require": {
+    "shopware/core": "~6.5",
+    "ott/base": "~1.3"
+  },
+  "extra": {
+    "shopware-plugin-class": "Ott\\SelectlineImport\\SelectlineImport",
+    "plugin-icon": "src/plugin.png",
+    "copyright": "(c) by ottschoIT",
+    "label": {
+      "de-DE": "Selectline Import",
+      "en-GB": "Selectline Import"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://store.shopware.com/ottscho-it.html",
+      "en-GB": "https://store.shopware.com/en/ottscho-it.html"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "acris-store-locator": {
+        "general": {
+            "mainMenuItemMoreSettings": "Weitere Einstellungen",
+            "mainMenuItemGeneral": "Geschäfte / Händler Locator",
+            "descriptionTextModule": "Fügen Sie weitere Geschäfte / Händler hinzu, um ihren Geschäfte / Händler Locator zu ergänzen."
+        },
+        "index": {
+            "textHeadline": "Geschäfte / Händler Locator"
+        }
+    }
+}

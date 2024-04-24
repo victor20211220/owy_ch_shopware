@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/line-item/type/generic.html.twig' %}
+
+{% block component_line_item_type_generic_image %}
+	<div class="col-auto d-flex align-items-center cart-item-bail-icon">
+		{% sw_icon 'arrow-switch' style {
+                'color': 'black'
+            } %}
+	</div>
+{% endblock %}

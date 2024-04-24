@@ -1,0 +1,29 @@
+@import "~scss/variables";
+
+#store-groups .sw-search-bar__field > span:nth-child(1){
+    background-color: #a6c836 !important;
+}
+
+.acris-store-groups-list {
+    .acris-store-groups-list__content {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        position: absolute;
+    }
+
+    .is--inactive {
+        color: #DE294C;
+    }
+
+    .is--active {
+        color: #37D046;
+    }
+
+}
+
+.acris-store-groups-list__sidebar {
+    .acris-sidebar-item__scrollable-container {
+        padding: 0 25px;
+    }
+}

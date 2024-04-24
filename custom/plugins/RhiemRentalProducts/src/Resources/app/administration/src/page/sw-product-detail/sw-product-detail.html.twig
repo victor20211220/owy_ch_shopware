@@ -1,0 +1,39 @@
+{% block sw_product_detail_content_tabs_advanced_variants %}
+<sw-tabs-item class="sw-product-detail__tab-variants"
+              :disabled=variantsDisabled
+              v-if="!isChild"
+              :route="{ name: 'sw.product.detail.variants', params: { id: $route.params.id } }"
+              :title="$tc('sw-product.detail.tabVariation')">
+    {{ $tc('sw-product.detail.tabVariation') }}
+</sw-tabs-item>
+{% endblock %}
+
+{% block sw_product_detail_content_tabs_cross_selling %}
+    {% parent %}
+
+    {# Fix keine Variantenunterstützung #}
+    <sw-tabs-item :route="{ name: 'sw.product.detail.rental', params: { id: $route.params.id } }" :title="$tc('rhiem-rental-products.detail.title')">
+        {{ $tc('rhiem-rental-products.detail.tabRental') }}
+    </sw-tabs-item>
+
+    <sw-tabs-item
+            class="sw-product-detail__tab-advanced-prices"
+            :route="{ name: 'sw.product.detail.rentalPrices', params: { id: $route.params.id } }"
+            :title="$tc('rhiem-rental-products.detail.tabAdvancedPrices.title')">
+        {{ $tc('rhiem-rental-products.detail.tabAdvancedPrices.title') }}
+    </sw-tabs-item>
+
+<sw-inherit-wrapper v-if="!isLoading"
+                    v-model="product.extensions.rental"
+                    :inheritedValue="parentProduct.extensions ? parentProduct.extensions.rental : null"
+                    :hasParent="!!parentProduct.id"
+                    isAssociation
+                    @inheritance-remove="saveProduct"
+                    @inheritance-restore="saveProduct">
+    <template #content="{ currentValue, isInherited, updateCurrentValue }">
+        <sw-text-field v-for="value in currentValue"
+                       v-model="value.sessionId">
+        </sw-text-field>
+    </template>
+</sw-inherit-wrapper>
+{% endblock %}

@@ -1,0 +1,32 @@
+ 
+.news-listing-container {
+    width: 100%;
+    border-bottom:1px solid $sw-border-color;
+    padding: 15px 0 30px 0;
+     span.owy-date {
+        display: block;
+        margin-bottom: 10px;
+    }
+    a.newstitle{
+        display: block;
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+        line-height: normal;
+        color: $sw-color-brand-secondary;
+        text-decoration: none;
+        &:hover{
+            color:  $sw-color-brand-primary;
+        }
+    }
+    
+    p{
+        margin: 0;
+    }
+}
+.newsimagebox {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

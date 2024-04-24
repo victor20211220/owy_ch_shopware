@@ -1,0 +1,12 @@
+.offcanvas-cart-rental {
+    margin-top: .5rem;
+    font-size: 0.75rem;
+}
+
+.offcanvas-cart-item-bail-icon{
+    .icon > svg{
+        top: 50%;
+        left: 50%;
+        transform: translate(50%, 50%);
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "netzp": {
+        "search": {
+            "products": "Produkte",
+            "categories": "Kategorien",
+            "manufacturer": "Hersteller",
+            "cms": "Inhalte",
+
+            "profile": "Zum Hersteller",
+            "category": "Zeige Kategorie",
+            "cmspage": "Zur Seite",
+
+            "delimiter": " | "
+        }
+    }
+}

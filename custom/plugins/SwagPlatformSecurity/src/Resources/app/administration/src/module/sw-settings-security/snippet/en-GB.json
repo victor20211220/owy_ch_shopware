@@ -1,0 +1,23 @@
+{
+    "sw-settings-security": {
+        "notification": {
+            "title": "Security Plugin",
+            "message": "Please update the security plugin to the latest version"
+        },
+        "general": {
+            "cardTitle": "Available fixes",
+            "textHeadline": "Security Plugin",
+            "mainMenuItemGeneral": "Security Plugin",
+            "description": "Fixes known issues in older Shopware versions",
+            "buttonSave": "Save",
+            "noFixes": "Your system is protected against all known vulnerabilities.",
+            "alert": "Caution, these are important security fixes for your shop! Deactivating one or more of these will make your shop vulnerable to these security gaps. Be sure what you are doing when deactivating any of the options and consider doing so only temporarily."
+        },
+        "fixes": {
+            "NEXT-23915": {
+                "label": "NEXT-23915 - Fix order deletion on quick order edit cancellation",
+                "tooltip": ""
+            }
+        }
+    }
+}

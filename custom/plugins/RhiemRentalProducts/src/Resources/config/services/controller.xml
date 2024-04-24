@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service id="Rhiem\RhiemRentalProducts\Controller\RentalProductLineItemController">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\LineItem\RentalProductLineItemFactory" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\LineItem\RentalProductBailLineItemFactory" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Controller\CalendarController" public="true">
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductQuantityCalculator" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService" />
+            <argument type="service" id="rental_product.repository" />
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="Rhiem\RhiemRentalProducts\Components\Cart\CartHelper" />
+
+            <call method="setContainer">
+                <argument id="service_container" type="service" />
+            </call>
+        </service>
+    </services>
+</container>

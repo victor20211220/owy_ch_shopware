@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="OwyChTheme\Service\SwitchListingServiceDecorator"
+            decorates="Shopware\Core\Content\Product\Cms\ProductListingCmsElementResolver">
+            <argument type="service"
+                id="Shopware\Core\Content\Product\SalesChannel\Listing\ProductListingRoute" />
+            <argument type="service" id="OwyChTheme\Service\SwitchListingServiceDecorator.inner" />
+        </service>
+        <service class="OwyChTheme\Subscriber\PageLoadedEventSubscriber"
+            id="owy_ch_theme.subscriber.page_loaded_event_subscriber">
+            <argument type="service" id="category.repository" />
+            <tag name="kernel.event_subscriber"></tag>
+        </service>
+        <service id="OwyChTheme\Content\CategoryCmsElementResolver">
+            <tag name="shopware.cms.data_resolver" />
+        </service>
+        <service id="OwyChTheme\Storefront\Controller\TemplateController" public="true">
+            <argument type="service" id="Frosh\FroshProductCompare\Page\CompareProductPageLoader"/>
+            <argument id="Shopware\Core\Content\Mail\Service\MailService" type="service" />
+            <argument id="Doctrine\DBAL\Connection" type="service" />
+            <argument type="service"
+                id="Shopware\Core\Content\Cms\SalesChannel\SalesChannelCmsPageLoader" />
+            <argument id="Shopware\Core\System\SystemConfig\SystemConfigService" type="service" />
+            <argument type="service" id="product.repository" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig" />
+            </call>
+        </service>
+    </services>
+</container>

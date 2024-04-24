@@ -1,0 +1,38 @@
+{% block sw_cms_el_config_owy_news_widget %}
+    <template>
+        <sw-container class="sw-cms-el-config-owy-news-widget">
+            <sw-card :hero="false" :isloading="false" :large="false">
+
+                <sw-datepicker
+                        v-model="element.config.owydate.value"
+                        label="Blog Date"
+                        date-type="datetime-local">
+                </sw-datepicker>
+                <sw-text-field
+                        v-model="element.config.title.value"
+                        label="Blog title"
+                        placeholder="Blog title"
+                />
+
+                <sw-textarea-field
+                        v-model="element.config.shortdesc.value"
+                        type="textarea"
+                        label="Description"
+                >
+                </sw-textarea-field>
+
+                <sw-url-field
+                        v-model="element.config.link.value"
+                        label="Link"
+                        placeholder="Link"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                        required
+                >
+                </sw-url-field>
+            </sw-card>
+        </sw-container>
+    </template>
+
+{% endblock %}

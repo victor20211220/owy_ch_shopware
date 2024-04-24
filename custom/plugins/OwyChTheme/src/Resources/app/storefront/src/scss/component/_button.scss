@@ -1,0 +1,55 @@
+.comparison-item {
+    .btn:hover {
+        background: $sw-color-brand-primary;
+        border-color: $sw-color-brand-primary;
+    }
+}
+.btn-buy {
+    background: $theme-base-btn-bgcolor;
+    border-color: $theme-base-btn-bgcolor;
+}
+.btn-primary{
+    background: $theme-base-btn-bgcolor;
+    border-color: $theme-base-btn-bgcolor;
+}
+.lsiting-actions-container{
+    .listing-btn-buy-box{
+        .btn:hover{
+            background: $sw-color-brand-primary;
+            border-color: $sw-color-brand-primary;
+        }
+    }
+   
+}
+.buy-widget-container .btn-buy {
+    background: $theme-base-btn-bgcolor;
+    border-color: $theme-base-btn-bgcolor;
+    &:hover{
+        background: $sw-color-brand-primary;
+        border-color: $sw-color-brand-primary;
+    }
+}
+.form-group {
+    .col {
+        .btn.btn-primary {
+            min-width: 200px;
+        }
+    }
+}
+ 
+.checkout-aside {
+	.checkout-aside-action {
+		a.btn.btn-lg.begin-checkout-btn {
+			background: $sw-color-brand-primary;
+            border-color: $sw-color-brand-primary;
+			&:hover {
+                background: $theme-base-btn-bgcolor;
+                border-color: $theme-base-btn-bgcolor;
+			}
+		}
+	}
+}
+.owy-listbox .btn-buy:hover{
+    background: $sw-color-brand-primary;
+            border-color: $sw-color-brand-primary;
+}

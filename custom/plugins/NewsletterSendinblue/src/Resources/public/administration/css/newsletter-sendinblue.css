@@ -1,0 +1,8 @@
+.sendinblue-main-button {
+    text-align: center
+}
+
+.icon--default-sendinblue-logo {
+    background-image: url("./../../static/img/plugin.png");
+    background-size: 20px;
+}

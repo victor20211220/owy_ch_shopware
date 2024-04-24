@@ -1,0 +1,28 @@
+.rental-price-form {
+    .rental-price-form-price_dependend_currency{
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .rental-price-form-price_container {
+        padding-bottom: 10px
+    }
+
+    .rental-price-form-price_rules {
+        padding-top: 10px;
+    }
+
+    .one-line-inheritance-linker .sw-inherit-wrapper__toggle-wrapper {
+        position: absolute;
+    }
+
+    .is-variant.one-line-inheritance-linker .sw-field__label {
+        padding-left: 20px;
+    }
+
+    .price-wrapper .sw-inherit-wrapper__toggle-wrapper {
+        display: none;
+    }
+}

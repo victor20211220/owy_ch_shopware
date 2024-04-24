@@ -1,0 +1,10 @@
+{% sw_extends  '@Storefront/storefront/component/product/card/badges.html.twig' %}
+
+{% block component_product_badges_new %}
+    {{ parent() }}
+  {#  {% if product.extensions.rentalProduct.extensions.isRentalProduct and config('RhiemRentalProducts.config.showBadge') %}
+        <div>
+            <span class="badge bg-warning badge-rental">{{ "rhiem-rental-products.badge"|trans|sw_sanitize }}</span>
+        </div>
+    {% endif %}#}
+{% endblock %}

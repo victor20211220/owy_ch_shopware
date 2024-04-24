@@ -1,0 +1,83 @@
+#store .sw-search-bar__field > span:nth-child(1) {
+    background-color: #a6c836 !important;
+}
+
+.acris-stores-list-priority-inline {
+    #sw-field--item-priority {
+        padding: 4px 16px;
+    }
+}
+
+.acris-stores-list-priority-inline-link {
+    cursor: pointer;
+}
+
+.acris-stores-list {
+    .acris-stores-list__content {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        position: absolute;
+    }
+
+    .smart-bar__content {
+        min-height: 70px;
+        max-width: 1050px;
+        width: 1050px;
+        margin-left: -16%;
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-column: header-content-start / header-content-end;
+        grid-row: 2;
+
+        @media screen and (max-width: 1360px) {
+            padding: 15px;
+        }
+    }
+
+    .is-inactive {
+        color: #DE294C;
+    }
+
+    .is-active {
+        color: #37D046;
+    }
+
+}
+
+.acris-stores-list__sidebar {
+    .acris-sidebar-item__scrollable-container {
+        padding: 0 25px;
+    }
+}
+
+.acris-stores-progress__progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.acris-stores-progress__progress-bar-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.acris-stores-progress__progress-bar-bar {
+    &.is--finished {
+        .sw-progress-bar__value {
+            background-color: #37D046;
+        }
+    }
+
+    &.is--errored {
+        .sw-progress-bar__value {
+            background-color: #DE294C;
+        }
+    }
+}
+
+
+

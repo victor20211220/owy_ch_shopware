@@ -1,0 +1,33 @@
+{% block element_cbax_lexicon_letter_entries %}
+
+    {%  set config = element.fieldConfig.elements %}
+
+    {% if config.headline.value is defined %}
+        {% set boxKeywordHeadline = config.headline.value %}
+    {%  else %}
+        {% set boxKeywordHeadline = '' %}
+    {% endif %}
+
+    {% if config.template.value is defined and config.template.value == "listing_1col" %}
+        {% set keywordBoxLayout="1col" %}
+        {% set keywordBoxStyle="col-sm-12 col-lg-12 col-xl-12" %}
+    {% elseif config.template.value is defined and config.template.value == "listing_2col" %}
+        {% set keywordBoxLayout="2col" %}
+        {% set keywordBoxStyle="col-sm-12 col-lg-6 col-xl-6" %}
+    {% elseif config.template.value is defined and config.template.value == "listing_3col" %}
+        {% set keywordBoxLayout="3col" %}
+        {% set keywordBoxStyle="col-sm-4 col-lg-4 col-xl-4" %}
+    {% elseif config.template.value is defined and config.template.value == "listing_4col" %}
+        {% set keywordBoxLayout="listing_4col" %}
+        {% set keywordBoxStyle="col-sm-6 col-lg-4 col-xl-3" %}
+    {% else %}
+        {% set keywordBoxLayout="2col" %}
+        {% set keywordBoxStyle="col-sm-12 col-lg-6 col-xl-6" %}
+    {% endif %}
+
+    {% set lexiconEntries = element.data %}
+    {% set lexiconClass = 'lexicon-newest-entries' %}
+    {% set lexiconPage = 'index' %}
+    {% sw_include '@Storefront/storefront/cbax-lexicon/component/box-keyword-listing.html.twig' %}
+
+{% endblock %}

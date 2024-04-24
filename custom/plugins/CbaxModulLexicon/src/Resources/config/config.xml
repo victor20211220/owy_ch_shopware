@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+	<card>
+
+        <title>General</title>
+        <title lang="de-DE">Allgemein</title>
+
+		<input-field type="bool">
+            <name>active</name>
+            <label>Active</label>
+            <label lang="de-DE">Aktiv</label>
+			<defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>linkHandling</name>
+            <label>Show link target in</label>
+            <label lang="de-DE">Verlinkung anzeigen in</label>
+            <defaultValue>modal</defaultValue>
+            <helpText>Here you can decide whether the links open a modal window or only show a tooltip. Only tooltip is possible in off-canvas.</helpText>
+            <helpText lang="de-DE">Hier können Sie entscheiden, ob die Links ein Modalfenster öffnen oder nur einen Tooltip zeigen. In Off-Canvas ist nur Tooltip möglich.</helpText>
+            <options>
+                    <option>
+                            <id>modal</id>
+                            <name>Modal window</name>
+                            <name lang="de-DE">Modalfenster</name>
+                    </option>
+                    <option>
+                            <id>tooltip</id>
+                            <name>Tooltip</name>
+                            <name lang="de-DE">Tooltip</name>
+                    </option>
+            </options>
+        </input-field>
+
+		<input-field type="bool">
+            <name>replaceRepeat</name>
+            <label>Replace text several times</label>
+            <label lang="de-DE">Text überall mehrmals ersetzen</label>
+			<defaultValue>true</defaultValue>
+        </input-field>
+
+		<input-field type="bool">
+            <name>replaceComplete</name>
+            <label>Replace only whole words</label>
+            <label lang="de-DE">Nur ganze Wörter ersetzen</label>
+			<defaultValue>true</defaultValue>
+        </input-field>
+
+	</card>
+
+	<card>
+		<title>SEO</title>
+
+		<component name="cbax-lexicon-config-alert">
+			<name>seoConfigInfo</name>
+			<appearance>notification</appearance>
+			<alertName>seoConfigInfo</alertName>
+		</component>
+
+		<component name="sw-snippet-field">
+			<name>basisPathSnippet</name>
+			<snippet>cbaxLexicon.basisPathSnippet</snippet>
+			<label>Snippet for SEO basic path for overview page</label>
+			<label lang="de-DE">Textbaustein für SEO-Basispfad für die Übersichtsseite</label>
+			<helpText>For Example: Lexicon - without Domain - Call: http://www.my-shop.de/lexikon - After changing clear the cache and the SEO Urls generate new. Please note: SEO Urls can only be assigned once. For example, if you already have a Lexicon category, then this SEO Url is already taken and will not be generated again.</helpText>
+			<helpText lang="de-DE">Z.B.: Lexikon - ohne Domain - Aufruf: http://www.mein-shop.de/lexikon - nach Änderung den Cache löschen und die SEO Url's neu erzeugen. Bitte beachten: SEO Url's können nur einmal vergeben werden. Wenn Sie z.B. schon eine Kategorie Lexikon haben, dann ist diese SEO Url schon vergeben und wird nicht noch einmal erzeugt.</helpText>
+		</component>
+
+		<component name="sw-snippet-field">
+			<name>basisPathContentsSnippet</name>
+			<snippet>cbaxLexicon.basisPathContentsSnippet</snippet>
+			<label>Snippet for SEO basic path for Table of Contents</label>
+			<label lang="de-DE">Textbaustein für SEO-Basispfad für das Inhaltsverzeichnis</label>
+			<helpText>For example: Contents - without domain - http://www.my-shop.de/lexikon/contents - After changing clear the cache and the SEO Urls generate new</helpText>
+			<helpText lang="de-DE">Z.B.: Inhaltsverzeichnis - ohne Domain - http://www.mein-shop.de/lexikon/inhaltsverzeichnis - Nach Änderung den Cache löschen und die SEO Url's neu erzeugen</helpText>
+		</component>
+
+		<input-field type="bool">
+			<name>trailingSlash</name>
+			<label>Slash at the end of Url</label>
+			<label lang="de-DE">Slash am Ende der Url</label>
+			<defaultValue>true</defaultValue>
+		</input-field>
+
+		<component name="cbax-lexicon-config-seo">
+			<name>configSeo</name>
+		</component>
+	</card>
+
+	<card>
+        <title>Display</title>
+        <title lang="de-DE">Anzeige</title>
+
+		<input-field type="bool">
+            <name>activeArticle</name>
+            <label>In article descriptions</label>
+            <label lang="de-DE">In Artikelbeschreibungen</label>
+			<defaultValue>true</defaultValue>
+        </input-field>
+
+		<input-field type="bool">
+            <name>activeLexicon</name>
+            <label>In lexicon description</label>
+            <label lang="de-DE">In Lexikonbeschreibungen</label>
+			<defaultValue>true</defaultValue>
+        </input-field>
+
+		<input-field type="multi-select">
+			<name>activeProperties</name>
+			<label>In properties</label>
+            <label lang="de-DE">In Eigenschaften</label>
+			<helpText>Please select the fields. Multiple selection possible.</helpText>
+			<helpText lang="de-DE">Bitte die Felder auswählen. Mehrfachauswahl möglich.</helpText>
+			<options>
+				<option>
+					<id>name</id>
+					<name>Properties description</name>
+					<name lang="de-DE">Eigenschaften Bezeichnung</name>
+				</option>
+				<option>
+					<id>value</id>
+					<name>Properties values</name>
+					<name lang="de-DE">Eigenschaften Werte</name>
+				</option>
+			</options>
+		</input-field>
+
+        <component name="cbax-lexicon-customfields-multi-select">
+            <name>activeProductCustomFields</name>
+            <label>In product customfields</label>
+            <label lang="de-DE">In Produkt-Zusatzfelder</label>
+            <helpText>Please select the fields. Multiple selection possible.</helpText>
+            <helpText lang="de-DE">Bitte die Felder auswählen. Mehrfachauswahl möglich.</helpText>
+            <title>In product customfields</title>
+        </component>
+
+    </card>
+
+    <card>
+
+        <title>Shopping Experiences (CMS)</title>
+        <title lang="de-DE">Erlebniswelten (CMS)</title>
+
+        <component name="cbax-lexicon-config-alert">
+            <name>cmsConfigInfo</name>
+            <appearance>notification</appearance>
+            <alertName>cmsConfigInfo</alertName>
+        </component>
+
+        <component name="cbax-lexicon-cmspage-single-select">
+            <name>cmsPageIndex</name>
+            <entity>cms_page</entity>
+            <label>Cms-page for lexicon overview page</label>
+            <label lang="de-DE">Cms-Page für die Lexikon-Übersichtseite</label>
+            <helpText>Choose a cms-page for the lexicon overview/start page.</helpText>
+            <helpText lang="de-DE">Cms-Page für die Lexikon-Übersicht-/Start-Seite.</helpText>
+            <title>Choose a cms-page for the lexicon start page</title>
+        </component>
+
+        <component name="cbax-lexicon-cmspage-single-select">
+            <name>cmsPageListing</name>
+            <entity>cms_page</entity>
+            <label>Cms-page for lexicon listing page</label>
+            <label lang="de-DE">Cms-Page für die Lexikon-Listingseite</label>
+            <helpText>Choose a cms-page for the lexicon listing page (initial letter pages).</helpText>
+            <helpText lang="de-DE">Cms-Page für die Lexikon-Listingseite (Anfangsbuchstaben Seiten) auswählen.</helpText>
+            <title>Choose a cms-page for the lexicon listing page</title>
+        </component>
+
+        <component name="cbax-lexicon-cmspage-single-select">
+            <name>cmsPageDetail</name>
+            <entity>cms_page</entity>
+            <label>Cms-page for lexicon detail page</label>
+            <label lang="de-DE">Cms-Page für die Lexikon-Detailseite</label>
+            <helpText>Choose a cms-page for the lexicon detail page (lexicon entry page).</helpText>
+            <helpText lang="de-DE">Cms-Page für die Lexikon-Detailseite (Seiten für einzelne Lexikon Einträge) auswählen.</helpText>
+            <title>Choose a cms-page for the lexicon detail page</title>
+        </component>
+
+        <component name="cbax-lexicon-cmspage-single-select">
+            <name>cmsPageContent</name>
+            <entity>cms_page</entity>
+            <label>Cms-page for lexicon table of content page</label>
+            <label lang="de-DE">Cms-Page für das Lexikon-Inhaltsverzeichnis</label>
+            <helpText>Choose a cms-page for the lexicon table of content page.</helpText>
+            <helpText lang="de-DE">Cms-Page für das Lexikon-Inhaltsverzeichnis auswählen.</helpText>
+            <title>Choose a cms-page for the lexicon table of content page</title>
+        </component>
+
+    </card>
+
+    <card>
+
+        <title>Modal window</title>
+        <title lang="de-DE">Modales Fenster</title>
+
+		<input-field>
+            <name>headline</name>
+            <label>The headline of the modal window</label>
+            <label lang="de-DE">Die Headline des modalen Fenster</label>
+			<defaultValue>Lexikon</defaultValue>
+			<helpText>If you want to maintain the text in several languages, use the following text module: cbaxLexicon.page.ajax.headline</helpText>
+			<helpText lang="de-DE">Wenn Sie den Text in mehreren Sprachen pflegen möchten, dann nutzen Sie folgenden Textbaustein: cbaxLexicon.page.ajax.headline</helpText>
+			<required>true</required>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showFooter</name>
+            <label>Show footer</label>
+            <label lang="de-DE">Footer anzeigen</label>
+			<defaultValue>true</defaultValue>
+			<helpText>Shows the footer in the modal window with the link to the lexicon</helpText>
+			<helpText lang="de-DE">Zeigt den Footer im modalen Fenster mit dem Link zum Lexikon</helpText>
+        </input-field>
+
+    </card>
+
+    <card>
+
+        <title>Sitemap</title>
+        <title lang="de-DE">Sitemap</title>
+
+        <input-field type="bool">
+            <name>sitemapGenerate</name>
+            <label>Generate sitemap for lexicon pages</label>
+            <label lang="de-DE">Sitemap für Lexikon Seiten erstellen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+    </card>
+
+</config>

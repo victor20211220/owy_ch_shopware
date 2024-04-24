@@ -1,0 +1,6 @@
+{% block owy_cms_sections %}
+    {% set sections = additionalCmsPage|first.sections.elements %}
+    {% for section in sections %}
+        {% sw_include '@Storefront/storefront/section/cms-section-'~section.type~'.html.twig' %}
+    {% endfor %}
+{% endblock %}

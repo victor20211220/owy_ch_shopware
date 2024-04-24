@@ -1,0 +1,14 @@
+{
+    "seo": {
+        "sameNameLexiconEntry": "Several lexicon entries with the same or a too similar name.",
+        "blockingSeoStart": "The seo url ",
+        "sameNameNavigation": " is already in use for a category page for the category with the id ",
+        "sameNameProduct": " is already in use for a product detail page for the product with the id ",
+        "sameNameLanding": " is already in use for a landing page with the id ",
+        "sameNameOthers": " is already in use with the route ",
+        "sameNameOthersEnd": " and the path ",
+        "errorMessage": " seo urls could not be created.",
+        "MessageCreated": " seo urls created or updated successfully. ",
+        "MessageChecked": "  already created seo urls checked."
+    }
+}

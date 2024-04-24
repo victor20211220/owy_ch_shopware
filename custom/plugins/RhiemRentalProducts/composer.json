@@ -1,0 +1,45 @@
+{
+  "name": "rhiem/rhiem-rental-products",
+  "description": "Mietartikel",
+  "version": "v2.1.1",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "RHIEM Intermedia",
+      "role": "Manufacturer"
+    }
+  ],
+  "require": {
+    "shopware/core": "^6.5",
+    "shopware/storefront": "^6.5",
+    "shopware/administration": "^6.5",
+    "league/period": "4.11.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "Rhiem\\RhiemRentalProducts\\RhiemRentalProducts",
+    "plugin-icon": "src/Resources/config/plugin.png",
+    "copyright": "(c) by RHIEM Intermedia",
+    "label": {
+      "de-DE": "Mietartikel",
+      "en-GB": "Rental products"
+    },
+    "description": {
+      "de-DE": "Ermöglicht dir Produkte zu vermieten",
+      "en-GB": "Enables rental products"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://store.shopware.com/rhiem-intermedia-gmbh.html",
+      "en-GB": "https://store.shopware.com/en/rhiem-intermedia-gmbh.html"
+    },
+    "supportLink": {
+      "de-DE": "https://rhiem.com/Mietartikel-SW6.pdf",
+      "en-GB": "https://rhiem.com/Rental-products-SW6.pdf"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Rhiem\\RhiemRentalProducts\\": "src/"
+    }
+  }
+}

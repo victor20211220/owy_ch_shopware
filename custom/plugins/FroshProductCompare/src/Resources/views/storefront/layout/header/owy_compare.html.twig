@@ -1,0 +1,87 @@
+<ul>
+
+    {% for compareData in additionalCmsPage %}
+        <li class="owy-compare-inner_items">
+            <div class="owy-compare-product-item">
+                <div class="owy-compare-product-detail">
+                    <div class="owy-compare-product-detail-box">
+                        <div class="owy-compare-product-image">
+                            {% if compareData.cover|length > 0 %}
+                                <img src="{{ compareData.cover.media.url }}" width="100px" height="100px" alt="scroll">
+                            {% else %}
+                                <div class="product-image-placeholder">
+                                    {% sw_icon 'placeholder' style {
+                                        'size': 'fluid'
+                                    } %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="owy-compare-product-name">
+                            <div class="wishlist-product-name">{{ compareData.translated.name }}</div>
+                        </div>
+                    </div>
+
+
+                    <div class="owy-compare-product-price">
+                        {% set owyPrice = compareData.calculatedPrices.last %}
+                        {% if owyPrice != null %}
+                            <div class="owy-compare-price">  {{ owyPrice.unitPrice|currency }}</div>
+                        {% else %}
+                            {% set owyPrice = compareData.price.elements|first %}
+                            <div class="owy-compare-price">  {{ owyPrice.gross|currency }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="owy-compare-right">
+                {% set addToCompareOptions = {
+                    productId: compareData.id
+                } %}
+                <button title="{{ "checkout.removeLineItem"|trans|striptags }}"
+                        data-add-to-compare-button="true" data-id="{{ compareData.id }}"
+                        data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+                        id="owy-remove"
+                        class="btn btn-sm is-added-to-compare compare-item-remove-button btn-light line-item-remove-button">
+                    {% sw_icon 'x' style { 'size': 'sm' } %}
+                </button>
+
+
+            </div>
+        </li>
+    {% endfor %}
+    {% if additionalCmsPage|length > 0 %}
+        <div class="owy-compare-footer-link">
+            <div class="owy-compare-fav-link">
+
+                {% if app.request.locale == 'en-GB' %}
+                <a class="owy-compare-footer-link" href="/en/compare">
+                {{ "OwyChTheme.widgets.compare.label1"|trans }}
+                </a>
+               {# <div class="owy-compare-footer-link" id="removeAll">
+                    Remove all
+                </div>#}
+                    <a class="owy-compare-footer-link1" id="removeAll" href="javascript:void(0);">
+                {{ "OwyChTheme.widgets.compare.label2"|trans }}
+                    </a>
+                {% elseif app.request.locale == 'fr-FR' %}
+                    <a class="owy-compare-footer-link" href="/fr/compare">
+                     {{ "OwyChTheme.widgets.compare.label1"|trans }}
+                    </a>
+                    <a class="owy-compare-footer-link1" id="removeAll" href="javascript:void(0);">
+                    {{ "OwyChTheme.widgets.compare.label2"|trans }}
+                    </a>
+                {% else %}
+                <a class="owy-compare-footer-link" href="/compare">
+                  {{ "OwyChTheme.widgets.compare.label1"|trans }}
+                </a>
+                    <a class="owy-compare-footer-link1" id="removeAll" href="javascript:void(0);">
+                    {{ "OwyChTheme.widgets.compare.label2"|trans }}
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+    {% endif %}
+</ul>

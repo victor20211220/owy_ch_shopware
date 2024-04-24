@@ -1,0 +1,54 @@
+{% block frontend_plugins_lexicon_pagination %}
+    <div class="lexicon-pagination">
+
+        <nav class="lexicon-pagination-panel">
+            <ul class="pagination">
+
+                {# Pagination - Previous page #}
+                {% block frontend_plugins_lexicon_pagination_button_first %}
+                    <li class="page-item page-prev{% if not cbaxModulLexicon.pagination.previous %} disabled{% endif %}">
+                        {% if cbaxModulLexicon.pagination.previous %}
+                            <a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: cbaxModulLexicon.pagination.previous.id }) }}" title="{{ cbaxModulLexicon.pagination.previous.title }}">
+                                <div class="page-link">
+                                    {% sw_icon 'arrow-medium-left' style {'size': 'fluid', 'pack': 'solid'} %}
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="page-link">
+                                {% sw_icon 'arrow-medium-left' style { 'size': 'fluid', 'pack': 'solid'} %}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endblock %}
+
+                {# Pagination - current page #}
+                {% block frontend_plugins_lexicon_pagination_button_current %}
+                    <li class="page-item active">
+                        <a class="page-link" href="{{ seoUrl('frontend.cbax.lexicon.listing', { char: cbaxModulLexicon.char }) }}" title="{{ "cbaxLexicon.page.pagination.toOverview"|trans }}">
+                            <span>{{ "cbaxLexicon.page.pagination.toOverview"|trans }}</span>
+                        </a>
+                    </li>
+                {% endblock %}
+
+                {# Pagination - Next page #}
+                {% block frontend_plugins_lexicon_pagination_button_next %}
+                    <li class="page-item page-next{% if not cbaxModulLexicon.pagination.next %} disabled{% endif %}">
+                        {% if cbaxModulLexicon.pagination.next %}
+                            <a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: cbaxModulLexicon.pagination.next.id }) }}" title="{{ cbaxModulLexicon.pagination.next.title }}">
+                                <div class="page-link">
+                                    {% sw_icon 'arrow-medium-right' style { 'size': 'fluid', 'pack': 'solid'} %}
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="page-link">
+                                {% sw_icon 'arrow-medium-right' style { 'size': 'fluid', 'pack': 'solid'} %}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endblock %}
+            </ul>
+        </nav>
+                    
+    </div>
+
+{% endblock %}

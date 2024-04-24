@@ -1,0 +1,29 @@
+.rental-bail-form-switches-active {
+    display: flex;
+
+    .rental-bail-form-switch_field_active{
+      padding-right: 10px;
+    }
+
+    .rental-bail-form-active_headline{
+      display: flex;
+
+      h3 {
+        margin-right: 10px;
+      }
+    }
+
+    .one-line-inheritance-linker .sw-inherit-wrapper__toggle-wrapper {
+      position: absolute;
+    }
+
+    .is-variant.one-line-inheritance-linker .sw-field__label {
+      padding-left: 20px;
+    }
+
+
+}
+
+.bail-price-wrapper .sw-inherit-wrapper__toggle-wrapper {
+       display: none;
+     }

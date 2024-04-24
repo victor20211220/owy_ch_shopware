@@ -1,0 +1,56 @@
+{% for cmsPage in page.extensions.netzpSearch.cms.data %}
+    {% if(cmsPage.getExtension('categoryId').value) %}
+        {% set link = seoUrl('frontend.navigation.page', {'navigationId': cmsPage.getExtension('categoryId').value}) %}
+    {% else %}
+        {% set link = seoUrl('frontend.home.page') %}
+    {% endif %}
+
+    <li class="search-suggest-product js-result">
+        <a href="{{ link }}"
+           title="{{ cmsPage.title }}"
+           class="search-suggest-product-link">
+
+            <div class="row align-items-center g-0">
+                <div class="col-auto search-suggest-product-image-container">
+                    {% if cmsPage.media.url %}
+                        {% sw_thumbnails 'product-image-thumbnails' with {
+                            media: cmsPage.media,
+                            attributes: {
+                                'class': 'search-suggest-product-image',
+                                'alt':   cmsPage.media.translated.alt ?: '',
+                                'title': cmsPage.media.translated.title ?: ''
+                            }
+                        } %}
+                    {% else %}
+                        {% sw_icon 'placeholder' style {
+                            'size': 'lg'
+                        } %}
+                    {% endif %}
+                </div>
+
+                <div class="col search-suggest-product-name">
+                    {{ cmsPage.title|raw|sw_sanitize }}
+                </div>
+            </div>
+        </a>
+    </li>
+{% endfor %}
+
+<li class="js-result search-suggest-total">
+    <div class="row align-items-center {{ gridNoGuttersClass }}">
+        <div class="col">
+            <a href="{{ path('frontend.search.page') }}?search={{ page.searchTerm }}&tab=cms"
+               title="{{ "header.searchAllResults"|trans|striptags }}"
+               class="search-suggest-total-link">
+                {% sw_icon 'arrow-head-right' style { 'size': 'sm' } %}
+                {{ "header.searchAllResults"|trans|sw_sanitize }}
+            </a>
+        </div>
+
+        <div class="col-auto search-suggest-total-count">
+            {{ "header.searchResults"|trans({
+                '%count%': page.extensions.netzpSearch.cms.total,
+            })|sw_sanitize }}
+        </div>
+    </div>
+</li>

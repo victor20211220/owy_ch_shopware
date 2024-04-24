@@ -1,0 +1,76 @@
+.is-act-home {
+  .container-main {
+    min-height: 0;
+    padding   : 0;
+  }
+
+  .carousel-control-prev {
+    display: none;
+  }
+
+  .carousel-control-next {
+    display: none;
+  }
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-indicators {
+  z-index        : 11;
+  max-width      : 1400px;
+  display        : flex;
+  justify-content: space-around;
+  margin         : 12px auto;
+  padding: 0 20px;
+
+  [data-bs-target] {
+    background-color: #efeff0;
+    cursor          : pointer;
+    margin-left     : 0px;
+    margin-right    : 18px;
+    width           : 100%;
+    opacity         : 1;
+    height          : 4px;
+    border-radius   : 0;
+    position        : relative;
+
+    span {
+      content      : "";
+      position     : absolute;
+      top          : 0;
+      left         : 0;
+      width        : 0;
+      height       : 100%;
+      background   : $sw-color-brand-secondary;
+      border-radius: inherit;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.carousel-inner {
+  max-width: 1400px;
+    margin: 0 auto;
+  .carousel-item {
+    .container {
+      margin  : 0 auto;
+      position: relative;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-indicators {
+    position: relative;
+    margin         : 0px auto;
+  
+  }
+}

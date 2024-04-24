@@ -1,0 +1,302 @@
+.product-box {
+    border-color: transparent;
+	&:hover {
+		.product-name {
+			color: $sw-color-brand-primary;
+		}
+	}
+    .card-body {
+        padding : 0;
+        overflow: hidden;
+        position: relative;
+        .product-info{
+            .product--btn-action{
+                .btn-light{
+                    border-color: #6F6E6E;
+                    font-weight: 400;
+                    font-size: 16px;
+                    &:hover{
+                        background: $sw-color-brand-primary;
+                        border-color: $sw-color-brand-primary;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+ 
+.owy-listbox {
+    .product-image-wrapper {
+        height       : 250px;
+        padding      : 16px;
+        border       : 1px solid $sw-border-color;
+        margin-bottom: 15px;
+
+        .product-wishlist {
+            .product-wishlist-action-circle {
+                background: transparent;
+                right     : 5px;
+                padding   : 5px;
+                bottom    : 25px;
+
+                .icon-wishlist {
+                    width : 23px;
+                    height: 23px;
+                }
+
+                .icon-wishlist-added {
+                    color: $sw-color-brand-primary;
+                }
+            }
+
+            .w-text {
+                display: none;
+            }
+        }
+    }
+    .product-info {
+        font-size: 16px;
+
+        .product-name {
+            font-size    : 16px;
+            margin-bottom: 0px;
+            font-weight  : bold;
+
+        }
+
+        .product-number {
+            font-size: 16px;
+        }
+
+        .product-box-price-container {
+            display      : flex;
+            margin-top   : 0px;
+            margin-bottom: 10px;
+            align-items: flex-end;
+
+            .pricetitle {
+                width      : 50%;
+                font-size  : 16px;
+                font-weight: bold;
+                line-height: 20px;
+
+                span {
+                    display: flex;
+                }
+            }
+
+            .priceunit {
+                width: 50%;
+
+                .product-price-info {
+                    margin    : 0;
+                    text-align: right;
+
+                    .product-price-wrapper {
+                        font-size: 16px;
+                        .product-price {
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                        .product-cheapest-price {
+                            margin     : 0;
+                            line-height: normal;
+                            min-height : unset;
+                        }
+                    }
+                }
+            }
+        }
+
+        .merkliste-box {
+            position: relative;
+
+            .product-wishlist {
+                display       : inline-block;
+                padding       : 0;
+                margin        : 0;
+                line-height   : normal;
+                height        : 20px;
+                vertical-align: middle;
+
+                .product-wishlist-action-circle {
+                    height       : 20px;
+                    width        : 100%;
+                    background   : transparent;
+                    border-radius: unset;
+                    border-style : none;
+                    position     : relative;
+                    padding      : inherit;
+                    right        : auto;
+                    left         : auto;
+                    bottom       : auto;
+
+                    .w-text {
+                        display : inline-block;
+                        position: relative;
+                        top     : -2px;
+                    }
+
+                    .icon-wishlist-added {
+                        color: $sw-color-brand-primary;
+                    }
+                }
+
+                .icon-wishlist {
+                    width : 15px;
+                    height: 15px;
+                }
+            }
+        }
+
+        .vergleichen-box {
+            .icon--empty {
+                width        : 13px;
+                height       : 13px;
+                border       : 2px solid $sw-border-color;
+                display      : inline-block;
+                border-radius: 3px;
+                margin-right: 3px;
+            }
+
+            .icon--red {
+                width           : 13px;
+                height          : 13px;
+           
+                display         : inline-block;
+                border-radius   : 3px;
+                background-color:$sw-color-brand-primary;
+                margin-right: 3px;
+            }
+        }
+
+        .vergleichen-box-list {
+            .icon--empty {
+                width        : 13px;
+                height       : 13px;
+                border       : 2px solid $sw-border-color;
+                display      : inline-block;
+                border-radius: 3px;
+                margin-right: 3px;
+            }
+
+            .icon--red {
+                width           : 13px;
+                height          : 13px;
+           
+                display         : inline-block;
+                border-radius   : 3px;
+                background-color:$sw-color-brand-primary;
+                margin-right: 3px;
+            }
+        }
+
+        .avaliblebox {
+            .green {
+                width: 100%;
+                color: $green;
+
+                .icon--green {
+                    width           : 12px;
+                    height          : 12px;
+                    border-radius   : 50%;
+                    background-color: $green;
+                    display         : inline-block;margin-right: 4px;
+                }
+            }
+
+            .yellow {
+                width: 100%;
+                color: $yellow;
+
+                .icon--yellow {
+                    width           : 12px;
+                    height          : 12px;
+                    border-radius   : 50%;
+                    background-color: $yellow;
+                    display         : inline-block;margin-right: 4px;
+
+                }
+            }
+
+            .red {
+                width: 100%;
+                color: $sw-color-brand-primary;
+
+                .icon--red-stock {
+                    width           : 12px;
+                    height          : 12px;
+                    border-radius   : 50%;
+                    background-color: $sw-color-brand-primary;
+                    display         : inline-block;margin-right: 4px;
+
+                }
+
+            }
+
+        }
+
+    }
+}
+.compare-button.owy_clicked {
+    margin: 0;
+    .compare.btn-compare {
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+    }
+}
+.owy-listbox .product-info .compare-button.owy_clicked.vergleichen-box-list{
+    button.btn-custom.compare.btn-compare.is-added-to-compare{
+        .icon--red {
+            width           : 13px;
+            height          : 13px;
+            border          : 2px solid transparent;
+            display         : inline-block;
+            border-radius   : 3px;
+            background-color:$sw-color-brand-primary;
+            margin-right: 3px;
+        }
+    }
+}
+.owy-listbox .product-info .compare-button.owy_clicked.vergleichen-box-list button.btn-custom.compare.btn-compare .icon--red{
+    width           : 13px;
+    height          : 13px;
+    border       : 2px solid $sw-border-color;
+    display         : inline-block;
+    border-radius   : 3px;
+    background-color:transparent;
+    margin-right: 3px;
+}
+.product--btn-action {
+    .compare-button.d-grid {
+        display: none !important;
+    }
+}
+.cms-element-product-listing-actions {
+	.col-md-auto {
+		& + .col-md-auto {
+			width: 100%;
+			max-width: 100%;
+			.sortbox {
+				text-align: right;
+			}
+		}
+	}
+}
+
+
+
+.cms-block.cms-block-product-listing {
+    position: relative;
+}
+
+
+.product-rating {
+    margin-bottom: 10px;
+    height       : 10px;
+    display      : none;
+}

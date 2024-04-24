@@ -1,0 +1,121 @@
+{
+    "OwyChTheme": {
+        "navigation": {
+            "shopnav": {
+                "link1": "Suchen",
+                "link2": "Konto",
+                "link3": "Merkliste",
+                "link4": "Warenkorb",
+                "link5": "Vergleichen"
+                
+            }
+        },
+        "footer": {
+            "bottomnav": {
+                "link1": "Ott + Wyss AG",
+                "link2": "Napfweg 3",
+                "link3": "4800 Zofingen",
+                "link4": "<a href=\"#\">Tel. 062 746 01 00</a>",
+                "link5": "<a href=\"#\">info@owy.ch</a>",
+                "link6": "<a href=\"#\">www.owy.ch</a>"
+            }
+        },
+        "listing": {
+            "count":{
+                "lable1": "von",
+                "lable2": "Produkte"
+            },
+            "sorting":{
+                "lable1": "Sortieren nach:",
+                "lable2": "Produkte pro Seite:"
+            },
+            "alerts":{
+                "lable1": "Vergleichen",
+                "lable2": "Verfügbar",
+                "lable3": "Knapp verfügbar",
+                "lable4": "Nicht verfügbar"                
+            },
+            "pricetag":{
+                "lable": "<span> Preis in CHF</span> inkl. MWSt."
+
+            },
+            "product":{
+                "article": "Artikel Nr.",
+                "soldOut":"Soldout",
+                "miete":"Miete"
+
+            }
+        },
+        "detail": {
+            "addToWishlist":{
+                "merken": "Merken"
+            },
+            "tabsSections":{
+                "tabs1":"Artikelbeschreibung",
+                "properties":"Technische Daten"
+            },
+            "tabsnames":{
+                "lable1":"Übersicht",
+                "lable2":"Beschreibung",
+                "lable3":"Technische Daten",
+                "lable4":"Referenzbilder" 
+            }
+        },
+        "wishlist": {
+            "listing":{
+                "label": "Merkliste",
+                "labelproduct": "Produkt",                
+                "label1": "Verfügbar",
+                "label2": "Artikel Nr.",
+                "label3": "Menge",
+                "label4": "Preis in CHF",
+                "label5": "Summe"
+            }
+        },
+        "newsletter": {
+            "form":{
+                "label": "Möchten Sie regelmässig und gut über Foto-Tipps und -Tricks, Produkteneuheiten und -Angebote informiert sein? Dann abonnieren Sie noch heute unseren Newsletter",               
+                "label1": "Bei Nichtgefallen können Sie die Fototechnik-Newsletters jederzeit unter diesem Link abbestellen. Wir garantieren Ihnen, Ihre Daten nicht an Dritte weiterzugeben.",
+                "label2": "Wir bedauern es, dass Sie unsere Newsletters nicht länger abonnieren möchten und hoffen, Sie zu einem späteren Zeitpunkt wieder bedienen zu dürfen.",
+                "label3": "Geben Sie bitte Ihre E-Mail Adresse an, um sich vom Newsletter abzumelden.",
+                "label4": "E-Mail *",
+                "label5": "* obligatorische Eingabefeld",
+                "label6": "Absenden"
+            }
+        },
+        "widgets": {
+            "form":{
+                "label1": "Supportanfrage",
+                "label2": "Ihre Anfrage *",
+                "label3": "Ihre Mitteilung *",
+                "label4": "Firma",
+                "label5": "Name *",
+                "label6": "Vorname *",
+                "label7": "Strasse / Nr.",
+                "label8": "PLZ / Ort",
+                "label9": "Tel",
+                "label10": "E-Mail *",
+                "note": "* obligatorische Eingabefelder",
+                "btn": "Absenden"
+                
+            },
+            "broucher":{
+                "btn": " Download PDF"
+                
+            },
+            "awards":{
+                "label": "Awards"
+                
+            },
+            "compare":{
+                "label": "vergleichen",
+                "label1": "vergleichen",
+                "label2": "Alle entfernen"
+                
+            } 
+
+        }
+ 
+    }
+}
+ 

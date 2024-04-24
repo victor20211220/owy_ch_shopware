@@ -1,0 +1,20 @@
+.rental-restrictions-form {
+    .rental-restrictions-form-days {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .rental-restrictions-form-days_minimum,
+        .rental-restrictions-form-days_maximum {
+            padding: 10px;
+        }
+
+        .rental-restrictions-form-days_minimum_headline,
+        .rental-restrictions-form-days_maximum_headline {
+            display: flex;
+
+            h3 {
+                margin-right: 10px;
+            }
+        }
+    }
+}

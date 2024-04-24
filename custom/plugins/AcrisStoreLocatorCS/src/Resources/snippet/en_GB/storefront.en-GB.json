@@ -1,0 +1,64 @@
+{
+    "acrisStoreLocator": {
+        "noStoreAvailableErrorMessageData": "Unfortunately no shop was found.",
+        "noStoreAvailableErrorMessagePermission": "The request was denied. Please check your google API Key and if the number of possible Google Maps calls is exhausted.",
+        "metatitle": "Store Locator",
+        "storeGroupDetailsName": "Name",
+        "storeGroupDetailsAddress": "Address",
+        "storeGroupDetailsContact": "Contact",
+        "storeGroupDetailsDetails": "Details",
+        "storeGroupDetailsOpeningHours": "Opening hours",
+        "storeLocatorPageBreadcrumb": "Back to Store Locator main page",
+        "storeLocatorPageBreadcrumbDetail": "Back to ",
+        "cookieNotAccepted": "Please accept the privacy policy in order to load the map from Google Maps.",
+        "account": {
+            "overviewStoreHeader": "My store",
+            "overviewChangeStore": "Select store",
+            "cardTitle": "My store",
+            "storeFieldLabel": "Store",
+            "placeholder": "Select store...",
+            "noSelectOption": "No store select",
+            "submitButton": "Select store",
+            "storeAssignedSuccess": "The store has been successfully assigned.",
+            "storeAssignedError": "The store could not be assigned. Error: ",
+            "assignedStore": "Click here for more details",
+            "noAssignedStore": "No store is selected."
+        },
+        "cookie": {
+            "name": "Store locator (Google maps)",
+            "description": "This cookie is required for the display of Google Maps on the store locator page."
+        }
+    },
+
+    "acrisStoreLocatorForm": {
+        "city": "City",
+        "button": "Search",
+        "distance": "Distance",
+        "distanceUnit1": "50 km",
+        "distanceUnit2": "100 km",
+        "distanceUnit3": "150 km",
+        "distanceUnit4": "200 km"
+    },
+
+    "checkout": {
+        "storeLocatorSelection": {
+            "label": "Select a store",
+            "placeholder": "Select store...",
+            "optionNoSelect": "No store selected",
+            "selectionPlaceholder": "Please select"
+        },
+        "storeLocatorDisplay": {
+            "label": "Store information",
+            "name": "Name:",
+            "department": "Department:",
+            "street": "Street and number:",
+            "zipcode": "Zip code:",
+            "city": "City:",
+            "countryName": "Country:",
+            "phone": "Phone:",
+            "email": "Email:",
+            "url": "Url:",
+            "opening_hours": "Opening hours:"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{% sw_extends '@Storefront/storefront/page/search/index.html.twig' %}
+{% set tab = app.request.get('tab') ?? 'product' %}
+
+{% block page_search %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link {% if tab == 'product' %}active{% endif %}" data-bs-toggle="tab" href="#products">
+                {{ "netzp.search.products"|trans }}
+                <span class="badge bg-success">{{ page.listing.total }}</span>
+            </a>
+        </li>
+
+        {% for key, searchTab in page.extensions.netzpSearch %}
+            {% if(searchTab.total > 0) %}
+                <li class="nav-item">
+                    <a class="nav-link {% if tab == key %}active{% endif %}" data-bs-toggle="tab" href="#{{ key }}">
+                        {{ searchTab.label|trans }}
+                        <span class="badge bg-success">{{ searchTab.total }}</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane container {% if tab == 'product' %}active{% endif %} mt-4" id="products">
+            {{ parent() }}
+        </div>
+
+        {% for key, searchTab in page.extensions.netzpSearch %}
+            {% if(searchTab.data|length > 0) %}
+                <div class="tab-pane container {% if tab == key %}active{% endif %} mt-4 search-results" id="{{ key }}">
+                    {% if(key == 'categories') %}
+                        {% sw_include "@Storefront/storefront/netzp-search/categories.html.twig" %}
+                    {% elseif(key == 'manufacturer') %}
+                        {% sw_include "@Storefront/storefront/netzp-search/manufacturer.html.twig" %}
+                    {% elseif(key == 'cms') %}
+                        {% sw_include "@Storefront/storefront/netzp-search/cms.html.twig" %}
+                    {% else %}
+                        {% block netzp_search_container %}{% endblock %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

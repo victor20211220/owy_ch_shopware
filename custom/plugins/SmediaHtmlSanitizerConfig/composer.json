@@ -1,0 +1,27 @@
+{
+  "name": "smedia/html-sanitizer-config",
+  "description": "This plugin disables the HTML sanitizer in the backend",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "version": "1.0.0",
+  "require": {
+    "shopware/core": "~6.5.3 | ~6.5.4"
+  },
+  "authors": [
+    {
+      "name": "Schommer Media GmbH"
+    }
+    ],
+  "autoload": {
+    "psr-4": {
+      "SmediaHtmlSanitizerConfig\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "SmediaHtmlSanitizerConfig\\SmediaHtmlSanitizerConfig",
+    "label": {
+      "de-DE": "HTML-Sanitizer deaktivieren",
+      "en-GB": "Disable HTML-Sanitizer"
+    }
+  }
+}

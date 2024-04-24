@@ -1,0 +1,19 @@
+{
+    "rental-settings-form": {
+        "rentalHeadline": "Rental product",
+        "rentalHelptext": "Activate to rent this product",
+        "modeHeadline": "Mode",
+        "modeDropdown": "Select rental mode",
+        "switchLabelActive": "Active",
+        "activeHelpText": "First delete all variants of the product",
+        "offsetFieldHeadline": "Offset",
+        "offsetHelptext": "The lead time in days (starting from the time of order) before an article can be rented.",
+        "offsetField": "Duration of offset time in days",
+        "bufferFieldHeadline": "Buffer",
+        "bufferHelptext": "Time that must lie between 2 rental\nperiods.",
+        "bufferField": "Duration of the buffer time in days",
+        "dayRental": "Day rental",
+        "errorHeadline": "Error",
+        "errorMessage": "Delete all variants first"
+    }
+}

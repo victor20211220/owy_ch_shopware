@@ -1,0 +1,13 @@
+{% sw_extends 'administration/index.html.twig' %}
+
+{% block administration_scripts %}
+    {{ parent() }}
+
+    //Registering additional custom components
+    <script type="text/javascript" src="{{ asset('bundles/customcomponent/administration/js/rental-variant-form.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/customcomponent/administration/js/rental-settings-form.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/customcomponent/administration/js/rental-deposit-form.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/customcomponent/administration/js/rental-price-form.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/customcomponent/administration/js/rental-restrictions-form.js') }}"></script>
+
+{% endblock %}

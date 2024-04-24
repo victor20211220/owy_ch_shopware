@@ -1,0 +1,30 @@
+{% sw_extends "@Storefront/storefront/layout/header/header.html.twig" %}
+
+{% block layout_header_search_toggle %}
+    {{ parent() }}
+
+    {% if config('FroshProductCompare.config.showInHeader') %}
+        {% block frosh_product_compare_widget_button %}
+            {% if 'Mobile' not in app.request.headers.get('User-Agent') %}
+                <div class="col-auto">
+                    {% sw_include '@Storefront/storefront/component/compare/compare-float.html.twig' with {
+                        buttonClasses: 'compare-menu-btn header-actions-btn',
+                        floatingButtonClasses: '',
+                        badgeClasses: 'badge-primary'
+                    } %}
+
+                </div>
+            {% else %}
+
+                <div class="col-auto">
+                    {% sw_include '@Storefront/storefront/component/compare/compare-float.html.twig' with {
+                        buttonClasses: 'compare-menu-btn header-actions-btn mobile-compare',
+                        floatingButtonClasses: '',
+                        badgeClasses: 'badge-primary'
+                    } %}
+
+                </div>
+            {% endif %}
+        {% endblock %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{
+    "seo": {
+        "sameNameLexiconEntry": "Mehrere Lexikoneinträge mit dem selben oder einem zu ähnlichen Namen.",
+        "blockingSeoStart": "Die Seo Url ",
+        "sameNameNavigation": " ist schon vorhanden für die Kategorieseite der Kategorie mit der id ",
+        "sameNameProduct": " ist schon vorhanden für die Produktdetailseite des Produkts mit der id ",
+        "sameNameLanding": " ist schon vorhanden für die Landing Seite mit der id ",
+        "sameNameOthers": " ist schon vorhanden mit der Route ",
+        "sameNameOthersEnd": " und dem Pfad ",
+        "errorMessage": " Seo Urls konnten nicht erstellt werden.",
+        "MessageCreated": " Seo Urls erfolgreich neu erstellt oder updated. ",
+        "MessageChecked": "  vorhandene Seo Urls überprüft."
+    }
+}

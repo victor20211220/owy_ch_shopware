@@ -1,0 +1,18 @@
+.OttRadioSelect {
+  input {
+    display: none;
+  }
+
+  &__radio-btn {
+    padding: 7px 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    input:checked + & {
+      background: $primary;
+      color: #fff;
+    }
+  }
+}

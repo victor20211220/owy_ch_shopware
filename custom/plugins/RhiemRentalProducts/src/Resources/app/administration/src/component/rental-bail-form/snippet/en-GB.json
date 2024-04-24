@@ -1,0 +1,7 @@
+{
+    "rental-bail-form": {
+        "bailHeadline": "Bail",
+        "switchLabelActive": "Active bail",
+        "rentalBailHelptext": "Activate to set bail for the product"
+    }
+}

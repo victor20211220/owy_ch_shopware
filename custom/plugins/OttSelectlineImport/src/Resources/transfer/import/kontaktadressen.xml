@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Kontaktadressen>
+  <Kontaktadresse>
+    <Id>1682</Id>
+    <Hauptadresse>1111</Hauptadresse>
+    <Anrede></Anrede>
+    <Vorname>Max</Vorname>
+    <Name>Muster</Name>
+    <Firma>Alltron AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Rossgassmoos</Strasse>
+    <Land>CH</Land>
+    <PLZ>6130</PLZ>
+    <Ort>Willisau</Ort>
+    <Telefon></Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1689</Id>
+    <Hauptadresse>1688</Hauptadresse>
+    <Anrede>Herr</Anrede>
+    <Vorname>José</Vorname>
+    <Name>Garcia</Name>
+    <Firma>Schweizer AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Rütistrasse 12</Strasse>
+    <Land>CH</Land>
+    <PLZ>8952</PLZ>
+    <Ort>Schlieren</Ort>
+    <Telefon></Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1696</Id>
+    <Hauptadresse>1695</Hauptadresse>
+    <Anrede></Anrede>
+    <Vorname>Christophe</Vorname>
+    <Name>Dumartin</Name>
+    <Firma>Visuals Switzerland</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Rue du Pré-Bouvier</Strasse>
+    <Land>CH</Land>
+    <PLZ>1217</PLZ>
+    <Ort>Meyrin</Ort>
+    <Telefon>022 561 07 07</Telefon>
+    <Email>christophe@visuals.ch</Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1699</Id>
+    <Hauptadresse>1698</Hauptadresse>
+    <Anrede>Frau</Anrede>
+    <Vorname>Christina</Vorname>
+    <Name>Häusermann</Name>
+    <Firma>Müller&apos;s Foto Factory GmbH</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse></Strasse>
+    <Land>CH</Land>
+    <PLZ></PLZ>
+    <Ort></Ort>
+    <Telefon></Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1715</Id>
+    <Hauptadresse>1714</Hauptadresse>
+    <Anrede>Herr</Anrede>
+    <Vorname>Gregor</Vorname>
+    <Name>Rutishauser</Name>
+    <Firma>Erismann AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Schibiweg 6</Strasse>
+    <Land>CH</Land>
+    <PLZ>6006</PLZ>
+    <Ort>Luzern</Ort>
+    <Telefon>0414204544</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1716</Id>
+    <Hauptadresse>1714</Hauptadresse>
+    <Anrede>Herr</Anrede>
+    <Vorname>Peter</Vorname>
+    <Name>Meyer</Name>
+    <Firma>Erismann AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Schibiweg 6</Strasse>
+    <Land>CH</Land>
+    <PLZ>6006</PLZ>
+    <Ort>Luzern</Ort>
+    <Telefon>0414204544</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion>Inhaber</Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1721</Id>
+    <Hauptadresse>1720</Hauptadresse>
+    <Anrede>Frau</Anrede>
+    <Vorname>Kirsten</Vorname>
+    <Name>Oertle - Mildner</Name>
+    <Firma>Foto Prisma Oertle</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Postfach 222</Strasse>
+    <Land>CH</Land>
+    <PLZ>8501</PLZ>
+    <Ort>Frauenfeld</Ort>
+    <Telefon>0527214318</Telefon>
+    <Email>prisma@spektrumag.com</Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1733</Id>
+    <Hauptadresse>1393</Hauptadresse>
+    <Anrede>Frau</Anrede>
+    <Vorname>Kathrin</Vorname>
+    <Name>Jakob</Name>
+    <Firma>Interdiscount</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Bernstrasse 90</Strasse>
+    <Land>CH</Land>
+    <PLZ>3303</PLZ>
+    <Ort>Jegenstorf</Ort>
+    <Telefon>031 764 43 21 </Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1836</Id>
+    <Hauptadresse>1159</Hauptadresse>
+    <Anrede></Anrede>
+    <Vorname></Vorname>
+    <Name></Name>
+    <Firma>Blunier Hanspeter</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Eichenstrasse 10/3</Strasse>
+    <Land>CH</Land>
+    <PLZ>6015</PLZ>
+    <Ort>Luzern</Ort>
+    <Telefon>0794085784</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1892</Id>
+    <Hauptadresse>1322</Hauptadresse>
+    <Anrede>Herr</Anrede>
+    <Vorname>Peter</Vorname>
+    <Name>Geisseler</Name>
+    <Firma>Fotopro AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Bösch 21</Strasse>
+    <Land>CH</Land>
+    <PLZ>6331</PLZ>
+    <Ort>Hünenberg /Zg</Ort>
+    <Telefon>041/785&apos;10&apos;34</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1942</Id>
+    <Hauptadresse>1244</Hauptadresse>
+    <Anrede>Herr</Anrede>
+    <Vorname>Norman</Vorname>
+    <Name>Keller</Name>
+    <Firma>Engelberger AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Faden 2</Strasse>
+    <Land>CH</Land>
+    <PLZ>6374</PLZ>
+    <Ort>Buochs</Ort>
+    <Telefon>0416198569</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1943</Id>
+    <Hauptadresse>1245</Hauptadresse>
+    <Anrede>Herr</Anrede>
+    <Vorname>Norman</Vorname>
+    <Name>Keller</Name>
+    <Firma>Engelberger AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Achereggstrasse 11</Strasse>
+    <Land>CH</Land>
+    <PLZ>6362</PLZ>
+    <Ort>Stansstad</Ort>
+    <Telefon>0416198569</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1956</Id>
+    <Hauptadresse>1205</Hauptadresse>
+    <Anrede></Anrede>
+    <Vorname>Denny</Vorname>
+    <Name>Phan</Name>
+    <Firma>Digitec Galaxus AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Pfingstweidstrasse 60B</Strasse>
+    <Land>CH</Land>
+    <PLZ>8005</PLZ>
+    <Ort>Zürich</Ort>
+    <Telefon>044 542 60 18</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1957</Id>
+    <Hauptadresse>1205</Hauptadresse>
+    <Anrede></Anrede>
+    <Vorname>Pascal</Vorname>
+    <Name>Quaiser</Name>
+    <Firma>Digitec Galaxus AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Pfingstweidstrasse 60B</Strasse>
+    <Land>CH</Land>
+    <PLZ>8005</PLZ>
+    <Ort>Zürich</Ort>
+    <Telefon>044 575 98 76</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+  <Kontaktadresse>
+    <Id>1958</Id>
+    <Hauptadresse>1205</Hauptadresse>
+    <Anrede></Anrede>
+    <Vorname>Matthias</Vorname>
+    <Name>Widmer</Name>
+    <Firma>Digitec Galaxus AG</Firma>
+    <Zusatz1></Zusatz1>
+    <Zusatz2></Zusatz2>
+    <Zusatz3></Zusatz3>
+    <Strasse>Pfingstweidstrasse 60B</Strasse>
+    <Land>CH</Land>
+    <PLZ>8005</PLZ>
+    <Ort>Zürich</Ort>
+    <Telefon>044 575 96 15</Telefon>
+    <Email></Email>
+    <Abteilung></Abteilung>
+    <Funktion></Funktion>
+  </Kontaktadresse>
+</Kontaktadressen>

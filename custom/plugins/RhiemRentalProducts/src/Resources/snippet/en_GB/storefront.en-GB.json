@@ -1,0 +1,43 @@
+{
+    "rhiem-rental-products": {
+        "rentButton": "Rent",
+        "rentPeriod": "Rental period",
+        "badge": "Rental item",
+        "changeRentPeriod": "Change rental period",
+        "changeDateSuccess": "Rental period successfully changed"
+    },
+
+    "checkout": {
+        "rental-product-quantity-reduce": "Your selected quantity for product %name% is not completly available and has been reduced.",
+        "rental-product-out-of-stock": "The product %name% is out of stock for the selected rental period and has been removed.",
+        "rental-product-invalid-mode": "The rent mode for product %name% is no longer valid so the product has been removed.",
+        "rental-product-min-rent-time-not-reached": "Your chosen rental period for product %name% is less than the minimum rental period so the product has been removed.",
+        "rental-product-max-rent-time-exceeded": "Your selected rental period for product %name% exceeds the maximum rental period so the product has been removed.",
+        "rental-product-invalid-rent-offset": "The lead time up to the selected start of the rental period for product %name% is undercut so the product has been removed.",
+        "rental-product-rent-period-invalid": "The rental period for the product %name% differs from the currently selected rental period, therefore the product has been removed. Currently selected rental period: %rent_start% - %rent_end%.",
+        "rental-product-not-found": "The product %name% cannot be rented.",
+        "rental-product-bail-label": "Bail for %product%",
+        "rental-product-not-buyable": "The product %name% can only be rented.",
+        "rental-product-terms": "I have read and accepted the <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"rental terms and conditions\"><u>rental</u> terms and conditions</a>."
+    },
+    "error": {
+        "rental-product-quantity-reduce": "Your selected quantity for product %field% is not completly available and has been reduced.",
+        "rental-product-out-of-stock": "The product is out of stock for the selected rental period and has been removed.",
+        "rental-product-invalid-mode": "The rent mode for product %field% is no longer valid and the product has been removed.",
+        "rental-product-min-rent-time-not-reached": "Your chosen rental period for product %field% is less than the minimum rental period so the product has been removed.",
+        "rental-product-max-rent-time-exceeded": "Your selected rental period for product %field% exceeds the maximum rental period so the product has been removed.",
+        "rental-product-invalid-rent-offset": "The lead time up to the selected start of the rental period for product %field% is undercut so the product has been removed.",
+        "rental-product-not-found": "The product %field% cannot be rented.",
+        "rental-product-missing-bail": "A bail has to be posted for product %field%",
+        "rental-product-not-buyable": "The product  %field% can only be rented.",
+        "checkout-rental-terms-unchecked": "You must accept the rental conditions."
+    },
+    "detail": {
+        "rhiem-rental-products": {
+            "day": "day",
+            "hour": "hour",
+            "rentPeriod": "Rental period",
+            "piece": "piece"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "rhiem-rental-products": {
+        "product-deliverability": {
+            "closeout": "As long as the product is for rent it is not possible to activate the closeout."
+        }
+    }
+}

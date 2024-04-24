@@ -1,0 +1,61 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set heading = config.heading.value %}
+    {% set title1 = config.title1.value %}
+    {% set cmsPage1 = config.cmsPage1.value %}
+    {% set title2 = config.title2.value %}
+    {% set cmsPage2 = config.cmsPage2.value %}
+    {% set title3 = config.title3.value %}
+    {% set cmsPage3 = config.cmsPage3.value %}
+    {% set title4 = config.title4.value %}
+    {% set cmsPage4 = config.cmsPage4.value %}
+    {% set title5 = config.title5.value %}
+    {% set cmsPage5 = config.cmsPage5.value %}
+    {% set title6 = config.title6.value %}
+    {% set cmsPage6 = config.cmsPage6.value %}
+    {% set title7 = config.title7.value %}
+    {% set cmsPage7 = config.cmsPage7.value %}
+    {% set title8 = config.title8.value %}
+    {% set cmsPage8 = config.cmsPage8.value %}
+
+
+
+
+    <div class="form-group col-md-12">
+        <input type="hidden" id="fetchPage" value="{{ path('frontend.action.owy_inquiry_form.fetchcmspage') }}"/>
+        <input type="hidden" id="defaultCmsPage" value="{{ cmsPage1 }}"/>
+
+        <select name="cmscategory" class="form-select" aria-label="Rubrik" id="select_cmspage_cat">
+
+            {% if title1 and cmsPage1 %}
+                <option value="{{ cmsPage1 }}" selected>{{ title1 }}</option>
+            {% endif %}
+            {% if title2 and cmsPage2 %}
+                <option value="{{ cmsPage2 }}">{{ title2 }}</option>
+            {% endif %}
+            {% if title3 and cmsPage3 %}
+                <option value="{{ cmsPage3 }}">{{ title3 }}</option>
+            {% endif %}
+            {% if title4 and cmsPage4 %}
+                <option value="{{ cmsPage4 }}">{{ title4 }}</option>
+            {% endif %}
+            {% if title5 and cmsPage5 %}
+                <option value="{{ cmsPage5 }}">{{ title5 }}</option>
+            {% endif %}
+            {% if title6 and cmsPage6 %}
+                <option value="{{ cmsPage6 }}">{{ title6 }}</option>
+            {% endif %}
+            {% if title7 and cmsPage7 %}
+                <option value="{{ cmsPage7 }}">{{ title7 }}</option>
+            {% endif %}
+            {% if title8 and cmsPage8 %}
+                <option value="{{ cmsPage8 }}">{{ title8 }}</option>
+            {% endif %}
+        </select>
+    </div>
+
+    <div id="owyId"></div>
+
+
+
+</div>

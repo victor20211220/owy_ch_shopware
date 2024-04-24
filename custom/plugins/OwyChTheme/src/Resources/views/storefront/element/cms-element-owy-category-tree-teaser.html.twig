@@ -1,0 +1,55 @@
+<div class="cms-element-{{ element.type }}">
+
+    {% set owyCatIcon = asset('bundles/owychtheme/storefront/assets/images/no_image.jpg', 'asset') %}
+
+    {% set SinglesubCatCfImages1 = [] %}
+    {% set SingleSubcategoriesMedia = page.header.extensions.navigationTree.getNavigationTree().getTree() %}
+
+    {% for SingleSubcategoryMedia in SingleSubcategoriesMedia %}
+        {% set SinglesubCatCfMedia1Id = SingleSubcategoryMedia.getCategory.getcustomFields.owy_sub_category_img %}
+
+        {% if (SinglesubCatCfMedia1Id|length > 0) %}
+            {% set SinglesubCatCfImages1 = SinglesubCatCfImages1|merge([SinglesubCatCfMedia1Id]) %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% if  (SinglesubCatCfImages1|length > 0) %}
+        {% set Singlemedia1Collection = searchMedia(SinglesubCatCfImages1, context.context) %}
+    {% endif %}
+
+    <div class="owy-subcat-section">
+        <div class="row no-gutters">
+            {% set owySubCategories = page.header.extensions.navigationTree.getNavigationTree().getTree() %}
+            {% for owySubCategory in owySubCategories %}
+
+                {% set SinglesubCatCfMedia1Id = owySubCategory.getCategory.getcustomFields.owy_sub_category_img %}
+                {% set SinglesubCatCf1Media = Singlemedia1Collection.get(SinglesubCatCfMedia1Id) %}
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 col-subcategory">
+                        <div class="box">
+                            <a href="{{ seoUrl('frontend.navigation.page', { navigationId: owySubCategory.getCategory().getId() }) }}">
+                                <div class="img-wrapper">
+                                    {% if SinglesubCatCf1Media|length > 0 %}
+
+                                        {% set SinglesubCat1Url = SinglesubCatCf1Media.getUrl %}
+                                        {% set SinglesubCat1filenm = SinglesubCatCf1Media.getfileName %}
+                                        <img src="{{ SinglesubCat1Url }}" alt="{{ SinglesubCat1filenm }}" height="auto" width="100%" class="img-fluid">
+                                    {% else %}
+                                        <img src="{{ owyCatIcon }}" alt="No Image" height="auto" width="auto" class="img-fluid">
+                                    {% endif %}
+                                    
+                                </div>
+                                <div class="content">
+                                    <div class="title">  {{ owySubCategory.getCategory().getName() }}</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+

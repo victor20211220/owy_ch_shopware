@@ -1,0 +1,148 @@
+.empty-wishlist-box {
+    padding        : 0 15px 15px 15px;
+    width          : 280px;
+    border-radius  : 0px;
+    background-clip: padding-box;
+    font-size      : 14px;
+    border         : 1px solid $sw-border-color;
+    background     : #fff;
+
+}
+
+.empty-wishlist-box .account-menu-login {
+    padding      : 1rem 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0.25rem;
+}
+
+.empty-wishlist-box .account-menu-header {
+    border-bottom: 1px solid #ffffff;
+}
+
+.empty-wishlist-box .wishlist-user-notsign-note-content {
+    font-weight: 700;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart {
+    padding        : 0 15px 15px 15px;
+    width          : 280px;
+    border-radius  : 0px;
+    background-clip: padding-box;
+    font-size      : 14px;
+    border         : 1px solid $sw-border-color;
+    background     : #fff;
+
+
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart ul {
+    padding   : 0;
+    margin    : 0;
+    list-style: none;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items {
+    position     : relative;
+    border-bottom: 1px solid #ccc;
+    padding      : 20px 0;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items .owy-wishlist-product-item .owy-wishlist-product-info .owy-wishlist-product-detail-box {
+    display: flex;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items .owy-wishlist-product-item .owy-wishlist-product-info .owy-wishlist-product-detail-box .owy-wishlist-product-image {
+    width    : 100px;
+    max-width: 100px;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items .owy-wishlist-product-item .owy-wishlist-product-info .owy-wishlist-product-detail-box .owy-wishlist-product-image img {
+    max-width: 100%;
+    height   : auto;
+    width    : 75px;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items .owy-wishlist-product-item .owy-wishlist-product-info .owy-wishlist-product-detail-box .owy-wishlist-product-description {
+    display: flex;
+    width  : 140px;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items .owy-wishlist-product-item .owy-wishlist-product-price .owy-wishlist-price {
+    position   : absolute;
+    left       : 100px;
+    bottom     : 6px;
+    font-weight: 700;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy-wishlist-inner-items .wishlist-right {
+    position: absolute;
+    right   : 0px;
+    bottom  : 6px;
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart .owy_cart-footer-link {
+    text-align : right;
+    padding-top: 15px
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart a.footer-cat-nav-link {
+    background     : $sw-color-brand-primary;
+    color          : #fff;
+    min-width      : 152px;
+    padding        : 8px;
+    text-decoration: none;
+    display        : inline-block;
+    text-align     : center;
+}
+.owy-wishlist-cart .owy-wishlist-inner-cart .wishlist-item-remove{
+    .line-item-remove-button {
+        background: #E41D1A;
+        border-radius: 50%;
+        height: 23px;
+        width: 23px;
+        line-height: normal;
+        padding: 0;
+    }
+}
+.deleteWishlist {
+    span {
+        background     : url("/bundles/owychtheme/storefront/assets/images/icons/delete.svg");
+        width: 14px;
+        height: 14px;
+        background-size: cover;
+        margin-top: 4px;
+    }
+}
+
+.owy-wishlist-cart .owy-wishlist-inner-cart {
+     left: -112px !important;
+}
+
+@media (min-width: 1260px) {
+    .owy-wishlist-cart .owy-wishlist-inner-cart {
+        left: -85px !important;
+
+    }
+    .owy-wishlist-cart .owy-wishlist-inner-cart:before {
+        content: "";
+        left: 44%;
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        background: url('/bundles/owychtheme/storefront/assets/images/icons/arrow-notification.png');
+        top: -12px;
+    }
+}
+@media (max-width: 1380px) {
+.header-wishlist .header-wishlist-badge {
+    right: -14px;
+     top: -9px;
+ 
+}
+}
+@media (max-width: 575px) {
+.header-wishlist .header-wishlist-badge {
+    right: -20px;
+    top: -10px;
+}
+}

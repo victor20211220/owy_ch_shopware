@@ -1,0 +1,84 @@
+{% block sw_cms_el_config_owy_organization_widget %}
+    <sw-tabs class="sw-cms-el-config-owy_organization_widget__tabs" defaultItem="tab1">
+
+        <template slot-scope="{ active }" >
+            {% block sw_cms_el_config_owy_organization_widgettab_tab1 %}
+            <sw-tabs-item title="Tab 1"
+                          name="tab1"
+                          :activeTab="active">
+               Tab 1
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_organization_widget_tab2 %}
+            <sw-tabs-item title="Tab 2"
+                          name="tab2"
+                          :activeTab="active">
+                Tab 2
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_organization_widget_tab3 %}
+                <sw-tabs-item title="Tab 3"
+                              name="tab3"
+                              :activeTab="active">
+                    Tab 3
+                </sw-tabs-item>
+            {% endblock %}
+        </template>
+
+
+        <template slot="content" slot-scope="{ active }">
+            {% block sw_cms_el_owy_organization_widget_config_tab1 %}
+            <sw-container v-if="active === 'tab1'" class="sw-cms-el-config-owy_main_slider__tab-tab1">
+                <sw-text-field
+                        v-model="element.config.heading.value"
+                        label="Heading"
+                />
+            </sw-container>
+            {% endblock %}
+
+            {# general settings tab ends #}
+
+            {% block sw_cms_el_owy_organization_widget_config_tab2 %}
+            <sw-container v-if="active === 'tab2'" class="sw-cms-el-config-owy_organization_widget__tab-tab2">
+                <sw-media-field required v-model="element.config.org1image.value" label="Upload Image"/>
+
+                <sw-text-field
+                        v-model="element.config.org1title1.value"
+                        label="Title 1"
+                />
+                <sw-text-field
+                        v-model="element.config.org1title2.value"
+                        label="Title 2"
+                />
+                <sw-text-field
+                        v-model="element.config.org1title3.value"
+                        label="Title 3"
+                />
+            </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_organization_widget_config_tab3 %}
+                <sw-container v-if="active === 'tab3'" class="sw-cms-el-config-owy_organization_widget__tab-tab3">
+                    <sw-media-field required v-model="element.config.org2image.value" label="Upload Image"/>
+
+                    <sw-text-field
+                            v-model="element.config.org2title1.value"
+                            label="Title 1"
+                    />
+                    <sw-text-field
+                            v-model="element.config.org2title2.value"
+                            label="Title 2"
+                    />
+                    <sw-text-field
+                            v-model="element.config.org2title3.value"
+                            label="Title 3"
+                    />
+                </sw-container>
+            {% endblock %}
+
+        </template>
+    </sw-tabs>
+
+{% endblock %}

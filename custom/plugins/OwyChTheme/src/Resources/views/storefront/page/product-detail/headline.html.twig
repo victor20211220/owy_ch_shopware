@@ -1,0 +1,70 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/headline.html.twig' %}
+{% block page_product_detail_name_container %}
+
+    {% if page.product.seoCategory %}
+        {% set breadcrumbCategories = sw_breadcrumb_full(page.product.seoCategory, context.context) %}
+        {% set categoryId = category.id %}
+
+        {% set breadcrumbKeys = breadcrumbCategories|keys %}
+
+        {% if breadcrumbCategories|length > 0 %}
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb"
+                    itemscope
+                    itemtype="https://schema.org/BreadcrumbList">
+                    {% for breadcrumbCategory in breadcrumbCategories %}
+                        {% set key = breadcrumbCategory.id %}
+                        {% set name = breadcrumbCategory.translated.name %}
+
+
+                        <li class="breadcrumb-item"
+                            {% if key is same as(categoryId) %}aria-current="page"{% endif %}
+                            itemprop="itemListElement"
+                            itemscope
+                            itemtype="https://schema.org/ListItem">
+                            {% if breadcrumbCategory.type == 'folder' %}
+                                <div itemprop="item">
+                                    <div itemprop="name">{{ name }}</div>
+                                </div>
+                            {% else %}
+                                <a href="{{ category_url(breadcrumbCategory) }}"
+                                   class="breadcrumb-link {% if key is same as(categoryId) %} is-active{% endif %}"
+                                   title="{{ name }}"
+                                   {% if category_linknewtab(breadcrumbCategory) %}target="_blank"{% endif %}
+                                   itemprop="item">
+                                    <link itemprop="url"
+                                          href="{{ category_url(breadcrumbCategory) }}">
+                                    <span class="breadcrumb-title" itemprop="name">{{ name }}</span>
+                                </a>
+                            {% endif %}
+                            <meta itemprop="position" content="{{ loop.index }}">
+                        </li>
+
+
+                        {% if key != breadcrumbKeys|last %}
+                            <div class="breadcrumb-placeholder">
+                                {% sw_icon 'arrow-medium-right' style { 'size': 'fluid', 'pack': 'solid'} %}
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                </ol>
+            </nav>
+        {% endif %}
+    {% endif %}
+    <div class="tabsnavigation-content">
+						<ul>
+							<li data-scroll="section1">{{ "OwyChTheme.detail.tabsnames.lable1"|trans }}</li>
+							<li data-scroll="section2">{{ "OwyChTheme.detail.tabsnames.lable2"|trans }}</li>
+							<li data-scroll="section5">{{ "OwyChTheme.detail.tabsnames.lable3"|trans }}</li>
+							<li data-scroll="section7">{{ "OwyChTheme.detail.tabsnames.lable4"|trans }}</li>
+						 
+						</ul>
+					</div>
+    <div class="col product-detail-name-container">
+        {% block page_product_detail_name %}
+            {{ parent() }}
+        {% endblock %}
+    </div>
+{% endblock %}
+

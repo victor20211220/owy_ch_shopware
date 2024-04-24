@@ -1,0 +1,16 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set owydate = config.owydate.value %}
+    {% set title = config.title.value %}
+    {% set shortdesc = config.shortdesc.value %}
+    {% set link = config.link.value %}
+    
+        <div class="news-listing-container">
+            {% set splitDate = owydate|split('T') %}
+            <span class="owy-date">{{ splitDate[0] }}</span>
+            <a class="newstitle" href="{{ link }}/">
+                {{ title }} 
+            </a>
+            <p>{{ shortdesc|raw }}</p>
+        </div>    
+</div>

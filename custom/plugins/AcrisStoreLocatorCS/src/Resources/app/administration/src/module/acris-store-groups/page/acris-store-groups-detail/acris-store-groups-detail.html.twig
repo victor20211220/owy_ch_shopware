@@ -1,0 +1,355 @@
+{% block acris_store_groups_detail %}
+<sw-page class="acris-store-groups-detail" v-if="item">
+
+    {% block acris_store_groups_detail_smart_bar_header %}
+    <template slot="smart-bar-header">
+        {% block acris_store_groups_detail_smart_bar_header_title %}
+        <h2>{{ $tc('acris-store-groups.detail.textHeadline') }}</h2>
+        {% endblock %}
+    </template>
+    {% endblock %}
+
+
+    {% block acris_store_groups_detail_smart_bar_language %}
+    <template #language-switch>
+        <sw-language-switch @on-change="onChangeLanguage"
+                            :disabled="$route.params.newItem"></sw-language-switch>
+    </template>
+    {% endblock %}
+
+
+    {% block acris_store_groups_detail_smart_bar_actions %}
+    <template slot="smart-bar-actions">
+        {% block acris_store_groups_detail_smart_bar_actions_cancel %}
+        <sw-button :disabled="item.isLoading" :routerLink="{ name: 'acris.store.groups.index' }">
+            {{ $tc('acris-store-groups.detail.buttonCancel') }}
+        </sw-button>
+        {% endblock %}
+
+        {% block acris_store_groups_detail_smart_bar_actions_save %}
+        <sw-button-process
+            class="acris-store-groups-detail__save-action"
+            :isLoading="isLoading"
+            :processSuccess="processSuccess"
+            variant="primary"
+            :disabled="item.isLoading || !item.internalName || !item.name || !item.position || (item.fieldList.length <= 0 && item.displayBelowMap === true)"
+            @process-finish="saveFinish"
+            @click="onClickSave">
+            {{ $tc('acris-store-groups.detail.buttonSave') }}
+        </sw-button-process>
+        {% endblock %}
+    </template>
+    {% endblock %}
+
+
+    {% block acris_store_groups_detail_content %}
+    <sw-card-view slot="content">
+
+        {% block acris_store_groups_detail_content_card %}
+        <sw-card :isLoading="isLoading" v-if="item"
+                 :title="$tc('acris-store-groups.detail.cardGeneral')">
+            {% block acris_store_groups_detail_content_container_data %}
+            <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+
+                {% block acris_store_groups_detail_content_internal_id %}
+                    <sw-text-field v-model="item.internalId"
+                                   class="acris-store-groups-detail__item_internalId"
+                                   :label="$tc('acris-store-groups.detail.fieldTitleLabelInternalId')"
+                                   :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderInternalId')">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_content_internal_name %}
+                <sw-text-field v-model="item.internalName"
+                               required
+                               class="acris-store-groups-detail__item_internalName"
+                               :label="$tc('acris-store-groups.detail.fieldTitleLabelInternalName')"
+                               :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextInternalName')"
+                               :placeholder="placeholder(item, 'internalName', $tc('acris-store-groups.detail.fieldTitlePlaceholderInternalName'))">
+                </sw-text-field>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_content_name %}
+                <sw-text-field v-model="item.name"
+                               required
+                               class="acris-store-groups-detail__item_name"
+                               :label="$tc('acris-store-groups.detail.fieldTitleLabelName')"
+                               :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextName')"
+                               :placeholder="placeholder(item, 'name', $tc('acris-store-groups.detail.fieldTitlePlaceholderName'))">
+                </sw-text-field>
+                {% endblock %}
+
+            </sw-container>
+            {% endblock %}
+
+            {% block acris_store_groups_detail_content_container_data_boolean_fields %}
+            <sw-container columns="1fr 1fr 1fr 1fr 1fr" gap="0px 30px">
+                {% block acris_store_groups_detail_content_active_checkbox_select %}
+                <sw-field v-model="item.active"
+                          type="switch"
+                          class="acris-store-groups-detail__item_active"
+                          :label="$tc('acris-store-groups.detail.fieldTitleLabelActive')"
+                          :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextActive')">
+                </sw-field>
+                {% endblock %}
+            </sw-container>
+            {% endblock %}
+
+            {% block acris_store_groups_detail_content_position %}
+            <sw-select-field
+                :label="$tc('acris-store-groups.detail.inputPositionLabel')"
+                :helpText="$tc('acris-store-groups.detail.inputPositionHelpText')"
+                :placeholder="$tc('acris-store-groups.detail.inputPositionPlaceholder')"
+                required
+                v-model="item.position">
+                <option v-for="option in positions"
+                        :key="option.value"
+                        :value="option.value">
+                    {{ option.label }}
+                </option>
+            </sw-select-field>
+            {% endblock %}
+
+            {% block acris_store_groups_detail_content_container_data_boolean_fields_display %}
+                <sw-container columns="1fr 1fr" class="acris-store-groups-detail-boolean-field-info-text" gap="0px 30px">
+                    {% block acris_store_groups_detail_content_display_below_map_checkbox_select %}
+                        <sw-field v-model="item.displayBelowMap"
+                                  type="switch"
+                                  class="acris-store-groups-detail__item_display_below_map"
+                                  :label="$tc('acris-store-groups.detail.fieldTitleLabelDisplayBelowMap')"
+                                  :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextDisplayBelowMap')">
+                        </sw-field>
+                    {% endblock %}
+
+                    {% block acris_store_groups_detail_content_display_detail_checkbox_select %}
+                        <sw-field v-model="item.displayDetail"
+                                  type="switch"
+                                  class="acris-store-groups-detail__item_display_detail"
+                                  :label="$tc('acris-store-groups.detail.fieldTitleLabelDisplayDetail')"
+                                  :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextDisplayDetail')">
+                        </sw-field>
+                    {% endblock %}
+                </sw-container>
+            {% endblock %}
+
+            {% block acris_store_groups_detail_content_priority %}
+            <sw-number-field v-model="item.priority"
+                             numberType="float"
+                             :min="0"
+                             class="acris-store-groups-detail__item_priority"
+                             :label="$tc('acris-store-groups.detail.fieldTitleLabelPriority')"
+                             :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextPriority')"
+                             :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderPriority')">
+            </sw-number-field>
+            {% endblock %}
+
+            {% block acris_store_groups_detail_content_group_zoom_factor %}
+            <sw-number-field v-model="item.groupZoomFactor"
+                             numberType="float"
+                             :min="0"
+                             :max="10"
+                             class="acris-store-groups-detail__item_group_zoom_factor"
+                             :label="$tc('acris-store-groups.detail.fieldTitleLabelGroupZoomFactor')"
+                             :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextGroupZoomFactor')"
+                             :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderGroupZoomFactor')">
+            </sw-number-field>
+            {% endblock %}
+
+            {% block acris_store_groups_detail_content_field_list %}
+                <sw-multi-select
+                    v-if="item.displayBelowMap === true"
+                    :label="$tc('acris-store-groups.detail.inputFieldListLabel')"
+                    :helpText="$tc('acris-store-groups.detail.inputFieldListHelpText')"
+                    :placeholder="$tc('acris-store-groups.detail.inputFieldListPlaceholder')"
+                    :options="fieldList"
+                    required
+                    v-model="item.fieldList">
+                </sw-multi-select>
+                <sw-multi-select
+                    v-else
+                    :label="$tc('acris-store-groups.detail.inputFieldListLabel')"
+                    :helpText="$tc('acris-store-groups.detail.inputFieldListHelpText')"
+                    :placeholder="$tc('acris-store-groups.detail.inputFieldListPlaceholder')"
+                    :options="fieldList"
+                    v-model="item.fieldList">
+                </sw-multi-select>
+            {% endblock %}
+
+        </sw-card>
+        {% endblock %}
+
+        {% block acris_store_groups_detail_content_card_store_group_image %}
+            <sw-card :isLoading="isLoading" v-if="item"
+                     :title="$tc('acris-store-groups.detail.cardStoreGroupImage')">
+
+                {% block acris_store_groups_detail_image_card_image %}
+                    <sw-upload-listener
+                        :uploadTag="uploadTag"
+                        autoUpload
+                        @media-upload-finish="setMediaItem">
+                    </sw-upload-listener>
+                    <sw-media-upload-v2
+                        variant="regular"
+                        class="acris-store-groups-detail__image-upload"
+                        :uploadTag="uploadTag"
+                        :source="mediaItem"
+                        :allowMultiSelect="false"
+                        :label="$tc('acris-store-groups.detail.labelUploadMedia')"
+                        :defaultFolder="item.pageEntityName"
+                        :sourceContext="item"
+                        @media-drop="onDropMedia"
+                        @media-upload-sidebar-open="onOpenMediaModal"
+                        @media-upload-remove-image="onUnlinkAvatar">
+                    </sw-media-upload-v2>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_media_modal %}
+                    <sw-media-modal-v2
+                        variant="regular"
+                        v-if="mediaModalIsOpen"
+                        :caption="$tc('acris-store-groups.detail.mediaUpload')"
+                        :entityContext="item.entityName"
+                        :allowMultiSelect="false"
+                        :allowMultiSelect="false"
+                        :initialFolderId="item.defaultMediaFolderId"
+                        @media-upload-remove-image="onUnlinkAvatar"
+                        @media-modal-selection-change="onSelectionChanges"
+                        @modal-close="onCloseModal">
+                    </sw-media-modal-v2>
+                {% endblock %}
+
+            </sw-card>
+        {% endblock %}
+
+
+        {% block acris_store_groups_detail_content_card_store_group_icon %}
+            <sw-card :isLoading="isLoading" v-if="item"
+                     :title="$tc('acris-store-groups.detail.cardStoreGroupIcon')">
+
+                {% block acris_store_groups_detail_icon_card_image %}
+                    <sw-upload-listener
+                        :uploadTag="uploadTagIcon"
+                        autoUpload
+                        @media-upload-finish="setMediaItemIcon">
+                    </sw-upload-listener>
+                    <sw-media-upload-v2
+                        variant="regular"
+                        class="acris-store-groups-detail__image-upload"
+                        :uploadTag="uploadTagIcon"
+                        :source="mediaItemIcon"
+                        :allowMultiSelect="false"
+                        :label="$tc('acris-store-groups.detail.labelUploadIcon')"
+                        :defaultFolder="item.pageEntityName"
+                        :sourceContext="item"
+                        @media-drop="onDropMediaIcon"
+                        @media-upload-sidebar-open="onOpenMediaModalIcon"
+                        @media-upload-remove-image="onUnlinkAvatarIcon">
+                    </sw-media-upload-v2>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_media_icon_modal %}
+                    <sw-media-modal-v2
+                        variant="regular"
+                        v-if="mediaModalIsOpenIcon"
+                        :caption="$tc('acris-store-groups.detail.labelUploadIcon')"
+                        :entityContext="item.entityName"
+                        :allowMultiSelect="false"
+                        :allowMultiSelect="false"
+                        :initialFolderId="item.defaultMediaFolderId"
+                        @media-upload-remove-image="onUnlinkAvatarIcon"
+                        @media-modal-selection-change="onSelectionChangesIcon"
+                        @modal-close="onCloseModalIcon">
+                    </sw-media-modal-v2>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_content_container_icon_data %}
+                    <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+
+                        {% block acris_store_groups_detail_content_icon_width %}
+                            <sw-number-field v-model="item.iconWidth"
+                                             numberType="int"
+                                             :min="0"
+                                             class="acris-store-groups-detail__item_icon_width"
+                                             :label="$tc('acris-store-groups.detail.fieldTitleLabelIconWidth')"
+                                             :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextIconWidth')"
+                                             :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderIconWidth')">
+                            </sw-number-field>
+                        {% endblock %}
+
+                        {% block acris_store_groups_detail_content_icon_height %}
+                            <sw-number-field v-model="item.iconHeight"
+                                             numberType="int"
+                                             :min="0"
+                                             class="acris-store-groups-detail__item_icon_height"
+                                             :label="$tc('acris-store-groups.detail.fieldTitleLabelIconHeight')"
+                                             :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextIconHeight')"
+                                             :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderIconHeight')">
+                            </sw-number-field>
+                        {% endblock %}
+
+                        {% block acris_store_groups_detail_content_icon_acnhor_left %}
+                            <sw-number-field v-model="item.iconAnchorLeft"
+                                             numberType="int"
+                                             :min="0"
+                                             class="acris-store-groups-detail__item_icon_anchor_left"
+                                             :label="$tc('acris-store-groups.detail.fieldTitleLabelIconAnchorLeft')"
+                                             :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextIconAnchorLeft')"
+                                             :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderIconAnchorLeft')">
+                            </sw-number-field>
+                        {% endblock %}
+
+                        {% block acris_store_groups_detail_content_icon_acnhor_right %}
+                            <sw-number-field v-model="item.iconAnchorRight"
+                                             numberType="int"
+                                             :min="0"
+                                             class="acris-store-groups-detail__item_icon_anchor_right"
+                                             :label="$tc('acris-store-groups.detail.fieldTitleLabelIconAnchorRight')"
+                                             :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextIconAnchorRight')"
+                                             :placeholder="$tc('acris-store-groups.detail.fieldTitlePlaceholderIconAnchorRight')">
+                            </sw-number-field>
+                        {% endblock %}
+
+                    </sw-container>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+
+        {% block acris_store_groups_detail_content_card_seo %}
+            <sw-card :isLoading="isLoading" v-if="item"
+                     :title="$tc('acris-store-groups.detail.cardSeo')">
+
+                {% block acris_store_groups_detail_content_look_seo_url %}
+                    <sw-text-field v-model="item.seoUrl"
+                                   class="acris-store-groups-detail__item_seo_url"
+                                   :label="$tc('acris-store-groups.detail.fieldTitleLabelSeoUrl')"
+                                   :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextSeoUrl')"
+                                   :placeholder="placeholder(item, 'seoUrl', $tc('acris-store-groups.detail.fieldTitlePlaceholderSeoUrl'))">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_content_look_meta_title %}
+                    <sw-text-field v-model="item.metaTitle"
+                                   class="acris-store-groups-detail__item_meta_title"
+                                   :label="$tc('acris-store-groups.detail.fieldTitleLabelMetaTitle')"
+                                   :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextMetaTitle')"
+                                   :placeholder="placeholder(item, 'metaTitle', $tc('acris-store-groups.detail.fieldTitlePlaceholderMetaTitle'))">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block acris_store_groups_detail_content_look_meta_description %}
+                    <sw-text-field v-model="item.metaDescription"
+                                   class="acris-store-groups-detail__item_meta_description"
+                                   :label="$tc('acris-store-groups.detail.fieldTitleLabelMetaDescription')"
+                                   :helpText="$tc('acris-store-groups.detail.fieldTitleHelpTextMetaDescription')"
+                                   :placeholder="placeholder(item, 'metaDescription', $tc('acris-store-groups.detail.fieldTitlePlaceholderMetaDescription'))">
+                    </sw-text-field>
+                {% endblock %}
+
+            </sw-card>
+        {% endblock %}
+
+    </sw-card-view>
+    {% endblock %}
+
+</sw-page>
+{% endblock %}

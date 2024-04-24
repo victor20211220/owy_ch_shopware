@@ -1,0 +1,68 @@
+{
+    "frosh-mail-archive": {
+        "title": "Mail Archive",
+        "list": {
+            "columns": {
+                "sentDate": "Sent date",
+                "subject": "Subject",
+                "receiver": "Recipients",
+                "action": "Show",
+                "transportFailed": "Mail delivery failed."
+            },
+            "sidebar": {
+                "refresh": "Refresh",
+                "filter": "Filter",
+                "filters": {
+                    "search": "Search",
+                    "customer": "Customer",
+                    "salesChannel": "Sales Channel",
+                    "resetFilter": "Reset filter"
+                }
+            }
+        },
+        "detail": {
+            "toolbar": {
+                "customer": "Open customer",
+                "resend": "Resend mail",
+                "downloadEml": "Download mail"
+            },
+            "metadata": {
+                "title": "Metadata",
+                "sentDate": "Sent date",
+                "sender": "Sender",
+                "receiver": "Recipients",
+                "subject": "Subject",
+                "salesChannel": "Sales Channel"
+            },
+            "content": {
+                "title": "Content"
+            },
+            "alert": {
+                "transportFailed": "Mail delivery failed. Please check mailer settings and try again."
+            },
+            "resend-success-notification": {
+                "message": "Mail dispatch has started.",
+                "title": "Mail Archive"
+            },
+            "resend-error-notification": {
+                "title": "Mail Archive",
+                "message": "Mail could not be delivered"
+            },
+            "resend-grid": {
+                "navigate": "Show",
+                "success-label": "success",
+                "failed-label": "failed",
+                "column-created-at": "Sent at",
+                "column-state": "State",
+                "currently-selected": "this",
+                "title": "Resend history",
+              "pending-label": "pending",
+              "unknown-label": "unknown"
+            }
+        },
+        "missingMigration": {
+            "title": "FroshMailArchive must be migrated",
+            "description": "We have optimized the stored emails. These should be stored on the file system instead of the database.<br>Please migrate the mails via CLI with the command:<br> bin/console frosh:mailarchive:migrate"
+        }
+    }
+}

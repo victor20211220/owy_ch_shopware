@@ -1,0 +1,24 @@
+@import "~scss/variables";
+@import "../../../../scss/acris-variables";
+
+.sw-cms-preview-acris-store-locator-page-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 15px;
+    position: relative;
+    align-items: center;
+
+    //.acris-store-locator-page-image-topline {
+    //    font-size: 11px;
+    //}
+    //
+    //.acris-store-locator-page-image-headline {
+    //    margin-bottom: 0;
+    //    font-size: 14px;
+    //}
+    //
+    //.acris-store-locator-page-image-subheadline {
+    //    font-size: 12px;
+    //}
+}

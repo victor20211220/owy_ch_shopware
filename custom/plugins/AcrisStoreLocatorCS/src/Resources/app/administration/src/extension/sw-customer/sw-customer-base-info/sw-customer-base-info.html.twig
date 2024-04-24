@@ -1,0 +1,7 @@
+{% block sw_customer_base_metadata_campaign %}
+    {% parent %}
+    <sw-description-list v-if="acrisStore">
+        <dt>{{ $tc('acris-store-locator-customer.labelMyStore') }}</dt>
+        <dd>{{ storeData }}</dd>
+    </sw-description-list>
+{% endblock %}

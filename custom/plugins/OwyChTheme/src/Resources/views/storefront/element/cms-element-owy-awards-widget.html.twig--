@@ -1,0 +1,371 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set generalheading = config.generalheading.value %}
+
+    {% set award1image1 = config.award1image1.value %}
+    {% set award1title1 = config.award1title1.value %}
+    {% set award1desc = config.award1desc.value %}
+    {% set award1image2 = config.award1image2.value %}
+    {% set award1title3 = config.award1title3.value %}
+    {% set award1title4 = config.award1title4.value %}
+
+    {% if award1image1 %}
+        {% set mediaCollection = searchMedia([award1image1], context.context) %}
+        {% set award1Img1 = mediaCollection.get(award1image1).url %}
+    {% else %}
+        {% set award1Img1 = '' %}
+    {% endif %}
+
+    {% if award1image2 %}
+        {% set mediaCollection = searchMedia([award1image2], context.context) %}
+        {% set award1Img2 = mediaCollection.get(award1image2).url %}
+    {% else %}
+        {% set award1Img2 = '' %}
+    {% endif %}
+
+
+    <!-- Award 2 -->
+    {% set award2image1 = config.award2image1.value %}
+    {% set award2title1 = config.award2title1.value %}
+    {% set award2desc = config.award2desc.value %}
+    {% set award2image2 = config.award2image2.value %}
+    {% set award2title3 = config.award2title3.value %}
+    {% set award2title4 = config.award2title4.value %}
+
+    {% if award2image1 %}
+        {% set mediaCollection = searchMedia([award2image1], context.context) %}
+        {% set award2Img1 = mediaCollection.get(award2image1).url %}
+    {% else %}
+        {% set award2Img1 = '' %}
+    {% endif %}
+
+    {% if award2image2 %}
+        {% set mediaCollection = searchMedia([award2image2], context.context) %}
+        {% set award2Img2 = mediaCollection.get(award2image2).url %}
+    {% else %}
+        {% set award2Img2 = '' %}
+    {% endif %}
+
+
+    <!-- Award 3 -->
+    {% set award3image1 = config.award3image1.value %}
+    {% set award3title1 = config.award3title1.value %}
+    {% set award3desc = config.award3desc.value %}
+    {% set award3image2 = config.award3image2.value %}
+    {% set award3title3 = config.award3title3.value %}
+    {% set award3title4 = config.award3title4.value %}
+
+    {% if award3image1 %}
+        {% set mediaCollection = searchMedia([award3image1], context.context) %}
+        {% set award3Img1 = mediaCollection.get(award3image1).url %}
+    {% else %}
+        {% set award3Img1 = '' %}
+    {% endif %}
+
+    {% if award3image2 %}
+        {% set mediaCollection = searchMedia([award3image2], context.context) %}
+        {% set award3Img2 = mediaCollection.get(award3image2).url %}
+    {% else %}
+        {% set award3Img2 = '' %}
+    {% endif %}
+
+    <!-- Award 4 -->
+    {% set award4image1 = config.award4image1.value %}
+    {% set award4title1 = config.award4title1.value %}
+    {% set award4desc = config.award4desc.value %}
+    {% set award4image2 = config.award4image2.value %}
+    {% set award4title3 = config.award4title3.value %}
+    {% set award4title4 = config.award4title4.value %}
+
+    {% if award4image1 %}
+        {% set mediaCollection = searchMedia([award4image1], context.context) %}
+        {% set award4Img1 = mediaCollection.get(award4image1).url %}
+    {% else %}
+        {% set award4Img1 = '' %}
+    {% endif %}
+
+    {% if award4image2 %}
+        {% set mediaCollection = searchMedia([award4image2], context.context) %}
+        {% set award4Img2 = mediaCollection.get(award4image2).url %}
+    {% else %}
+        {% set award4Img2 = '' %}
+    {% endif %}
+
+
+    <!-- Award 5 -->
+    {% set award5image1 = config.award5image1.value %}
+    {% set award5title1 = config.award5title1.value %}
+    {% set award5desc = config.award5desc.value %}
+    {% set award5image2 = config.award5image2.value %}
+    {% set award5title3 = config.award5title3.value %}
+    {% set award5title4 = config.award5title4.value %}
+
+    {% if award5image1 %}
+        {% set mediaCollection = searchMedia([award5image1], context.context) %}
+        {% set award5Img1 = mediaCollection.get(award5image1).url %}
+    {% else %}
+        {% set award5Img1 = '' %}
+    {% endif %}
+
+    {% if award5image2 %}
+        {% set mediaCollection = searchMedia([award5image2], context.context) %}
+        {% set award5Img2 = mediaCollection.get(award5image2).url %}
+    {% else %}
+        {% set award5Img2 = '' %}
+    {% endif %}
+
+
+    <div>
+        {% if generalheading %}
+            <h2 class="shoptitle" style="border-bottom: none;">{{ "OwyChTheme.widgets.awards.label"|trans }}</h2>
+        {% endif %}
+
+        <!-- Award 1 -->
+        {% if award1image1 %}
+            <div class="row awards-warraper">
+
+                <div class="col-xs-12 col-sm-4  col-md-3 productimage-container">
+                    <picture>
+                        <img class="img-fluid" src="{{ award1Img1 }}" alt="Award 1" width="" height="">
+                    </picture>
+                </div>
+
+            <div class="col-xs-12  col-sm-8  col-md-9">
+                {% if award1title1 ||award1desc %}
+                    <div class="row">
+                        <div class="col-12 details">
+                            {% if award1title1 %}
+                                <h2>
+                                   {{ award1title1 }}
+                                </h2>
+                            {% endif %}
+                            {% if award1desc %}
+                                <p>
+                                    {{ award1desc }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    {% if award1image2 %}
+                        <div class="col-sm-4 col-md-3">
+                            <picture>
+                                <img class="img-fluid" src="{{ award1Img2 }}" alt="Award 1 Image 2" width="" height="">
+                            </picture>
+                        </div>
+                    {% endif %}
+                    {% if award1title3 || award1title4 %}
+                        <div class="col-md-9 col-sm-8 padleft0">
+                            {% if award1title3 %}
+                                <div class="events">{{ award1title3 }} </div>
+                            {% endif %}
+                            {% if award1title4 %}
+                                <div class="events">{{ award1title4 }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Award 2 -->
+        {% if award2image1 %}
+            <div class="row awards-warraper">
+
+                <div class="col-xs-12 col-sm-4  col-md-3 productimage-container">
+                    <picture>
+                        <img class="img-fluid" src="{{ award2Img1 }}" alt="Award 2" width="" height="">
+                    </picture>
+                </div>
+
+            <div class="col-xs-12  col-sm-8  col-md-9">
+                {% if award2title1 ||award2desc %}
+                    <div class="row">
+                        <div class="col-12 details">
+                            {% if award2title1 %}
+                                <h2>
+                                    {{ award2title1 }}
+                                </h2>
+                            {% endif %}
+                            {% if award2desc %}
+                                <p>
+                                    {{ award2desc }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    {% if award2image2 %}
+                         <div class="col-sm-4 col-md-3">
+                            <picture>
+                                <img class="img-fluid" src="{{ award2Img2 }}" alt="Award 2 Image 2" width="" height="">
+                            </picture>
+                        </div>
+                    {% endif %}
+                    {% if award2title3 || award2title4 %}
+                        <div class="col-md-9 col-sm-8 padleft0">
+                            {% if award1title3 %}
+                                <div class="events">{{ award2title3 }} </div>
+                            {% endif %}
+                            {% if award1title4 %}
+                                <div class="events">{{ award2title4 }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Award 3 -->
+        {% if award3image1 %}
+            <div class="row awards-warraper">
+                <div class="col-xs-12 col-sm-4  col-md-3 productimage-container">
+                    <picture>
+                        <img class="img-fluid" src="{{ award3Img1 }}" alt="Award 3" width="" height="">
+                    </picture>
+                </div>
+
+            <div class="col-xs-12  col-sm-8  col-md-9">
+                {% if award3title1 ||award3desc %}
+                    <div class="row">
+                        <div class="col-12 details">
+                            {% if award3title1 %}
+                                <h2>
+                                    {{ award3title1 }}
+                                </h2>
+                            {% endif %}
+                            {% if award3desc %}
+                                <p>
+                                    {{ award3desc }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    {% if award3image2 %}
+                        <div class="col-sm-4 col-md-3">
+                            <picture>
+                                <img class="img-fluid" src="{{ award3Img2 }}" alt="Award 3 Image 2" width="" height="">
+                            </picture>
+                        </div>
+                    {% endif %}
+                    {% if award3title3 || award3title4 %}
+                        <div class="col-md-9 col-sm-8 padleft0">
+                            {% if award3title3 %}
+                                <div class="events">{{ award3title3 }} </div>
+                            {% endif %}
+                            {% if award1title4 %}
+                                <div class="events">{{ award3title4 }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Award 4 -->
+        {% if award4image1 %}
+            <div class="row awards-warraper">
+                <div class="col-xs-12 col-sm-4  col-md-3 productimage-container">
+                    <picture>
+                        <img class="img-fluid" src="{{ award4Img1 }}" alt="Award 4" width="" height="">
+                    </picture>
+                </div>
+
+            <div class="col-xs-12  col-sm-8  col-md-9">
+                {% if award4title1 ||award4desc %}
+                    <div class="row">
+                        <div class="col-12 details">
+                            {% if award4title1 %}
+                                <h2>
+                                    {{ award4title1 }}
+                                </h2>
+                            {% endif %}
+                            {% if award4desc %}
+                                <p>
+                                    {{ award4desc }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    {% if award4image2 %}
+                         <div class="col-sm-4 col-md-3">
+                            <picture>
+                                <img class="img-fluid" src="{{ award4Img2 }}" alt="Award 4 Image 2" width="" height="">
+                            </picture>
+                        </div>
+                    {% endif %}
+                    {% if award4title3 || award4title4 %}
+                        <div class="col-md-9 col-sm-8 padleft0">
+                            {% if award4title3 %}
+                                <div class="events">{{ award4title3 }} </div>
+                            {% endif %}
+                            {% if award4title4 %}
+                                <div class="events">{{ award4title4 }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Award 5 -->
+        {% if award5image1 %}
+            <div class="row awards-warraper">
+
+                <div class="col-xs-12 col-sm-4  col-md-3 productimage-container">
+                    <picture>
+                        <img class="img-fluid" src="{{ award5Img1 }}" alt="Award 5" width="" height="">
+                    </picture>
+                </div>
+
+            <div class="col-xs-12  col-sm-8  col-md-9">
+                {% if award5title1 ||award5desc %}
+                    <div class="row">
+                        <div class="col-12 details">
+                            {% if award5title1 %}
+                                <h2>
+                                    {{ award5title1 }}
+                                </h2>
+                            {% endif %}
+                            {% if award5desc %}
+                                <p>
+                                    {{ award5desc }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    {% if award5image2 %}
+                         <div class="col-sm-4 col-md-3">
+                            <picture>
+                                <img class="img-fluid" src="{{ award5Img2 }}" alt="Award 5 Image 2" width="" height="">
+                            </picture>
+                        </div>
+                    {% endif %}
+                    {% if award5title3 || award5title4 %}
+                        <div class="col-md-9 col-sm-8 padleft0">
+                            {% if award1title3 %}
+                                <div class="events">{{ award5title3 }} </div>
+                            {% endif %}
+                            {% if award1title4 %}
+                                <div class="events">{{ award5title4 }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

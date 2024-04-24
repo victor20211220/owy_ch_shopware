@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+        <service id="ott_selectline_import.logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">ott_import</argument>
+        </service>
+
+        <!-- Entity -->
+        <service id="Ott\SelectlineImport\Dbal\Entity\ImportMessageDefinition">
+            <tag name="shopware.entity.definition" entity="import_message" />
+        </service>
+
+        <!-- Command -->
+        <service id="Ott\SelectlineImport\Command\ParseFileCommand">
+            <argument type="service" id="Ott\SelectlineImport\Service\ImportMessageManager" />
+            <argument type="service" id="Ott\Base\FileHelper\CsvHelper" />
+            <tag name="console.command"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\Command\ImportMessageCommand">
+            <argument type="service" id="Ott\SelectlineImport\ImportTypeProcessor\ImportTypeProcessorFactory" />
+            <argument type="service" id="Ott\SelectlineImport\Service\ImportMessageManager" />
+            <argument type="service" id="Ott\SelectlineImport\Gateway\ImportExtensionGateway"/>
+            <tag name="console.command"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\Command\ImportPictureMessageCommand">
+            <argument type="service" id="Ott\SelectlineImport\ImportTypeProcessor\PictureImportProcessor" />
+            <argument type="service" id="Ott\SelectlineImport\Service\ImportPictureMessageManager" />
+            <argument type="service" id="Ott\SelectlineImport\Gateway\ImportExtensionGateway"/>
+            <tag name="console.command"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\Command\DeleteProductsCommand">
+            <argument type="service" id="Ott\SelectlineImport\Gateway\ImportExtensionGateway"/>
+            <tag name="console.command"/>
+        </service>
+
+        <!-- Service -->
+        <service id="Ott\SelectlineImport\Service\ImportMessageManager">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="import_message.repository"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\Service\ImportPictureMessageManager">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\Gateway\ImportExtensionGateway">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
+
+        <!-- Processors -->
+        <service id="Ott\SelectlineImport\ImportTypeProcessor\SelectlineImportProcessor">
+            <argument type="service" id="Ott\Base\Import\ImportService"/>
+            <argument type="service" id="Ott\Base\Import\Module\ProductModule"/>
+            <argument type="service" id="Ott\Base\Service\MediaHelper"/>
+            <argument type="service" id="Ott\SelectlineImport\Gateway\ImportExtensionGateway"/>
+            <argument type="service" id="Ott\Base\Import\Module\CustomerModule"/>
+            <argument type="service" id="ott_selectline_import.logger"/>
+            <argument type="service" id="Ott\SelectlineImport\Service\ImportPictureMessageManager"/>
+
+            <tag name="ott.selectline_import_processor"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\ImportTypeProcessor\CustomerImportProcessor">
+            <argument type="service" id="Ott\Base\Import\ImportService"/>
+            <argument type="service" id="Ott\Base\Import\Module\ProductModule"/>
+            <argument type="service" id="Ott\Base\Service\MediaHelper"/>
+            <argument type="service" id="Ott\SelectlineImport\Gateway\ImportExtensionGateway"/>
+            <argument type="service" id="Ott\Base\Import\Module\CustomerModule"/>
+            <argument type="service" id="ott_selectline_import.logger"/>
+            <argument type="service" id="Ott\SelectlineImport\Service\ImportPictureMessageManager"/>
+
+            <tag name="ott.selectline_import_processor"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\ImportTypeProcessor\PictureImportProcessor">
+            <argument type="service" id="Ott\Base\Import\ImportService"/>
+            <argument type="service" id="Ott\Base\Import\Module\ProductModule"/>
+            <argument type="service" id="Ott\Base\Service\MediaHelper"/>
+            <argument type="service" id="Ott\SelectlineImport\Gateway\ImportExtensionGateway"/>
+            <argument type="service" id="Ott\Base\Import\Module\CustomerModule"/>
+            <argument type="service" id="ott_selectline_import.logger"/>
+            <argument type="service" id="Ott\SelectlineImport\Service\ImportPictureMessageManager"/>
+        </service>
+
+        <service id="Ott\SelectlineImport\ImportTypeProcessor\ImportTypeProcessorFactory">
+            <argument type="service" id="service_container"/>
+            <argument key="$processors" type="string">%ott.selectline_import_processors%</argument>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,73 @@
+{% block rental_products_calendar %}
+    <div class="rental-calendar-form"
+         xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+        {%  block rental_calendar_toolbar %}
+            <div class="rental-calendar-toolbar">
+
+                {% block rental_calendar_block_dates %}
+                    <sw-button size="small" @click="showBlockModal = createNewEvent()">
+				        {{ $tc('rental-calendar-form.create-block-modal.header') }}
+			        </sw-button>
+                {% endblock %}
+
+                {% block rental_calendar_current_date %}
+                    <div class="calendar-current-date">
+                        <span class="calendar-current-date-text">
+                            {{ $t('rental-calendar-form.headers.months.' + displayDate.month) }}
+                            {{ displayDate.year }}
+                        </span>
+                    </div>
+                {% endblock %}
+
+                {% block rental_calendar_month_selection %}
+                    <div class="calendar-month-selection">
+                        <span class="calendar-month-selection-left" @click="onChangeMonth(-1)">
+                            <sw-icon name="regular-chevron-left" color="#52667A"></sw-icon>
+                        </span>
+                        <span class="calendar-month-selection-right" @click="onChangeMonth(1)">
+                            <sw-icon name="regular-chevron-right" color="#52667A"></sw-icon>
+                        </span>
+                    </div>
+                {% endblock %}
+
+            </div>
+        {% endblock %}
+
+        {%  block rental_calendar_body %}
+            <div class="rental-calendar-body">
+                <div class="calendar-week-header">
+
+                    {% block rental_calendar_week_header_days %}
+                        <div v-for="index in 7" :key="index" class="calendar-week-header-day" :class="{'is-first-day': index == 1, 'is-last-day': index == 7, 'is-current-day': displayDate.weekDay === index}">
+		                    {{ $tc('rental-calendar-form.headers.days.' + index) }}
+	                    </div>
+                    {% endblock %}
+                </div>
+
+                {% block rental_calendar_weeks %}
+                    <div
+                        v-for="(calendarWeek, weekIndex) in monthData"
+                        class="calendar-week"
+                        :class="{ 'is-last-week': 5 === weekIndex }">
+                        <rental-calendar-day v-for="(day, dayIndex) in calendarWeek" :day="day" :events="getDayEvents(day)" :weekday="dayIndex" :event-show-count="eventShowCount" @open-block-modal="openBlockModal" @mouse-over="onEventMouseOver" @mouse-leave="onEventMouseLeave" />
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block rental_calendar_modals %}
+            <rental-calendar-block-modal
+                v-if="showBlockModal"
+                :event="showBlockModal"
+                :max-value="blockModalMaxQuantity"
+                @modal-change="calculateBlockModalMaxQuantity"
+                @modal-close="onCloseBlockModal"
+                @delete-block="onDeleteBlock"
+                @save-block="onSaveBlock"/>
+        {% endblock %}
+
+    </div>
+{% endblock %}
+
+

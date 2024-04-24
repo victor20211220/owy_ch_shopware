@@ -1,0 +1,8 @@
+{
+    "rental-deposit-form": {
+        "depositPriceFieldHeadline": "Deposit (net)",
+        "depositPriceHelptext": "Deposit help",
+        "depositPriceField": "Enter the deposit amount in net here",
+        "depositCurrencyDependantLink": "Currency dependant prices"
+    }
+}

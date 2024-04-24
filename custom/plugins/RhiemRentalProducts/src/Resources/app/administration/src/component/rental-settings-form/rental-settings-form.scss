@@ -1,0 +1,53 @@
+.rental-settings-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .rental-settings-form-mode-dropdown h3,
+    .rental-settings-form-mode-dropdown div {
+        display: none;
+    }
+
+    .rental-settings-form-mode-dropdown,
+    .rental-settings-form-switches,
+    .rental-settings-form-buffer,
+    .rental-settings-form-offset {
+        padding: 10px;
+    }
+
+    .rental-settings-form-switches {
+        //display: grid;
+        //grid-template-rows: 1fr 1fr 1fr;
+
+        .rental-settings-form-switches-active {
+            display: flex;
+            //grid-row: 2;
+
+            .rental-settings-form-switch_field_active{
+                padding-right: 10px;
+            }
+        }
+
+        .rental-settings-form-switches-buyable {
+            //display: flex;
+            //justify-content: flex-end;
+            //grid-row: 3;
+        }
+
+        .rental-settings-form-switch_field_active,
+        .rental-settings-form-switch_field_buyable {
+            display: inline-flex;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .rental-settings-form-buffer_headline,
+    .rental-settings-form-offset_headline,
+    .rental-settings-form-active_headline{
+        display: flex;
+
+        h3 {
+            margin-right: 10px;
+        }
+    }
+}

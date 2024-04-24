@@ -1,0 +1,245 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+{% block page_product_detail_buy_inner %}
+	<div class="js-magnifier-zoom-image-container">
+		{% block page_product_detail_rich_snippets %}
+			{% block page_product_detail_rich_snippets_brand %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_gtin13 %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_mpn %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_weight %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_height %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_width %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_depth %}
+				{{ parent() }}
+			{% endblock %}
+
+			{% block page_product_detail_rich_snippets_release_date %}
+				{{ parent() }}
+			{% endblock %}
+		{% endblock %}
+
+
+		{% block page_product_detail_buy_container %}
+			<div itemprop="offers" itemscope itemtype="{% if page.product.calculatedPrices|length > 1 %}http://schema.org/AggregateOffer{% else %}http://schema.org/Offer{% endif %}">
+				{% block page_product_detail_data %}
+					{% block page_product_detail_data_rich_snippet_url %}
+						{{ parent() }}
+					{% endblock %}
+
+					{% block page_product_detail_data_rich_snippet_price_range %}
+						{{ parent() }}
+					{% endblock %}
+
+					{% block page_product_detail_data_rich_snippet_price_currency %}
+						{{ parent() }}
+					{% endblock %}
+					{% block page_product_detail_reviews %}
+						{% if page.product.ratingAverage > 0 and page.reviews.totalReviews > 0 and config('core.listing.showReview') %}
+							<div class="product-detail-reviews">
+
+								{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                                    points: page.product.ratingAverage,
+                                    style: 'text-primary'
+                                } %}
+								<a {{ dataBsToggleAttr }}="tab" class="product-detail-reviews-link" data-offcanvas-tabs="true" data-remote-click="true" data-remote-click-options='{{ remoteClickOptions|json_encode }}' href="#review-tab-pane" aria-controls="review-tab-pane">
+									{{ page.reviews.totalReviews }}
+									{{ "detail.reviewLinkText"|trans({'%count%': page.reviews.totalReviews})|sw_sanitize }}
+								</a>
+							</div>
+						{% endif %}
+						<div class="artikelnumber"> {{ 'OwyChTheme.listing.product.article' |trans |sw_sanitize}}
+							{{ page.product.productNumber }}
+						</div>
+					{% endblock %}
+					{% block page_product_detail_price %}
+						<div class="product-detail-price-container">
+                            {% if context.taxState == 'gross' %}
+								<div class="pricetitle">
+                                    {{ 'OwyChTheme.listing.pricetag.lable' |trans |sw_sanitize}}
+								</div>
+                            {% else %}
+								<div class="pricetitle">
+                                    {{ 'OwyChTheme.listing.pricetag.net' |trans |sw_sanitize}}
+
+								</div>
+                            {% endif %}
+
+							<div class="priceunit">
+								{% sw_include '@Storefront/storefront/page/product-detail/buy-widget-price.html.twig' %}
+							</div>
+						</div>
+					{% endblock %}
+
+					{% block page_product_detail_tax %}{% endblock %}
+
+					{% set remoteClickOptions = {
+                        selector: "#review-tab",
+                        scrollToElement: true
+                    } %}
+
+
+					{% block page_product_detail_delivery_informations %}
+						<div class="product-detail-delivery-information">
+							{% sw_include '@Storefront/storefront/component/delivery-information.html.twig' %}
+						</div>
+					{% endblock %}
+				{% endblock %}
+
+				{% block page_product_detail_configurator_include %}
+					{% if page.product.parentId and page.configuratorSettings|length > 0 %}
+						<div class="product-detail-configurator-container">
+							{% sw_include '@Storefront/storefront/page/product-detail/configurator.html.twig' %}
+						</div>
+					{% endif %}
+				{% endblock %}
+
+				{% block page_product_detail_buy_form %}
+                    <div class="merkliste-box">
+								{% if config('core.cart.wishlistEnabled') %}
+                                    {% block page_product_detail_wishlist %}
+                                        {% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
+                                        showText: true,
+                                        size: 'md',
+                                        productId: page.product.id
+                                    } %}
+                                    {% endblock %}
+                                {% endif %}
+							</div>
+							<div class="vergleichen-box">
+								{# <span class="icon--empty"></span> #}
+								{# <span class="icon--red"></span>  #}
+								{# Vergleichen #}
+
+								<!-- additional work -->
+                                {% set showIconOnly = config('FroshProductCompare.config.showIconOnly') %}
+
+								<div class="compare-button owy_clicked">
+                                    {% set addToCompareOptions = {
+                                        productId: page.product.id,
+                                        showIconOnly: showIconOnly,
+                                        defaultText: "froshProductCompare.general.addToCompare"|trans|sw_sanitize,
+                                        addedText: "froshProductCompare.general.removeFromCompare"|trans|sw_sanitize
+                                    } %}
+
+                                    {% if showIconOnly %}
+										<button data-add-to-compare-button="true"
+												data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+												class="btn-custom compare btn-compare"
+												title="{{ "froshProductCompare.general.addToCompare"|trans|striptags }}">
+
+										<span class="icon--empty"></span> 
+								 		{{ 'OwyChTheme.listing.alerts.lable1' |trans |sw_sanitize}}
+
+										</button>
+                                    {% else %}
+										<button data-add-to-compare-button="true"
+												data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+												class="btn-custom compare btn-compare"
+												title="{{ "froshProductCompare.general.addToCompare"|trans|striptags }}">
+											<span class="icon--empty"></span> 
+								 		{{ 'OwyChTheme.listing.alerts.lable1' |trans |sw_sanitize}}
+
+										</button>
+                                    {% endif %}
+
+								</div>
+
+								<!-- end here -->
+							</div>
+
+
+					<div class="avaliblebox">
+
+                        {% if page.product.stock >= 2 %}
+							<div class="green">
+								<span class="icon--green"></span>  {{ 'OwyChTheme.listing.alerts.lable2' |trans |sw_sanitize}}
+							</div>
+                        {% endif %}
+                        {% if page.product.stock == 1  %}
+							<div class="yellow">
+								<span class="icon--yellow"></span>  {{ 'OwyChTheme.listing.alerts.lable3' |trans |sw_sanitize}}
+							</div>
+                        {% endif %}
+                        {% if page.product.stock <= 0 %}
+							<div class="red">
+								<span class="icon--red-stock"></span>  {{ 'OwyChTheme.listing.alerts.lable4' |trans |sw_sanitize}}
+							</div>
+                        {% endif %}
+
+					</div>
+							
+							{#<div class="avaliblebox">
+								<div class="green">
+									<span class="icon--green"></span>
+									{{ 'OwyChTheme.listing.alerts.lable2' |trans |sw_sanitize}}
+								</div>
+								#}{# <div class="yellow">
+                                        <span class="icon--yellow"></span>
+                                        Knapp verfügbar
+                                   </div>
+                                    <div class="red">
+                                            <span class="icon--red"></span> Nicht verfügbar
+                                    </div> #}{#
+							</div>#}
+					{% if page.product.active %}
+						<div class="product-detail-form-container">
+							{% sw_include '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+						</div>
+					{% endif %}
+				{% endblock %}
+			</div>
+		{% endblock %}
+		<div class="detailbotom-action">
+			{# {% if config('core.cart.wishlistEnabled') %}
+				{% block page_product_detail_wishlist %}
+					{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
+                    showText: true,
+                    size: 'md',
+                    productId: page.product.id
+                } %}
+				{% endblock %}
+			{% endif %} #}
+
+			{% block page_product_detail_ordernumber_container %}
+				{# <div class="comparecontent">
+					<span class="icon compareicon">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewbox="0 0 24 24">
+							<defs>
+								<path d="M20.0139 12.2998c1.8224-1.8224 1.8224-4.7772 0-6.5996-1.8225-1.8225-4.7772-1.8225-6.5997 0L12 7.1144l-1.4142-1.4142c-1.8225-1.8225-4.7772-1.8225-6.5997 0-1.8224 1.8224-1.8224 4.7772 0 6.5996l7.519 7.519a.7.7 0 0 0 .9899 0l7.5189-7.519zm1.4142 1.4142-7.519 7.519c-1.0543 1.0544-2.7639 1.0544-3.8183 0L2.572 13.714c-2.6035-2.6035-2.6035-6.8245 0-9.428 2.6035-2.6035 6.8246-2.6035 9.4281 0 2.6035-2.6035 6.8246-2.6035 9.428 0 2.6036 2.6035 2.6036 6.8245 0 9.428z" id="icons-default-heart"></path>
+							</defs>
+							<use xlink:href="#icons-default-heart" fill="#758CA3" fill-rule="evenodd"></use>
+						</svg>
+					</span>
+					Vergleichen</div>
+				<div class="ratingcontentbox">
+					<span class="icon ratingicon">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewbox="0 0 24 24">
+							<defs>
+								<path d="M20.0139 12.2998c1.8224-1.8224 1.8224-4.7772 0-6.5996-1.8225-1.8225-4.7772-1.8225-6.5997 0L12 7.1144l-1.4142-1.4142c-1.8225-1.8225-4.7772-1.8225-6.5997 0-1.8224 1.8224-1.8224 4.7772 0 6.5996l7.519 7.519a.7.7 0 0 0 .9899 0l7.5189-7.519zm1.4142 1.4142-7.519 7.519c-1.0543 1.0544-2.7639 1.0544-3.8183 0L2.572 13.714c-2.6035-2.6035-2.6035-6.8245 0-9.428 2.6035-2.6035 6.8246-2.6035 9.4281 0 2.6035-2.6035 6.8246-2.6035 9.428 0 2.6036 2.6035 2.6036 6.8245 0 9.428z" id="icons-default-heart"></path>
+							</defs>
+							<use xlink:href="#icons-default-heart" fill="#758CA3" fill-rule="evenodd"></use>
+						</svg>
+					</span>
+					Bewerten
+                </div> #}
+			{% endblock %}
+		</div>
+	</div>
+{% endblock %}

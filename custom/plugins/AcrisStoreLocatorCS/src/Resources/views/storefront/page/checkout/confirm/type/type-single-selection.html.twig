@@ -1,0 +1,39 @@
+{% block confirm_store_single_selection_select %}
+    <select class="form-control"
+            {% if config('AcrisStoreLocatorCS.config').checkoutSelectionRequired %}required="required"{% endif %}
+            placeholder="{{ "checkout.storeLocatorSelection.placeholder"|trans|sw_sanitize }}"
+            id="{{ constant('Acris\\StoreLocator\\Subscriber\\ConfirmPageSubscriber::STORE_LOCATOR_STORE_SELECTION_KEY') }}"
+            form="confirmOrderForm"
+            name="{{ constant('Acris\\StoreLocator\\Subscriber\\ConfirmPageSubscriber::STORE_LOCATOR_STORE_SELECTION_KEY') }}">
+        {% if config('AcrisStoreLocatorCS.config').checkoutSelectionRequired != true %}
+            <option
+                    value="noSelect">
+                {{ "checkout.storeLocatorSelection.optionNoSelect"|trans|sw_sanitize }}
+            </option>
+        {% endif %}
+
+        {% if config('AcrisStoreLocatorCS.config').checkoutSelectionPlaceholder == true %}
+            <option value="">
+                {{ "checkout.storeLocatorSelection.selectionPlaceholder"|trans|sw_sanitize }}
+            </option>
+        {% endif %}
+
+        {% for store in page.extensions.acrisStoreLocatorStores %}
+            <option
+                    value="{{ store.id }}">
+                {% if config('AcrisStoreLocatorCS.config').singleSelectionDisplay == 'optionOne' or config('AcrisStoreLocatorCS.config').singleSelectionDisplay is empty %}
+                    {{ store.translated.name }}
+                {% endif %}
+                {% if config('AcrisStoreLocatorCS.config').singleSelectionDisplay == 'optionTwo' %}
+                    {{ store.translated.name }} - {{ store.street }}, {{ store.zipcode }} {{ store.city }}
+                {% endif %}
+                {% if config('AcrisStoreLocatorCS.config').singleSelectionDisplay == 'optionThree' %}
+                    {{ store.translated.name }} - {{ store.street }}, {{ store.zipcode }} {{ store.city }}, {{ store.country.name }}
+                {% endif %}
+                {% if config('AcrisStoreLocatorCS.config').singleSelectionDisplay == 'optionFour' %}
+                    {{ store.translated.name }} - {{ store.zipcode }} {{ store.city }}
+                {% endif %}
+            </option>
+        {% endfor %}
+    </select>
+{% endblock %}

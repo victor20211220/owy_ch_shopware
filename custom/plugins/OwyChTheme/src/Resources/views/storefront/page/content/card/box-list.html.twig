@@ -1,0 +1,144 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
+
+{% block component_product_box_content %}
+
+	<div class="card-body">
+		{% block component_product_box_badges %}
+			{% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %}
+		{% endblock %}
+
+		{% block component_product_box_image %}
+			<div
+				class="product-image-wrapper">
+				{# fallback if display mode is not set #}
+				{% set displayMode = displayMode ?: 'standard' %}
+
+				{# set display mode 'cover' for box-image with standard display mode #}
+				{% if layout == 'image' and displayMode == 'standard' %}
+					{% set displayMode = 'cover' %}
+				{% endif %}
+
+				<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" title="{{ name }}" class="product-image-link is-{{ displayMode }}">
+					{% if cover.url %}
+						{% set attributes = {
+                            'class': 'product-image is-'~displayMode,
+                            'alt': (cover.translated.alt ?: name),
+                            'title': (cover.translated.title ?: name)
+                        } %}
+
+						{% if displayMode == 'cover' or displayMode == 'contain' %}
+							{% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+						{% endif %}
+
+						{% sw_thumbnails 'product-image-thumbnails' with {
+                            media: cover,
+                            sizes: sizes
+                        } %}
+					{% else %}
+						<div class="product-image-placeholder">
+							{% sw_icon 'placeholder' style {
+                                'size': 'fluid'
+                            } %}
+						</div>
+					{% endif %}
+				</a>
+
+			</div>
+
+		{% endblock %}
+
+		{% block component_product_box_info %}
+			<div class="product-info">
+
+
+				{% block component_product_box_name %}
+					<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ name }}">
+						{{ name }}
+					</a>
+				{% endblock %}
+
+				<div class="product-description">
+					<p>{{ product.translated.description|striptags|raw }}</p>
+				</div>
+
+				{% block component_product_box_variant_characteristics %}{% endblock %}
+
+				{% block component_product_box_price %}
+					{% sw_include '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+				{% endblock %}
+
+				{% block component_product_box_rating %}
+					{% if config('core.listing.showReview') %}
+						{% if product.ratingAverage %}
+							<div class="product-rating">
+								{% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                                    points: product.ratingAverage,
+                                    style: 'text-primary'
+                                } %}
+
+							</div>
+						{% endif %}
+					{% endif %}
+				{% endblock %}
+
+
+				<div class="action-box-wrap">
+					<div class="product--btn-action">
+						<div class="product-action">
+							{% set isAvailable = not product.isCloseout or (product.availableStock >= product.minPurchase) %}
+							{% set displayFrom = product.calculatedPrices.count > 1 %}
+							{% set displayBuyButton = isAvailable and not displayFrom and product.childCount <= 0 %}
+
+							{% if displayBuyButton and config('core.listing.allowBuyInListing') %}
+								{% block component_product_box_action_buy %}
+									{# @var product \Shopware\Core\Content\Product\SalesChannel\SalesChannelProductEntity #}
+									<form action="{{ path('frontend.checkout.line-item.add') }}" method="post" class="buy-widget" data-add-to-cart="true">
+
+
+										{% block component_product_box_action_form %}
+
+											{% block component_product_box_action_buy_redirect_input %}
+												{# fallback redirect back to detail page is deactivated via js #}
+												<input type="hidden" name="redirectTo" value="frontend.detail.page">
+
+												<input type="hidden" name="redirectParameters" data-redirect-parameters="true" value='{"productId": "{{ product.id }}"}'>
+											{% endblock %}
+
+											{% block page_product_detail_buy_product_buy_info %}
+												<input type="hidden" name="lineItems[{{ id }}][id]" value="{{ id }}">
+												<input type="hidden" name="lineItems[{{ id }}][referencedId]" value="{{ id }}">
+												<input type="hidden" name="lineItems[{{ id }}][type]" value="product">
+												<input type="hidden" name="lineItems[{{ id }}][stackable]" value="1">
+												<input type="hidden" name="lineItems[{{ id }}][removable]" value="1">
+												<input type="hidden" name="lineItems[{{ id }}][quantity]" value="{{ product.minPurchase }}">
+											{% endblock %}
+
+											{% block page_product_detail_product_buy_meta %}
+												<input type="hidden" name="product-name" value="{{ product.translated.name }}">
+											{% endblock %}
+
+											{% block page_product_detail_product_buy_button %}
+
+												<button class="btn btn-block btn-buy" title="{{ "listing.boxAddProduct"|trans|striptags }}">
+													{{ "listing.boxAddProduct"|trans|sw_sanitize }}
+												</button>
+
+											{% endblock %}
+										{% endblock %}
+									</form>
+								{% endblock %}
+							{% else %}
+								{% block component_product_box_action_detail %}
+									<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="btn btn-block btn-light" title="{{ "listing.boxProductDetails"|trans|striptags }}">
+										{{ "listing.boxProductDetails"|trans|sw_sanitize }}
+									</a>
+								{% endblock %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endblock %}
+	</div>
+{% endblock %}
+{% block component_product_box_description %}{% endblock %}

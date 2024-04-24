@@ -1,0 +1,56 @@
+
+<div class="dropdown">
+    <button type="button"
+            class="btn dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            data-bs-auto-close="outside" id="wishlist-btn">
+             <span class="header-wishlist-icon">
+																<img src="{{ asset('storefront/assets/images/icons/wishlist.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+																<label> {{ 'OwyChTheme.navigation.shopnav.link3' |trans |sw_sanitize}} </label>
+															</span>
+        {# {% sw_icon 'heart' %} #}
+    </button>
+
+    <div class="dropdown-menu wishlist-login swing-menu animated empty-wishlist-box">
+        {% block utilities_offcanvas_content %}
+            <div class="account-menu">
+                {% block layout_header_actions_account_widget_dropdown_header %}
+                    {% if not context.customer.guest %}
+                        <div class="dropdown-header account-menu-header"></div>
+                    {% endif %}
+                {% endblock %}
+
+                <div class="wishlist-user-notsign-note">
+                    <div class="wishlist-user-notsign-note-icon">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                </div>
+
+                {% block layout_header_actions_account_widget_dropdown_login %}
+                    {% if not context.customer %}
+                        <div class="account-menu-login">
+                            {% block layout_header_actions_account_widget_dropdown_login_login %}
+                                <a href="{{ path('frontend.account.login.page') }}"
+                                   title="{{ 'account.loginSubmit'|trans|striptags }}"
+                                   class="btn btn-primary account-menu-login-button">
+                                    {{ 'account.loginSubmit'|trans|sw_sanitize }}
+                                </a>
+                            {% endblock %}
+
+                            {% block layout_header_actions_account_widget_dropdown_login_register %}
+                                <div class="account-menu-register">
+                                    {{ 'account.orRegister'|trans|sw_sanitize }}
+                                    <a href="{{ path('frontend.account.login.page') }}"
+                                       title="{{ 'account.orRegisterLink'|trans|striptags }}">
+                                        {{ 'account.orRegisterLink'|trans|striptags|lower }}
+                                    </a>
+                                </div>
+                            {% endblock %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+</div>

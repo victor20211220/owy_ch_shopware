@@ -1,0 +1,23 @@
+{% block sw_product_variants_overview_data_grid_column_stock_inline_edit_field %}
+    <sw-field v-if="isInlineEdit && item.extensions.rentalProduct && ((item.extensions.rentalProduct.active === null && rentalProduct.active)
+                   || item.extensions.rentalProduct.active)"
+              type="number"
+              :size="compact ? 'small' : 'default'"
+              v-model="item.extensions.rentalProduct.originalStock">
+    </sw-field>
+    <sw-field v-else-if="isInlineEdit"
+              type="number"
+              :size="compact ? 'small' : 'default'"
+              v-model="item.stock">
+    </sw-field>
+{% endblock %}
+
+{% block sw_product_variants_overview_data_grid_column_stock_preview %}
+    <span v-else-if="item.extensions.rentalProduct && ((item.extensions.rentalProduct.active === null && rentalProduct.active)
+                   || item.extensions.rentalProduct.active)">
+        {{ item.extensions.rentalProduct.originalStock }}
+    </span>
+    <span v-else>
+        {{ item.stock }}
+    </span>
+{% endblock %}

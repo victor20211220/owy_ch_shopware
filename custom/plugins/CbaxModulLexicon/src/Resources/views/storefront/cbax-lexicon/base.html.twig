@@ -1,0 +1,15 @@
+{% if cbaxModulLexicon.page == "index" %}
+	{% sw_include '@Storefront/storefront/cbax-lexicon/index.html.twig' %}
+{% endif %}
+
+{% if cbaxModulLexicon.page == "listing" %}
+    {% sw_include '@Storefront/storefront/cbax-lexicon/listing.html.twig' %}
+{% endif %}
+
+{% if cbaxModulLexicon.page == "detail" %}
+	{% sw_include '@Storefront/storefront/cbax-lexicon/detail.html.twig' %}
+{% endif %}
+
+{% if cbaxModulLexicon.page == "content" %}
+    {% sw_include '@Storefront/storefront/cbax-lexicon/content.html.twig' %}
+{% endif %}

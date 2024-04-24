@@ -1,0 +1,51 @@
+<div class="row">
+    {% for manufacturer in page.extensions.netzpSearch.manufacturer.data %}
+    <div class="col-12 col-md-6 col-lg-3 my-4">
+        <div class="card h-100">
+            {% if(manufacturer.getExtension('link').value) %}
+                <a href="{{ manufacturer.getExtension('link').value }}">
+            {% endif %}
+            {% if manufacturer.media.url %}
+                {% sw_thumbnails 'card-img-top' with {
+                    media: manufacturer.media,
+                    sizes: {
+                        'default': '400px'
+                    },
+                    attributes: {
+                        'class': 'card-img-top',
+                        'alt':   manufacturer.media.translated.alt ?: '',
+                        'title': manufacturer.media.translated.title ?: ''
+                    }
+                } %}
+            {% endif %}
+            {% if(manufacturer.getExtension('link').value) %}
+                </a>
+            {% endif %}
+
+            <div class="card-body">
+                <h3 class="card-title mt-3">
+                    {{ manufacturer.getTitle|raw|sw_sanitize }}
+                </h3>
+                <p class="card-text">
+                    {{ manufacturer.getDescription|raw|sw_sanitize }}
+                </p>
+
+                {% if(manufacturer.getExtension('products').value) and config('NetzpSearchAdvanced6.config.searchManufacturerCmsPage') %}
+                    {% set link = seoUrl('frontend.navigation.page', {'navigationId': config('NetzpSearchAdvanced6.config.searchManufacturerCmsPage'), 'manufacturer': manufacturer.getId }) %}
+                    <a href="{{ link }}" class="btn btn-success">
+                        {{ manufacturer.getExtension('products').value }} {{ "netzp.search.products"|trans }}
+                    </a>
+                {% endif %}
+
+                {% if(manufacturer.getExtension('link').value) %}
+                    <a href="{{ manufacturer.getExtension('link').value }}"
+                       target="_blank" rel="noopener"
+                       class="btn btn-light">
+                        {{ "netzp.search.profile"|trans }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>

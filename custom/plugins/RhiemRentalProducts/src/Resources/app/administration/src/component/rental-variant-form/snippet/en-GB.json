@@ -1,0 +1,7 @@
+{
+    "rental-variant-form": {
+        "variantDropdown": "Select variant",
+        "switchLabel": "Use settings for all variants",
+        "helpText": "With this option enabled, the settings will be applied to all variants of this product"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "rental-variant-form": {
+        "variantDropdown": "Variante auswählen",
+        "switchLabel": "Für alle Varianten übernehmen",
+        "helpText": "Mit dieser Option aktiv, werden die Einstellungen auf alle Varianten von diesem Produkt angewendet"
+    }
+}

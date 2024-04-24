@@ -1,0 +1,28 @@
+{% block cbax_lexicon_page_box_keyword %}
+    <div class="cms-listing-col {{ keywordBoxStyle }}">
+        <div class="card keyword-box box-{{ keywordBoxLayout }}">
+
+            <div class="card-body">
+                {% block cbax_lexicon_page_box_keyword_title %}
+                    {# Title #}
+                    <h3 class="keyword-name"><a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: entry.id }) }}" class="title" title="{{ entry.translated.title }}">{{ entry.translated.title }}</a></h3>
+                {% endblock %}
+
+                {% block cbax_lexicon_page_box_keyword_description %}
+                    {# Description #}
+                    <div class="keyword-description">
+                        {{ entry.translated.description|striptags|raw }}
+                    </div>
+                {% endblock %}
+
+                {% block cbax_lexicon_page_box_keyword_more %}
+                    {# More #}
+                    <div class="keyword-action">
+                        <a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: entry.id }) }}" class="btn {{ config.buttonVariant.value }} {{ config.buttonSize.value }}" title="{{ entry.translated.title }}">{{ "cbaxLexicon.page.boxKeyword.moreRead"|trans }}</a>
+                    </div>
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

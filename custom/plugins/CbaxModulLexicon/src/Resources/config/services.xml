@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+		<!-- Definitions -->
+		<service id="Cbax\ModulLexicon\Core\Content\Bundle\LexiconEntryDefinition">
+            <tag name="shopware.entity.definition" entity="cbax_lexicon_entry" />
+            <tag name="shopware.composite_search.definition" priority="10001" />
+        </service>
+
+		<service id="Cbax\ModulLexicon\Core\Content\Bundle\Aggregate\LexiconTranslation\LexiconEntryTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="cbax_lexicon_entry_translation" />
+        </service>
+
+		<service id="Cbax\ModulLexicon\Core\Content\Bundle\LexiconProductDefinition">
+            <tag name="shopware.entity.definition" entity="cbax_lexicon_product" />
+        </service>
+
+		<service id="Cbax\ModulLexicon\Core\Content\Bundle\LexiconSalesChannelDefinition">
+            <tag name="shopware.entity.definition" entity="cbax_lexicon_sales_channel" />
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\Bundle\LexiconProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- Components -->
+		<service id="Cbax\ModulLexicon\Components\LexiconHelper">
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="Shopware\Core\Content\ProductStream\Service\ProductStreamBuilder"/>
+		</service>
+
+        <service id="Cbax\ModulLexicon\Components\LexiconCMSHelper">
+            <argument type="service" id="Shopware\Core\Content\Cms\DataResolver\CmsSlotsDataResolver"/>
+            <argument type="service" id="cms_page.repository"/>
+        </service>
+
+		<service id="Cbax\ModulLexicon\Components\LexiconSeo">
+			<argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+			<argument type="service" id="seo_url.repository"/>
+			<argument type="service" id="sales_channel.repository"/>
+			<argument type="service" id="cbax_lexicon_entry.repository"/>
+			<argument type="service" id="slugify"/>
+            <argument type="service" id="logger"/>
+            <argument type="service" id="log_entry.repository"/>
+            <argument type="service" id="translator" />
+            <argument type="service" id="language.repository"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+		</service>
+
+        <service id="Cbax\ModulLexicon\Components\LexiconReplacer">
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconSeo"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconHelper"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Components\LexiconSitemap">
+            <argument type="service" id="Shopware\Core\Content\Sitemap\Service\SitemapExporter"/>
+            <argument type="service" id="Shopware\Core\System\SalesChannel\Context\SalesChannelContextFactory"/>
+            <argument type="service" id="logger"/>
+            <argument type="service" id="sales_channel_domain.repository"/>
+            <argument type="service" id="log_entry.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+		<!-- Controller -->
+		<service id="Cbax\ModulLexicon\Controller\BackendController" public="true">
+			<argument type="service" id="Cbax\ModulLexicon\Components\LexiconSeo"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconSitemap"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconHelper"/>
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheClearer"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+		<service id="Cbax\ModulLexicon\Controller\FrontendController" public="true">
+			<argument type="service" id="Cbax\ModulLexicon\Components\LexiconHelper"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconCMSHelper"/>
+			<argument type="service" id="Cbax\ModulLexicon\Components\LexiconSeo"/>
+			<argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconReplacer"/>
+            <argument type="service" id="Cbax\ModulLexicon\Core\Content\Bundle\LexiconEntryDefinition"/>
+            <argument type="service" id="twig"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+		<!-- Scheduled -->
+		<service id="Cbax\ModulLexicon\ScheduledTask\SeoIndex">
+            <tag name="shopware.scheduled.task" />
+        </service>
+
+		<service id="Cbax\ModulLexicon\ScheduledTask\SeoIndexHandler">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="logger"/>
+            <argument type="service" id="log_entry.repository"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconSeo"/>
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheClearer"/>
+            <tag name="messenger.message_handler" />
+
+        </service>
+
+		<!-- Subscriber -->
+		<service id="Cbax\ModulLexicon\Subscriber\FrontendSubscriber">
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconReplacer"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+		<!-- Snippet File -->
+		<service id="Cbax\ModulLexicon\Resources\snippet\en_GB\SnippetFile_en_GB" public="true">
+            <tag name="shopware.snippet.file"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Resources\snippet\de_DE\SnippetFile_de_DE" public="true">
+            <tag name="shopware.snippet.file"/>
+        </service>
+
+        <!-- Sitemap -->
+        <service id="Cbax\ModulLexicon\Core\Content\Sitemap\Provider\CustomUrlProvider">
+            <argument type="service" id="seo_url.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="shopware.sitemap_url_provider"/>
+        </service>
+
+        <!-- Twig Filter Extension -->
+        <service id="Cbax\ModulLexicon\Core\Framework\Adapter\Twig\Filter\CbaxFilterExtension">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconReplacer"/>
+            <tag name="twig.extension"/>
+        </service>
+
+    </services>
+
+</container>

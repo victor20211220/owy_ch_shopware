@@ -1,0 +1,71 @@
+.cms-block-owy-shoppage-nav{
+    .category-navigation {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        .category-navigation-entry {
+            margin: 0;
+            padding: 0;
+            .category-navigation-link {
+                padding: 14px 5px 1px 0;
+                position: relative;
+                display: block;
+                font-weight: 400;
+                color: $sw-color-brand-secondary;
+                font-size: 16px;
+                border-bottom: 1px solid $sw-border-color;
+                &.is-active {
+                    color: $sw-color-brand-secondary;
+                    font-weight: 700;
+                }
+            }
+            ul.level {
+                padding: 0;
+                margin: 0 0 0px 14px;
+                .category-navigation-link{
+                    padding: 14px 0px 1px 0;
+                }
+            }
+            &.is--parentactive{
+                .category-navigation-link {
+                    &:before {
+                        position: absolute;
+                        background: url('/bundles/owychtheme/storefront/assets/images/icons/nav-arrow-left.svg');
+                        height: 10px;
+                        width: 6px;
+                        content: "";
+                        right: 0;
+                        bottom: 6px;
+                    }
+                    &.is-active{
+                        &:before {
+                        position: absolute;
+                        background: url('/bundles/owychtheme/storefront/assets/images/icons/nav-arrow-down.svg');
+                        height: 6px;
+                        width: 10px;
+                        content: "";
+                        right: 0;
+                        bottom: 6px;
+                        }                      
+
+                    }
+                }
+                ul.level {
+                    .category-navigation-entry {
+                        a.category-navigation-link {
+                            &:before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &:has(li a.is-active){
+                    > a.category-navigation-link{
+                        font-weight: 700 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+ 

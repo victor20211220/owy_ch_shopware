@@ -1,0 +1,119 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget-form.html.twig' %}
+
+{% block buy_widget_buy_form_action %}
+	{% set rentalProduct = page.product.extensions.rentalProduct %}
+	{% if rentalProduct.active %}
+		{{ path('frontend.checkout.rental-line-item.add') }}
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}
+
+{% block buy_widget_buy_container %}
+	{% set rentalProduct = page.product.extensions.rentalProduct %}
+
+	{% if rentalProduct.active and buyable %}
+
+		{% set rentalCalendarOptions = {
+            rentDataUrl: path('frontend.rentalproducts.calendar.rent.data', { productId: product.id }),
+            productPrice: product.calculatedPrice.unitPrice,
+            productPrices: product.calculatedPrices,
+            productPricesMode: rentalProduct.extensions.rentalPriceMode[0],
+            mode: rentalProduct.mode,
+            offset: rentalProduct.offset,
+            minDuration: rentalProduct.minPeriod,
+            maxDuration: rentalProduct.maxPeriod,
+            fixedPeriod: rentalProduct.fixedPeriod,
+			blockedWeekdays: config('RhiemRentalProducts.config.blockedWeekdays'),
+			notSelectableDates: config('RhiemRentalProducts.config.blockedDays') ? config('RhiemRentalProducts.config.blockedDays')|column('id') : [],
+            removeBlockedDays: config('RhiemRentalProducts.config.removeBlockedDays'),
+            language: app.request.locale,
+            currency: context.currency.isoCode
+        } %}
+
+		{% if page.extensions.currentRentalTime %}
+			{% set rentalCalendarOptions = rentalCalendarOptions|merge({
+				currentRentalPeriodStart: page.extensions.currentRentalTime.period.startDate|date("m/d/Y", false),
+				currentRentalPeriodEnd: page.extensions.currentRentalTime.period.endDate|date("m/d/Y", false)
+			}) %}
+		{% endif %}
+
+		<div class="form-row">
+			{% block buy_widget_rent_time %}
+				<div class="col-12 col-sm-8 col-lg-12 col-xl-8" id="flatpickr-wrapper">
+					<input class="form-control flatpickr-input rangeMode" name="lineItems[{{ product.id }}][rentPeriod]" data-rental-calendar="true" data-rental-calendar-options="{{ rentalCalendarOptions|json_encode }}" type="text" placeholder="{{ "rhiem-rental-products.rentPeriod"|trans|striptags }}" readonly="readonly" required="required"/>
+				</div>
+			{% endblock %}
+			<div class="col-12 rental-price">
+				<p class="product-detail-price">
+					<span id="rental-price">{{ 0|currency }}{{ "general.star"|trans|sw_sanitize }}</span>
+				</p>
+			</div>
+		</div>
+
+		{{ parent() }}
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}
+
+
+{% block buy_widget_buy_quantity_input_group %}
+	{% set rentalProduct = page.product.extensions.rentalProduct %}
+
+	{% if rentalProduct.active %}
+		<div class="input-group product-detail-quantity-group quantity-selector-group" data-quantity-selector="true">
+			{% block page_product_detail_buy_quantity_input %}
+				<button type="button" class="btn btn-outline-light btn-minus js-btn-minus">
+					{% sw_icon 'minus' style {'size': 'xs'} %}
+				</button>
+				<input type="number" name="lineItems[{{ product.id }}][quantity]" class="form-control js-quantity-selector quantity-selector-group-input product-detail-quantity-input" min="{{ product.minPurchase }}" max="{{ rentalProduct.originalStock }}" step="{{ product.purchaseSteps }}" value="{{ product.minPurchase }}"/>
+				<button type="button" class="btn btn-outline-light btn-plus js-btn-plus">
+					{% sw_icon 'plus' style {'size': 'xs'}  %}
+				</button>
+			{% endblock %}
+			{% block page_product_detail_buy_quantity_input_unit %}
+				{% if product.translated.packUnit %}
+					<span class="input-group-text">
+						{% if product.minPurchase > 1 and product.translated.packUnitPlural %}
+							{{ product.translated.packUnitPlural }}
+						{% elseif product.translated.packUnit %}
+							{{ product.translated.packUnit }}
+						{% endif %}
+					</span>
+				{% endif %}
+			{% endblock %}
+		</div>
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}
+
+{% block buy_widget_buy_product_buy_info %}
+	{% set rentalProduct = page.product.extensions.rentalProduct %}
+	{% if rentalProduct.active %}
+		<input type="hidden" name="lineItems[{{ product.id }}][id]" value="{{ product.id }}">
+		<input type="hidden" name="lineItems[{{ product.id }}][type]" value="rentalProduct">
+		<input type="hidden" name="lineItems[{{ product.id }}][referencedId]" value="{{ product.id }}">
+		<input type="hidden" name="lineItems[{{ product.id }}][stackable]" value="1">
+		<input type="hidden" name="lineItems[{{ product.id }}][removable]" value="1">
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}
+
+{% block buy_widget_buy_button %}
+	{% set rentalProduct = page.product.extensions.rentalProduct %}
+
+	{% if rentalProduct.active %}
+		{% block page_product_detail_rent_button %}
+			<div class="d-grid">
+				<button class="btn btn-primary btn-buy" title="{{ "rhiem-rental-products.rentButton"|trans|striptags }}" aria-label="{{ "rhiem-rental-products.rentButton"|trans|striptags }}" id="rent-button" disabled>
+					{{ "rhiem-rental-products.rentButton"|trans|sw_sanitize }}
+				</button>
+			</div>
+		{% endblock %}
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% block sw_cms_el_acris_store_details %}
+<div
+    class="sw-cms-el-acris-store-details"
+>
+    <div
+        v-if="(store && !isStorePageType) || currentDemoEntity"
+        class="sw-cms-el-acris-store-details__content"
+    >
+        {% block sw_cms_el_acris_store_details_store_headline %}
+        <div class="sw-cms-el-acris-store-details__store_headline">
+            <h2 class="sw-cms-el-acris-store-details__store_headline"><span v-if="store.name">{{ store.name }}</span> <span v-if="store.department">{{ store.department }}</span></h2>
+        </div>
+        {% endblock %}
+
+        {% block sw_cms_el_acris_store_details_store_details %}
+        <div class="sw-cms-el-acris-store-details__details">
+            <p>
+                <span v-if="store.street">{{ store.street }}<br></span>
+                <span v-if="store.zipcode">{{ store.zipcode }}</span><span v-if="store.city">, {{ store.city }}<br></span>
+                <span v-if="store.phone">{{ store.phone }}<br></span>
+                <span v-if="store.url">{{ store.url }}<br></span>
+                <span v-if="store.opening_hours">{{ store.opening_hours }}<br></span>
+            </p>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

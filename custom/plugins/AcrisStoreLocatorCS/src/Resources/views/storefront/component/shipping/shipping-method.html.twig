@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/shipping/shipping-method.html.twig' %}
+
+{% block component_shipping_method_description %}
+    {{ parent() }}
+
+    {% if shipping.id is same as(context.shippingMethod.id) and config('AcrisStoreLocatorCS.config').checkoutSelectionPosition == 'belowShippingMethod' %}
+        {% if page.extensions.acrisStoreLocatorConfig.checkoutSelection is same as ('singleSelect') %}
+            <div class="{% if not shipping.translated.description %}mt-2{% endif %}">
+            {% sw_include '@Storefront/storefront/page/checkout/confirm/type/type-single-selection.html.twig' %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

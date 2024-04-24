@@ -1,0 +1,60 @@
+$myasset-path: '#{$sw-asset-theme-url}/bundles/owychtheme/storefront/assets' !default;
+// -----------basic-------------
+@import 'base/base';
+@import 'base/variables';
+/* ----font ----- */
+@import 'font/font';
+/* ----component ----- */
+ 
+@import 'component/actions';
+@import 'component/accounts';
+@import 'component/badges';
+@import 'component/product-box';
+@import 'component/listview';
+@import 'component/button';
+@import 'component/sidebar';
+@import 'component/languages';
+@import 'component/subcategory';
+@import 'component/breadcrumb';
+@import 'component/owl-carousel';
+@import 'component/listingactions';
+@import 'component/sidebarnav';
+@import 'component/compare';
+@import 'component/form';
+@import 'component/lexicon';
+@import 'component/filter';
+@import 'component/alerts';
+
+
+/* ----Layout ----- */
+@import 'layout/header/header';
+@import 'layout/header/mega-menu';
+@import 'layout/header/navigation';
+@import 'layout/footer/footer';
+/* ----page ----- */
+@import 'page/shoppage.scss';
+@import 'page/detail/product-detail.scss';
+@import 'page/detail/tabs.scss';
+/* ----checkout ----- */
+@import 'page/checkout/checkout';
+@import 'page/checkout/finishpage';
+
+/* ----- Elements --- */
+@import 'element/sub-category';
+@import 'element/main-slider';
+@import 'element/organization';
+@import 'element/awards';
+@import 'element/aboutus';
+@import 'element/brochures';
+@import 'element/wishlist';
+@import 'element/newsletter';
+@import 'element/news';
+@import 'element/search';
+@import 'element/photoexchange';
+@import 'element/flyoutcart';
+@import 'element/flyoutwishlist';
+@import 'element/flyoutcompare';
+
+
+ 
+ 

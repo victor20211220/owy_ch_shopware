@@ -1,0 +1,20 @@
+{% block sw_cms_el_config_owy_shoppage_nav_config %}
+
+
+    <template>
+        <sw-container class="sw-cms-el-config-owy-shoppage-nav">
+            <sw-card :hero="false" :isLoading="false" :large="false">
+
+                <sw-entity-multi-select 
+                    label="Select Categories"
+                    v-model="categoryCollection"
+                    @change="onCategoryChange"
+                    :criteria="categoryMediaFilter"
+                    required>
+                </sw-entity-multi-select>
+            </sw-card>
+        </sw-container>
+    </template>
+
+
+{% endblock %}

@@ -1,0 +1,4 @@
+#disable editor sanitation
+shopware:
+    html_sanitizer:
+        enabled: false

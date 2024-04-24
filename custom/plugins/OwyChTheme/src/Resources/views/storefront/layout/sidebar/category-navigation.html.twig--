@@ -1,0 +1,131 @@
+{% sw_extends '@Storefront/storefront/layout/sidebar/category-navigation.html.twig'%}
+{% block layout_navigation_categories %}
+    {% set currentNavId = app.request.get('navigationId') %}
+	{% set navigationMaxDepth = context.salesChannel.navigationCategoryDepth %}
+
+	{% if not level %}
+		{% set level = 0 %}
+	{% endif %}
+
+	{% block layout_navigation_categories_list %}
+		<ul class="category-navigation level-{{ level }}">
+			{% for item in navigationTree %}
+				{% block layout_navigation_categories_list_entry %}
+        			{% if currentNavId == '222cc50666c94cc499d0417ac5a50dec' %}
+                    	{% if (item.category.translated.name != 'Produkte' and item.category.translated.name != 'Händlernetz' and item.category.translated.name != 'Fotobörse') %}
+							<li class="category-navigation-entry">
+						{% if (item.category.id in activeResult.id) or (item.category.id in activeResult.path) %}
+
+							{% if item.category.type == 'folder' %}
+
+									<span class="category-navigation-link">
+										{{ item.category.translated.name }}
+									</span>
+
+							{% else %}
+
+									<a class="category-navigation-link{% if item.category.id is same as(activeResult.id) %} is-active{% endif %}{% if item.category.id in activeResult.path %} in-path{% endif %}" href="{{ category_url(item.category) }}" {% if category_linknewtab(item.category) %} target="_blank" {% endif %}>
+
+											{{ item.category.translated.name }}
+
+										<svg id="Group_235" data-name="Group 235" xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10">
+											<g id="Group_233" data-name="Group 233">
+												<path id="Path_190" data-name="Path 190" d="M0,0V10L6,5Z" fill="#2b2e34"/>
+											</g>
+										</svg>
+									</a>
+
+							{% endif %}
+
+								{% if level < navigationMaxDepth %}
+									{% sw_include '@Storefront/storefront/layout/sidebar/category-navigation.html.twig' with {
+                                        navigationTree: item.children,
+                                        activeResult: activeResult,
+                                        level: level + 1
+                                    } only %}
+								{% endif %}
+
+						{% else %}
+							{% if item.category.type == 'folder' %}
+
+									<span class="category-navigation-link">{{ item.category.translated.name }}</span>
+
+							{% else %}
+
+									<a class="category-navigation-link{% if item.category.id is same as(activeResult.id) %} is-active{% endif %}" href="{{ category_url(item.category) }}" {% if category_linknewtab(item.category) %} target="_blank" {% endif %}>
+
+											{{ item.category.translated.name }}
+
+										<svg id="Group_235" data-name="Group 235" xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10">
+											<g id="Group_233" data-name="Group 233">
+												<path id="Path_190" data-name="Path 190" d="M0,0V10L6,5Z" fill="#2b2e34"/>
+											</g>
+										</svg>
+									</a>
+
+							{% endif %}
+						{% endif %}
+
+					</li>
+                    	{% endif %}
+					{% else %}
+						<li class="category-navigation-entry">
+                            {% if (item.category.id in activeResult.id) or (item.category.id in activeResult.path) %}
+
+                                {% if item.category.type == 'folder' %}
+                                    {% block layout_navigation_categories_folder_children %}
+										<span class="category-navigation-link">
+										{{ item.category.translated.name }}
+									</span>
+                                    {% endblock %}
+                                {% else %}
+                                    {% block layout_navigation_categories_link_children %}
+										<a class="category-navigation-link{% if item.category.id is same as(activeResult.id) %} is-active{% endif %}{% if item.category.id in activeResult.path %} in-path{% endif %}" href="{{ category_url(item.category) }}" {% if category_linknewtab(item.category) %} target="_blank" {% endif %}>
+                                            {% block layout_navigation_categories_link_children_name %}
+                                                {{ item.category.translated.name }}
+                                            {% endblock %}
+											<svg id="Group_235" data-name="Group 235" xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10">
+												<g id="Group_233" data-name="Group 233">
+													<path id="Path_190" data-name="Path 190" d="M0,0V10L6,5Z" fill="#2b2e34"/>
+												</g>
+											</svg>
+										</a>
+                                    {% endblock %}
+                                {% endif %}
+                                {% block layout_navigation_categories_recoursion %}
+                                    {% if level < navigationMaxDepth %}
+                                        {% sw_include '@Storefront/storefront/layout/sidebar/category-navigation.html.twig' with {
+                                            navigationTree: item.children,
+                                            activeResult: activeResult,
+                                            level: level + 1
+                                        } only %}
+                                    {% endif %}
+                                {% endblock %}
+                            {% else %}
+                                {% if item.category.type == 'folder' %}
+                                    {% block layout_navigation_categories_text %}
+										<span class="category-navigation-link">{{ item.category.translated.name }}</span>
+                                    {% endblock %}
+                                {% else %}
+                                    {% block layout_navigation_categories_link %}
+										<a class="category-navigation-link{% if item.category.id is same as(activeResult.id) %} is-active{% endif %}" href="{{ category_url(item.category) }}" {% if category_linknewtab(item.category) %} target="_blank" {% endif %}>
+                                            {% block layout_navigation_categories_link_name %}
+                                                {{ item.category.translated.name }}
+                                            {% endblock %}
+											<svg id="Group_235" data-name="Group 235" xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10">
+												<g id="Group_233" data-name="Group 233">
+													<path id="Path_190" data-name="Path 190" d="M0,0V10L6,5Z" fill="#2b2e34"/>
+												</g>
+											</svg>
+										</a>
+                                    {% endblock %}
+                                {% endif %}
+                            {% endif %}
+
+						</li>
+					{% endif %}
+				{% endblock %}
+			{% endfor %}
+		</ul>
+	{% endblock %}
+{% endblock %}

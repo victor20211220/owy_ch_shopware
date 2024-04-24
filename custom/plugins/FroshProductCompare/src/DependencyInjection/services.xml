@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <!-- Entity Extension-->
+        <service id="Frosh\FroshProductCompare\DAL\Extension\ProductCrossSellingEntityExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- Entity Definitions-->
+        <service id="Frosh\FroshProductCompare\CrossSellingComparable\CrossSellingComparableDefinition">
+            <tag name="shopware.entity.definition" entity="frosh_cross_selling_comparable"/>
+        </service>
+
+        <service id="Frosh\FroshProductCompare\Page\CompareProductPageLoader">
+            <argument type="service" id="Shopware\Core\Content\Product\Cart\ProductGateway"/>
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <argument type="service" id="product_review.repository" />
+            <argument type="service" id="custom_field.repository" />
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+        </service>
+
+        <service id="Frosh\FroshProductCompare\Controller\CompareProductController" public="true">
+            <argument type="service" id="Frosh\FroshProductCompare\Page\CompareProductPageLoader"/>
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
+        </service>
+
+        <!-- Subscriber -->
+        <service id="Frosh\FroshProductCompare\Subscriber\FroshCrossSellingProductListingSubscriber">
+            <argument type="service" id="Frosh\FroshProductCompare\Page\CompareProductPageLoader"/>
+            <argument type="service" id="Shopware\Core\Content\Product\Cart\ProductGateway"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Frosh\FroshProductCompare\Subscriber\FroshProductGatewayCriteriaSubscriber">
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+    </services>
+</container>

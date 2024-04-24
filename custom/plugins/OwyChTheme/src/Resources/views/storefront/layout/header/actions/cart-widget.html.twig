@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/cart-widget.html.twig'%}
+{% block layout_header_actions_cart_widget %}
+{% set elements = page.cart.lineItems.elements %}
+    {% set itemCount = 0 %}
+    {% for item in elements %}
+        {% if  (item.type != 'FLOWSITEDepositLineItem') and (item.type != 'surchargeDiscount')  %}
+             {% set itemCount = itemCount + 1 %}
+        {% endif %}
+    {% endfor %}
+    <span class="header-cart-icon">
+       <img src="{{ asset('storefront/assets/images/icons/cart.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+       {% if itemCount == 0 %}
+            <label> {{ 'OwyChTheme.navigation.shopnav.link4' |trans |sw_sanitize}} </label>
+        {% else %}
+            <label class="header-cart-amount">
+             <span> {{ page.cart.price.positionPrice|currency }}{{ "general.star"|trans|sw_sanitize }}</span>
+            </label>
+        {% endif %}
+    </span>
+    {% if page.cart.lineItems|length > 0 %}
+        <span class="badge badge-primary header-cart-badge">{{ itemCount }}</span>
+    {% endif %}
+{% endblock %}
+
+ 

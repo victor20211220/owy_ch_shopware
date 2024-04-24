@@ -1,0 +1,12 @@
+{
+    "rental-restrictions-form": {
+        "minimumDaysFieldHeadline": "Minimum rental days",
+        "minimumDaysHelptext": "The minimum rental period in days.",
+        "minimumDaysField": "Minimum number of rental days",
+        "maximumDaysFieldHeadline": "Maximum rental days",
+        "maximumDaysHelptext": "The maximum rental period in days",
+        "maximumDaysField": "Maximum number of rental days",
+        "fixedPeriodFieldHeadline": "Fixed rental period",
+        "fixedPeriodHelptext": "If this option is active, the maximum rental period is equal to the minimum rental period and the rental period is automatically selected in the frontend as soon as a date is selected."
+    }
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Product Compare Configuration</title>
+        <title lang="de-DE">Produktvergleichskonfiguration</title>
+
+        <input-field type="bool">
+            <name>hideShowDifferenceCheckbox</name>
+            <label>Hide Difference Properties checkbox</label>
+            <label lang="de-DE">Kontrollkästchen Differentialeigenschaften ausblenden</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+        <input-field type="bool">
+            <name>showIconOnly</name>
+            <label>Add to compare with icon only</label>
+            <label lang="de-DE">Hinzufügen, um nur mit dem Symbol zu vergleichen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showInHeader</name>
+            <label>Show comparison in header</label>
+            <label lang="de-DE">Zeige Vergleichen auch im Header</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <component name="sw-switch-field">
+            <name>showSelectedProperties</name>
+            <bordered>bordered</bordered>
+            <label>When active, only show selected properties in the below multi-select</label>
+            <label lang="de-DE">Nur ausgewählte Eigenschaften in der unteren Mehrfachauswahl anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </component>
+
+        <input-field type="multi-select">
+            <name>hideAttributes</name>
+            <label>Hide attributes</label>
+            <label lang="de-DE">Attribute ausblenden</label>
+            <options>
+                <option>
+                    <id>description</id>
+                    <name>Description</name>
+                    <name lang="de-DE">Beschreibung</name>
+                </option>
+                <option>
+                    <id>manufacturer</id>
+                    <name>Manufacturer</name>
+                    <name lang="de-DE">Hersteller</name>
+                </option>
+                <option>
+                    <id>price</id>
+                    <name>Price</name>
+                    <name lang="de-DE">Preis</name>
+                </option>
+                <option>
+                    <id>rating</id>
+                    <name>Rating</name>
+                    <name lang="de-DE">Bewertung</name>
+                </option>
+                <option>
+                    <id>overview</id>
+                    <name>Overview (Hide Overview section)</name>
+                    <name lang="de-DE">Übersicht (Abschnitt Übersicht ausblenden)</name>
+                </option>
+                <option>
+                    <id>specs</id>
+                    <name>Specifications (Hide Specifications section)</name>
+                    <name lang="de-DE">Spezifikationen (Abschnitt Spezifikationen ausblenden)</name>
+                </option>
+
+            </options>
+        </input-field>
+
+        <component name="sw-property-multi-select">
+            <name>selectedProperties</name>
+            <label>Only show these properties</label>
+            <label lang="de-DE">Nur diese Eigenschaften anzeigen</label>
+        </component>
+
+        <component name="sw-entity-multi-id-select">
+            <name>selectedCustomFields</name>
+            <entity>custom_field</entity>
+            <label>Show these custom fields in the comparison table</label>
+            <label lang="de-DE">Zeigen Sie diese benutzerdefinierten Felder in der Vergleichstabelle an</label>
+        </component>
+
+    </card>
+</config>

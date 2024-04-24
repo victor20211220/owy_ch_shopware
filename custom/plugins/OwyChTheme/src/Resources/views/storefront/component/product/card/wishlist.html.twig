@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/product/card/wishlist.html.twig' %}
+{% block component_product_wishlist_icon %}
+                    {% sw_icon 'heart-fill' style { 'class': 'wishlist icon-wishlist-added', 'size': size } %}
+                    {% sw_icon 'heart' style {'class': 'wishlist icon-wishlist-not-added', 'size': size } %}
+                    <span class="w-text"> {{ 'OwyChTheme.wishlist.listing.label'|trans|sw_sanitize }} </span>
+                    {% if showText %}
+                        <span class="product-wishlist-btn-content text-wishlist-not-added product-wishlist-btn-content-{{ size }}">
+                           {{ 'OwyChTheme.detail.addToWishlist.merken'|trans|sw_sanitize}}                            
+                        </span>
+                        <span class="product-wishlist-btn-content text-wishlist-remove product-wishlist-btn-content-{{ size }}">
+                            {{ "listing.removeFromWishlist"|trans|sw_sanitize }}
+                        </span>
+
+                    {% endif %}
+                {% endblock %}

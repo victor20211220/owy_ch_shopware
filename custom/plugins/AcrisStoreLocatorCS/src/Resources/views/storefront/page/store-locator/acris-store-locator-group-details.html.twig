@@ -1,0 +1,197 @@
+{% block acris_store_locator_group_details %}
+    {% set stores = page.stores %}
+    {% if stores is empty and group and group.extensions and group.extensions.stores %}
+        {% set stores = group.extensions.stores %}
+    {% endif %}
+    {% set hasCover = false %}
+    {% if page.hasCover or group.extensions.storesHasCover %}
+        {% set hasCover = true %}
+    {% endif %}
+
+    <div class="acris-store-locator-group-mobile" data-acris-store-locator-detail="true" data-acris-store-locator-detail-options='{
+"encryptedMail": "{{ config('AcrisStoreLocatorCS.config').encryptMail }}"
+}'>
+        {% for store in stores %}
+            <div class="acris-store-locator-group-mobile-table-entry {% if loop.index%2 == 0 %}acris-store-locator-group-table-body-column-second{% endif %}">
+                <table class="table acris-store-locator-group-mobile-table">
+                    <tbody>
+                    {% if hasCover and config('AcrisStoreLocatorCS.config').showCover == 'show' %}
+                        <tr class="acris-store-locator-group-mobile-table-row">
+                            <th class="acris-store-locator-group-mobile-table-label"></th>
+                            <td class="acris-store-locator-group-mobile-table-value">
+                                {% apply spaceless %}
+                                    <span>{% sw_thumbnails 'configurator-option-img-thumbnails' with {
+                                            media: store.cover.media,
+                                            sizes: {
+                                                'default': '128px'
+                                            },
+                                            attributes: {
+                                                'class': 'product-detail-configurator-option-image',
+                                                'alt': store.translated.name,
+                                                'title': store.translated.name
+                                            }
+                                        } %}</span>
+                                {% endapply %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    <tr class="acris-store-locator-group-mobile-table-row">
+                            <th class="acris-store-locator-group-mobile-table-label">{{ "acrisStoreLocator.storeGroupDetailsName"|trans }}:</th>
+                            <td class="acris-store-locator-group-mobile-table-value">
+                                {% apply spaceless %}
+                                    <span>{% if 'name' in group.fieldList and store.translated.name|trim is not empty %}{{ store.translated.name }} {% endif %}{% if 'department' in group.fieldList and store.translated.department|trim is not empty %}{{ store.translated.department }}{% endif %}</span>
+                                {% endapply %}
+                            </td>
+                    </tr>
+                        <tr class="acris-store-locator-group-mobile-table-row">
+                            <th class="acris-store-locator-group-mobile-table-label">{{ "acrisStoreLocator.storeGroupDetailsAddress"|trans }}:</th>
+                            <td class="acris-store-locator-group-mobile-table-value">
+                                {% apply spaceless %}
+                                    <span>{% if 'street' in group.fieldList and store.street|trim is not empty %}{{ store.street }} {% endif %}{% if 'zipcode' in group.fieldList and store.zipcode|trim is not empty %}{{ store.zipcode }} {% endif %}{% if 'city' in group.fieldList and store.city|trim is not empty %}{{ store.city }} {% endif %}{% if 'country' in group.fieldList and store.country.name|trim is not empty %}{{ store.country.name }}{% endif %} {% if 'state' in group.fieldList and store.state.name|trim is not empty %}{{ store.state.name }}{% endif %}</span>
+                                {% endapply %}
+                            </td>
+                        </tr>
+                        <tr class="acris-store-locator-group-mobile-table-row">
+                            <th class="acris-store-locator-group-mobile-table-label">{{ "acrisStoreLocator.storeGroupDetailsContact"|trans }}:</th>
+                            <td class="acris-store-locator-group-mobile-table-value">
+                                {% apply spaceless %}
+                                    <span>{% if 'phone' in group.fieldList and store.translated.phone|trim is not empty %}<a href="tel:{{ store.translated.phone }}">{{ store.translated.phone }}</a><br>
+                                        {% endif %}{% if 'email' in group.fieldList and store.translated.email|trim is not empty %}<a class="acris-store-locator-mail" data-mail="{{ store.translated.email }}" href="mailto:{{ store.translated.email }}">{% if config('AcrisStoreLocatorCS.config').showEmail == 'iconAndEmail' or config('AcrisStoreLocatorCS.config').showEmail == 'onlyIcon' %}{% sw_icon 'envelope' %}{% endif %}{% if store.extensions and store.extensions.originalData %}<span class="{% if config('AcrisStoreLocatorCS.config').showEmail != 'onlyEmail' %}acris-store-locator-email-icon{% endif %}">{{ store.extensions.originalData.email }}</span>{% endif %}</a><br>
+                                        {% endif %}{% if 'url' in group.fieldList and store.translated.url|trim is not empty %}
+                                            {% set url = store.translated.url %}
+                                            {% if 'https://' not in url and 'http://' not in url %}{% set url = 'https://'~store.translated.url %}{% endif %}
+                                            <a href="{{ url }}">{{ url }}
+                                            </a><br>
+                                        {% endif %}{% if 'openingHours' in group.fieldList and store.translated.opening_hours|trim is not empty and config('AcrisStoreLocatorCS.config').showOpeningHours == 'belowContact' %}{{ store.translated.opening_hours|raw }}{% endif %}</span>
+                                {% endapply %}
+                            </td>
+                        </tr>
+                        {% if config('AcrisStoreLocatorCS.config').showOpeningHours == 'afterContact' %}
+                            <tr class="acris-store-locator-group-mobile-table-row">
+                                <th class="acris-store-locator-group-mobile-table-label">{{ "acrisStoreLocator.storeGroupDetailsOpeningHours"|trans }}:</th>
+                                <td class="acris-store-locator-group-mobile-table-value">
+                                    {% apply spaceless %}
+                                        <span>{% if 'openingHours' in group.fieldList and store.translated.opening_hours|trim is not empty and config('AcrisStoreLocatorCS.config').showOpeningHours == 'belowContact' %}{{ store.translated.opening_hours|raw }}{% endif %}</span>
+                                    {% endapply %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                        {% if group.displayDetail %}<tr class="acris-store-locator-group-mobile-table-row">
+                            <th class="acris-store-locator-group-mobile-table-label">{{ "acrisStoreLocator.storeGroupDetailsDetails"|trans }}:</th>
+                            <td class="acris-store-locator-group-mobile-table-value">
+                                {% apply spaceless %}
+                                    {% if store.cmsPageId %}<span><a id="acris-store-test-now" href="{{ path('frontend.storeLocator.detail', {'storeId': store.id}) }}">
+                                {{ "acrisStoreLocator.storeGroupDetailsDetails"|trans }}
+                            </a></span>{% endif %}
+                                {% endapply %}
+                            </td>
+                        </tr>{% endif %}
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% block acris_store_locator_group_table %}
+        <table class="table acris-store-locator-group-table" data-acris-store-locator-detail="true" data-acris-store-locator-detail-options='{
+"encryptedMail": "{{ config('AcrisStoreLocatorCS.config').encryptMail }}"
+}'>
+            {% block acris_store_locator_group_table_head %}
+                <thead class="acris-store-locator-group-table-head">
+                {% block acris_store_locator_group_table_head_inner %}
+                    <tr class="acris-store-locator-group-table-head-column">
+                        {% if hasCover and config('AcrisStoreLocatorCS.config').showCover == 'show' %}
+                            <th class="acris-store-locator-group-table-head-column-cell acris-store-locator-group-table-cover">
+
+                            </th>
+                        {% endif %}
+                        <th class="acris-store-locator-group-table-head-column-cell">
+                            {{ "acrisStoreLocator.storeGroupDetailsName"|trans }}
+                        </th>
+                        <th class="acris-store-locator-group-table-head-column-cell">
+                            {{ "acrisStoreLocator.storeGroupDetailsAddress"|trans }}
+                        </th>
+                        <th class="acris-store-locator-group-table-head-column-cell">
+                            {{ "acrisStoreLocator.storeGroupDetailsContact"|trans }}
+                        </th>
+                        {% if config('AcrisStoreLocatorCS.config').showOpeningHours == 'afterContact' %}<th class="acris-store-locator-group-table-head-column-cell">
+                            {{ "acrisStoreLocator.storeGroupDetailsOpeningHours"|trans }}
+                            </th>{% endif %}
+                        {% if group.displayDetail %}<th class="acris-store-locator-group-table-head-column-cell">
+                            {{ "acrisStoreLocator.storeGroupDetailsDetails"|trans }}
+                        </th>{% endif %}
+                    </tr>
+                {% endblock %}
+                </thead>
+            {% endblock %}
+
+            {% block acris_store_locator_group_table_body %}
+                <tbody class="acris-store-locator-group-table-body">
+                {% for store in stores %}
+                    {% block acris_store_locator_group_table_body_inner %}
+                        <tr class="acris-store-locator-group-table-body-column {% if loop.index%2 == 0 %}acris-store-locator-group-table-body-column-second{% endif %}">
+                            {% block acris_store_locator_group_table_body_cell_cover %}
+                                {% if hasCover and config('AcrisStoreLocatorCS.config').showCover == 'show' %}
+                                    <td class="acris-store-locator-group-table-body-column-cell">
+                                        {% sw_thumbnails 'configurator-option-img-thumbnails' with {
+                                            media: store.cover.media,
+                                            sizes: {
+                                                'default': '128px'
+                                            },
+                                            attributes: {
+                                                'class': 'product-detail-configurator-option-image',
+                                                'alt': store.translated.name,
+                                                'title': store.translated.name
+                                            }
+                                        } %}
+                                    </td>
+                                {% endif %}
+                            {% endblock %}
+                            {% block acris_store_locator_group_table_body_cell_name %}
+                                <td class="acris-store-locator-group-table-body-column-cell">
+                                    {% if 'name' in group.fieldList and store.translated.name|trim is not empty %}{{ store.translated.name }} {% endif %}{% if 'department' in group.fieldList and store.translated.department|trim is not empty %}{{ store.translated.department }}{% endif %}
+                                </td>
+                            {% endblock %}
+
+                            {% block acris_store_locator_group_price_block_table_body_cell_address %}
+                                <td class="acris-store-locator-group-table-body-column-cell">
+                                    {% if 'street' in group.fieldList and store.street|trim is not empty %}{{ store.street }} {% endif %}{% if 'zipcode' in group.fieldList and store.zipcode|trim is not empty %}{{ store.zipcode }} {% endif %}{% if 'city' in group.fieldList and store.city|trim is not empty %}{{ store.city }} {% endif %}{% if 'country' in group.fieldList and store.country.name|trim is not empty %}{{ store.country.name }}{% endif %} {% if 'state' in group.fieldList and store.state.name|trim is not empty %}{{ store.state.name }}{% endif %}
+                                </td>
+                            {% endblock %}
+
+                            {% block acris_store_locator_group_price_block_table_body_cell_contact %}
+                                <td class="acris-store-locator-group-table-body-column-cell">
+                                    {% if 'phone' in group.fieldList and store.translated.phone|trim is not empty %}<a href="tel:{{ store.translated.phone }}">{{ store.translated.phone }}</a><br>
+                                    {% endif %}{% if 'email' in group.fieldList and store.translated.email|trim is not empty %}<a data-mail="{{ store.translated.email }}" class="acris-store-locator-mail" href="mailto:{{ store.translated.email }}">{% if config('AcrisStoreLocatorCS.config').showEmail == 'iconAndEmail' or config('AcrisStoreLocatorCS.config').showEmail == 'onlyIcon' %}{% sw_icon 'envelope' %}{% endif %}{% if store.extensions and store.extensions.originalData %}<span class="{% if config('AcrisStoreLocatorCS.config').showEmail != 'onlyEmail' %}acris-store-locator-email-icon{% endif %}">{{ store.extensions.originalData.email }}</span>{% endif %}</a><br>
+                                    {% endif %}{% if 'url' in group.fieldList and store.translated.url|trim is not empty %}
+                                        {% set url = store.translated.url %}
+                                        {% if 'https://' not in url and 'http://' not in url %}{% set url = 'https://'~store.translated.url %}{% endif %}
+                                        <a href="{{ url }}">{{ url }}
+                                        </a><br>
+                                    {% endif %}{% if 'openingHours' in group.fieldList and store.translated.opening_hours|trim is not empty and config('AcrisStoreLocatorCS.config').showOpeningHours == 'belowContact' %}{{ store.translated.opening_hours|raw }}{% endif %}
+                                </td>
+                            {% endblock %}
+
+                            {% block acris_store_locator_group_price_block_table_body_cell_opening_hours %}
+                                {% if config('AcrisStoreLocatorCS.config').showOpeningHours == 'afterContact' %}
+                                    <td class="acris-store-locator-group-table-body-column-cell">
+                                        {% if 'openingHours' in group.fieldList and store.translated.opening_hours|trim is not empty %}{{ store.translated.opening_hours|raw }}{% endif %}
+                                    </td>
+                                {% endif %}
+                            {% endblock %}
+
+                            {% block acris_store_locator_group_price_block_table_body_cell_details %}
+                                {% if group.displayDetail %}<td class="acris-store-locator-group-table-body-column-cell">
+                                    {% if store.cmsPageId %}<a id="acris-store-cms-page" href="{{ path('frontend.storeLocator.detail', {'storeId': store.id}) }}">
+                                        {{ "acrisStoreLocator.storeGroupDetailsDetails"|trans }}
+                                    </a>{% endif %}
+                                </td>{% endif %}
+                            {% endblock %}
+                        </tr>
+                    {% endblock %}
+                {% endfor %}
+                </tbody>
+            {% endblock %}
+        </table>
+    {% endblock %}
+{% endblock %}

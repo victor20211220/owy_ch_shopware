@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+
+{% block layout_head_meta_tags %}
+    {% if page.group.translated.metaTitle %}{% set metaTitle = page.group.translated.metaTitle %}{% elseif page.group.translated.name %}{% set metaTitle = page.group.translated.name %}{% endif %}
+    {% if page.group.translated.metaDescription %}{% set metaDescription = page.group.translated.metaDescription %}{% elseif page.group.translated.description %}{% set metaDescription = page.group.translated.description %}{% endif %}
+
+    {% if page.store.translated.metaTitle %}{% set metaTitle = page.store.translated.metaTitle %}{% elseif page.store.translated.name %}{% set metaTitle = page.store.translated.name %}{% endif %}
+    {% if page.store.translated.metaDescription %}{% set metaDescription = page.store.translated.metaDescription %}{% elseif page.store.translated.description %}{% set metaDescription = page.store.translated.description %}{% endif %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block layout_head_title %}
+    {% if page.group.translated.metaTitle %}{% set metaTitle = page.group.translated.metaTitle %}{% elseif page.group.translated.name %}{% set metaTitle = page.group.translated.name %}{% endif %}
+
+    {% if page.store.translated.metaTitle %}{% set metaTitle = page.store.translated.metaTitle %}{% elseif page.store.translated.name %}{% set metaTitle = page.store.translated.name %}{% endif %}
+
+    {{ parent() }}
+{% endblock %}

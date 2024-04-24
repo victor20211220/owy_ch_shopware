@@ -1,0 +1,7 @@
+{
+    "rental-bail-form": {
+        "bailHeadline": "Kaution",
+        "switchLabelActive": "Aktive Kaution",
+        "rentalBailHelptext": "Aktivieren, um eine Kaution festzulegen."
+    }
+}

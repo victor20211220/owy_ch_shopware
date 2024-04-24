@@ -1,0 +1,34 @@
+{% block element_acris_store_details %}
+    <div class="cms-element-{{ element.type }}" data-acris-store-locator-detail="true" data-acris-store-locator-detail-options='{
+"encryptedMail": "{{ config('AcrisStoreLocatorCS.config').encryptMail }}"
+}'>
+        {% if page.store %}
+            {% set store = page.store %}
+        {% elseif element.data %}
+            {% set store = element.data %}
+        {% endif %}
+
+        {% block element_acris_store_details_content %}
+            {% block element_acris_store_details_headline %}
+                    <div class="sw-cms-el-acris-store-details__store_headline">
+                        <h2 class="sw-cms-el-acris-store-details__store_headline">{% if store.name %}{{ store.name }}{% endif %} {% if store.department %}{{ store.department }}{% endif %}</h2>
+                    </div>
+
+            {% endblock %}
+            {% block element_acris_store_details_text %}
+                <div class="sw-cms-el-acris-store-details__details">
+                    <p>
+                        {% if store.street|trim %}{{ store.street }}<br>{% endif %}
+                        {% if store.zipcode|trim %}{{ store.zipcode }}{% if store.city|trim %} {{ store.city }}<br>{% endif %}{% else %}{% if store.city|trim %}{{ store.city }}<br>{% endif %}{% endif %}
+                        {% if store.country and store.country.name|trim %}{{ store.country.name }}{% if store.state and store.state.name|trim %} {{ store.state.name }}<br>{% endif %}{% else %}{% if store.state and store.state.name|trim %}{{ store.state.name }}<br>{% endif %}{% endif %}
+                        {% if store.phone|trim %}<a href="tel:{{ store.phone }}">{{ store.phone }}</a><br>{% endif %}
+                        {% if store.translated.email|trim %}<a data-mail="{{ store.translated.email }}" class="acris-store-locator-mail" href="mailto:{{ store.translated.email }}">{% if config('AcrisStoreLocatorCS.config').showEmail == 'iconAndEmail' or config('AcrisStoreLocatorCS.config').showEmail == 'onlyIcon' %}{% sw_icon 'envelope' %}{% endif %}{% if store.extensions and store.extensions.originalData %}<span class="{% if config('AcrisStoreLocatorCS.config').showEmail != 'onlyEmail' %}acris-store-locator-email-icon{% endif %}">{{ store.extensions.originalData.email }}</span>{% endif %}</a><br>{% endif %}
+                        {% if store.url|trim %}<a href="{{ store.url }}">{{ store.url }}</a><br>{% endif %}
+                        {% if store.opening_hours|trim %}{{ store.opening_hours|raw }}<br>{% endif %}
+                    </p>
+                </div>
+            {% endblock %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% block acris_store_locator_detail %}
+    {% if page.store.cmsPageId and page.store.storeGroupId %}
+        {% block acris_store_locator_cookie_not_accepted_message_detail %}
+            <div class="container acris-store-locator-cookie-not-accepted d-none">
+                {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                    type: "info",
+                    content: "acrisStoreLocator.cookieNotAccepted"|trans|sw_sanitize
+                } %}
+            </div>
+        {% endblock %}
+
+        <div class="acris-store-locator-map-container-inner">
+            {% block acris_store_locator_detail_breadcrumb %}
+                <div class="acris-store-locator container">
+                    <nav aria-label="breadcrumb">
+                        {% block layout_breadcrumb_detail_list %}
+                            <ol class="breadcrumb"
+                                itemscope
+                                itemtype="https://schema.org/BreadcrumbList">
+                                <li class="breadcrumb-item"
+                                    aria-current="page"
+                                    itemprop="itemListElement"
+                                    itemscope
+                                    itemtype="https://schema.org/ListItem">
+                                    <a href="{{ path('frontend.storeLocator.storeGroup', {'groupId': page.store.storeGroupId}) }}"
+                                       class="breadcrumb-link is-active"
+                                       title="{{ "acrisStoreLocator.storeLocatorPageBreadcrumbDetail"|trans }}{{ page.store.storeGroup.translated.name }}"
+                                       itemprop="item">
+                                        <link itemprop="url"
+                                              href="{{ path('frontend.storeLocator.storeGroup', {'groupId': page.store.storeGroupId}) }}"/>
+                                        <span class="breadcrumb-title" itemprop="name">{{ "acrisStoreLocator.storeLocatorPageBreadcrumbDetail"|trans }}{{ page.store.storeGroup.translated.name }}</span>
+                                    </a>
+                                    <meta itemprop="position" content="{{ page.groupId }}"/>
+                                </li>
+                            </ol>
+                        {% endblock %}
+                    </nav>
+                </div>
+            {% endblock %}
+
+            <div class="acris-stores-cms">
+                <div class="cms-page">
+                    {% sw_include "@Storefront/storefront/page/content/detail.html.twig" with {'cmsPage': page.store.cmsPage} %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

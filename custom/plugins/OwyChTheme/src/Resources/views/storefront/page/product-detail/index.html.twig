@@ -1,0 +1,92 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+{% block page_product_detail_inner %}
+	{% block page_product_detail_content %}
+		<div class="imageslider">
+			<div class="sidebarnavigation-content">
+				{% sw_include '@Storefront/storefront/layout/sidebar/category-navigation.html.twig' with {
+            navigationTree: page.header.navigation.tree,
+            activeResult: page.header.navigation.active
+        } only %}
+			</div>
+			<div class="product-detail-content">
+				{% block page_product_detail_headline %}
+					<div class="row align-items-center product-detail-headline">
+						{% sw_include '@Storefront/storefront/page/product-detail/headline.html.twig' %}
+					</div>
+					{# <div class="tabsnavigation-content">
+											<ul>
+												<li data-scroll="section1">{{ "OwyChTheme.detail.tabsnames.lable1"|trans }}</li>
+												<li data-scroll="section2">{{ "OwyChTheme.detail.tabsnames.lable2"|trans }}</li>
+												<li data-scroll="section6">{{ "OwyChTheme.detail.tabsnames.lable3"|trans }}</li>
+												<li data-scroll="section7">{{ "OwyChTheme.detail.tabsnames.lable4"|trans }}</li>
+												 
+											</ul>
+										</div> #}
+				{% endblock %}
+
+				{% set mediaItems = page.product.media.media %}
+
+				{% block page_product_detail_main %}
+					<div id="section1" class="row product-detail-main">
+						{% block page_product_detail_buy %}
+							<div class="col-lg-5 product-detail-buy">
+								{% sw_include '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+							</div>
+						{% endblock %}
+						{% block page_product_detail_media %}
+							<div class="col-lg-7 product-detail-media">
+								{% if page.product.media %}
+									{% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {
+                                                'mediaItems': mediaItems,
+                                                'zoom': true,
+                                                'zoomModal': true,
+                                                'displayMode': 'contain',
+                                                'gutter': 5,
+                                                'minHeight': '430px',
+                                                'navigationArrows': 'inside',
+                                                'navigationDots': 'inside',
+                                                'galleryPosition': 'left',
+                                                'isProduct': true,
+                                                'fallbackImageTitle': page.product.translated.name,
+                                                'startIndexThumbnails': 1,
+                                                'startIndexSlider': 1,
+                                                'keepAspectRatioOnZoom': false
+                                            } %}
+								{% endif %}
+							</div>
+						{% endblock %}
+					</div>
+				{% endblock %}
+				{% block page_product_detail_tabs %}
+					<div class="product-detail-tabs">
+						{% sw_include '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+					</div>
+				{% endblock %}
+				{% block page_product_detail_cross_selling %}
+					{% if page.crossSellings.elements is defined and page.crossSellings.elements|filter(item => item.total > 0)|length > 0 %}
+						<div class="product-detail-tabs product-detail-cross-selling" id="section7">
+							{% sw_include '@Storefront/storefront/page/product-detail/cross-selling/tabs.html.twig' with {
+                                crossSellings: page.crossSellings
+                            } %}
+						</div>
+					{% endif %}
+				{% endblock %}
+			</div>
+		</div>
+	{% endblock %}
+
+	<div class="product-detail-tabs d-none">
+		<aside class="sidebar" id="bar-fixed">
+			<div class="component">
+				<ul>
+					<li data-scroll="section1">{{ "OwyChTheme.detail.tabsnames.lable1"|trans }}</li>
+					<li data-scroll="section2">{{ "OwyChTheme.detail.tabsnames.lable2"|trans }}</li>
+					<li data-scroll="section5">{{ "OwyChTheme.detail.tabsnames.lable3"|trans }}</li>
+					<li data-scroll="section7">{{ "OwyChTheme.detail.tabsnames.lable4"|trans }}</li>
+				</ul>
+			</div>
+		</aside>
+
+	</div>
+
+{% endblock %}

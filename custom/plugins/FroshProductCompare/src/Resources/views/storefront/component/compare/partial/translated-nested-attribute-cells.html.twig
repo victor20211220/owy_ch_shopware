@@ -1,0 +1,7 @@
+{% block frosh_product_compare_translated_nested_attribute_cells %}
+    {% for product in products %}
+        <td>
+            {{ attribute(product, attribute).translated.name }}
+        </td>
+    {% endfor %}
+{% endblock %}

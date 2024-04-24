@@ -1,0 +1,46 @@
+{% block component_filter_panel %}
+    {% set sidebar = block.sectionPosition == 'sidebar' %}
+
+    {% block component_filter_panel_header %}
+        <div class="filter-panel-offcanvas-header">
+            <h3 class="filter-panel-offcanvas-only">{{ "cbaxLexicon.page.filter.headline"|trans }}</h3>
+
+            <div class="filter-panel-offcanvas-only filter-panel-offcanvas-close js-offcanvas-close">
+                {% sw_icon 'x' style { 'size': 'md' } %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block component_filter_panel_element %}
+        <div class="filter-panel lexicon-filter-panel{% if sidebar %} is--sidebar{% endif %}">
+
+            {% block component_filter_panel_items_container %}
+                <div class="filter-panel-items-container">
+
+                    {% for entry in lexiconEntriesData %}
+                        {% if entry.countEntries %}
+                            <a href="{{ entry.link }}" class="btn btn-light" title="{{ entry.char }}">{{ entry.char }}</a>
+                        {% endif %}
+                    {% endfor %}
+					
+                    <a class="btn btn-primary" href="{{ seoUrl('frontend.cbax.lexicon.index') }}" title="{{ "cbaxLexicon.page.navigation.linkIndex"|trans }}">
+                        {{ "cbaxLexicon.page.navigation.linkIndex"|trans }}
+                    </a>
+                    <a class="btn btn-primary" href="{{ seoUrl('frontend.cbax.lexicon.content') }}" title="{{ "cbaxLexicon.page.navigation.linkContent"|trans }}">
+                        {{ "cbaxLexicon.page.navigation.linkContent"|trans }}
+                    </a>
+                    
+                </div>
+                <!-- erforderlich für JS von Shopware -->
+                <div data-listing="true"></div>
+            {% endblock %}
+
+        </div>
+    {% endblock %}
+    {% block component_filter_panel_active_container %}
+        <!-- erforderlich für JS von Shopware -->
+        <div class="filter-panel-active-container">
+            {% block component_filter_panel_active_container_inner %}{% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,24 @@
+CREATE TABLE `category_test123` (
+  `id` binary(16) NOT NULL,
+  `version_id` binary(16) NOT NULL,
+  `auto_increment` int(11) NOT NULL,
+  `parent_id` binary(16) DEFAULT NULL,
+  `parent_version_id` binary(16) DEFAULT NULL,
+  `media_id` binary(16) DEFAULT NULL,
+  `cms_page_id` binary(16) DEFAULT NULL,
+  `cms_page_version_id` binary(16) NOT NULL DEFAULT '???jK¾K??u,4%',
+  `product_stream_id` binary(16) DEFAULT NULL,
+  `product_assignment_type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'product',
+  `path` longtext COLLATE utf8mb4_unicode_ci,
+  `after_category_id` binary(16) DEFAULT NULL,
+  `after_category_version_id` binary(16) DEFAULT NULL,
+  `level` int(11) UNSIGNED NOT NULL DEFAULT '1',
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `child_count` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `display_nested_products` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `visible` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime(3) NOT NULL,
+  `updated_at` datetime(3) DEFAULT NULL,
+  `custom_entity_type_id` binary(16) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

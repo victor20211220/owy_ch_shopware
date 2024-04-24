@@ -1,0 +1,118 @@
+.lsiting-actions-container {
+  display  : flex;
+  flex-wrap: nowrap;
+
+  .selectQuantitybox {
+    width: 35%;
+
+    .product-detail-quantity-group {
+      position: relative;
+      width   : 75px;
+      display : block;
+
+      .quantity-selector-group-input {
+        float      : left;
+        width      : 40px;
+        height     : 40px;
+        border-left: 1px solid $sw-border-color;
+        background : $white;
+      }
+    }
+
+    .btn {
+      height  : 20px;
+      position: relative;
+      padding : 0 6px 0 6px;
+      width   : 30px;
+      display : flex;
+
+      .icon-xs {
+        width : 14.5px;
+        height: 14.5px;
+
+        svg {
+          top: 0;
+        }
+      }
+
+    }
+
+    .js-btn-minus {
+      border-right: 1px solid $sw-border-color;    border-top: 1px solid transparent;
+    }
+
+    .js-btn-plus {
+      // border-top-color: transparent;
+      border-left     : 1px solid $sw-border-color;
+
+    }
+  }
+
+  .listing-btn-buy-box {
+    width       : 75%;
+    padding-left: 4px;
+
+    button.btn.btn-buy {
+      width        : 100%;
+      padding-left : 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.quantity-selector-group .btn {
+  border: 1px solid $sw-border-color;
+}
+
+.form-control {
+  border: 1px solid $sw-border-color;
+}
+
+.switchlisting-wraper {
+  #listing-style-form {
+    top     : 7px;
+    position: relative;
+
+    .listing-layout--wrapper {
+      margin-bottom: 15px;
+
+      label {
+        cursor: pointer;
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        img {
+          width : 24px;
+          height: 24px;
+          cursor: pointer;
+        }
+
+        svg {
+
+          rect {
+            fill: $sw-border-color;
+          }
+        }
+
+        &.active {
+          border: none;
+
+          svg {
+
+            rect {
+              fill: $sw-color-brand-secondary;
+            }
+          }
+
+        }
+      }
+
+      label.labellist {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+}

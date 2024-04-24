@@ -1,0 +1,12 @@
+@import "~scss/variables";
+
+$netzp-searchadvanced6-synonyms-list-color-error: $color-crimson-500;
+$netzp-searchadvanced6-synonyms-list-color-success: $color-emerald-500;
+
+.netzp-searchadvanced6-synonyms-list {
+  .netzp-searchadvanced6-synonyms__content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}

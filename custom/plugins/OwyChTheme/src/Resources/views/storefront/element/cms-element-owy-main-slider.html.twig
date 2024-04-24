@@ -1,0 +1,392 @@
+
+
+     <!-- First Slide -->
+    {% if element.config.desktopImage1.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage1.value], context.context) %}
+        {% set desktopImage1 = mediaCollection.get(element.config.desktopImage1.value).url %}
+    {% else %}
+        {% set desktopImage1 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage1.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage1.value], context.context) %}
+        {% set mobileImage1 = mediaCollection.get(element.config.mobileImage1.value).url %}
+    {% else %}
+        {% set mobileImage1 = '' %}
+    {% endif %}
+
+     {% set link1 = element.config.link1.value %}
+    <!-- Second Slide -->
+    {% if element.config.desktopImage2.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage2.value], context.context) %}
+        {% set desktopImage2 = mediaCollection.get(element.config.desktopImage2.value).url %}
+    {% else %}
+        {% set desktopImage2 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage2.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage2.value], context.context) %}
+        {% set mobileImage2 = mediaCollection.get(element.config.mobileImage2.value).url %}
+    {% else %}
+        {% set mobileImage2 = '' %}
+    {% endif %}
+     {% set link2 = element.config.link2.value %}
+    <!-- Third Slide -->
+    {% if element.config.desktopImage3.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage3.value], context.context) %}
+        {% set desktopImage3 = mediaCollection.get(element.config.desktopImage3.value).url %}
+    {% else %}
+        {% set desktopImage3 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage3.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage3.value], context.context) %}
+        {% set mobileImage3 = mediaCollection.get(element.config.mobileImage3.value).url %}
+    {% else %}
+        {% set mobileImage3 = '' %}
+    {% endif %}
+     {% set link3 = element.config.link3.value %}
+
+    <!-- Fourth Slide -->
+    {% if element.config.desktopImage4.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage4.value], context.context) %}
+        {% set desktopImage4 = mediaCollection.get(element.config.desktopImage4.value).url %}
+    {% else %}
+        {% set desktopImage4 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage4.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage4.value], context.context) %}
+        {% set mobileImage4 = mediaCollection.get(element.config.mobileImage4.value).url %}
+    {% else %}
+        {% set mobileImage4 = '' %}
+    {% endif %}
+     {% set link4 = element.config.link4.value %}
+
+    <!-- Fifth Slide -->
+    {% if element.config.desktopImage5.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage5.value], context.context) %}
+        {% set desktopImage5 = mediaCollection.get(element.config.desktopImage5.value).url %}
+    {% else %}
+        {% set desktopImage5 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage5.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage5.value], context.context) %}
+        {% set mobileImage5 = mediaCollection.get(element.config.mobileImage5.value).url %}
+    {% else %}
+        {% set mobileImage5 = '' %}
+    {% endif %}
+     {% set link5 = element.config.link5.value %}
+
+    <!-- Sixth Slide -->
+    {% if element.config.desktopImage6.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage6.value], context.context) %}
+        {% set desktopImage6 = mediaCollection.get(element.config.desktopImage6.value).url %}
+    {% else %}
+        {% set desktopImage6 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage6.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage6.value], context.context) %}
+        {% set mobileImage6 = mediaCollection.get(element.config.mobileImage6.value).url %}
+    {% else %}
+        {% set mobileImage6 = '' %}
+    {% endif %}
+     {% set link6 = element.config.link6.value %}
+    <!-- Seventh Slide -->
+    {% if element.config.desktopImage7.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage7.value], context.context) %}
+        {% set desktopImage7 = mediaCollection.get(element.config.desktopImage7.value).url %}
+    {% else %}
+        {% set desktopImage7 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage7.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage7.value], context.context) %}
+        {% set mobileImage7 = mediaCollection.get(element.config.mobileImage7.value).url %}
+    {% else %}
+        {% set mobileImage7 = '' %}
+    {% endif %}
+     {% set link7 = element.config.link7.value %}
+    <!-- Eighth Slide -->
+    {% if element.config.desktopImage8.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage8.value], context.context) %}
+        {% set desktopImage8 = mediaCollection.get(element.config.desktopImage8.value).url %}
+    {% else %}
+        {% set desktopImage8 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage8.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage8.value], context.context) %}
+        {% set mobileImage8 = mediaCollection.get(element.config.mobileImage8.value).url %}
+    {% else %}
+        {% set mobileImage8 = '' %}
+    {% endif %}
+     {% set link8 = element.config.link8.value %}
+    <!-- Ninth Slide -->
+    {% if element.config.desktopImage9.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage9.value], context.context) %}
+        {% set desktopImage9 = mediaCollection.get(element.config.desktopImage9.value).url %}
+    {% else %}
+        {% set desktopImage9 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage9.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage9.value], context.context) %}
+        {% set mobileImage9 = mediaCollection.get(element.config.mobileImage9.value).url %}
+    {% else %}
+        {% set mobileImage9 = '' %}
+    {% endif %}
+     {% set link9 = element.config.link9.value %}
+    <!-- Tenth Slide -->
+    {% if element.config.desktopImage10.value %}
+        {% set mediaCollection = searchMedia([element.config.desktopImage10.value], context.context) %}
+        {% set desktopImage10 = mediaCollection.get(element.config.desktopImage10.value).url %}
+    {% else %}
+        {% set desktopImage10 = '' %}
+    {% endif %}
+
+    {% if element.config.mobileImage10.value %}
+        {% set mediaCollection = searchMedia([element.config.mobileImage10.value], context.context) %}
+        {% set mobileImage10 = mediaCollection.get(element.config.mobileImage10.value).url %}
+    {% else %}
+        {% set mobileImage10 = '' %}
+    {% endif %}
+     {% set link10 = element.config.link10.value %}
+
+     <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+        
+         <div class="carousel-inner">
+             {% if desktopImage1 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage1 !='' %}
+                 <div class="carousel-item active">
+                     <a href="{% if link1 %}{{ link1 }}{% else %}#{% endif %}">
+                        <img src="{{ mobileImage1 }}" class="d-block w-100" alt="Slide 1" height="auto" width="100%">
+                     </a>
+                 </div>
+                 {% else %}
+                     <div class="carousel-item active">
+                        <a href="{% if link1 %}{{ link1 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage1 }}" class="d-block w-100" alt="Slide 1" height="auto" width="100%">
+                        </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage2 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage2 !='' %}
+                 <div class="carousel-item">
+                 <a href="{% if link2 %}{{ link2 }}{% else %}#{% endif %}">
+                     <img src="{{ mobileImage2 }}" class="d-block w-100" alt="Slide 2" height="auto" width="100%">
+                 </a>
+                 </div>
+                 {% else %}
+                     <div class="carousel-item">
+                     <a href="{% if link2 %}{{ link2 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage2 }}" class="d-block w-100" alt="Slide 2" height="auto" width="100%">
+                     </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage3 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage3 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link3 %}{{ link3 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage3 }}" class="d-block w-100" alt="Slide 3" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link3 %}{{ link3 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage3 }}" class="d-block w-100" alt="Slide 3" height="auto" width="100%">
+                     </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage4 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage4 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link4 %}{{ link4 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage4 }}" class="d-block w-100" alt="Slide 4" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link4 %}{{ link4 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage4 }}" class="d-block w-100" alt="Slide 4" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage5 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage5 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link5 %}{{ link5 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage5 }}" class="d-block w-100" alt="Slide 5" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link5 %}{{ link5 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage5 }}" class="d-block w-100" alt="Slide 5" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage6 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage6 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link6 %}{{ link6 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage6 }}" class="d-block w-100" alt="Slide 6" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link6 %}{{ link6 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage6 }}" class="d-block w-100" alt="Slide 6" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage7 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage7 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link7 %}{{ link7 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage7 }}" class="d-block w-100" alt="Slide 7" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link7 %}{{ link7 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage7 }}" class="d-block w-100" alt="Slide 7" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage8 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage8 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link8 %}{{ link8 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage8 }}" class="d-block w-100" alt="Slide 8" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link8 %}{{ link8 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage8 }}" class="d-block w-100" alt="Slide 8" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage9 !='' %}
+                 {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage9 !='' %}
+                     <div class="carousel-item">
+                         <a href="{% if link9 %}{{ link9 }}{% else %}#{% endif %}">
+                         <img src="{{ mobileImage9 }}" class="d-block w-100" alt="Slide 9" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% else %}
+                     <div class="carousel-item">
+                         <a href="{% if link9 %}{{ link9 }}{% else %}#{% endif %}">
+                         <img src="{{ desktopImage9 }}" class="d-block w-100" alt="Slide 9" height="auto" width="100%">
+                         </a>
+                     </div>
+                 {% endif %}
+             {% endif %}
+
+             {% if desktopImage10 !='' %}
+
+             {% if ('Mobile' in app.request.headers.get('User-Agent')) and mobileImage10 !='' %}
+                 <div class="carousel-item">
+                     <a href="{% if link10 %}{{ link10 }}{% else %}#{% endif %}">
+                     <img src="{{ mobileImage10 }}" class="d-block w-100" alt="Slide 10" height="auto" width="100%">
+                     </a>
+                 </div>
+             {% else %}
+                 <div class="carousel-item">
+                     <a href="{% if link10 %}{{ link10 }}{% else %}#{% endif %}">
+                     <img src="{{ desktopImage10 }}" class="d-block w-100" alt="Slide 10" height="auto" width="100%">
+                     </a>
+                 </div>
+             {% endif %}
+             {% endif %}
+
+
+         </div>
+          <div class="carousel-indicators">
+             {% if desktopImage1 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                     <span></span>
+                 </button>
+             {% endif %}
+
+             {% if desktopImage2 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage3 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage4 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Slide 4">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage5 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="4" aria-label="Slide 5">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage6 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="5" aria-label="Slide 6">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage7 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="6" aria-label="Slide 7">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage8 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="7" aria-label="Slide 8">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage9 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="8" aria-label="Slide 9">
+                     <span></span>
+                 </button>
+             {% endif %}
+             {% if desktopImage10 !='' %}
+                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="9" aria-label="Slide 10">
+                     <span></span>
+                 </button>
+             {% endif %}
+
+         </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+             <span class="visually-hidden">Previous</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+             <span class="visually-hidden">Next</span>
+         </button>
+     </div>
+
+
+
+
+
+

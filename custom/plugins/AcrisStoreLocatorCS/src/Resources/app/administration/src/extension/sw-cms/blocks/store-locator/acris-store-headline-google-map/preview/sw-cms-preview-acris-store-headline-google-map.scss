@@ -1,0 +1,24 @@
+@import "~scss/variables";
+@import "../../../../scss/acris-variables";
+
+.sw-cms-preview-acris-store-headline-google-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 15px;
+    position: relative;
+    align-items: center;
+
+    //.acris-store-headline-google-map-topline {
+    //    font-size: 11px;
+    //}
+    //
+    //.acris-store-headline-google-map-headline {
+    //    margin-bottom: 0;
+    //    font-size: 14px;
+    //}
+    //
+    //.acris-store-headline-google-map-subheadline {
+    //    font-size: 12px;
+    //}
+}

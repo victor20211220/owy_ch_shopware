@@ -1,0 +1,29 @@
+{% block frosh_product_compare_float_button_inner %}
+    {% set buttonClasses = buttonClasses ?? 'btn-primary' %}
+    {% set floatingButtonClasses = floatingButtonClasses ?? 'compare-float-button' %}
+    {% set badgeClasses = badgeClasses ?? 'bg-danger' %}
+    {% set compareFloatOptions = {
+        maximumNumberCompareProductsText: "froshProductCompare.general.maximumCompareProducts"|trans|sw_sanitize
+    } %}
+
+    <div data-compare-float="true" data-compare-float-options="{{ compareFloatOptions|json_encode }}">
+        {% block frosh_product_compare_float_button %}
+            <div class="{{ floatingButtonClasses }} js-compare-float-button"
+                 title="{{ "froshProductCompare.offcanvas.compareNow"|trans }}">
+                <button
+                        class="btn {{ buttonClasses }}" title="{{ "froshProductCompare.offcanvas.compareNow"|trans }}">
+                    {% block frosh_product_compare_float_icon %}
+                        {# {% sw_icon 'bag-product' style { 'size': 'sm' } %} #}
+                         <img src="{{ asset('storefront/assets/images/icons/vergleichen.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+                       <label>   {{ "OwyChTheme.widgets.compare.label"|trans }} </label>
+                       
+                    {% endblock %}
+                    <span class="badge {{ badgeClasses }}"></span>
+                </button>
+                <div class="dropdown owy-compare-cart">
+                    <div class="dropdown-menu compare-menu animated"></div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

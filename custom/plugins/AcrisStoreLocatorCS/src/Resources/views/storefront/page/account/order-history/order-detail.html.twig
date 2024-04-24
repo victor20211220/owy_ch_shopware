@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/page/account/order-history/order-detail.html.twig' %}
+
+{% block page_account_order_documents_table %}
+    {% if order.deliveries.first.extensions.acrisOrderDeliveryStore %}
+        {% sw_include '@Storefront/storefront/page/account/order-history/custom/acris-order-detail.html.twig' %}
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

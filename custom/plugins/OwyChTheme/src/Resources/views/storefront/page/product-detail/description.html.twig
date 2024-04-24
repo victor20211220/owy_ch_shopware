@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% block page_product_detail_description_container %}
+        <div class="product-detail-description tab-pane-container">
+            {% block page_product_detail_description_title %}
+              
+            {% endblock %}
+
+            {% block page_product_detail_description_content %}
+                {% block page_product_detail_description_content_text %}
+                    <div class="product-detail-description-text"
+                         itemprop="description">
+                        {{ page.product.translated.description|raw }}
+                    </div>
+                {% endblock %}
+
+                {% block page_product_detail_description_content_properties %}
+                                   {% endblock %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

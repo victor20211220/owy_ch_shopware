@@ -1,0 +1,60 @@
+<div class="row">
+{% set hasImages = false %}
+{% for category in page.extensions.netzpSearch.categories.data %}
+    {% if category.media %}
+        {% set hasImages = true %}
+    {% endif %}
+{% endfor %}
+
+{% for category in page.extensions.netzpSearch.categories.data %}
+    <div class="col-12 col-md-6 col-lg-3 my-4">
+        <div class="card h-100">
+            {% if category.media.url %}
+                {% if category.hasExtension('link') and category.getExtension('link').value %}
+                    <a href="{{ category.getExtension('link').value }}">
+                {% else %}
+                    <a href="{{ seoUrl('frontend.navigation.page', {'navigationId': category.getId}) }}">
+                {% endif %}
+                {% sw_thumbnails 'card-img-top' with {
+                    media: category.media,
+                    sizes: {
+                        'default': '400px'
+                    },
+                    attributes: {
+                        'class': 'card-img-top',
+                        'alt':   category.media.translated.alt ?: '',
+                        'title': category.media.translated.title ?: ''
+                    }
+                } %}
+                </a>
+            {% elseif hasImages %}
+                <div class="card-img-top"></div>
+            {% endif %}
+
+            <div class="card-body">
+                <h3 class="card-title mt-3">
+                    {{ category.getTitle|raw|sw_sanitize }}
+                    {% if category.breadcrumb|length > 2 %}
+                        {% set breadcrumb = category.breadcrumb|slice(1, category.breadcrumb|length - 2) %}
+                        {% set delimiter = "netzp.search.delimiter"|trans %}
+                        <br>
+                        <small style="font-weight: normal">{{ breadcrumb|join(delimiter) }}</small>
+                    {% endif %}
+                </h3>
+                <p class="card-text">
+                    {{ category.getDescription|striptags|u.truncate(120, '...', false) }}
+                </p>
+                <h2>
+                    {% if category.hasExtension('link') and category.getExtension('link').value %}
+                        <a href="{{ category.getExtension('link').value }}" class="btn btn-light">
+                    {% else %}
+                        <a href="{{ seoUrl('frontend.navigation.page', {'navigationId': category.getId}) }}" class="btn btn-light">
+                    {% endif %}
+                        {{ "netzp.search.category"|trans }}
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>

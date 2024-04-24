@@ -1,0 +1,102 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_content %}
+	<div class="cms-sections">
+		<div class="cms-section  pos-0 cms-section-sidebar">
+			<div class="cms-section-sidebar cms-section-sidebar-mobile-wrap boxed row">
+				<div class="cms-section-sidebar-sidebar-content col-lg-4 col-xl-3">
+					{% sw_include '@Storefront/storefront/component/navigation.html.twig' %}
+				</div>
+				<div class="cms-section-sidebar-main-content col-lg-8 col-xl-9">
+					<div class="cms-block  pos-0 cms-block-owy-editor" style="">
+
+
+						<div class="cms-block-container" style="">
+
+							<div class="cms-block-container-row row cms-row ">
+								<div class="w-100 pl-sm-4 pl-lg-4 pr-sm-4 pr-lg-4" data-cms-element-id="affe5be93b7c46fea66010379c0678b3">
+									<div class="cms-element-owy-editor">
+
+										<div class="row" style="width: 100%;">
+											<nav class="categorybreadcrumb" aria-label="breadcrumb"  >
+												<ol class="breadcrumb">
+													<li class="breadcrumb-item" itemprop="itemListElement" itemscope="">
+														<a href="#" class="breadcrumb-link " title="{{ 'OWY.photo_exchange.search'|trans }}" itemprop="item">
+															<span class="breadcrumb-title" itemprop="name">{{ "OWY.photo_exchange.title"|trans }}</span>
+														</a>
+														<meta itemprop="position" content="1">
+													</li>
+													<div class="breadcrumb-placeholder">
+														<span class="icon icon-arrow-medium-right icon-fluid">
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewbox="0 0 16 16">
+																<use transform="rotate(-90 8 8)" xlink:href="#icons-solid-arrow-medium-right" fill="#758CA3" fill-rule="evenodd"></use>
+															</svg>
+														</span>
+													</div>
+													<li class="breadcrumb-item" itemprop="itemListElement" itemscope="">
+														<a href="#" class="breadcrumb-link " title="{{ 'OWY.photo_exchange.search'|trans }}" itemprop="item">
+
+															<span class="breadcrumb-title" itemprop="name">{{ "OWY.photo_exchange.search"|trans }}</span>
+														</a>
+														<meta itemprop="position" content="2">
+													</li>
+												</ol>
+											</nav>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{# todo: folloiwng content should come from database #}
+					<div id="jumbotron">
+						<h2 class="shoptitleTwo">{{ "OWY.photo_exchange.search"|trans }}</h2>
+						<p>
+							<strong>
+								{{ "OWY.photo_exchange_create.label"|trans }}
+							</strong>
+						</p>
+
+						<p>{{ "OWY.photo_exchange_create.label1"|trans|raw }}</p>
+						<p>{{ "OWY.photo_exchange_create.label2"|trans }}</p>
+						<p style="color: #e41d1a;" class="owy-warning">
+							{{ "OWY.photo_exchange_create.label3"|trans }}
+                            </p>
+					</div>
+					<form action="" method="get">
+						<div class="form-group row">
+							<label for="category" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange.category"|trans }}</label>
+							<div class="col-sm-7">
+								<select name="category" id="category" class="form-control">
+									{% for category in categories %}
+										<option value="{{ category.id }}">{{ category.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="keyword" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange.keyword"|trans }}</label>
+							<div class="col-sm-7">
+								<input type="text" name="query" class="form-control" id="keyword" value="{{ app.request.get('query') }}">
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col">
+								<button type="submit" class="btn btn-primary">{{ "OWY.photo_exchange.search_go"|trans }}</button>
+							</div>
+						</div>
+					</form>
+
+					<div id="search-result">
+						{% sw_include '@Storefront/storefront/component/search-post-list.html.twig' %}
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

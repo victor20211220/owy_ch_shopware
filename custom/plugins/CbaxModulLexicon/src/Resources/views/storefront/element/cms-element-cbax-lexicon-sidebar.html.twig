@@ -1,0 +1,16 @@
+{% block element_cbax_lexicon_sidebar %}
+    {% set config = element.fieldConfig.elements %}
+
+    {% set lexiconEntries = element.data.entries %}
+    {% set lexiconChar = element.data.char %}
+    {% set entryId = element.data.entryId %}
+
+    {% block cbax_lexicon_page_index_text_table_content %}
+
+        {% if entryId and lexiconChar %}
+            {% sw_include '@Storefront/storefront/cbax-lexicon/component/sidebar.html.twig' %}
+        {% endif %}
+
+    {% endblock %}
+
+{% endblock %}

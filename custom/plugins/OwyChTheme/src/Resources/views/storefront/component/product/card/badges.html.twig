@@ -1,0 +1,48 @@
+{% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
+{% block component_product_badges %}
+    <div class="product-badges">
+        {% block component_product_badges_discount %}
+           {{ parent() }}
+        {% endblock %}
+
+        {% block component_product_badges_topseller %}
+           {{ parent() }}
+        {% endblock %}
+
+        {% block component_product_badges_new %}
+            {% set miete = page.header.navigation.active.translated.name %}
+
+            {% if product.isNew and miete != 'Miete'  %}
+                <div class="badge-custom">
+                    <span class="badge bg-success badge-new">
+                    {{ "listing.boxLabelNew"|trans|sw_sanitize }}
+                    </span>
+                </div>
+            {% elseif product.isNew and miete== 'Miete' and product.extensions.rentalProduct.extensions.isRentalProduct and config('RhiemRentalProducts.config.showBadge')  %}
+                <div class="badge-custom">
+                    <span class="badge bg-green badge-new" style="background-color: #51D368 !important;">
+                     {{ "OwyChTheme.listing.product.miete"|trans }}
+                    </span>
+                </div>
+            {% elseif miete == 'Miete' and product.extensions.rentalProduct.extensions.isRentalProduct and config('RhiemRentalProducts.config.showBadge') %}
+                <div class="badge-custom">
+                    <span class="badge bg-green badge-new" style="background-color: #51D368 !important;">
+                    {{ "OwyChTheme.listing.product.miete"|trans }}
+                    </span>
+                </div>
+            {% endif %}
+
+            {% if product.translated.customFields.custom_additonal_badges_title !='' %}
+                <div class="product-badges">
+                    <div class="badge-custom">
+							<span class="badge bg-green badge-new" style="background-color: {{ product.translated.customFields.custom_additonal_badges_bg_color  }} !important; color: {{ page.product.translated.customFields.custom_additonal_badges_color }}">
+								{{ product.translated.customFields.custom_additonal_badges_title }}
+							</span>
+                    </div>
+
+
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}

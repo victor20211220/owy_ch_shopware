@@ -1,0 +1,99 @@
+{
+    "rhiem-rental-products": {
+        "detail": {
+            "tabRental": "Rental",
+            "title": "Rent products",
+            "variantFormTitle": "Variant",
+            "settingFormTitle": "General Settings",
+            "depositFormTitle": "Deposit",
+            "priceFormTitle": "Price",
+            "advancedPricingFormTitle": "Advanced rental pricing",
+            "bailFormTitle": "Bail",
+            "restrictionsFormTitle": "Restrictions",
+            "calendarFormTitle": "Calendar",
+            "tabAdvancedPrices": {
+                "title": "Advanced Pricing (Rental)"
+            }
+        },
+        "order": {
+            "detail": {
+                "rentalPeriod": "Rental period"
+            },
+            "list": {
+                "checkboxFilterName": "Only Orders with rental items"
+            }
+        }
+    },
+
+    "rental-calendar-form": {
+        "headers": {
+            "days": {
+                "1": "Monday",
+                "2": "Tuesday",
+                "3": "Wednesday",
+                "4": "Thursday",
+                "5": "Friday",
+                "6": "Saturday",
+                "7": "Sunday"
+            },
+            "months": {
+                "1": "January",
+                "2": "February",
+                "3": "March",
+                "4": "April",
+                "5": "May",
+                "6": "June",
+                "7": "July",
+                "8": "August",
+                "9": "September",
+                "10": "October",
+                "11": "November",
+                "12": "December"
+            }
+        },
+        "block": "Blocked",
+        "create-block-modal": {
+            "header": "Block article",
+            "startDate": "From",
+            "endDate": "To",
+            "quantity": "Quantity",
+            "comment": "Reason",
+            "commentPlaceholder": "Blocked",
+            "errorTitle": "Not enough products",
+            "errorDescription": "On at least one day, within the selected period, all products are rented by orders and/or blockages."
+        },
+        "edit-block-modal": {
+            "header": "Edit Block",
+            "startDate": "From",
+            "endDate": "To",
+            "quantity": "Quantity",
+            "comment": "Reason",
+            "commentPlaceholder": "Blocked",
+            "errorTitle": "Not enough products",
+            "errorDescription": "On at least one day, within the selected period, all products are rented by orders and/or blockages."
+        },
+        "event-overview-modal": {
+            "header": "Overview",
+            "openOrder": "Open order",
+            "editBlock": "Edit block",
+            "deleteBlock": "Delete block",
+            "type": "Type",
+            "comment": "Comment",
+            "startDate": "From",
+            "endDate": "To",
+            "type_block": "Block",
+            "type_rent": "Rent"
+        }
+    },
+
+    "rental-calendar-block-modal": {
+        "header": "Block article",
+        "startDate": "From",
+        "endDate": "To",
+        "quantity": "Quantity",
+        "comment": "Reason",
+        "commentPlaceholder": "Blocked",
+        "errorTitle": "Not enough products",
+        "errorDescription": "On at least one day, within the selected period, all products are rented by orders and/or blockages."
+    }
+}

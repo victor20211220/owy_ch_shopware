@@ -1,0 +1,195 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set heading = config.heading.value %}
+    {% set faq1 = config.faq1.value %}
+    {% set answer1 = config.answer1.value %}
+
+    {% set faq2 = config.faq2.value %}
+    {% set answer2 = config.answer2.value %}
+
+    {% set faq3 = config.faq3.value %}
+    {% set answer3 = config.answer3.value %}
+
+    {% set faq4 = config.faq4.value %}
+    {% set answer4 = config.answer4.value %}
+
+    {% set faq5 = config.faq5.value %}
+    {% set answer5 = config.answer5.value %}
+
+    {% set faq6 = config.faq6.value %}
+    {% set answer6 = config.answer6.value %}
+
+    {% set faq7 = config.faq7.value %}
+    {% set answer7 = config.answer7.value %}
+
+    {% set faq8 = config.faq8.value %}
+    {% set answer8 = config.answer8.value %}
+
+    {% set faq1 = config.faq1.value %}
+    {% set answer1 = config.answer1.value %}
+
+    {% set faq9 = config.faq9.value %}
+    {% set answer9 = config.answer9.value %}
+
+    {% set faq10 = config.faq10.value %}
+    {% set answer10 = config.answer10.value %}
+
+    {% set faq11 = config.faq11.value %}
+    {% set answer11 = config.answer11.value %}
+
+    {% set faq12 = config.faq12.value %}
+    {% set answer12 = config.answer12.value %}
+
+    {% set faq13 = config.faq13.value %}
+    {% set answer13 = config.answer13.value %}
+
+    {% set faq14 = config.faq14.value %}
+    {% set answer14 = config.answer14.value %}
+
+    {% set faq15 = config.faq15.value %}
+    {% set answer15 = config.answer15.value %}
+
+    {% set faq16 = config.faq16.value %}
+    {% set answer16 = config.answer16.value %}
+
+    {% set faq17 = config.faq17.value %}
+    {% set answer17 = config.answer17.value %}
+
+    {% set faq18 = config.faq18.value %}
+    {% set answer18 = config.answer18.value %}
+
+    {% set faq19 = config.faq19.value %}
+    {% set answer19 = config.answer19.value %}
+
+    {% set faq20 = config.faq20.value %}
+    {% set answer20 = config.answer20.value %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            {% if heading %}
+                <h2 class="faqtitle">{{ heading }}</h2>
+            {% endif %}
+            {% if faq1 %}
+                <h5>{{ faq1 }}</h5>
+                {% if answer1 %}
+                     <p>{{ answer1|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq2 %}
+                <h5>{{ faq2 }}</h5>
+                {% if answer2 %}
+                    <p>{{ answer2|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq3 %}
+                <h5>{{ faq3 }}</h5>
+                {% if answer3 %}
+                    <p>{{ answer3|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq4 %}
+                <h5>{{ faq4 }}</h5>
+                {% if answer4 %}
+                    <p>{{ answer4|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq5 %}
+                <h5>{{ faq5 }}</h5>
+                {% if answer5 %}
+                    <p>{{ answer5|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq6 %}
+                <h5>{{ faq6 }}</h5>
+                {% if answer6 %}
+                    <p>{{ answer6|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq7 %}
+                <h5>{{ faq7 }}</h5>
+                {% if answer7 %}
+                    <p>{{ answer7|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq8 %}
+                <h5>{{ faq8 }}</h5>
+                {% if answer8 %}
+                    <p>{{ answer8|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq9 %}
+                <h5>{{ faq9 }}</h5>
+                {% if answer9|raw %}
+                    <p>{{ answer9 }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq10 %}
+                <h5>{{ faq10 }}</h5>
+                {% if answer10 %}
+                    <p>{{ answer10|raw }}</p>
+                {% endif %}
+            {% endif %}
+
+            {% if faq11 %}
+                <h5>{{ faq11 }}</h5>
+                {% if answer11 %}
+                    <p>{{ answer11|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq12 %}
+                <h5>{{ faq12 }}</h5>
+                {% if answer12 %}
+                    <p>{{ answer12|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq13 %}
+                <h5>{{ faq13 }}</h5>
+                {% if answer13 %}
+                    <p>{{ answer13|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq14 %}
+                <h5>{{ faq14 }}</h5>
+                {% if answer14 %}
+                    <p>{{ answer14|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq15 %}
+                <h5>{{ faq15 }}</h5>
+                {% if answer15 %}
+                    <p>{{ answer15|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq16 %}
+                <h5>{{ faq16 }}</h5>
+                {% if answer16 %}
+                    <p>{{ answer16|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq17 %}
+                <h5>{{ faq17 }}</h5>
+                {% if answer17 %}
+                    <p>{{ answer17|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq18 %}
+                <h5>{{ faq18 }}</h5>
+                {% if answer18 %}
+                    <p>{{ answer18|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq19 %}
+                <h5>{{ faq19 }}</h5>
+                {% if answer19 %}
+                    <p>{{ answer19|raw }}</p>
+                {% endif %}
+            {% endif %}
+            {% if faq20 %}
+                <h5>{{ faq20 }}</h5>
+                {% if answer20 %}
+                    <p>{{ answer20|raw }}</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

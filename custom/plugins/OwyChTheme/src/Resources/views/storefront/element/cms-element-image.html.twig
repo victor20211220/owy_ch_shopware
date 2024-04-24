@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-image.html.twig' %}
+{% block element_image_container %}
+
+    {% if element.data.media.url %}
+        <div class="cms-image-container is-{{ element.translated.config.displayMode.value }}"
+                {% if element.translated.config.minHeight.value and element.translated.config.displayMode.value == "cover" %} style="min-height: {{ element.translated.config.minHeight.value }};"{% endif %}>
+            {% block element_image_media %}
+               {{ parent() }}
+            {% endblock %}
+        </div>
+        {% set currentEleBlockId = element.blockId %}
+        {% set blockData = section.blocks.elements[currentEleBlockId].name %}
+        {% if blockData == 'SubCategoryBlock' %}
+            <div class="subCategoryBannerTitle">
+                {{ page.header.navigation.active.name }}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+    "rental-settings-form": {
+        "rentalHeadline": "Mietartikel",
+        "rentalHelptext": "Aktivieren um das Produkt zu vermieten",
+        "modeHeadline": "Modus",
+        "modeDropdown": "Modus auswählen",
+        "switchLabelActive": "Aktiv",
+        "activeHelpText": "Lösche zuerst alle Varianten des Produkts",
+        "offsetFieldHeadline":"Vorlauf",
+        "offsetHelptext":"Der Vorlauf in Tagen (ausgehend vom Bestellzeitpunkt) bevor ein Produkt vermietet werden darf.",
+        "offsetField": "Dauer des Vorlaufs in Tagen",
+        "bufferFieldHeadline": "Puffer",
+        "bufferHelptext": "Zeit, die zwischen 2 Mietzeiträumen liegen muss.",
+        "bufferField": "Dauer des Puffers in Tagen",
+        "dayRental": "Tagesmiete",
+        "errorHeadline": "Fehler",
+        "errorMessage": "Lösche zuerst alle Varianten"
+    }
+}

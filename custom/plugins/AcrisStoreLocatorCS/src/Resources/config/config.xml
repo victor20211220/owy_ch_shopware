@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Google API Key</title>
+        <title lang="de-DE">Google API Key</title>
+
+        <input-field>
+            <name>storeLocatorGoogleApiKey</name>
+            <label>Google Key</label>
+            <label lang="de-DE">Google Key</label>
+            <helpText>You can find more information about the Google API Key here: https://developers.google.com/maps/documentation/javascript/get-api-key</helpText>
+            <helpText lang="de-DE">Mehr Informationen zum Google API Key finden Sie hier: https://developers.google.com/maps/documentation/javascript/get-api-key</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Store Locator configuration</title>
+        <title lang="de-DE">Store Locator Einstellung</title>
+
+        <input-field type="single-select">
+            <name>privacyMode</name>
+            <label>Privacy mode - integration only after cookies have been accepted</label>
+            <label lang="de-DE">Datenschutzmodus - Einbindung erst wenn Cookies akzeptiert wurden</label>
+            <helpText>The alert box appears below the search field in case of a search error.</helpText>
+            <helpText lang="de-DE">Der Warnhinweis erscheint bei einem Suchfehler unterhalb des Suchfeldes.</helpText>
+            <defaultValue>cookie</defaultValue>
+            <options>
+                <option>
+                    <id>cookie</id>
+                    <name>Embed Google Maps only if cookies have been accepted</name>
+                    <name lang="de-DE">Google Maps nur einbinden, wenn die Cookies akzeptiert wurden</name>
+                </option>
+                <option>
+                    <id>alwaysAllow</id>
+                    <name>Always include Google Maps, regardless of whether the cookies have been accepted or not.</name>
+                    <name lang="de-DE">Google Maps immer einbinden, unabhängig ob die Cookies akzeptiert wurden oder nicht</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field>
+            <name>storeLocatorDefaultLocation</name>
+            <label>Google Maps starting point</label>
+            <label lang="de-DE">Google Maps Startpunkt</label>
+            <defaultValue>Linz</defaultValue>
+            <placeholder>Linz</placeholder>
+            <helpText>If this field is empty, Linz is automatically set as the starting point. As soon as the user gives the location approval, this location will be selected as Google Maps starting point.</helpText>
+            <helpText lang="de-DE">Falls dieses Feld leer ist, wird automatisch Linz als Startpunkt festgelegt. Sobald der Benutzer die Standortfreigabe erteilt, wird dieser Ort als Google Maps Startpunkt ausgewählt.</helpText>
+        </input-field>
+
+        <input-field type="int">
+            <name>storeLocatorZoomFactor</name>
+            <label>Zoom factor</label>
+            <label lang="de-DE">Zoom Faktor</label>
+            <defaultValue>10</defaultValue>
+            <placeholder>10</placeholder>
+            <helpText>If this field is empty or less than 0, the value 10 is automatically set as zoom factor.</helpText>
+            <helpText lang="de-DE">Falls dieses Feld leer oder kleiner 0 ist, wird automatisch der Wert 10 als Zoom Faktor festgelegt.</helpText>
+        </input-field>
+
+        <input-field>
+            <name>storeLocatorRoute</name>
+            <label>Calling the Store Locator in the Webshop</label>
+            <label lang="de-DE">Aufruf des Store Locators im Webshop</label>
+            <defaultValue>/store-locator</defaultValue>
+            <placeholder>/store-locator</placeholder>
+            <placeholder lang="de-DE">/store-locator</placeholder>
+            <helpText>The Store Locator can be accessed via this URL (e.g. https://www.acris.at/store-locator). The entered store locator route path will be used in the Storefront to access the store locator page. If the store locator route path is not assigned then the "/store-locator" store locator route path will be used instead as fallback.
+            </helpText>
+            <helpText lang="de-DE">Über diese URL (z.B. https://www.acris.at/store-locator) kann der Store Locator aufgerufen werden. Der eingegebene Pfad wird in der Storefront für den Zugriff auf die Seite mit dem Ladenlokal verwendet. Wenn der Pfad für die Filialsuche nicht zugewiesen ist, wird stattdessen der Pfad für die Filialsuche "/store-locator" als Fallback verwendet.
+            </helpText>
+            <copyable>true</copyable>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>alertBox</name>
+            <label>How to edit the "alter box" and the "browser tab (metatitle)" text:</label>
+            <label lang="de-DE">Wie der Text des "Warnhinweises" und der Browser Tab Text (Metatitel) geändert werden kann:</label>
+            <helpText>The alert box appears below the search field in case of a search error.</helpText>
+            <helpText lang="de-DE">Der Warnhinweis erscheint bei einem Suchfehler unterhalb des Suchfeldes.</helpText>
+            <defaultValue>infoDefault</defaultValue>
+            <disabled>true</disabled>
+            <options>
+                <option>
+                    <id>infoDefault</id>
+                    <name>Go to Settings > Shop > Snippets > select Language which should be changed > search for "acris".
+                        "acrisStoreLocator.noStoreAvailableErrorMessageData" and
+                        "acrisStoreLocator.noStoreAvailableErrorMessagePermission" are used for the alert box.
+                        "acrisStoreLocator.metatitle" is used for the browser tab text (metatitle).
+                    </name>
+                    <name lang="de-DE">Gehen Sie zu Einstellungen > Shop > Textbausteine > wählen Sie die gewünschte Sprache
+                        aus > suchen Sie nach "acris". "acrisStoreLocator.noStoreAvailableErrorMessageData" und
+                        "acrisStoreLocator.noStoreAvailableErrorMessagePermission" werden für den Warnhinweis verwendet.
+                        "acrisStoreLocator.metatitle" wird für den Browser Tab Text (Metatitel) verwendet.
+                    </name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Store group list view</title>
+        <title lang="de-DE">Listenansicht Geschäfte / Händler Gruppe</title>
+
+        <input-field type="single-select">
+            <name>showCover</name>
+            <label>Show cover image</label>
+            <label lang="de-DE">Cover Bild anzeigen</label>
+            <defaultValue>show</defaultValue>
+            <placeholder>Select display option...</placeholder>
+            <placeholder lang="de-DE">Anzeigeoption auswählen...</placeholder>
+            <helpText>If the show cover option is selected, then the assigned cover image will be displayed next to the store name.</helpText>
+            <helpText lang="de-DE">Wenn die Option Cover anzeigen ausgewählt ist, wird das zugewiesene Coverbild neben dem Namen des Geschäfts angezeigt.</helpText>
+            <options>
+                <option>
+                    <id>show</id>
+                    <name>Show</name>
+                    <name lang="de-DE">Anzeigen</name>
+                </option>
+                <option>
+                    <id>hide</id>
+                    <name>Hide</name>
+                    <name lang="de-DE">Nicht anzeigen</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>showOpeningHours</name>
+            <label>Show opening hours</label>
+            <label lang="de-DE">Öffnungszeiten der Ausstellung</label>
+            <defaultValue>belowContact</defaultValue>
+            <placeholder>Select display option...</placeholder>
+            <placeholder lang="de-DE">Anzeigeoption auswählen...</placeholder>
+            <helpText>The opening hours will be displayed in contact column on in separate column opening hours.</helpText>
+            <helpText lang="de-DE">Die Öffnungszeiten werden in der Spalte Kontakt auf in einer eigenen Spalte Öffnungszeiten angezeigt.</helpText>
+            <options>
+                <option>
+                    <id>belowContact</id>
+                    <name>Below contact</name>
+                    <name lang="de-DE">Unter Kontaktdaten</name>
+                </option>
+                <option>
+                    <id>afterContact</id>
+                    <name>In a separate column next to contact</name>
+                    <name lang="de-DE">In einer eigenen Spalte nach Kontaktdaten</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>showEmail</name>
+            <label>Show email</label>
+            <label lang="de-DE">E-mail anzeigen</label>
+            <defaultValue>onlyIcon</defaultValue>
+            <placeholder>Select display option...</placeholder>
+            <placeholder lang="de-DE">Anzeigeoption auswählen...</placeholder>
+            <helpText>The email can be displayed with the envelope and with email address in contact form.</helpText>
+            <helpText lang="de-DE">Die E-Mail kann mit dem Umschlag und mit der E-Mail-Adresse im Kontaktformular angezeigt werden.</helpText>
+            <options>
+                <option>
+                    <id>onlyIcon</id>
+                    <name>Show only icon</name>
+                    <name lang="de-DE">Nur Icon anzeigen</name>
+                </option>
+                <option>
+                    <id>iconAndEmail</id>
+                    <name>Show icon and email address</name>
+                    <name lang="de-DE">Icon und E-Mail Adresse anzeigen</name>
+                </option>
+                <option>
+                    <id>onlyEmail</id>
+                    <name>Show only email address</name>
+                    <name lang="de-DE">Nur E-Mail Adresse anzeigen</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>My store</title>
+        <title lang="de-DE">Meine Filiale</title>
+
+        <input-field type="bool">
+            <name>enableMyStore</name>
+            <label>Enable selection of store in customer account</label>
+            <label lang="de-DE">Auswahl einer Filiale im Kundenkonto aktivieren</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If active, then it's possible to assign the store to the active customer in account page and it will be displayed store selection field in register page.</helpText>
+            <helpText lang="de-DE">Wenn aktiv, dann ist es möglich, die Filiale dem aktiven Kunden auf der Kontoseite zuzuordnen und es wird das Filialauswahlfeld auf der Registerseite angezeigt.</helpText>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>singleSelectionDisplayMyStore</name>
+            <label>Store display data</label>
+            <label lang="de-DE">Filiale Anzeigedaten</label>
+            <defaultValue>optionOne</defaultValue>
+            <options>
+                <option>
+                    <id>optionOne</id>
+                    <name>Name</name>
+                    <name lang="de-DE">Name</name>
+                </option>
+                <option>
+                    <id>optionTwo</id>
+                    <name>Name, Zipcode, City</name>
+                    <name lang="de-DE">Name, Postleitzahl, Stadt</name>
+                </option>
+                <option>
+                    <id>optionThree</id>
+                    <name>Name, Street Housenr., Zipcode, City</name>
+                    <name lang="de-DE">Name, Straße Hausnummer, Postleitzahl, Stadt</name>
+                </option>
+                <option>
+                    <id>optionFour</id>
+                    <name>Name, Street Housenr., Zipcode, City, Country, State</name>
+                    <name lang="de-DE">Name, Straße Hausnummer, Postleitzahl, Stadt, Land, Bundesland</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>singleSelectionRegistrationPosition</name>
+            <label>Registration Position</label>
+            <label lang="de-DE">Registrierung Position</label>
+            <defaultValue>afterAddress</defaultValue>
+            <options>
+                <option>
+                    <id>afterAddress</id>
+                    <name>After address</name>
+                    <name lang="de-DE">Nach der Adresse</name>
+                </option>
+                <option>
+                    <id>beforeAddress</id>
+                    <name>Before address</name>
+                    <name lang="de-DE">Vor der Adresse</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Update longitude &amp; latitude for all stores</title>
+        <title lang="de-DE">Längen- &amp; Breitengrade für alle Stores aktualisieren</title>
+
+        <input-field type="bool">
+            <name>overwriteExistingData</name>
+            <label>Overwrite longitude &amp; latitude</label>
+            <label lang="de-DE">Überschreiben von Längen- &amp; Breitengraden</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If active, on updating it will overwrite longitude &amp; latitude for the all stores if the longitude &amp; latitude exists.</helpText>
+            <helpText lang="de-DE">Wenn aktiv, werden beim Aktualisieren Längen- und Breitengrad für alle Filialen überschrieben, wenn der Längen- und Breitengrad vorhanden ist.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+    <title>Adding the stores</title>
+    <title lang="de-DE">Hinzufügen der Stores</title>
+        <input-field type="single-select">
+            <name>addStores</name>
+            <label>How stores can be added:</label>
+            <label lang="de-DE">Wie Stores hinzugefügt werden können:</label>
+            <defaultValue>infoDefault</defaultValue>
+            <disabled>true</disabled>
+            <options>
+                <option>
+                    <id>infoDefault</id>
+                    <name>Stores can be added either via the menu item Content > Store Locator or Settings > Plugins > Store Locator. As soon as the store locator is active, they will be found on the Google Maps map.
+                    </name>
+                    <name lang="de-DE">Stores können entweder über dem Menüpunkt Inhalte > Store Locator oder Eintellungen > Plugins > Store Locator hinzugefügt werden. Sobald der Store Locator aktiv ist werden diese auf der Google Maps Karte gefunden.
+                    </name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Display in the Google Maps info-window</title>
+        <title lang="de-DE">Anzeige im Google Maps Informationsfenster</title>
+
+        <input-field type="int">
+            <name>windowWidth</name>
+            <label>Width of the info-window in pixel</label>
+            <label lang="de-DE">Breite des Informationsfensters in Pixel</label>
+            <defaultValue>220</defaultValue>
+            <placeholder>220</placeholder>
+            <helpText>If this field is empty or less than 0, the default value 220px is automatically used.</helpText>
+            <helpText lang="de-DE">Falls dieses Feld leer oder kleiner 0 ist, wird automatisch der Standardwert 220px verwendet.
+            </helpText>
+        </input-field>
+
+        <input-field type="int">
+            <name>windowHeight</name>
+            <label>Height of the info-window in pixel</label>
+            <label lang="de-DE">Höhe des Informationsfensters in Pixel</label>
+            <defaultValue>20</defaultValue>
+            <placeholder>20</placeholder>
+            <helpText>If this field is empty or less than 0, the default value 20px is automatically used.</helpText>
+            <helpText lang="de-DE">Falls dieses Feld leer oder kleiner 0 ist, wird automatisch der Standardwert 20px verwendet.
+            </helpText>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>storeInformationHeadline</name>
+            <label>Store information headline</label>
+            <label lang="de-DE">Informationen speichern Überschrift</label>
+            <defaultValue>h4</defaultValue>
+            <placeholder>Select headline...</placeholder>
+            <placeholder lang="de-DE">Überschrift auswählen...</placeholder>
+            <helpText>The selected headline size will be used for store information title at Google map.</helpText>
+            <helpText lang="de-DE">Die ausgewählte Größe der Überschrift wird für den Titel der Geschäftsinformationen auf der Google-Karte verwendet.</helpText>
+            <options>
+                <option>
+                    <id>h1</id>
+                    <name>Headline 1</name>
+                    <name lang="de-DE">Überschrift 1</name>
+                </option>
+                <option>
+                    <id>h2</id>
+                    <name>Headline 2</name>
+                    <name lang="de-DE">Überschrift 2</name>
+                </option>
+                <option>
+                    <id>h3</id>
+                    <name>Headline 3</name>
+                    <name lang="de-DE">Überschrift 3</name>
+                </option>
+                <option>
+                    <id>h4</id>
+                    <name>Headline 4</name>
+                    <name lang="de-DE">Überschrift 4</name>
+                </option>
+                <option>
+                    <id>h5</id>
+                    <name>Headline 5</name>
+                    <name lang="de-DE">Überschrift 5</name>
+                </option>
+                <option>
+                    <id>h6</id>
+                    <name>Headline 6</name>
+                    <name lang="de-DE">Überschrift 6</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="bool">
+            <name>displayDistanceField</name>
+            <label>Display distance field in Google map</label>
+            <label lang="de-DE">Entfernungsfeld in der Google-Karte anzeigen</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, the distance field will be displayed in Google map at store locator page (also at store locator cms element).</helpText>
+            <helpText lang="de-DE">Wenn dieses Feld aktiv ist, wird das Entfernungsfeld in der Google-Karte auf der Seite für die Filialsuche angezeigt (auch im cms-Element für die Filialsuche).</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>encryptMail</name>
+            <label>Encrypt store eMail</label>
+            <label lang="de-DE">E-Mail verschlüsselt speichern</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, store eMail will be encrypted with rot16 method at Storefront.</helpText>
+            <helpText lang="de-DE">Wenn dieses Feld aktiv ist, wird die Storefront E-Mail mit der rot16 Methode verschlüsselt.</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>displayFullMapWidth</name>
+            <label>Display Google map in container width</label>
+            <label lang="de-DE">Anzeige der Google-Karte in Containerbreite</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, it will display Google map in container class with reduced width.</helpText>
+            <helpText lang="de-DE">Wenn dieses Feld aktiviert ist, wird die Google-Karte in der Container-Klasse mit reduzierter Breite angezeigt.</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowCompanyName</name>
+            <label>Show company name</label>
+            <label lang="de-DE">Firmenname anzeigen</label>
+            <defaultValue>true</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowDepartment</name>
+            <label>Show department</label>
+            <label lang="de-DE">Abteilung anzeigen</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowStreet</name>
+            <label>Show street and number</label>
+            <label lang="de-DE">Straße und Hausnummer anzeigen</label>
+            <defaultValue>true</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowZipcode</name>
+            <label>Show zipcode</label>
+            <label lang="de-DE">PLZ anzeigen</label>
+            <defaultValue>true</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowCity</name>
+            <label>Show city</label>
+            <label lang="de-DE">Stadt anzeigen</label>
+            <defaultValue>true</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowCountry</name>
+            <label>Show country</label>
+            <label lang="de-DE">Staat anzeigen</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowPhoneNumber</name>
+            <label>Show phone number</label>
+            <label lang="de-DE">Telefonnummer anzeigen</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowMail</name>
+            <label>Show eMail</label>
+            <label lang="de-DE">E-Mail anzeigen</label>
+            <defaultValue>true</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowURL</name>
+            <label>Show URL</label>
+            <label lang="de-DE">URL anzeigen</label>
+            <defaultValue>true</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>windowOpening</name>
+            <label>Show opening hours</label>
+            <label lang="de-DE">Öffnungszeiten anzeigen</label>
+            <defaultValue>false</defaultValue>
+            <helpText>If this field is active, it will be displayed in the Google Maps information window.</helpText>
+            <helpText lang="de-DE">Ist dieses Feld aktiv, wird es im Google Maps Informationsfenster angezeigt.
+            </helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Icons for Google Maps map</title>
+        <title lang="de-DE">Icons für die Google Maps Karte</title>
+        <component name="sw-media-field">
+            <name>windowStoreIcon</name>
+            <label>Upload store icon</label>
+            <label lang="de-DE">Store Icon hochladen</label>
+        </component>
+        <component name="sw-media-field">
+            <name>windowHomeIcon</name>
+            <label>Upload location (of the user) icon</label>
+            <label lang="de-DE">Standort (des Benutzers) Icon hochladen</label>
+        </component>
+
+        <input-field>
+            <name>windowHomeIconWidth</name>
+            <label>Icon width</label>
+            <label lang="de-DE">Breite des Symbols</label>
+            <defaultValue>30</defaultValue>
+            <placeholder>Enter icon width...</placeholder>
+            <placeholder lang="de-DE">Symbolbreite eingeben...</placeholder>
+            <helpText>The width will be used for displaying icon at Google map as fallback if assigned store group don't have width.</helpText>
+            <helpText lang="de-DE">Die Breite wird für die Anzeige des Symbols auf der Google-Karte als Fallback verwendet, wenn die zugewiesene Ladengruppe keine Breite hat.</helpText>
+        </input-field>
+
+        <input-field>
+            <name>windowHomeIconHeight</name>
+            <label>Icon height</label>
+            <label lang="de-DE">Höhe des Symbols</label>
+            <defaultValue>50</defaultValue>
+            <placeholder>Enter icon height...</placeholder>
+            <placeholder lang="de-DE">Höhe des Symbols eingeben...</placeholder>
+            <helpText>The height will be used for displaying icon at Google map as fallback if assigned store group don't have height.</helpText>
+            <helpText lang="de-DE">Die Höhe wird für die Anzeige des Symbols auf der Google-Karte als Fallback verwendet, wenn die zugewiesene Ladengruppe keine Höhe hat.</helpText>
+        </input-field>
+
+        <input-field>
+            <name>windowHomeIconLeftAnchor</name>
+            <label>Icon left anchor</label>
+            <label lang="de-DE">Icon linker Anker</label>
+            <defaultValue>15</defaultValue>
+            <placeholder>Enter icon left anchor...</placeholder>
+            <placeholder lang="de-DE">Symbol linken Anker eingeben...</placeholder>
+            <helpText>The left anchor will move icon at displayed position in Google map from left to the right based on entered value. The left anchor will be used as fallback if assigned store group don't have left anchor.</helpText>
+            <helpText lang="de-DE">Der linke Anker verschiebt das Symbol an der angezeigten Position in der Google-Karte von links nach rechts, basierend auf dem eingegebenen Wert. Der linke Anker wird als Fallback verwendet, wenn die zugewiesene Ladengruppe keinen linken Anker hat.</helpText>
+        </input-field>
+
+        <input-field>
+            <name>windowHomeIconTopAnchor</name>
+            <label>Icon top anchor</label>
+            <label lang="de-DE">Icon oben Anker</label>
+            <defaultValue>50</defaultValue>
+            <placeholder>Enter icon top anchor...</placeholder>
+            <placeholder lang="de-DE">Icon oben Anker eingeben...</placeholder>
+            <helpText>The top anchor will move icon at displayed position in Google map from bottom to the top based on entered value. The top anchor will be used as fallback if assigned store group don't have top anchor.</helpText>
+            <helpText lang="de-DE">Der obere Anker verschiebt das Symbol an der angezeigten Position in der Google-Karte von unten nach oben, basierend auf dem eingegebenen Wert. Der obere Anker wird als Fallback verwendet, wenn die zugewiesene Ladengruppe keinen oberen Anker hat.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Checkout</title>
+        <title lang="de-DE">Bestellprozess</title>
+
+        <input-field type="single-select">
+            <name>checkoutSelection</name>
+            <label>Checkout store selection</label>
+            <label lang="de-DE">Auswahl eines Stores im Bestellprozess</label>
+            <defaultValue>none</defaultValue>
+            <options>
+                <option>
+                    <id>none</id>
+                    <name>No selection</name>
+                    <name lang="de-DE">Keine Auswahl</name>
+                </option>
+                <option>
+                    <id>singleSelect</id>
+                    <name>Single selection</name>
+                    <name lang="de-DE">Einfachauswahl</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="bool">
+            <name>checkoutSelectionRequired</name>
+            <label>Store selection in the order process as a mandatory field</label>
+            <label lang="de-DE">Storeauswahl im Bestellprozess als Pflichtfeld</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>checkoutSelectionPlaceholder</name>
+            <label>Show placeholder text as first option</label>
+            <label lang="de-DE">Platzhaltertext als erste Option anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>singleSelectionDisplay</name>
+            <label>Single selection display</label>
+            <label lang="de-DE">Einfachauswahl Anzeige</label>
+            <placeholder>select display of single selection...</placeholder>
+            <placeholder lang="de-DE">Anzeige der Einzelauswahl wählen...</placeholder>
+            <defaultValue>optionOne</defaultValue>
+            <options>
+                <option>
+                    <id>optionOne</id>
+                    <name>Name</name>
+                    <name lang="de-DE">Name</name>
+                </option>
+                <option>
+                    <id>optionFour</id>
+                    <name>Name, Zipcode, City</name>
+                    <name lang="de-DE">Name, Postleitzahl, Stadt</name>
+                </option>
+                <option>
+                    <id>optionTwo</id>
+                    <name>Name, Street Housenr., Zipcode, City</name>
+                    <name lang="de-DE">Name, Straße Hausnummer, Postleitzahl, Stadt</name>
+                </option>
+                <option>
+                    <id>optionThree</id>
+                    <name>Name, Street Housenr., Zipcode, City, Country</name>
+                    <name lang="de-DE">Name, Straße Hausnummer, Postleitzahl, Stadt, Land</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>checkoutSelectionPosition</name>
+            <label>Single selection position</label>
+            <label lang="de-DE">Einfachauswahl Positionierung</label>
+            <defaultValue>belowTerms</defaultValue>
+            <options>
+                <option>
+                    <id>belowTerms</id>
+                    <name>Show below the terms and conditions</name>
+                    <name lang="de-DE">Unter den AGB anzeigen</name>
+                </option>
+                <option>
+                    <id>belowShippingMethod</id>
+                    <name>Show below the selected shipping method</name>
+                    <name lang="de-DE">Unter ausgewählter Versandart anzeigen</name>
+                </option>
+            </options>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>checkoutSelectionRules</name>
+            <label>Assigned Rules</label>
+            <label lang="de-DE">Zugewiesene Regeln</label>
+            <helpText>Active if any of the assigned rules match (OR operation). If no rule is assigned, this is considered always active.</helpText>
+            <helpText lang="de-DE">Aktiv, wenn einer der zugewiesenen Regeln zutrifft (ODER-Verknüpfung). Wird keine Regel zugewiesen, gilt dies als immer als aktiv.</helpText>
+            <entity>rule</entity>
+        </component>
+    </card>
+</config>

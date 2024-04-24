@@ -1,0 +1,131 @@
+{
+    "cbaxLexicon": {
+        "page": {
+            "sidebar": {
+                "title": "Lexicon:"
+            },
+			"filter": {
+				"headline": "Lexicon Navigation",
+                "button": "Lexicon Navigation"
+            },
+			"index": {
+				"metaTitle": "Lexicon",
+				"metaKeywords": "Lexicon Meta Keywords Index",
+				"metaDescription": "Lexicon Meta Description Index",
+				"text": "",
+				"newestEntriesHeadline": "",
+				"mostreadEntriesHeadline": ""
+            },
+			"listing": {
+				"metaTitle09": "0-9",
+				"metaTitleA": "A",
+				"metaTitleB": "B",
+				"metaTitleC": "C",
+				"metaTitleD": "D",
+				"metaTitleE": "E",
+				"metaTitleF": "F",
+				"metaTitleG": "G",
+				"metaTitleH": "H",
+				"metaTitleI": "I",
+				"metaTitleJ": "J",
+				"metaTitleK": "K",
+				"metaTitleL": "L",
+				"metaTitleM": "M",
+				"metaTitleN": "N",
+				"metaTitleO": "O",
+				"metaTitleP": "P",
+				"metaTitleQ": "Q",
+				"metaTitleR": "R",
+				"metaTitleS": "S",
+				"metaTitleT": "T",
+				"metaTitleU": "U",
+				"metaTitleV": "V",
+				"metaTitleW": "W",
+				"metaTitleX": "X",
+				"metaTitleY": "Y",
+				"metaTitleZ": "Z",
+				"metaKeywords09": "Lexicon Meta Keywords Listing 0-9",
+				"metaKeywordsA": "Lexicon Meta Keywords Listing A",
+				"metaKeywordsB": "Lexicon Meta Keywords Listing B",
+				"metaKeywordsC": "Lexicon Meta Keywords Listing C",
+				"metaKeywordsD": "Lexicon Meta Keywords Listing D",
+				"metaKeywordsE": "Lexicon Meta Keywords Listing E",
+				"metaKeywordsF": "Lexicon Meta Keywords Listing F",
+				"metaKeywordsG": "Lexicon Meta Keywords Listing G",
+				"metaKeywordsH": "Lexicon Meta Keywords Listing H",
+				"metaKeywordsI": "Lexicon Meta Keywords Listing I",
+				"metaKeywordsJ": "Lexicon Meta Keywords Listing J",
+				"metaKeywordsK": "Lexicon Meta Keywords Listing K",
+				"metaKeywordsL": "Lexicon Meta Keywords Listing L",
+				"metaKeywordsM": "Lexicon Meta Keywords Listing M",
+				"metaKeywordsN": "Lexicon Meta Keywords Listing N",
+				"metaKeywordsO": "Lexicon Meta Keywords Listing O",
+				"metaKeywordsP": "Lexicon Meta Keywords Listing P",
+				"metaKeywordsQ": "Lexicon Meta Keywords Listing Q",
+				"metaKeywordsR": "Lexicon Meta Keywords Listing R",
+				"metaKeywordsS": "Lexicon Meta Keywords Listing S",
+				"metaKeywordsT": "Lexicon Meta Keywords Listing T",
+				"metaKeywordsU": "Lexicon Meta Keywords Listing U",
+				"metaKeywordsV": "Lexicon Meta Keywords Listing V",
+				"metaKeywordsW": "Lexicon Meta Keywords Listing W",
+				"metaKeywordsX": "Lexicon Meta Keywords Listing X",
+				"metaKeywordsY": "Lexicon Meta Keywords Listing Y",
+				"metaKeywordsZ": "Lexicon Meta Keywords Listing Z",
+				"metaDescription09": "Lexicon Meta Description Listing 0-9",
+				"metaDescriptionA": "Lexicon Meta Description Listing A",
+				"metaDescriptionB": "Lexicon Meta Description Listing B",
+				"metaDescriptionC": "Lexicon Meta Description Listing C",
+				"metaDescriptionD": "Lexicon Meta Description Listing D",
+				"metaDescriptionE": "Lexicon Meta Description Listing E",
+				"metaDescriptionF": "Lexicon Meta Description Listing F",
+				"metaDescriptionG": "Lexicon Meta Description Listing G",
+				"metaDescriptionH": "Lexicon Meta Description Listing H",
+				"metaDescriptionI": "Lexicon Meta Description Listing I",
+				"metaDescriptionJ": "Lexicon Meta Description Listing J",
+				"metaDescriptionK": "Lexicon Meta Description Listing K",
+				"metaDescriptionL": "Lexicon Meta Description Listing L",
+				"metaDescriptionM": "Lexicon Meta Description Listing M",
+				"metaDescriptionN": "Lexicon Meta Description Listing N",
+				"metaDescriptionO": "Lexicon Meta Description Listing O",
+				"metaDescriptionP": "Lexicon Meta Description Listing P",
+				"metaDescriptionQ": "Lexicon Meta Description Listing Q",
+				"metaDescriptionR": "Lexicon Meta Description Listing R",
+				"metaDescriptionS": "Lexicon Meta Description Listing S",
+				"metaDescriptionT": "Lexicon Meta Description Listing T",
+				"metaDescriptionU": "Lexicon Meta Description Listing U",
+				"metaDescriptionV": "Lexicon Meta Description Listing V",
+				"metaDescriptionW": "Lexicon Meta Description Listing W",
+				"metaDescriptionX": "Lexicon Meta Description Listing X",
+				"metaDescriptionY": "Lexicon Meta Description Listing Y",
+				"metaDescriptionZ": "Lexicon Meta Description Listing Z",
+				"entryHeadline": "Posts in this encyclopedia category"
+            },
+			"content": {
+				"metaTitle": "Table of Contents",
+				"metaKeywords": "Lexicon Meta Keywords Content",
+				"metaDescription": "Lexicon Meta Description Content",
+				"headline": "Table of Contents"
+            },
+			"navigation": {
+                "linkIndex": "Start Page",
+				"linkContent": "Table of Contents"
+            },
+			"pagination": {
+                "toOverview": "To overview"
+            },
+			"ajax": {
+				"headline": "",
+				"linkDescription": "To the lexicon"
+            },
+			"banner": {
+				"alt": "Banner"
+            },
+			"boxKeyword": {
+				"moreRead": "Read more"
+            },
+			"breadcrumb": {
+                "name": "Lexicon"
+            }
+		}
+    }
+}

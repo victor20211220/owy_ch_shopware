@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\RentalProductBailPriceCalculator">
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\RentalProductBailPriceDefinitionBuilder" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\Price\QuantityPriceCalculator" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\RentalProductBailPriceDefinitionBuilder">
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\RentalProductBailCartProcessor">
+            <argument id="rental_product.repository" type="service" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\RentalProductBailPriceCalculator" />
+            <argument type="service" id="translator" />
+            <argument type="service" id="request_stack" />
+
+            <tag name="shopware.cart.processor" priority="4901" />
+            <tag name="shopware.cart.collector" priority="4901" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProductBail\LineItem\RentalProductBailLineItemFactory">
+            <tag name="shopware.cart.line_item.factory" />
+        </service>
+    </services>
+</container>

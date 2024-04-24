@@ -1,0 +1,11 @@
+{% block element_cbax_lexicon_content %}
+    {% set config = element.fieldConfig.elements %}
+
+    {% set lexiconEntries = element.data %}
+    {% set contentBoxStyle="col-sm-4 col-lg-4 col-xl-4" %}
+
+    {% block cbax_lexicon_page_index_text_table_content %}
+        {% sw_include '@Storefront/storefront/cbax-lexicon/component/table-contents.html.twig' %}
+    {% endblock %}
+
+{% endblock %}

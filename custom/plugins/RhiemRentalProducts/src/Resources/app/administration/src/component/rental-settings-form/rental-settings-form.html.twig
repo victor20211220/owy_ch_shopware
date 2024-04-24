@@ -1,0 +1,107 @@
+{% block sw_product_detail_rental_base_content_settings_form %}
+    <div class="rental-settings-form">
+        {% block sw_product_detail_rental_base_content_settings_form_switch %}
+            <div class="rental-settings-form-switches">
+                {% block sw_product_detail_rental_base_content_settings_form_switch_active %}
+                    <div class="rental-settings-form-switches-active">
+                        <sw-inherit-wrapper v-if="!isLoading"
+                                            v-model="rentalProduct.active"
+                                            :inheritedValue="parentProduct.extensions ?
+                                                                parentProduct.extensions.rentalProduct ?
+                                                                    parentProduct.extensions.rentalProduct.active
+                                                                    : rentalProduct.active
+                                                                : rentalProduct.active"
+                                            :hasParent="isChild"
+                                            ref="parentRentalProductActiveInheritation"
+                                            :label="$tc('rental-settings-form.rentalHeadline')"
+                        >
+                            <template #content="{ currentValue, updateCurrentValue, isInherited, inputState }">
+                                <sw-switch-field bordered
+                                                 :disabled="isInherited"
+                                                 class="rental-settings-form-switch_field_active"
+                                                 :label="$tc('rental-settings-form.rentalHeadline')"
+                                                 @change="setCloseoutAndStock"
+                                                 :value="currentValue"
+                                >
+                                </sw-switch-field>
+                            </template>
+                        </sw-inherit-wrapper>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block sw_product_detail_rental_base_content_settings_form_mode %}
+            <div class="rental-settings-form-mode-dropdown">
+                <h3>
+                    {{ $tc('rental-settings-form.modeHeadline') }}
+                </h3>
+                <sw-single-select v-if="!isLoading"
+                                  ref="modeSelect"
+                                  :options="modes"
+                                  :placeholder="$tc('rental-settings-form.modeDropdown')"
+                                  :v-model="rentalProduct.mode"
+                                  :value="rentalProduct.mode"
+                >
+                </sw-single-select>
+            </div>
+        {% endblock %}
+        {% block sw_product_detail_rental_base_content_settings_form_offset %}
+            <div class="rental-settings-form-offset">
+                <sw-inherit-wrapper v-if="!isLoading"
+                                    v-model="rentalProduct.offset"
+                                    :inheritedValue="parentProduct.extensions ?
+                                                        parentProduct.extensions.rentalProduct ?
+                                                            parentProduct.extensions.rentalProduct.offset :
+                                                        rentalProduct.offset :
+                                                     rentalProduct.offset"
+                                    :hasParent="isChild"
+                                    ref="parentRentalProductOffsetInheritation"
+                                    :label="$tc('rental-settings-form.offsetFieldHeadline')"
+                                    :help-text="$tc('rental-settings-form.offsetHelptext')"
+                >
+                    <template #content="{ currentValue, updateCurrentValue, isInherited }">
+
+                        <sw-number-field :disabled="isInherited"
+                                         class="rental-settings-form-offset_field"
+                                         :placeholder="$tc('rental-settings-form.offsetField')"
+                                         :copyable="false"
+                                         :copyableTooltip="false"
+                                         numberType="int"
+                                         :value="currentValue"
+                                         @change="updateCurrentValue"
+                        >
+                        </sw-number-field>
+
+                    </template>
+                </sw-inherit-wrapper>
+            </div>
+        {% endblock %}
+        {% block sw_product_detail_rental_base_content_settings_form_buffer %}
+            <div class="rental-settings-form-buffer">
+
+                <sw-inherit-wrapper v-if="!isLoading"
+                                    v-model="rentalProduct.buffer"
+                                    :inheritedValue="parentProduct.extensions ? parentProduct.extensions.rentalProduct ? parentProduct.extensions.rentalProduct.buffer : rentalProduct.buffer : rentalProduct.buffer"
+                                    :hasParent="isChild"
+                                    ref="parentRentalProductBufferInheritation"
+                                    :label="$tc('rental-settings-form.bufferFieldHeadline')"
+                                    :help-text="$tc('rental-settings-form.bufferHelptext')"
+                >
+                    <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                        <sw-number-field v-if="!isLoading"
+                                         :disabled="isInherited"
+                                         class="rental-settings-form-buffer_field"
+                                         :placeholder="$tc('rental-settings-form.bufferField')"
+                                         :copyable="false"
+                                         :copyableTooltip="false"
+                                         numberType="int"
+                                         @change="updateCurrentValue"
+                                         :value="currentValue"
+                        >
+                        </sw-number-field>
+                    </template>
+                </sw-inherit-wrapper>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

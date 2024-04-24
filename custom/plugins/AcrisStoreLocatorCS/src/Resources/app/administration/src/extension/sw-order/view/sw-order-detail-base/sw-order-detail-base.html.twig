@@ -1,0 +1,69 @@
+{% block sw_order_detail_base_line_items_card %}
+
+     <sw-card v-if="order.deliveries[0].extensions.acrisOrderDeliveryStore"
+             :title="$tc('acris-stores.orderData.orderDeliveryStoreCard')"
+             :isLoading="isLoading"
+             class="sw-order-detail-base__line-item-deliveries-grid-card">
+
+        <sw-container
+            v-if="!isEditing"
+            columns="1fr 1fr" gap="0px 30px" :class="currentDeliveryClass">
+            <div v-for="(delivery, index) in order.deliveries">
+                <h4>{{ $tc('acris-stores.orderData.orderDeliveryStoreLabel') }} {{ index + 1 }}</h4>
+
+                <div class="store-deliveries-address">
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.name" class="store-name">
+                        {{ delivery.extensions.acrisOrderDeliveryStore.name }}
+                    </div>
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.department">
+                        {{ delivery.extensions.acrisOrderDeliveryStore.department }}
+                    </div>
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.street">
+                        {{ delivery.extensions.acrisOrderDeliveryStore.street }}
+                    </div>
+                    <div
+                        v-if="delivery.extensions.acrisOrderDeliveryStore.zipcode && delivery.extensions.acrisOrderDeliveryStore.city">
+                        {{ delivery.extensions.acrisOrderDeliveryStore.zipcode }} {{ delivery.extensions.acrisOrderDeliveryStore.city }}
+                    </div>
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.country.name">
+                        {{ delivery.extensions.acrisOrderDeliveryStore.country.name }}
+                    </div>
+                </div>
+                <div class="store-deliveries-info">
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.phone">
+                        {{ $tc('acris-stores.orderData.orderDeliveryStore.phone') }} {{ delivery.extensions.acrisOrderDeliveryStore.phone }}
+                    </div>
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.email">
+                        {{ $tc('acris-stores.orderData.orderDeliveryStore.email') }} {{ delivery.extensions.acrisOrderDeliveryStore.email }}
+                    </div>
+                    <div v-if="delivery.extensions.acrisOrderDeliveryStore.url">
+                        {{ $tc('acris-stores.orderData.orderDeliveryStore.url') }} {{ delivery.extensions.acrisOrderDeliveryStore.url }}
+                    </div>
+                </div>
+                <div v-html="delivery.extensions.acrisOrderDeliveryStore.opening_hours" v-if="delivery.extensions.acrisOrderDeliveryStore.opening_hours"
+                     class="store-deliveries-opening-hours">
+
+                    {{ delivery.extensions.acrisOrderDeliveryStore.opening_hours }}
+
+                </div>
+            </div>
+        </sw-container>
+
+        <sw-container v-else columns="1fr" gap="0px 30px" class="has--one-delivery">
+            <div v-for="(delivery, index) in order.deliveries">
+                <sw-entity-single-select
+                    v-if="delivery.extensions && delivery.extensions.acrisOrderDeliveryStore"
+                    class="sw-order-detail-base__line-item-deliveries__delivery"
+                    entity="acris_store_locator"
+                    @change="onDeliveryChange"
+                    :value="getStoreId()"
+                    show-clearable-button
+                    :label="$tc('acris-stores.orderData.orderDeliveryStoreLabel')">
+                </sw-entity-single-select>
+            </div>
+        </sw-container>
+    </sw-card>
+
+
+    {% parent %}
+{% endblock %}

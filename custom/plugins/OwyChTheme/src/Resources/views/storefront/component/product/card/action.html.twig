@@ -1,0 +1,91 @@
+{% sw_extends '@Storefront/storefront/component/product/card/action.html.twig' %}
+{% block component_product_box_action_inner %}
+    {% set id = product.id %}
+    <div class="product-action">
+        {% set isAvailable = not product.isCloseout or (product.availableStock >= product.minPurchase) %}
+        {% set displayFrom = product.calculatedPrices.count > 1 %}
+        {% set displayBuyButton = isAvailable and not displayFrom and product.childCount <= 0 %}
+
+        {% if displayBuyButton and config('core.listing.allowBuyInListing') %}
+            {% block component_product_box_action_buy %}
+                {# @var product \Shopware\Core\Content\Product\SalesChannel\SalesChannelProductEntity #}
+                <form action="{{ path('frontend.checkout.line-item.add') }}"
+                      method="post"
+                      class="buy-widget"
+                      data-add-to-cart="true">
+
+                    {% block component_product_box_action_form %}
+
+                        {% block component_product_box_action_buy_redirect_input %}
+                           {{ parent() }}
+                        {% endblock %}
+
+                        {% block page_product_detail_buy_product_buy_info %}
+                           {{ parent() }}
+                        {% endblock %}
+
+                        {% block page_product_detail_product_buy_meta %}
+                          {{ parent() }}
+                        {% endblock %}
+
+                        {% block page_product_detail_product_buy_button %}
+                        <div class="lsiting-actions-container">
+                            <div class="selectQuantitybox">
+                                {% set selectQuantityThreshold = 100 %}
+                                {% block buy_widget_buy_quantity_input_group %}
+                                    <div class="input-group product-detail-quantity-group quantity-selector-group" data-quantity-selector="true">
+                                            
+                                            <input type="number"  name="lineItems[{{ product.id }}][quantity]"
+                                                class="form-control js-quantity-selector quantity-selector-group-input"
+                                                min="{{ product.minPurchase }}"
+                                                max="{{ product.calculatedMaxPurchase }}"
+                                                step="{{ product.purchaseSteps }}"
+                                                value="{{ product.minPurchase }}"
+                                            />
+                                            
+                                            <button type="button" class="btn btn-outline-light btn-plus js-btn-plus">
+                                                    {% sw_icon 'plus' style {'size': 'xs'}  %}
+                                            </button>
+                                            <button type="button" class="btn btn-outline-light btn-minus js-btn-minus">
+                                                {% sw_icon 'minus' style {'size': 'xs'} %}
+                                            </button>
+                                            {% if product.translated.packUnit %}
+                                                <span class="input-group-text">
+                                                    {% if product.minPurchase > 1 and product.translated.packUnitPlural %}
+                                                        {{ product.translated.packUnitPlural }}
+                                                    {% elseif product.translated.packUnit %}
+                                                        {{ product.translated.packUnit }}
+                                                    {% endif %}
+                                                </span>
+                                            {% endif %}
+                                    </div>
+                                {% endblock %}
+                            </div>
+                            <div class="listing-btn-buy-box">
+                                <button class="btn btn-buy"
+                                        title="{{ "listing.boxAddProduct"|trans|striptags }}">
+                                    {{ "listing.boxAddProduct"|trans|sw_sanitize }}
+                                </button>
+                            </div>
+                        </div>
+                        {% endblock %}
+                    {% endblock %}
+                </form>
+            {% endblock %}
+        {% else %}
+            {% block component_product_box_action_detail %}
+                <div class="d-grid">
+                    <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}"
+                       class="btn btn-light"
+                       title="{{ "listing.boxProductDetails"|trans|striptags }}">
+                        {{ "listing.boxProductDetails"|trans|sw_sanitize }}
+                    </a>
+                </div>
+            {% endblock %}
+        {% endif %}
+    </div>
+
+    {% block component_product_box_action_meta %}
+      {{ parent() }}
+    {% endblock %}
+{% endblock %}

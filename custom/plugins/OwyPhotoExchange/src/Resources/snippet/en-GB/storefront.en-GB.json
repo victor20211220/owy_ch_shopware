@@ -1,0 +1,11 @@
+{
+  "OWY": {
+    "photo_exchange_create": {
+      "category": "Category",
+      "headline": "Headline",
+      "body": "Message",
+      "upload_image": "Upload Image",
+      "submit": "Submit"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<sw-page class="netzp-searchadvanced6-synonyms-list">
+    <template slot="smart-bar-header">
+        <h2>
+            {{ $tc('sw-settings.index.title') }} <sw-icon name="regular-chevron-right-xs" small></sw-icon> {{ $tc('netzp-searchadvanced6-synonyms.menuLabel') }}
+        </h2>
+    </template>
+
+    <template slot="smart-bar-actions">
+        <sw-button variant="primary" :routerLink="{ name: 'netzp.searchadvanced6.synonyms.create' }">
+            {{ $t('netzp-searchadvanced6-synonyms.list.addButtonText') }}
+        </sw-button>
+    </template>
+
+    <template slot="content">
+        <sw-entity-listing
+                v-if="synonym"
+                :items="synonym"
+                :repository="repository"
+                :showSelection="false"
+                :columns="columns"
+                detailRoute="netzp.searchadvanced6.synonyms.detail">
+        </sw-entity-listing>
+    </template>
+</sw-page>

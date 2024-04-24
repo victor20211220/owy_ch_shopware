@@ -1,0 +1,9 @@
+{% block frosh_product_compare_attribute_cells %}
+    {% for product in products %}
+        {% block frosh_product_compare_attribute_cell %}
+            <td>
+                {{ attribute(product, attribute) }}
+            </td>
+        {% endblock %}
+    {% endfor %}
+{% endblock %}

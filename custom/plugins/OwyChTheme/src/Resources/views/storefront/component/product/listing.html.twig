@@ -1,0 +1,166 @@
+{% sw_extends '@Storefront/storefront/component/product/listing.html.twig' %}
+
+{% block element_product_listing_wrapper_content %}
+	{% set defaultLayout = slot.translated.config.boxLayout.value %}
+	<div class="cms-element-product-listing">
+
+		{% if searchResult.total > 0 %}
+			{% block element_product_listing_pagination_nav_actions %}
+				{% set coreLimit = config('core.listing.productsPerPage') %}
+				{% set perPage = [12, 24, 48, coreLimit] %}
+				{% set productLimit = [] %}
+				{% for item in perPage|sort %}
+					{% if item not in productLimit %}
+						{% set productLimit = productLimit|merge([item]) %}
+					{% endif %}
+				{% endfor %}
+				<div class="cms-element-product-listing-actions row justify-content-between">
+					<div class="listing-actions-box">
+						<div class="col-md-auto first-pagination">
+							{% block element_product_listing_pagination_nav_top %}
+								{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+                                entities: searchResult,
+                                criteria: searchResult.criteria
+                            } %}
+							{% endblock %}
+						</div>
+						<div class="col-md-auto sort--box">
+							<div class="switchlisting-wraper">
+								{% if (controllerName|lower == 'navigation' and controllerAction|lower == 'index') || (controllerName|lower == 'cms' and controllerAction|lower == 'category' )%}
+									<form id="listing-style-form">
+										<div class="listing-layout--wrapper">
+											{% if app.session.get('boxLayout') %}
+												<label class="labelStandard {{ (app.session.get('boxLayout') == 'standard')?'active':'' }}">
+													<input type="radio" {{ (app.session.get('boxLayout') == 'standard')?'checked':'' }} name="boxLayout" value="standard"/>
+													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewbox="0 0 21 13">
+														<g id="Group_391" data-name="Group 391" transform="translate(-350 -450)">
+															<rect id="Rectangle_21" data-name="Rectangle 21" width="5" height="5" transform="translate(350 458)" fill="#2b2e34"/>
+															<rect id="Rectangle_24" data-name="Rectangle 24" width="5" height="5" transform="translate(350 450)" fill="#2b2e34"/>
+															<rect id="Rectangle_22" data-name="Rectangle 22" width="5" height="5" transform="translate(358 458)" fill="#2b2e34"/>
+															<rect id="Rectangle_25" data-name="Rectangle 25" width="5" height="5" transform="translate(358 450)" fill="#2b2e34"/>
+															<rect id="Rectangle_23" data-name="Rectangle 23" width="5" height="5" transform="translate(366 458)" fill="#2b2e34"/>
+															<rect id="Rectangle_26" data-name="Rectangle 26" width="5" height="5" transform="translate(366 450)" fill="#2b2e34"/>
+														</g>
+													</svg>
+												</label>
+
+												<label class="labellist  {{ (app.session.get('boxLayout') == 'list')?'active':'' }}">
+													<input class="btn btn-primary-sm" type="radio" {{ (app.session.get('boxLayout') == 'list')?'checked':'' }} name="boxLayout" value="list"/>
+													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewbox="0 0 21 13">
+														<g id="Group_390" data-name="Group 390" transform="translate(-390 -450)">
+															<rect id="Rectangle_27" data-name="Rectangle 27" width="21" height="5" transform="translate(390 458)" fill="#9a9b9f"/>
+															<rect id="Rectangle_28" data-name="Rectangle 28" width="21" height="5" transform="translate(390 450)" fill="#9a9b9f"/>
+														</g>
+													</svg>
+												</label>
+
+
+											{% else %}
+												<label class="labelStandard {{ (defaultLayout == 'standard')?'active':'' }}">
+													<input type="radio" {{ (defaultLayout == 'standard')?'checked':'' }} name="boxLayout" value="standard"/>
+													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewbox="0 0 21 13">
+														<g id="Group_391" data-name="Group 391" transform="translate(-350 -450)">
+															<rect id="Rectangle_21" data-name="Rectangle 21" width="5" height="5" transform="translate(350 458)" fill="#2b2e34"/>
+															<rect id="Rectangle_24" data-name="Rectangle 24" width="5" height="5" transform="translate(350 450)" fill="#2b2e34"/>
+															<rect id="Rectangle_22" data-name="Rectangle 22" width="5" height="5" transform="translate(358 458)" fill="#2b2e34"/>
+															<rect id="Rectangle_25" data-name="Rectangle 25" width="5" height="5" transform="translate(358 450)" fill="#2b2e34"/>
+															<rect id="Rectangle_23" data-name="Rectangle 23" width="5" height="5" transform="translate(366 458)" fill="#2b2e34"/>
+															<rect id="Rectangle_26" data-name="Rectangle 26" width="5" height="5" transform="translate(366 450)" fill="#2b2e34"/>
+														</g>
+													</svg>
+												</label>
+
+												<label class="labellist {{ (defaultLayout == 'list')?'active':'' }}">
+													<input class="btn btn-primary-sm" type="radio" {{ (defaultLayout == 'list')?'checked':'' }} name="boxLayout" value="list"/>
+													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewbox="0 0 21 13">
+														<g id="Group_390" data-name="Group 390" transform="translate(-390 -450)">
+															<rect id="Rectangle_27" data-name="Rectangle 27" width="21" height="5" transform="translate(390 458)" fill="#9a9b9f"/>
+															<rect id="Rectangle_28" data-name="Rectangle 28" width="21" height="5" transform="translate(390 450)" fill="#9a9b9f"/>
+														</g>
+													</svg>
+												</label>
+
+											{% endif %}
+										</div>
+									</form>
+								{% endif %}
+								{% if (controllerName|lower == 'navigation' and controllerAction|lower == 'index') || (controllerName|lower == 'cms' and controllerAction|lower == 'category' )%}
+									<div id="owy-product-count">
+										<strong>
+											<div id="owy-tot1">{{element.data.listing.total}}</div>
+                                            {{ 'OwyChTheme.listing.count.lable2' |trans |sw_sanitize}}
+										</strong>
+									</div>
+								{% endif %}
+							</div>
+							<div class="sorting-wraper-container">
+                                {% block element_product_listing_sorting %}
+                                <div class="sorting-lable">
+                                    {{ 'OwyChTheme.listing.sorting.lable1' |trans |sw_sanitize}}                                    
+                                </div>
+									{% sw_include '@Storefront/storefront/component/sorting.html.twig' with {
+                                    current: searchResult.sorting,
+                                    sortings: searchResult.availableSortings
+                                    } %}
+								{% endblock %}
+								{% if (controllerName|lower == 'navigation' and controllerAction|lower == 'index') || (controllerName|lower == 'cms' and controllerAction|lower == 'category' )%}
+									<div class="sorting-wraper">
+                                        {{ 'OwyChTheme.listing.sorting.lable2' |trans |sw_sanitize}}  
+										
+										<select id="product-limit" class="sorting form-select {{ formSelectClass }}" aria-label="{{ 'general.sortingLabel'|trans|striptags }}">
+											{% for limit in productLimit %}
+												<option {% if element.data.listing.limit == limit %} selected {% endif %} value="{{limit}}">
+													{{limit}}
+												</option>
+											{% endfor %}
+										</select>
+									</div>
+								{% endif %}								
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endblock %}
+		{% endif %}
+
+		{% block element_product_listing_row %}
+			<div class="row cms-listing-row js-listing-wrapper">
+				{% if searchResult.total > 0 %}
+					{% block element_product_listing_col %}
+						{% for product in searchResult %}
+							<div class="cms-listing-col {{ listingColumns }} {% if boxLayout == 'list' ||  boxLayout == 'wishlist' %} listview-custom {% endif %}">
+								{% block element_product_listing_box %}
+									{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                        'layout': boxLayout,
+                                        'displayMode': displayMode
+                                    } %}
+								{% endblock %}
+							</div>
+						{% endfor %}
+					{% endblock %}
+				{% else %}
+					{% block element_product_listing_col_empty %}
+						<div class="cms-listing-col col-12">
+							{% block element_product_listing_col_empty_alert %}
+								{% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                                    type: 'info',
+                                    content: 'listing.emptyResultMessage'|trans|sw_sanitize
+                                } %}
+							{% endblock %}
+						</div>
+					{% endblock %}
+				{% endif %}
+			</div>
+		{% endblock %}
+
+		{% if searchResult.total > searchResult.limit %}
+			{% block element_product_listing_pagination_nav_bottom %}
+				{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+                    entities: searchResult,
+                    criteria: searchResult.criteria,
+                    paginationLocation: 'bottom',
+                } %}
+			{% endblock %}
+		{% endif %}
+	</div>
+{% endblock %}

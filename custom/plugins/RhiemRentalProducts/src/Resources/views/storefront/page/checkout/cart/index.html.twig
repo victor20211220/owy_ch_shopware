@@ -1,0 +1,67 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{% block page_checkout_container %}
+	{% if page.cart.lineItems.count is same as(0) %}
+		{% for label, messages in app.flashes(['error','danger']) %}
+			{% for message in messages %}
+				{% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                    type: "danger",
+                    content: message
+                } %}
+			{% endfor %}
+		{% endfor %}
+	{% endif %}
+	{{ parent() }}
+{% endblock %}
+
+{% block page_checkout_cart_add_product_and_shipping %}
+	{% block page_checkout_change_rental_date %}
+		{% if config('RhiemRentalProducts.config.uniformRentalPeriods') and page.cart.extensions.rentalInformation.containsRentalItems %}
+			<div class="row mb-4">
+				{% block page_checkout_change_rental_date_row %}
+					{% set dataRangeOptions = {
+            minDuration: page.cart.extensions.rentalInformation.durations.min,
+            maxDuration: page.cart.extensions.rentalInformation.durations.max,
+			blockedWeekdays: config('RhiemRentalProducts.config.blockedWeekdays'),
+			notSelectableDates: config('RhiemRentalProducts.config.blockedDays') ? config('RhiemRentalProducts.config.blockedDays')|column('id') : [],
+            removeBlockedDays: config('RhiemRentalProducts.config.removeBlockedDays'),
+            language: app.request.locale
+        	} %}
+
+					{% if page.cart.extensions.rentalInformation.currentRentalTime is defined %}
+						{% set dataRangeOptions = dataRangeOptions|merge({
+				currentRentalPeriodStart: page.cart.extensions.rentalInformation.currentRentalTime.period.startDate|date("m/d/Y", false),
+				currentRentalPeriodEnd: page.cart.extensions.rentalInformation.currentRentalTime.period.endDate|date("m/d/Y", false)
+			}) %}
+					{% endif %}
+
+					{% block page_checkout_change_rental_date_container %}
+						<div class="col-md-8 change-rental-date-container">
+							{% block page_checkout_change_rental_date_form %}
+								<form id="rentalDateChangeForm" action="{{ path('frontend.checkout.rental-line-item.change-date') }}" method="post" class="change-rental-date">
+									{% block page_checkout_change_rental_date_form_date_input %}
+										<div class="row g-2">
+											<div class="col-8">
+												<input class="form-control flatpickr-input rangeMode" name="rentPeriod" data-date-range="true" data-date-range-options="{{ dataRangeOptions|json_encode }}" type="text" placeholder="{{ "rhiem-rental-products.rentPeriod"|trans|striptags }}" readonly="readonly" required="required"/>
+											</div>
+
+											<button type="submit" class="btn btn-light col-4">
+												{{ "rhiem-rental-products.changeRentPeriod"|trans }}
+											</button>
+										</div>
+									{% endblock %}
+
+									{% block page_checkout_change_rental_date_form_redirect %}
+										<input type="hidden" name="redirectTo" value="frontend.checkout.cart.page">
+									{% endblock %}
+								</form>
+							{% endblock %}
+						</div>
+					{% endblock %}
+				{% endblock %}
+			</div>
+		{% endif %}
+	{% endblock %}
+
+	{{parent()}}
+{% endblock %}

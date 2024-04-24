@@ -1,0 +1,66 @@
+{% block sw_product_deliverability_form_stock_field %}
+    <div v-if="checkForActive">
+        <sw-field
+                type="number"
+                name="sw-field--product--rental-original-stock"
+                numberType="int"
+                :min="0"
+                :label="$tc('sw-product.settingsForm.labelStock')"
+                :placeholder="$tc('sw-product.settingsForm.placeholderStock')"
+                required
+                v-model="rentalProduct.originalStock">
+        </sw-field>
+    </div>
+    <div v-else>
+        {% parent %}
+    </div>
+
+{% endblock %}
+
+{% block sw_product_deliverability_form_available_stock_field %}
+    <div v-if="checkForActive">
+        <sw-field type="number"
+                  name="sw-field--product-available-stock"
+                  numberType="int"
+                  :disabled="true"
+                  :label="$tc('sw-product.settingsForm.labelAvailableStock')"
+                  v-model="rentalProduct.originalStock">
+        </sw-field>
+    </div>
+    <div v-else>
+        {% parent %}
+    </div>
+{% endblock %}
+
+{% block sw_product_deliverability_form_is_closeout_field %}
+    <sw-inherit-wrapper v-model="product.isCloseout"
+                        :hasParent="!!parentProduct.id"
+                        :inheritedValue="parentProduct.isCloseout">
+        <template #content="props">
+
+            <sw-field v-if="!checkForActive"
+                      type="switch"
+                      bordered
+                      :error="productIsCloseoutError"
+                      :mapInheritance="props"
+                      :label="$tc('sw-product.settingsForm.labelIsCloseout')"
+                      :helpText="$tc('sw-product.settingsForm.isCloseoutHelpText')"
+                      :disabled="props.isInherited"
+                      :value="props.currentValue"
+                      @change="props.updateCurrentValue">
+            </sw-field>
+
+            <sw-field v-else
+                      type="switch"
+                      bordered
+                      :error="productIsCloseoutError"
+                      :mapInheritance="props"
+                      :label="$tc('sw-product.settingsForm.labelIsCloseout')"
+                      :helpText="$tc('rhiem-rental-products.product-deliverability.closeout')"
+                      :disabled="true"
+                      :value="false">
+            </sw-field>
+
+        </template>
+    </sw-inherit-wrapper>
+{% endblock %}

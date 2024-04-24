@@ -1,0 +1,56 @@
+<div class="row">
+{% set hasImages = false %}
+{% for cmsPage in page.extensions.netzpSearch.cms.data %}
+    {% if cmsPage.media %}
+        {% set hasImages = true %}
+    {% endif %}
+{% endfor %}
+
+{% for cmsPage in page.extensions.netzpSearch.cms.data %}
+    {% if(cmsPage.getExtension('categoryId').value) %}
+        {% set link = seoUrl('frontend.navigation.page', {'navigationId': cmsPage.getExtension('categoryId').value}) %}
+    {% else %}
+        {% set link = seoUrl('frontend.home.page') %}
+    {% endif %}
+
+    <div class="col-12 col-md-6 col-lg-3 my-4">
+        <div class="card h-100">
+            {% if cmsPage.media.url %}
+                {% if cmsPage.hasExtension('link') and cmsPage.getExtension('link').value %}
+                    <a href="{{ cmsPage.getExtension('link').value }}">
+                {% else %}
+                    <a href="{{ seoUrl('frontend.navigation.page', {'navigationId': cmsPage.getExtension('categoryId').value}) }}">
+                {% endif %}
+                    {% sw_thumbnails 'card-img-top' with {
+                        media: cmsPage.media,
+                        sizes: {
+                            'default': '400px'
+                        },
+                        attributes: {
+                            'class': 'card-img-top',
+                            'alt':   cmsPage.media.translated.alt ?: '',
+                            'title': cmsPage.media.translated.title ?: ''
+                        }
+                    } %}
+                </a>
+            {% elseif hasImages %}
+                <div class="card-img-top"></div>
+            {% endif %}
+
+            <div class="card-body">
+                <h3 class="card-title mt-3">
+                    <a href="{{ link }}">{{ cmsPage.getTitle|raw|sw_sanitize }}</a>
+                </h3>
+                <p class="card-text">
+                    {{ cmsPage.getDescription|raw|sw_sanitize }}
+                </p>
+                <h2>
+                    <a href="{{ link }}" class="btn btn-light">
+                        {{ "netzp.search.cmspage"|trans }}
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>

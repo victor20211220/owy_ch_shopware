@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="SwagPlatformSecurity.knownIssues" type="collection">
+            <parameter>Swag\Security\Fixes\NEXT23915\SecurityFix</parameter>
+        </parameter>
+    </parameters>
+
+    <services>
+        <service id="Swag\Security\Components\State">
+            <argument>%SwagPlatformSecurity.availableFixes%</argument>
+            <argument>%SwagPlatformSecurity.activeFixes%</argument>
+        </service>
+
+        <service id="Swag\Security\Api\SecurityController" public="true">
+            <argument type="service" id="Swag\Security\Components\State"/>
+            <argument type="service" id="plugin.repository" />
+            <argument>%kernel.cache_dir%</argument>
+            <argument type="service" id="GuzzleHttp\Client"/>
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheIdLoader"/>
+        </service>
+
+        <service id="Swag\Security\Api\ConfigController" public="true">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="user.repository" />
+        </service>
+
+        <service id="Swag\Security\Subscriber\AdminSecurityFixesProvider" public="true">
+            <argument type="service" id="Swag\Security\Components\State"/>
+
+            <tag name="kernel.event_listener"/>
+        </service>
+
+        <service id="Swag\Security\Subscriber\TwigStateProvider" public="true">
+            <argument type="service" id="Swag\Security\Components\State"/>
+
+            <tag name="kernel.event_listener"/>
+        </service>
+
+        <service id="Swag\Security\Fixes\NEXT23915\SecurityFix" public="true">
+            <tag name="swag.security.fix" ticket="\Swag\Security\Fixes\NEXT24679\SecurityFix::class"/>
+        </service>
+
+        <service id="GuzzleHttp\Client"/>
+    </services>
+</container>

@@ -1,0 +1,26 @@
+{% block cbax_lexicon_page_detail_sidebar %}
+    <div class="lexicon-sidebar-category is--sidebar">
+        <div class="card-body">
+            {% block cbax_lexicon_page_detail_sidebar_headline %}
+            <div class="lexicon-sidebar-category-headline">
+				<h3>{{ "cbaxLexicon.page.sidebar.title"|trans }} {{ lexiconChar }}</h3>
+            </div>
+            {% endblock %}
+
+            {% block cbax_lexicon_page_detail_sidebar_entries %}
+            <div class="lexicon-sidebar-category-content">
+				{% for entry in lexiconEntries %}
+                    {% block cbax_lexicon_page_detail_sidebar_entry %}
+                    <div class="{% if entry.id == entryId %} is-active{% endif %}">
+                        <a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: entry.id }) }}" title="{{ entry.translated.title }}" class="lexicon-sidebar-category-link {% if entry.id == entryId %} is-active{% endif %}">
+                            {{ entry.translated.title }}
+                        </a>
+                    </div>
+                    {% endblock %}
+				{% endfor %}
+            </div>
+            {% endblock %}
+
+        </div>
+    </div>
+{% endblock %}

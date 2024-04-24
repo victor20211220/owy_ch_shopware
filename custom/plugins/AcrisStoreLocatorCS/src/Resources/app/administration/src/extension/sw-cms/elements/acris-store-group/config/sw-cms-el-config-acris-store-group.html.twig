@@ -1,0 +1,38 @@
+{% block sw_cms_element_acris_store_group_config %}
+    <div class="sw-cms-el-config-acris-store-group" v-if="!isLoading">
+        {% block sw_cms_element_buy_box_config_content_warning %}
+        <sw-alert
+            v-if="isStorePage"
+            class="sw-cms-el-config-buy-box__warning"
+            variant="info"
+        >
+        {{ $tc('acris-stores.cms.elements.acris-store-group.tooltipSettingDisabled') }}
+        </sw-alert>
+        {% endblock %}
+
+        {% block sw_cms_element_buy_box_config_store_group_display_type_select %}
+            <sw-select-field :label="$tc('acris-stores.cms.elements.acris-store-group.labelType')"
+                             v-model="element.config.displayType.value"
+                             v-if="!isStorePage"
+                             :placeholder="$tc('acris-stores.cms.elements.acris-store-group.placeholderType')">
+                <option value="map_listing">{{ $tc('acris-stores.cms.elements.acris-store-group.optionMapListing') }}</option>
+                <option value="listing">{{ $tc('acris-stores.cms.elements.acris-store-group.optionListing') }}</option>
+            </sw-select-field>
+        {% endblock %}
+
+        {% block sw_cms_element_buy_box_config_store_group_select %}
+        <sw-entity-single-select
+            v-if="!isStorePage"
+            ref="cmsStoreSelection"
+            v-model="element.config.group.value"
+            entity="acris_store_group"
+            :label="$tc('acris-stores.cms.elements.acris-store-group.labelGroup')"
+            :placeholder="$tc('acris-stores.cms.elements.acris-store-group.placeholderGroup')"
+            :criteria="groupCriteria"
+            :context="groupSelectContext"
+            @change="onGroupChange"
+        >
+        </sw-entity-single-select>
+        {% endblock %}
+    </div>
+{% endblock %}

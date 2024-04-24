@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="NetzpSearchAdvanced6\Core\Content\SearchSynonym\SearchSynonymDefinition">
+            <tag name="shopware.entity.definition" entity="s_plugin_netzp_search_synonyms" />
+        </service>
+
+        <service id="NetzpSearchAdvanced6\Core\Content\SearchLog\SearchLogDefinition">
+            <tag name="shopware.entity.definition" entity="s_plugin_netzp_search_log" />
+        </service>
+
+        <service id="NetzpSearchAdvanced6\Components\SearchHelper">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="category.repository" />
+            <argument type="service" id="cms_page.repository" />
+            <argument type="service" id="product_manufacturer.repository" />
+            <argument type="service" id="s_plugin_netzp_search_synonyms.repository" />
+            <argument type="service" id="s_plugin_netzp_search_log.repository" />
+        </service>
+
+        <service id="NetzpSearchAdvanced6\Subscriber\SearchSubscriber">
+            <argument type="service" id="NetzpSearchAdvanced6\Components\SearchHelper"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="NetzpSearchAdvanced6\Controller\SearchAdvancedController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+    </services>
+</container>

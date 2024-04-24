@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/line-item/type/product.html.twig' %}
+
+{% block component_line_item_type_product_delivery_date %}
+	{% set rentalProduct = lineItem.payload.rentalProduct %}
+
+	{% if rentalProduct %}
+		<div class="offcanvas-cart-rental">
+			{{ "rhiem-rental-products.rentPeriod"|trans|striptags }}:
+			{{ lineItem.payload.rentalProduct.rentalTime.getStartDate()|date("d.m.Y", false) }}
+			-
+			{{ lineItem.payload.rentalProduct.rentalTime.getEndDate()|date("d.m.Y", false) }}
+		</div>
+	{% endif %}
+{% endblock %}

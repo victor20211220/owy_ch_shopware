@@ -1,0 +1,199 @@
+{% block acris_store_groups_list %}
+<sw-page class="acris-store-groups-list">
+    {% block acris_store_groups_list_search_bar %}
+        <template slot="search-bar">
+            <sw-search-bar initialSearchType="Store groups"
+                           :placeholder="$tc('acris-store-groups.general.placeholderSearchBar')"
+                           :initialSearch="term"
+                           @search="onSearch" id="store-groups">
+            </sw-search-bar>
+        </template>
+    {% endblock %}
+
+    {% block acris_store_groups_list_smart_bar_header %}
+        <template slot="smart-bar-header">
+            {% block acris_store_groups_list_smart_bar_header_title %}
+                <h2>
+                    {% block acris_store_groups_list_smart_bar_header_title_text %}
+                        {{ $tc('acris-store-groups.list.textHeadline') }}
+                        {% endblock %}
+
+                        {% block acris_store_groups_list_smart_bar_header_amount %}
+                        <span v-if="!isLoading" class="sw-page__smart-bar-amount">
+                        ({{ total }})
+                        </span>
+                    {% endblock %}
+                </h2>
+            {% endblock %}
+        </template>
+    {% endblock %}
+
+    {% block acris_store_groups_list_smart_bar_language %}
+        <template #language-switch>
+            <sw-language-switch @on-change="onChangeLanguage"></sw-language-switch>
+        </template>
+    {% endblock %}
+
+    {% block acris_store_groups_list_smart_bar_actions %}
+    <template slot="smart-bar-actions">
+        {% block acris_store_groups_list_smart_bar_actions_add %}
+        <sw-button variant="primary" :routerLink="{ name: 'acris.store.groups.create' }">
+            {{ $tc('acris-store-groups.list.buttonAdd') }}
+        </sw-button>
+        {% endblock %}
+    </template>
+    {% endblock %}
+
+    {% block acris_store_groups_list_cardview %}
+    <template slot="content">
+        <div class="acris-store-groups-list__content">
+            {% block acris_store_groups_list_content %}
+            <sw-entity-listing class="acris-store-groups-list-grid"
+                               v-if="items && total > 0"
+                               :items="items"
+                               :repository="entityRepository"
+                               detailRoute="acris.store.groups.detail"
+                               :showSeleciton="true"
+                               :isLoading="isLoading"
+                               :columns="columns">
+
+                {% block acris_store_groups_list_grid_columns_active %}
+                <template #column-active="{ item, isInlineEdit }">
+                    {% block acris_store_groups_list_grid_columns_active_inline_edit %}
+                    <template v-if="isInlineEdit">
+                        <sw-checkbox-field v-model="item.active"></sw-checkbox-field>
+                    </template>
+                    {% endblock %}
+
+                    {% block acris_store_groups_list_grid_columns_active_content %}
+                    <template v-else>
+                        <sw-icon v-if="item.active" name="regular-checkmark-xs" small
+                                 class="is--active"></sw-icon>
+                        <sw-icon v-else name="regular-times-s" small class="is--inactive"></sw-icon>
+                    </template>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                {% block acris_store_groups_list_grid_columns_display_below_map %}
+                <template #column-displayBelowMap="{ item, isInlineEdit }">
+                    {% block acris_store_groups_list_grid_columns_display_below_map_inline_edit %}
+                    <template v-if="isInlineEdit">
+                        <sw-checkbox-field v-model="item.displayBelowMap"></sw-checkbox-field>
+                    </template>
+                    {% endblock %}
+
+                    {% block acris_store_groups_list_grid_columns_display_below_map_content %}
+                    <template v-else>
+                        <sw-icon v-if="item.displayBelowMap" name="regular-checkmark-xs" small
+                                 class="is--active"></sw-icon>
+                        <sw-icon v-else name="regular-times-s" small class="is--inactive"></sw-icon>
+                    </template>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                {% block acris_store_groups_list_grid_columns_position %}
+                <template #column-position="{ item, isInlineEdit }">
+                    {% block acris_store_groups_list_grid_columns_position_link %}
+                    <template v-if="item.position == 'search'">
+                        {{ $tc('acris-store-groups.detail.nextToSearchOption') }}
+                    </template>
+                    <template v-else-if="item.position == 'belowMap'">
+                        {{ $tc('acris-store-groups.detail.belowMapOption') }}
+                    </template>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                {% block acris_store_groups_consent_grid_columns_actions %}
+                <template #actions="{ item }">
+                    {% block acris_store_groups_consent_grid_columns_actions_edit %}
+                    <sw-context-menu-item :routerLink="{ name: 'acris.store.groups.detail', params: { id: item.id } }">
+                        {{ $tc('acris-store-groups.list.contextMenuEdit') }}
+                    </sw-context-menu-item>
+                    {% endblock %}
+
+                    {% block acris_store_groups_list_columns_actions_delete %}
+                    <sw-context-menu-item variant="danger" :disabled="item.default"
+                                          @click="onDelete(item.id)">
+                        {{ $tc('acris-store-groups.list.buttonDelete') }}
+                    </sw-context-menu-item>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                {% block acris_store_groups_consent_grid_columns_actions_delete %}
+                <template #action-modals="{ item }">
+                    {% block acris_store_groups_list_delete_modal %}
+                    <sw-modal v-if="showDeleteModal === item.id"
+                              @modal-close="onCloseDeleteModal"
+                              :title="$tc('acris-store-groups.list.modalTitleDelete')"
+                              variant="small">
+                        {% block acris_store_groups_list_delete_modal_confirm_text %}
+                        <p>
+                            {{ $tc('acris-store-groups.list.textDeleteConfirm') }}
+                        </p>
+                        {% endblock %}
+
+                        {% block acris_store_groups_list_delete_modal_footer %}
+                        <template slot="modal-footer">
+                            {% block acris_store_groups_list_delete_modal_actions_cancel %}
+                            <sw-button @click="onCloseDeleteModal"
+                                       size="small">
+                                {{ $tc('acris-store-groups.list.buttonCancel') }}
+                            </sw-button>
+                            {% endblock %}
+
+                            {% block acris_store_groups_list_delete_modal_actions_delete %}
+                            <sw-button @click="onConfirmDelete(item.id)"
+                                       variant="danger"
+                                       size="small">
+                                {{ $tc('acris-store-groups.list.buttonDelete') }}
+                            </sw-button>
+                            {% endblock %}
+                        </template>
+                        {% endblock %}
+                    </sw-modal>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                <template #pagination>
+                    {% block sw_order_list_grid_pagination %}
+                    <sw-pagination :page="page"
+                                   :limit="limit"
+                                   :total="total"
+                                   :total-visible="7"
+                                   @page-change="onPageChange">
+                    </sw-pagination>
+                    {% endblock %}
+                </template>
+
+            </sw-entity-listing>
+            {% endblock %}
+
+            {% block acris_store_groups_list_empty_state %}
+            <sw-empty-state v-if="!isLoading && total === 0" :title="$tc('acris-store-groups.list.contentEmpty')"></sw-empty-state>
+            {% endblock %}
+
+        </div>
+    </template>
+    {% endblock %}
+
+    {% block acris_store_groups_list_sidebar %}
+    <template #sidebar>
+        <sw-sidebar class="acris-store-groups-list__sidebar">
+            {% block acris_store_groups_list_sidebar_item %}
+            <sw-sidebar-item
+                icon="regular-undo"
+                :title="$tc('acris-store-groups.list.titleSidebarItemRefresh')"
+                @click="onRefresh">
+            </sw-sidebar-item>
+            {% endblock %}
+        </sw-sidebar>
+    </template>
+    {% endblock %}
+
+</sw-page>
+{% endblock %}

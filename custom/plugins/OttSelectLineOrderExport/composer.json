@@ -1,0 +1,34 @@
+{
+  "name": "ott/select_line_order_export",
+  "description": "This plugin provides order export command to Selectline",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ottscho-IT, Daniel Naumann",
+      "homepage": "https://ottscho-it-service.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ott\\SelectLineOrderExport\\": "src/"
+    }
+  },
+  "require": {
+    "shopware/core": "~6.5"
+  },
+  "extra": {
+    "shopware-plugin-class": "Ott\\SelectLineOrderExport\\SelectLineOrderExport",
+    "plugin-icon": "src/plugin.png",
+    "copyright": "(c) by ottschoIT",
+    "label": {
+      "de-DE": "SelectLineOrderExport",
+      "en-GB": "SelectLineOrderExport"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://store.shopware.com/ottscho-it.html",
+      "en-GB": "https://store.shopware.com/en/ottscho-it.html"
+    }
+  }
+}

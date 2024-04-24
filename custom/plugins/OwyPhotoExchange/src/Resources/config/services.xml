@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!--        <defaults autowire="true" autoconfigure="true"/>-->
+        <service id="OwyPhotoExchange\Storefront\Controller\PhotoExchangeController" public="true">
+            <tag name="controller.service_arguments" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
+            <argument type="service" id="OwyPhotoExchange\Service\CategoryService" />
+            <argument type="service" id="OwyPhotoExchange\Service\PostService" />
+            <argument type="service" id="OwyPhotoExchange\Service\StorefrontMediaUploaderService" />
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader" />
+        </service>
+
+        <service id="OwyPhotoExchange\Storefront\Page\CategoryEntityDefinition"  public="true">
+            <tag name="shopware.entity.definition" entity="photo_exchange_category" />
+        </service>
+
+        <service id="OwyPhotoExchange\Service\CategoryService" public="true">
+            <argument type="service" id="photo_exchange_category.repository" />
+        </service>
+
+        <service id="OwyPhotoExchange\Storefront\Page\PostEntityDefinition"  public="true">
+            <tag name="shopware.entity.definition" entity="photo_exchange_post" />
+        </service>
+
+        <service id="OwyPhotoExchange\Service\PostService" public="true">
+            <argument type="service" id="photo_exchange_post.repository" />
+            <argument type="service" id="OwyPhotoExchange\Service\StorefrontMediaUploaderService" />
+        </service>
+
+        <service id="OwyPhotoExchange\Service\StorefrontMediaUploaderService" public="true">
+            <argument type="service" id="Shopware\Core\Content\Media\MediaService" />
+            <argument type="service" id="Shopware\Core\Content\Media\File\FileSaver" />
+            <argument type="service" id="Shopware\Storefront\Framework\Media\StorefrontMediaValidatorRegistry"/>
+
+        </service>
+    </services>
+</container>

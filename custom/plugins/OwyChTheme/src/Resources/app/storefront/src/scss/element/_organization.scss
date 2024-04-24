@@ -1,0 +1,40 @@
+.organisation-warraper {
+	.title {
+		font-size: 16px;
+		border-bottom: 1px solid $sw-border-color;
+		padding: 0px 0;
+		margin: 10px 0;
+		font-weight: bold;
+	}
+	.org-box {
+		display: flex;
+		padding-left: 0 !important;
+	}
+	.organ-content {
+		ul {
+			margin: 0;
+			padding: 0 0 0 20px;
+			list-style: none;
+			li {
+				line-height: 26px;
+				font-size: 16px;
+				a {
+					color: $sw-color-brand-secondary;
+					text-decoration: none;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 567px) {
+  .organisation-warraper {
+    .org-box {
+      
+    }
+    picture {
+	  max-width:42% !important;
+    }
+  }
+}

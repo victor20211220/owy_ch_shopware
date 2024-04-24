@@ -1,0 +1,52 @@
+{% block element_owy_shoppage_nav %}
+
+	{% set config = element.config %}
+    {% set categories = element.data.categories.elements %}
+    {% set currentPageId = page.header.navigation.active.id %}
+
+    <ul class="category-navigation level">
+        {% for category in categories %}
+            
+            <li class="category-navigation-entry {% if category.childCount > 0 %}is--parentactive{% endif %}">
+                <a class="category-navigation-link{% if category.id is same as(currentPageId) %} is-active{% endif %}"
+                   href="{{ category_url(category) }}">
+                        {{category.translated.name }}
+                </a>
+            {% if category.childCount > 0  %}
+                <ul class="category-navigation level">
+                    {#{% for childItem in category.children.elements|sort((a, b) => b.id <=> a.id) %}#}
+                   {# {% for childItem in category.children.elements|sort((a, b) => a.translated.name|lower <=> b.translated.name|lower) %}
+                        <li class="category-navigation-entry">
+                            <a class="category-navigation-link{% if childItem.id is same as(currentPageId) %} is-active{% endif %}"
+                               href="{{ category_url(childItem) }}">
+                                {{childItem.translated.name }}
+                            </a>
+                        </li>
+                    {% endfor %}#}
+                    {% set sortedChildren = [] %}
+
+                    {% for childItem in category.children.elements %}
+                        {% set sortedChildren = sortedChildren|merge([{ 'category': childItem, 'position': childItem.translated.customFields.owy_sub_category_sorting_position }]) %}
+                    {% endfor %}
+                    {% set sortedChildren = sortedChildren|sort((a, b) => a.position <=> b.position) %}
+
+                    {#{{ dump(sortedChildren) }}#}
+
+                    {% for sortedChild  in sortedChildren %}
+                        <li class="category-navigation-entry">
+                            <a class="category-navigation-link{% if sortedChild.category.id is same as(currentPageId) %} is-active{% endif %}"
+                               href="{{ category_url(sortedChild.category ) }}">
+                                {{sortedChild.category.translated.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+
+{% endblock %}

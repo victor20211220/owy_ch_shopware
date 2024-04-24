@@ -1,0 +1,194 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service id="ott_base.logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">ott_base</argument>
+        </service>
+
+        <!-- Command -->
+        <service id="Ott\Base\Command\PluginReinstallCommand">
+            <argument type="service" id="Shopware\Core\Framework\Plugin\PluginLifecycleService"/>
+            <argument type="service" id="plugin.repository"/>
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheClearer"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+
+            <tag name="console.command"/>
+        </service>
+
+        <service id="Ott\Base\Command\ThemeCompileCommand">
+            <argument type="service" id="Shopware\Storefront\Theme\ThemeService" />
+            <argument type="service" id="Shopware\Storefront\Theme\ConfigLoader\AbstractAvailableThemeProvider" />
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+
+            <tag name="console.command"/>
+        </service>
+
+        <!-- Twig Extension -->
+        <service class="Ott\Base\Twig\Base64Extension" id="twig.extension.base64">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\JsonDecodeExtension" id="twig.extension.json_decode">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\FindCategoryInTreeByIdExtension" id="twig.extension.findCategoryInTreeById">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\GetCategoryChildrenExtension" id="twig.extension.getCategoryChildren">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\HashExtension" id="twig.extension.hash">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\HtmlEntityDecodeExtension" id="twig.extension.htmlEntityDecode">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\SortFilterByNameOrderExtension" id="twig.extension.sortFilterByNameOrder">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="Ott\Base\Twig\LoadCmsPageExtension" id="twig.extension.loadCmsPage">
+            <argument type="service" id="twig"/>
+            <argument type="service" id="Shopware\Core\Content\Cms\SalesChannel\SalesChannelCmsPageLoader"/>
+            <argument type="service" id="request_stack"/>
+            <tag name="twig.extension"/>
+        </service>
+
+        <!-- Bootstrapping Helpers -->
+        <service id="Ott\Base\Bootstrap\DocumentCreationService">
+            <argument type="service" id="document_type.repository" />
+            <argument type="service" id="document_base_config.repository" />
+            <argument type="service" id="document_base_config_sales_channel.repository" />
+            <argument type="service" id="language.repository" />
+        </service>
+
+        <service id="Ott\Base\Bootstrap\NumberRangeCreationService">
+            <argument type="service" id="number_range.repository" />
+            <argument type="service" id="language.repository" />
+        </service>
+
+        <service id="Ott\Base\Bootstrap\CustomFieldService">
+            <argument type="service" id="custom_field_set.repository" />
+            <argument type="service" id="custom_field.repository" />
+        </service>
+
+        <service id="Ott\Base\Bootstrap\MailCreationService">
+            <argument type="service" id="mail_template.repository" />
+            <argument type="service" id="mail_template_type.repository" />
+            <argument type="service" id="sales_channel.repository" />
+            <argument type="service" id="sales_channel_type.repository" />
+            <argument type="service" id="language.repository" />
+        </service>
+
+        <!-- File Helpers -->
+        <service id="Ott\Base\FileHelper\CsvHelper">
+        </service>
+
+        <!-- Service Helpers -->
+        <service id="Ott\Base\Service\MediaHelper">
+            <argument type="service" id="Shopware\Core\Content\Media\MediaService" />
+            <argument type="service" id="Shopware\Core\Content\Media\File\FileFetcher" />
+            <argument type="service" id="Shopware\Core\Content\Media\File\FileSaver" />
+            <argument type="service" id="media.repository" />
+            <argument type="service" id="shopware.filesystem.public" />
+            <argument type="service" id="shopware.filesystem.private" />
+            <argument type="service" id="Shopware\Core\Content\Media\Pathname\UrlGeneratorInterface" />
+            <argument type="service" id="Shopware\Core\Content\Media\Thumbnail\ThumbnailService" />
+            <argument type="service" id="Ott\Base\Import\Module\MediaModule" />
+        </service>
+
+        <service id="Ott\Base\Service\ShopwareStopwatch">
+        </service>
+
+        <!-- Modules -->
+        <!-- Import -->
+        <service id="Ott\Base\Import\Module\CategoryModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\ManufacturerModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\MediaModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\PropertyModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\ProductModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\CustomerModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\RuleModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\ShippingMethodModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\SalesChannelModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\StateModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\PaymentMethodModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\OrderModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\TagModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\Module\NewsletterRecipientModule">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+
+        <service id="Ott\Base\Import\ImportService">
+            <argument type="service" id="Ott\Base\Import\Module\ProductModule" />
+            <argument type="service" id="Ott\Base\Import\Module\CategoryModule" />
+            <argument type="service" id="Ott\Base\Import\Module\ManufacturerModule" />
+            <argument type="service" id="Ott\Base\Import\Module\MediaModule" />
+            <argument type="service" id="Ott\Base\Import\Module\PropertyModule" />
+            <argument type="service" id="Ott\Base\Import\Module\CustomerModule" />
+            <argument type="service" id="Ott\Base\Import\Module\RuleModule" />
+            <argument type="service" id="Ott\Base\Import\Module\ShippingMethodModule" />
+            <argument type="service" id="Ott\Base\Import\Module\SalesChannelModule" />
+            <argument type="service" id="Ott\Base\Import\Module\StateModule" />
+            <argument type="service" id="Ott\Base\Import\Module\PaymentMethodModule" />
+            <argument type="service" id="Ott\Base\Import\Module\OrderModule" />
+            <argument type="service" id="Ott\Base\Import\Module\TagModule" />
+            <argument type="service" id="Ott\Base\Import\Module\NewsletterRecipientModule" />
+            <argument type="service" id="Shopware\Core\Content\Product\SearchKeyword\ProductSearchKeywordAnalyzer" />
+            <argument type="service" id="Ott\Base\Service\MediaHelper" />
+            <argument type="service" id="messenger.bus.shopware"/>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,37 @@
+{% sw_extends '@Storefront/storefront/page/account/index.html.twig' %}
+
+{% block page_account_overview_newsletter %}
+    {{ parent() }}
+
+    {% if config('AcrisStoreLocatorCS.config').enableMyStore and page.extensions.acrisStoreLocatorStores %}
+        <div class="account-overview-card account-overview-store">
+            {% block acris_store_locator_account_overview_profile_card %}
+                <div class="card">
+                    <div class="card-body">
+                        {% block acris_store_locator_account_overview_profile_title %}
+                            <h2 class="card-title">
+                                {{ "acrisStoreLocator.account.overviewStoreHeader"|trans|sw_sanitize }}
+                            </h2>
+                        {% endblock %}
+
+                        {% block acris_store_locator_account_overview_profile_store %}
+                            {% sw_include '@Storefront/storefront/component/account/store-locator/store.html.twig' with {
+                                'customer': context.customer,
+                            } %}
+                        {% endblock %}
+
+                        {% block acris_store_locator_account_overview_profile_actions %}
+                            <div class="card-actions">
+                                <a href="{{ path('frontend.storeLocator.selectStore') }}"
+                                   title="{{ "acrisStoreLocator.account.overviewChangeStore"|trans|striptags }}"
+                                   class="btn btn-light">
+                                    {{ "acrisStoreLocator.account.overviewChangeStore"|trans|sw_sanitize }}
+                                </a>
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% block cbax_lexicon_page_ajax %}
+    <div class="card ajax-keyword-box">
+
+        {% set CbaxModulLexiconConfig = config('CbaxModulLexicon.config') %}
+
+        <div class="card-body">
+            {% block cbax_lexicon_page_ajax_modal_title %}
+            	{% if ("cbaxLexicon.page.ajax.headline"|trans != '') %}
+                    {% set headline = "cbaxLexicon.page.ajax.headline"|trans %}
+                {%  else %}
+                    {% set headline = CbaxModulLexiconConfig.headline|trans %}
+                {% endif %}
+
+                {% if headline %}
+                    <div class="ajax-keyword-box-headline">
+                        <h2>{{ headline }}</h2>
+                    </div>
+                    <hr>
+                {% endif %}
+            {% endblock %}
+
+            {% block cbax_lexicon_page_ajax_title %}
+                {# Title #}
+                <div class="ajax-keyword-box-title">
+                	<h3 class="ajax-keyword-box-title">{{ cbaxModulLexicon.entry.translated.title }}</h3>
+                </div>
+            {% endblock %}
+
+            {% block cbax_lexicon_page_ajax_description %}
+                {# Description #}
+                <div class="ajax-keyword-box-description">
+                    {{ cbaxModulLexicon.entry.translated.description|striptags|raw }}
+                </div>
+            {% endblock %}
+
+            {% block cbax_lexicon_page_ajax_more %}
+                {# More #}
+                {% if CbaxModulLexiconConfig.showFooter %}
+
+                	{% if cbaxModulLexicon.entry.translated.linkDescription %}
+                        {% set linkDescription = cbaxModulLexicon.entry.translated.linkDescription %}
+                    {%  else %}
+                    	{% set linkDescription = "cbaxLexicon.page.ajax.linkDescription"|trans %}
+                    {% endif %}
+
+                    {% if cbaxModulLexicon.entry.linkTarget == '_blank' %}
+                        {% set linkTarget = '_blank' %}
+                    {%  else %}
+                    	{% set linkTarget = '_parent' %}
+                    {% endif %}
+
+                    <div class="ajax-keyword-box-action">
+                        {% if cbaxModulLexicon.entry.link %}
+                            <a href="{{ cbaxModulLexicon.entry.link }}"
+                            	class="btn btn-sm btn-outline-secondary"
+                                target="{{ linkTarget }}"
+                                title="{{ linkDescription }}">{{ linkDescription }}</a>
+                        {% else %}
+                            <a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: cbaxModulLexicon.entry.id } ) }}"
+                            	class="btn btn-sm btn-outline-secondary"
+                                target="{{ linkTarget }}"
+                                title="{{ linkDescription }}">{{ linkDescription }}</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% for manufacturer in page.extensions.netzpSearch.manufacturer.data %}
+    <li class="search-suggest-product js-result">
+        {% set link = '' %}
+        {% if config('NetzpSearchAdvanced6.config.searchManufacturerCmsPage') %}
+            {% set link = seoUrl('frontend.navigation.page', {'navigationId': config('NetzpSearchAdvanced6.config.searchManufacturerCmsPage'), 'manufacturer': manufacturer.getId }) %}
+        {% endif %}
+        <div class="row align-items-center g-0">
+            <div class="col-auto search-suggest-product-image-container">
+                {% if manufacturer.media.url %}
+                    {% sw_thumbnails 'product-image-thumbnails' with {
+                        media: manufacturer.media,
+                        attributes: {
+                            'class': 'search-suggest-product-image',
+                            'alt':   manufacturer.media.translated.alt ?: '',
+                            'title': manufacturer.media.translated.title ?: ''
+                        }
+                    } %}
+                {% else %}
+                    {% sw_icon 'placeholder' style {
+                        'size': 'lg'
+                    } %}
+                {% endif %}
+            </div>
+
+            <div class="col search-suggest-product-name">
+                {% if(link) %}
+                <a href="{{ link }}" title="{{ manufacturer.title }}" class="search-suggest-product-link">
+                    {{ manufacturer.getTitle|raw|sw_sanitize }}
+                </a>
+                {% else %}
+                    {{ manufacturer.getTitle|raw|sw_sanitize }}
+                {% endif %}
+            </div>
+
+            {% block layout_search_suggest_result_price %}
+                {% if(manufacturer.getExtension('link').value != '') %}
+                    <div class="col-auto search-suggest-product-price">
+                        <a href="{{ manufacturer.getExtension('link').value }}"
+                           title="{{ manufacturer.title }}"
+                           class="search-suggest-product-link" target="_blank" rel="noopener">
+                            {% sw_icon 'link' style { 'color': 'success', 'size': 'fluid' } %}
+                        </a>
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </li>
+{% endfor %}
+
+<li class="js-result search-suggest-total">
+    <div class="row align-items-center {{ gridNoGuttersClass }}">
+        <div class="col">
+            <a href="{{ path('frontend.search.page') }}?search={{ page.searchTerm }}&tab=manufacturer"
+               title="{{ "header.searchAllResults"|trans|striptags }}"
+               class="search-suggest-total-link">
+                {% sw_icon 'arrow-head-right' style { 'size': 'sm' } %}
+                {{ "header.searchAllResults"|trans|sw_sanitize }}
+            </a>
+        </div>
+
+        <div class="col-auto search-suggest-total-count">
+            {{ "header.searchResults"|trans({
+                '%count%': page.extensions.netzpSearch.manufacturer.total,
+            })|sw_sanitize }}
+        </div>
+    </div>
+</li>

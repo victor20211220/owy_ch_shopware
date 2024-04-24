@@ -1,0 +1,35 @@
+<sw-page class="netzp-searchadvanced6-synonyms-detail">
+    <template slot="smart-bar-actions">
+        <sw-button :routerLink="{ name: 'netzp.searchadvanced6.synonyms.list' }">
+            {{ $t('netzp-searchadvanced6-synonyms.detail.cancelButtonText') }}
+        </sw-button>
+
+        <sw-button-process
+                :isLoading="isLoading"
+                :processSuccess="processSuccess"
+                variant="primary"
+                @process-finish="saveFinish"
+                @click="onClickSave">
+            {{ $t('netzp-searchadvanced6-synonyms.detail.saveButtonText') }}
+        </sw-button-process>
+    </template>
+
+    <template slot="content">
+        <sw-card-view>
+            <sw-card v-if="synonym"
+                     :isLoading="isLoading"
+                     :title="$t('netzp-searchadvanced6-synonyms.detail.title')"
+                     positionIdentifier="netzp-searchadvanced">
+                <sw-text-field :label="$t('netzp-searchadvanced6-synonyms.detail.label.synonym')"
+                               v-model="synonym.synonym"
+                               required validation="required" :error="synonymSynonymError" />
+
+                <sw-textfield :label="$t('netzp-searchadvanced6-synonyms.detail.label.replace')"
+                              v-model="synonym.replace"
+                              required validation="required" :error="synonymReplaceError" />
+
+                {{ $t('netzp-searchadvanced6-synonyms.detail.helpText') }}
+            </sw-card>
+        </sw-card-view>
+    </template>
+</sw-page>

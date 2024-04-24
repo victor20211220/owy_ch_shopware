@@ -1,0 +1,53 @@
+{% sw_extends '@Storefront/storefront/component/account/register.html.twig' %}
+
+{% block component_account_register_address %}
+    {% if config('AcrisStoreLocatorCS.config').singleSelectionRegistrationPosition != "beforeAddress" %}
+        {{ parent() }}
+    {% endif %}
+
+    {% if config('AcrisStoreLocatorCS.config').enableMyStore and page.extensions.acrisStoreLocatorStores %}
+        <div class="acris-store-locator-selection mb-5">
+            {% block acris_store_locator_account_register_address_shipping_header %}
+                <div class="card-title">
+                    {{ "acrisStoreLocator.account.cardTitle"|trans|sw_sanitize }}
+                </div>
+            {% endblock %}
+
+            {% block store_locator_store_single_selection_select_register %}
+                {% set displayOption = config('AcrisStoreLocatorCS.config').singleSelectionDisplayMyStore %}
+
+                <select class="form-control"
+                        placeholder="{{ "acrisStoreLocator.account.placeholder"|trans|sw_sanitize }}"
+                        id="{{ constant('Acris\\StoreLocator\\Storefront\\Controller\\StoreLocatorController::STORE_LOCATOR_STORE_SELECTION_ACCOUNT_KEY') }}"
+                        name="{{ constant('Acris\\StoreLocator\\Storefront\\Controller\\StoreLocatorController::STORE_LOCATOR_STORE_SELECTION_ACCOUNT_KEY') }}">
+
+                    <option value="noSelect">
+                        {{ "acrisStoreLocator.account.noSelectOption"|trans|sw_sanitize }}
+                    </option>
+
+                    {% for store in page.extensions.acrisStoreLocatorStores %}
+                        <option
+                            {% if context.customer.customFields.acris_store_locator_assigned_store and store.id == context.customer.customFields.acris_store_locator_assigned_store %} selected="selected"{% endif %}
+                            value="{{ store.id }}" {% if store.translated.phone %}data-phone="{{ store.translated.phone }}"{% endif %}>
+                            {% if displayOption == 'optionOne' %}
+                                {{ store.translated.name }}
+                            {% elseif displayOption == 'optionTwo' %}
+                                {{ store.translated.name }}, {{ store.zipcode }}, {{ store.city }}
+                            {% elseif displayOption == 'optionThree' %}
+                                {{ store.translated.name }}, {{ store.street }}, {{ store.zipcode }}, {{ store.city }}
+                            {% elseif displayOption == 'optionFour' %}
+                                {{ store.translated.name }}, {{ store.street }}, {{ store.zipcode }}, {{ store.city }}, {{ store.country.name }}{% if store.state %}, {{ store.state.name }}{% endif %}
+                            {% else %}
+                                {{ store.translated.name }}
+                            {% endif %}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% endblock %}
+        </div>
+    {% endif %}
+
+    {% if config('AcrisStoreLocatorCS.config').singleSelectionRegistrationPosition == "beforeAddress" %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

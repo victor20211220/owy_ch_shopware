@@ -1,0 +1,21 @@
+{% block sw_product_detail_prices_price_empty_state_text_link %}
+    <router-link
+            v-if="isInherited"
+            :to="{ name: 'sw.product.detail.rentalPrices', params: { id: product.parentId } }"
+            class="sw-product-detail-context-prices__parent-prices-link">
+        {{ $tc('sw-product.advancedPrices.linkAdvancedPricesOfParent') }}
+        <sw-icon name="regular-long-arrow-right" small></sw-icon>
+    </router-link>
+{% endblock %}
+
+{% block sw_product_detail_prices_price_card_toolbar_add_price_rule %}
+    {% parent %}
+    <sw-single-select
+            v-model="priceGroup.mode"
+            class="sw-product-detail-context-prices__toolbar-selection"
+            size="small"
+            label=""
+            @change="onModeChange($event, priceGroup.ruleId)"
+            :options="graduationModeOptions">
+    </sw-single-select>
+{% endblock %}

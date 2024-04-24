@@ -1,0 +1,20 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_main_inner %}
+
+    {% if cbaxModulLexicon %}
+    	<div class="container-main">
+        	{% if breadcrumbList %}
+                {% sw_include '@Storefront/storefront/cbax-lexicon/component/breadcrumb.html.twig' %}
+            {% endif %}
+        	{% sw_include '@Storefront/storefront/cbax-lexicon/base.html.twig' %}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+
+{% endblock %}
+
+
+
+

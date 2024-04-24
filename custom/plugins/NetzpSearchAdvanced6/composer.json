@@ -1,0 +1,44 @@
+{
+  "name": "netzp/netzpsearchadvanced6",
+  "description": "Advanced Search",
+  "version": "2.2.1",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "netzperfekt",
+      "homepage": "https://plugins.netzperfekt.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "NetzpSearchAdvanced6\\": "src/"
+    }
+  },
+  "require": {
+    "shopware/core": "^6.5.0",
+    "shopware/storefront": "^6.5.0",
+    "shopware/administration": "^6.5.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "NetzpSearchAdvanced6\\NetzpSearchAdvanced6",
+    "plugin-icon": "src/Resources/config/plugin.png",
+    "copyright": "netzperfekt",
+    "label": {
+      "de-DE": "Erweiterte Suche für Shopware 6",
+      "en-GB": "Advanced search for Shopware 6"
+    },
+    "description": {
+      "de-DE": "Alle Shopinhalte durchsuchen: Kategorien, Hersteller, CMS/Einkaufswelten. Synonym-Suche, Übersichtliche Tab-Darstellung der Ergebnisse, Unterstützung von Dritt-Anbieter Apps..",
+      "en-GB": "Search all store contents: CMS/Shopping worlds, categories, manufacturers. Search for synonyms. Clear display of results, support of third-party apps."
+    },
+    "manufacturerLink": {
+      "de-DE": "https://plugins.netzperfekt.de",
+      "en-GB": "https://plugins.netzperfekt.de"
+    },
+    "supportLink": {
+      "de-DE": "https://plugins.netzperfekt.de/support",
+      "en-GB": "https://plugins.netzperfekt.de/support"
+    }
+  }
+}

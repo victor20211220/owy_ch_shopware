@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="select_line_order_export.logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">ott_select_line_order_export</argument>
+        </service>
+
+        <service id="Ott\SelectLineOrderExport\Entity\OrderExportDefinition">
+            <tag name="shopware.entity.definition" entity="order_export" />
+        </service>
+
+        <!-- Command -->
+        <service id="Ott\SelectLineOrderExport\Command\OrderExportCommand">
+            <argument type="service" id="Ott\SelectLineOrderExport\Service\OrderExportService" />
+            <argument type="service" id="select_line_order_export.logger" />
+            <tag name="console.command"/>
+        </service>
+
+        <!-- Services -->
+        <service id="Ott\SelectLineOrderExport\Service\OrderExportService">
+            <argument type="service" id="Ott\SelectLineOrderExport\Gateway\OrderExportGateway"/>
+        </service>
+
+        <service id="Ott\SelectLineOrderExport\Gateway\OrderExportGateway">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
+    </services>
+</container>

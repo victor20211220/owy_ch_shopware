@@ -1,0 +1,68 @@
+{% block rental_calendar_edit_block_modal %}
+                <sw-modal
+                    :title="$tc('rental-calendar-block-modal.header')"
+                    class="edit-block-modal"
+                    @modal-close="onCloseBlockModal"
+                >
+                    <div class="edit-block-input-row">
+                        <div class="edit-block-start-date">
+                            <sw-datepicker dateType="date"
+                                           :label="$tc('rental-calendar-block-modal.startDate')"
+                                           v-model="event.startDate">
+                            </sw-datepicker>
+                        </div>
+                        <div class="edit-block-end-date">
+                            <sw-datepicker dateType="date"
+                                           :label="$tc('rental-calendar-block-modal.endDate')"
+                                           v-model="event.endDate">
+                            </sw-datepicker>
+                        </div>
+                    </div>
+
+                    <div class="edit-block-input-row">
+                        <div class="edit-block-quantity">
+                            <sw-number-field numberType="int"
+                                             :label="$tc('rental-calendar-block-modal.quantity')"
+                                             :min="minValue"
+                                             :max="maxValue"
+                                             :disabled="error"
+                                             v-model="event.quantity">
+                            </sw-number-field>
+                        </div>
+
+                        <div class="edit-block-comment">
+                            <sw-text-field :label="$tc('rental-calendar-block-modal.comment')"
+                                           :placeholder="$tc('rental-calendar-block-modal.commentPlaceholder')"
+                                           v-model="event.comment">
+                            </sw-text-field>
+                        </div>
+
+                    </div>
+
+                    <sw-alert v-if="error"
+                              variant="error"
+                              appearance="default"
+                              :title="$tc('rental-calendar-form.create-block-modal.errorTitle')"
+                              :showIcon="false"
+                              :closable="false">
+                        {{ $tc('rental-calendar-form.create-block-modal.errorDescription') }}
+                    </sw-alert>
+
+                    <template slot="modal-footer">
+                        <sw-button size="small" @click="onCloseBlockModal">
+                            {{ $tc('global.default.cancel') }}
+                        </sw-button>
+
+                        <sw-button size="small" variant="danger" @click="deleteBlock(event.id)">
+                            {{ $tc('global.default.delete') }}
+                        </sw-button>
+
+                        <sw-button variant="primary"
+                                   size="small"
+                                   @click="saveBlock"
+                                   :disabled="!allowSave">
+                            {{ $tc('global.default.apply') }}
+                        </sw-button>
+                    </template>
+                </sw-modal>
+            {% endblock %}

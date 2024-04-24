@@ -1,0 +1,26 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_flashbags %}
+    {% if controllerName is same as ("StoreLocator") %}
+        {# Don't show flashbags for store locator #}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+ {% block base_main_inner %}
+     {% if controllerName is same as ("StoreLocator") %}
+{#         {% block acris_store_locator %}#}
+             {% if controllerAction is same as ("detail") %}
+                 {% sw_include "@AcrisStoreLocatorCS/storefront/page/store-locator/detail.html.twig" ignore missing %}
+             {% elseif controllerAction is same as ("selectStore") %}
+                 {{ parent() }}
+{#                 {% sw_include "@AcrisStoreLocatorCS/storefront/page/store-locator/account/index.html.twig" ignore missing %}#}
+             {% else %}
+                {% sw_include "@AcrisStoreLocatorCS/storefront/page/store-locator/index.html.twig" ignore missing %}
+             {% endif %}
+{#         {% endblock %}#}
+     {% else %}
+         {{ parent() }}
+     {% endif %}
+ {% endblock %}

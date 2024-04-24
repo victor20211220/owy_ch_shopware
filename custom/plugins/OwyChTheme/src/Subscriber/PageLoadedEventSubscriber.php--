@@ -1,0 +1,33 @@
+<?php
+
+
+namespace OwyChTheme\Subscriber;
+
+use OwyChTheme\Struct\NavigationTree;
+use Shopware\Storefront\Pagelet\Header\HeaderPageletLoadedEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+
+class PageLoadedEventSubscriber implements EventSubscriberInterface
+{
+
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            HeaderPageletLoadedEvent::class => 'onPageLoadedEvent'
+
+        ];
+    }
+
+    public function onPageLoadedEvent(HeaderPageletLoadedEvent $event)
+    {
+        $currentActivePage = $event->getPagelet()->getNavigation()->getActive();
+        $navigationTree = $event->getPagelet()->getNavigation()->getChildren($currentActivePage->getId());
+
+
+        if ($event->getRequest()->getRequestUri() !== '/'){
+            $event->getPagelet()->addExtension('navigationTree', new NavigationTree($navigationTree));
+        }
+    }
+}

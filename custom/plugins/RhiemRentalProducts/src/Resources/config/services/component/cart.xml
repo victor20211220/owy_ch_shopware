@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service id="Rhiem\RhiemRentalProducts\Components\Cart\CartHelper">
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Components\Cart\CartServiceDecorator"
+            decorates="Shopware\Core\Checkout\Cart\SalesChannel\CartService">
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\Cart\CartServiceDecorator.inner" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\CartPersister" />
+            <argument type="service" id="Shopware\Core\Content\Flow\Dispatching\FlowDispatcher" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\CartCalculator" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartLoadRoute" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartDeleteRoute" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartItemAddRoute" />
+            <argument type="service"
+                id="Shopware\Core\Checkout\Cart\SalesChannel\CartItemUpdateRoute" />
+            <argument type="service"
+                id="Shopware\Core\Checkout\Cart\SalesChannel\CartItemRemoveRoute" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartOrderRoute" />
+            <argument type="service" id="Rhiem\RhiemRentalProducts\Components\Cart\CartHelper" />
+            <argument type="service" id="rental_product.repository" />
+
+            <tag name="kernel.reset" method="reset" />
+        </service>
+
+    </services>
+</container>

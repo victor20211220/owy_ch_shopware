@@ -1,0 +1,32 @@
+{% block cbax_lexicon_page_inner %}
+    <div class="breadcrumb cms-breadcrumb container" itemtype="http://schema.org/BreadcrumbList">
+
+            {% block cbax_lexicon_page_list %}
+
+                    {% for breadcrumb in breadcrumbList %}
+                        {% set name = breadcrumb.translated.name %}
+                        {% set link = breadcrumb.link %}
+                        {% block cbax_lexicon_page_list_item %}
+
+							<div class="breadcrumb-container" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                <a href="{{ link }}"
+                                   class="{% if breadcrumb.active %} is-active{% endif %}"
+                                   title="{{ name }}"
+                                   itemprop="item">
+                                    <span class="breadcrumb-title" itemprop="name">{{ name }}</span>
+                                </a>
+
+                                {% if not loop.last  %}
+                                    <div class="breadcrumb-placeholder">
+                                        {% sw_icon 'arrow-medium-right' style { 'size': 'fluid', 'pack': 'solid'} %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                        {% endblock %}
+                    {% endfor %}
+
+            {% endblock %}
+
+    </div>
+{% endblock %}

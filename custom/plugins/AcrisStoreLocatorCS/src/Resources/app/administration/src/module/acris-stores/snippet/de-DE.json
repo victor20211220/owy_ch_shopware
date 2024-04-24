@@ -1,0 +1,229 @@
+{
+    "acris-stores": {
+        "general": {
+            "mainMenuItemGeneral": "Stores",
+            "descriptionTextModule": "Fügen Sie weitere Stores hinzu, um ihren Store Locator zu ergänzen.",
+            "placeholderSearchBar": "durchsuchen"
+        },
+        "list": {
+            "textStores": "Store Locator (Händler, Geschäfte, Filialen)",
+            "buttonAddStores": "Stores anlegen",
+            "buttonCalcLatLong": "Längen- & Breitengrade für alle Stores aktualisieren",
+            "columnInternalId": "Interner ID",
+            "columnCompanyname": "Firmenname",
+            "columnStoreGroupName": "Gruppenname",
+            "columnPriority": "Priorität",
+            "columnStreet": "Straße",
+            "columnZip": "PLZ",
+            "columnCity": "Stadt",
+            "columnCountry": "Land",
+            "columnLongitude": "Längengrad",
+            "columnLatitude": "Breitengrad",
+            "columnStoreLocator": "Aktiv",
+            "contentEmpty": "Es gibt keine Stores.",
+            "contextMenuView": "Anzeigen",
+            "contextMenuDuplicate": "Duplizieren",
+            "contextMenuDelete": "Löschen",
+            "contextMenuEdit": "Bearbeiten",
+            "messageEmpty": "Noch keine Stores",
+            "messageSaveError": "Der Store konnte nicht gespeichert werden.",
+            "messageSaveSuccess": "Der Store wurde gespeichert.",
+            "modalTitleDelete": "Store löschen",
+            "textDeleteConfirm": "Möchtest Du diesen Store wirklich löschen?",
+            "buttonCancel": "Abbrechen",
+            "buttonDelete": "Löschen",
+            "titleSidebarItemRefresh": "Aktualisieren",
+            "titleSidebarItemFilter": "Filter",
+            "titleCalculateSuccess": "Erfolg",
+            "titleCalculateInfo": "Info",
+            "titleCalculateError": "Fehler",
+            "messageCalculateSuccess": "Die Längen- und Breitengrade konnten erfolgreich aktualisiert werden",
+            "messageCalculateError": "Die Längen- und Breitengrade konnten nicht aktualisiert werden. Bitte überprüfen Sie die Berechtigunen Ihres Google API Keys.",
+            "messageCalculateErrorNoStores": "Momentan sind keine Stores angelegt. Die Längen- und Breitengrade konnten nicht aktualisiert werden.",
+            "messageCalculateErrorNoResult": "Für die angegebene Adresse gibt es kein Ergebnis. Bitte überprüfen Sie Ihre Adressdaten: ",
+            "messageCalculateErrorApiKey": "Der angegebene API-Schlüssel ist ungültig.",
+            "messageStoresWithError": "Es gab einen Fehler bei der Aktualisierung von Längen- und Breitengraden für Filialen: ",
+            "labelProgressModal": "Die Längen- und Breitengrade werden berechnet ..",
+            "orderDeliveryStoreLabel": "Filiale"
+        },
+        "detail": {
+            "textHeadline": "Store Einstellungen",
+            "buttonSave": "Speichern",
+            "buttonCancel": "Abbrechen",
+            "buttonEdit": "Bearbeiten",
+            "buttonCalculate": "Längen- und Breitengrade automatisch berechnen",
+            "cardGeneral": "Allgemein",
+            "cardIdCompany": "Informationen zum Unternehmen",
+            "cardIdStoreLocator": "Informationen für den Store Locator",
+            "cardLayout": "Layout",
+            "cardMedia": "Medien",
+            "cardCheckout": "Anzeige beim Bestellprozess",
+            "subtitle": "Geschäfte / Händler Seite",
+            "fieldTitleLabelInternalId": "Interner ID",
+            "fieldTitlePlaceholderInternalId": "Interner ID eingeben...",
+            "fieldTitleLabelCompanyName": "Name des Unternehmens",
+            "fieldTitlePlaceholderCompanyName": "ACRIS E-Commerce GmbH",
+            "fieldTitleLabelCompanyStoreGroup": "Gruppe",
+            "fieldTitlePlaceholderCompanyStoreGroup": "Gruppe auswählen...",
+            "fieldTitleLabelSalesChannel": "Auf Verkaufskanäle einschränken",
+            "fieldTitlePlaceholderSalesChannel": "Verkaufskanäle auswählen...",
+            "fieldTitleHelpTextSalesChannel": "Wird kein Verkaufskanal ausgewählt, dann wird dieser Händler auf allen Verkaufskanälen angezeigt",
+
+            "fieldTitleLabelCompanyDepartment": "Abteilung",
+            "fieldTitlePlaceholderCompanyDepartment": "E-Commerce",
+            "fieldTitleLabelCompanyCity": "Stadt",
+            "fieldTitlePlaceholderCompanyCity": "Linz",
+            "fieldTitleLabelCompanyZipcode": "PLZ",
+            "fieldTitlePlaceholderCompanyZipcode": "4040",
+            "fieldTitleLabelCompanyStreet": "Straße und Hausnummer",
+            "fieldTitlePlaceholderCompanyStreet": "Am Pfenningberg 60",
+            "fieldTitleLabelCompanyCountry": "Staat",
+            "fieldTitlePlaceholderCompanyCountry": "Österreich",
+            "fieldTitleLabelCompanyCountryState": "Bundesland",
+            "fieldTitlePlaceholderCompanyCountryState": "Bundesland eingeben...",
+            "fieldTitleLabelCompanyPhone": "Telefonnummer",
+            "fieldTitlePlaceholderCompanyPhone": "+43 720 303750",
+            "fieldTitleLabelCompanyEmail": "E-mail Adresse",
+            "fieldTitlePlaceholderCompanyEmail": "office@acris.at",
+            "fieldTitleLabelCompanyUrl": "URL",
+            "fieldTitlePlaceholderCompanyUrl": "www.acris-ecommerce.at",
+            "fieldTitleLabelOpeningHours": "Öffnungszeiten",
+            "fieldTitlePlaceholderOpeningHours": "Geben Sie hier die Öffnungszeiten an...",
+            "fieldTitleLabelLocatorActive": "Aktiv",
+            "fieldTitleHelptextLocatorActive": "Aktiviert den Store Locator",
+            "fieldTitleLabelLocatorLng": "Längengrad",
+            "fieldTitlePlaceholderLocatorLng": "14.360901",
+            "fieldTitleHelptextLocatorLng": "Der Wert wird benötigt, um die Position auf Google Maps zu bestimmen.",
+            "fieldTitleLabelLocatorLat": "Breitengrad",
+            "fieldTitlePlaceholderLocatorLat": "48.324029",
+            "fieldTitleHelptextLocatorLat": "Der Wert wird benötigt, um die Position auf Google Maps zu bestimmen.",
+            "fieldTitleLabelPriority": "Priorität",
+            "fieldTitlePlaceholderPriority": "Priorität eingeben...",
+            "fieldTitleHelpTextPriority": "Die Filialen werden in der Filialgruppen-Detailliste nach Priorität sortiert.",
+            "cardSeo": "SEO",
+            "fieldTitleLabelSeoUrl": "SEO url",
+            "fieldTitlePlaceholderSeoUrl": "SEO url eingeben...",
+            "fieldTitleLabelMetaTitle": "Meta Titel",
+            "fieldTitlePlaceholderMetaTitle": "Meta Titel eingeben...",
+            "fieldTitleLabelMetaDescription": "Meta Beschreibung",
+            "fieldTitlePlaceholderMetaDescription": "Meta Beschreibung eingeben...",
+            "fieldTitleHelpTextMetaDescription": "Die Meta-Beschreibung wird auf der Shop-Seite im Schaufenster angezeigt.",
+            "fieldTitleHelpTextSeoUrl": "Für die SEO-Url können Sie nur einen String/Wort eingeben und Sie können \"/\" in der Url verwenden (nicht am Anfang der Url).\n Die eingegebene SEO-URL wird generiert und zusammen mit dem Shopware-Pfad verwendet. Beispiel: \"custom/store\". Die SEO-Pfadvorlage kann unter Einstellungen>Shop>SEO geändert werden.",
+            "fieldTitleHelpTextMetaTitle": "Der Metatitel wird auf der Shop-Seite in Storefront angezeigt.",
+            "fieldTitleLabelCheckoutRule": "Zugewiesene Regeln",
+            "fieldTitlePlaceholderCheckoutRule": "Regel auswählen...",
+            "fieldTitleHelpTextCheckoutRule": "Der Store wird bei der Einfachauswahl im Bestellprozess angezeigt, wenn einer der zugewiesenen Regeln zutrifft (ODER-Verknüpfung). Wird keine Regel zugewiesen, wird der Store immer bei der Einfachauswahl angezeigt.",
+
+            "titleSaveError": "Fehler",
+            "titleSaveSuccess": "Erfolg",
+            "titleCalculateError": "Fehler",
+            "messageSaveError": "Der Store \"{name}\" konnte nicht gespeichert werden.",
+            "messageSaveSuccess": "Der Store \"{name}\" wurde erfolgreich gespeichert.",
+            "messageCalculateError": "Die Längen- und Breitengrade konnten nicht automatisch berechnet werden. Bitte überprüfen Sie die Berechtigunen Ihres Google API Keys."
+        },
+        "import-export-profile": {
+            "storeLabel": "Store Locator"
+        },
+        "orderData": {
+            "orderDeliveryStoreCard": "Geschäft Informationen für Lieferungen",
+            "orderDeliveryStoreLabel": "Lieferung:",
+            "orderDeliveryStore": {
+                "name": "Name:",
+                "department": "Abteilung:",
+                "street": "Straße und Hausnummer:",
+                "zipcode": "Postleitzahl:",
+                "city": "Stadt:",
+                "countryName": "Land:",
+                "phone": "Telefon:",
+                "email": "E-Mail:",
+                "url": "Url:",
+                "opening_hours": "Öffnungszeiten:"
+            }
+        },
+        "cms": {
+            "pageTypeCmsInCmsStores": "Geschäfte / Händler Detailseite",
+            "pageTypeCmsInCmsStoresPages": "Geschäfte / Händler Detailseiten",
+            "pageTypeCmsInCmsStoresCategory": "ACRIS Geschäfte / Händler",
+            "elements": {
+                "acris-store-group": {
+                    "label": "Geschäfte / Händler Gruppe Auflistung",
+                    "tooltipSettingDisabled" : "Die Daten der Geschäfte / Händler Gruppenseite werden geladen. Der Inhalt zeigt nur eine Beispielvorschau.",
+                    "labelGroup": "Geschäfte / Händler Gruppe",
+                    "placeholderGroup": "Geschäfte / Händler Gruppe auswählen...",
+                    "labelType": "Anzeigetyp",
+                    "placeholderType": "Anzeigetyp auswählen...",
+                    "optionMapListing": "Karte und Ladenliste anzeigen",
+                    "optionListing": "Ladenliste anzeigen"
+                },
+                "acris-store-locator": {
+                    "label": "Geschäfte / Händler Seite"
+                },
+                "acris-store-google-map": {
+                    "label": "Alle Geschäfte / Händler Karte",
+                    "tooltipSettingDisabled" : "Die Daten der Geschäfte / Händler werden geladen. Der Inhalt zeigt nur eine Beispielvorschau.",
+                    "labelStore": "Geschäfte / Händler",
+                    "placeholderStore": "Geschäfte / Händler auswählen..."
+                },
+                "acris-store-details": {
+                    "label": "Geschäfte / Händler Details",
+                    "storeName": "Geschäfte / Händler Name",
+                    "storeDepartment": "Abteilung",
+                    "addressStreet": "Straße und Hausnummer",
+                    "zipcodeCity": "Postleitzahl",
+                    "phone": "Telefon",
+                    "url": "Url",
+                    "openingHours": "Öffnungszeit",
+                    "tooltipSettingDisabled" : "Die Daten der Geschäfte / Händler werden automatisch geladen. Der Inhalt zeigt nur eine Beispielvorschau.",
+                    "labelStore": "Geschäfte / Händler",
+                    "placeholderStore": "Geschäfte / Händler auswählen..."
+                }
+            },
+            "blocks": {
+                "acris-store-locator-page": {
+                    "label": "Geschäfte / Händler Seite"
+                },
+                "acris-store-headline-google-map": {
+                    "label": "Alle Geschäfte / Händler Karte"
+                },
+                "acris-store-group": {
+                    "label": "Geschäfte / Händler Gruppe Auflistung"
+                }
+            }
+        },
+        "mediaForm": {
+            "coverSubline": "Cover",
+            "buttonAsCover": "Als Cover nutzen",
+            "buttonRemove": "Entfernen"
+        }
+    },
+    "sw-seo-url-template-card": {
+        "routeNames": {
+            "frontend-storeLocator-detail": "Geschäfte / Händler Detailseite",
+            "frontend-storeLocator-storeGroup": "Geschäfte / Händler Gruppenseite"
+        }
+    },
+    "sw-cms": {
+        "elements": {
+            "acrisStoreDetails": {
+                "label": "Geschäfte / Händler Details"
+            },
+            "acrisStoreGoogleMap": {
+                "label": "Geschäfte / Händler Detail Karte"
+            }
+        },
+        "components": {
+            "acrisStoreLocator": {
+
+            }
+        }
+    },
+    "acris-cms-missing-element-modal": {
+        "cmsMissingElementModal": {
+            "headline": "Fehlende Elemente",
+            "title": "Das Element <span>{element}</span> fehlt in dieser Geschäfte / Händler Seite. | Die Elemente <span>{element}</span> fehlen in dieser Geschäfte / Händler Seite.",
+            "subtitle": "Kunden, die diese Seite besuchen, erhalten möglicherweise nicht alle wichtigen Geschäfte / Händler Informationen.",
+            "paragraph": "Möchtest Du das Layout trotzdem speichern?",
+            "buttonSave": "Layout speichern"
+        }
+    }
+}

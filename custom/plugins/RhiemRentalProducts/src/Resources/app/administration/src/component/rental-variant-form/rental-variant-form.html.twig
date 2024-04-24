@@ -1,0 +1,22 @@
+{% block sw_product_detail_rental_base_content_variant_form %}
+    <div class="rental-variant-form">
+        {% block sw_product_detail_rental_base_content_variant_form_dropdown %}
+            <div class="rental-variant-form-dropdown">
+                <sw-entity-single-select
+                    entity="product"
+                    :criteria="variantCriteria"
+                    :value="initialVariant"
+                    :placeholder="$tc('rental-variant-form.variantDropdown')">
+                </sw-entity-single-select>
+            </div>
+        {% endblock %}
+        {% block sw_product_detail_rental_base_content_variant_form_switch %}
+            <div class="rental-variant-form-switch">
+                <sw-switch-field class="rental-variant-form-switch_field"
+                                 :label="$tc('rental-variant-form.switchLabel')"></sw-switch-field>
+                <sw-help-text class="rental-variant-form-help_text" :text="$tc('rental-variant-form.helpText')"
+                              tooltipPosition="right"></sw-help-text>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

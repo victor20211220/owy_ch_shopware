@@ -1,0 +1,36 @@
+{% block rhiem_rental_products_content_card_general_config %}
+	<sw-card
+		:title="$tc('rhiem-rental-products.config.general.title')"
+		:is-loading="isLoading">
+		{% block rhiem_rental_products_content_card_general_config_badge %}
+			<sw-field
+				v-model="actualConfigData['RhiemRentalProducts.config.showBadge']"
+				v-tooltip.left="{ message: $tc('rhiem-rental-products.config.general.showBadgeTooltip') }"
+				type="switch"
+				:label="$tc('rhiem-rental-products.config.general.showBadge')"/>
+		{% endblock %}
+
+		{% block rhiem_rental_products_content_card_general_config_show_terms %}
+			<sw-field
+				v-model="actualConfigData['RhiemRentalProducts.config.showRentalTerms']"
+				v-tooltip.left="{ message: $tc('rhiem-rental-products.config.general.showRentalTermsTooltip') }"
+				type="switch"
+				:label="$tc('rhiem-rental-products.config.general.showRentalTerms')"/>
+		{% endblock %}
+
+		{% block rhiem_rental_products_content_card_general_config_terms %}
+			<sw-entity-single-select
+				v-model="actualConfigData['RhiemRentalProducts.config.rentalTerms']"
+				entity="cms_page"
+				:label="$tc('rhiem-rental-products.config.general.rentalTerms')"/>
+		{% endblock %}
+
+		{% block rhiem_rental_products_content_card_general_uniform_rental_periods %}
+			<sw-field
+				v-model="actualConfigData['RhiemRentalProducts.config.uniformRentalPeriods']"
+				v-tooltip.left="{ message: $tc('rhiem-rental-products.config.general.uniformRentalPeriodsTooltip') }"
+				type="switch"
+				:label="$tc('rhiem-rental-products.config.general.uniformRentalPeriods')"/>
+		{% endblock %}
+	</sw-card>
+{% endblock %}

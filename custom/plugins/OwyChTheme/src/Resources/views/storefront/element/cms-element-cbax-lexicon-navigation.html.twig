@@ -1,0 +1,54 @@
+{% sw_extends '@CbaxModulLexicon/storefront/element/cms-element-cbax-lexicon-navigation.html.twig' %}
+{% block element_cbax_lexicon_navigation %}
+    {%  set config = element.fieldConfig.elements %}
+
+    {% if not CbaxModulLexiconConfig %}
+        {% set CbaxModulLexiconConfig = config('CbaxModulLexicon.config') %}
+    {% endif %}
+
+    {% if config.duration is defined %}
+        {% set CbaxModulLexiconConfig = CbaxModulLexiconConfig|merge({'duration': config.duration.value}) %}
+    {% endif %}
+    {% if config.stop is defined %}
+        {% set CbaxModulLexiconConfig = CbaxModulLexiconConfig|merge({'stop': config.stop.value}) %}
+    {% endif %}
+    {% if config.navigation is defined %}
+        {% set CbaxModulLexiconConfig = CbaxModulLexiconConfig|merge({'navigation': config.navigation.value}) %}
+    {% endif %}
+
+    {% set lexiconEntriesData = element.data %}
+    <div class="row" style="width: 100%;">
+        <nav class="categorybreadcrumb" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% set breadcrumbCategories = ['Lexikon']%}
+                <li class="breadcrumb-item"
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a href="/lexikon/a/"
+                       class="breadcrumb-link is-active"
+                       title="{{ 'cbaxLexicon.page.breadcrumb.name'|trans }}"
+                       itemprop="item">
+                        <link itemprop="url"
+                              href="#">
+                        <span class="breadcrumb-title" itemprop="name">{{ 'cbaxLexicon.page.breadcrumb.name'|trans }}</span>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <h2>{{ 'cbaxLexicon.page.breadcrumb.name'|trans }}</h2>
+    <div class="cms-element-{{ element.type }}">
+        {% block element_cbax_lexicon_navigation_inner %}
+            {% sw_include "@Storefront/storefront/cbax-lexicon/component/navigation.html.twig" ignore missing %}
+        {% endblock %}
+    </div>
+    
+    {# Filter #}
+    <div class="cms-element-cbax-lexicon-filter">
+        {% block element_cbax_lexicon_filter_inner %}
+            {% sw_include '@Storefront/storefront/cbax-lexicon/filter/filter-button.html.twig' %}
+        {% endblock %}
+    </div>
+{% endblock %}

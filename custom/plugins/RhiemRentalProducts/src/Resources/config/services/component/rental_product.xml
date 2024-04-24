@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductPriceCalculator">
+            <argument type="service" id="unit.repository" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\Price\QuantityPriceCalculator" />
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductQuantityCalculator">
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalTime\LineItemRentalTimeCollector" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalTime\ProductRentalTimeCollector" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductPriceCalculator" />
+            <argument
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\Validator\RentQuantityValidator"
+                type="service" />
+            <argument type="tagged" tag="rental_product.pre_validator" />
+            <argument type="tagged" tag="rental_product.post_validator" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductCartProcessor">
+            <argument id="rental_product.repository" type="service" />
+            <argument id="Shopware\Core\Checkout\Cart\Price\QuantityPriceCalculator" type="service" />
+            <argument id="Shopware\Core\Content\Product\Cart\ProductGateway" type="service" />
+            <argument
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductPriceCalculator"
+                type="service" />
+            <argument
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductQuantityCalculator"
+                type="service" />
+
+            <tag name="shopware.cart.processor" priority="5000" />
+            <tag name="shopware.cart.collector" priority="5000" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Components\RentalProduct\Validator\RentModeValidator">
+            <tag name="rental_product.pre_validator" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Components\RentalProduct\Validator\RentTimeValidator">
+            <tag name="rental_product.pre_validator" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\Validator\UniformRentPeriodValidator">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="Rhiem\RhiemRentalProducts\Components\Cart\CartHelper" />
+
+            <tag name="rental_product.pre_validator" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\Validator\RentQuantityValidator">
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\LineItem\RentalProductLineItemFactory">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\PriceDefinitionFactory" />
+            <argument type="service" id="rental_product.repository" />
+
+            <tag name="shopware.cart.line_item.factory" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Components\RentalProduct\DAL\RentalProductIndexer">
+            <argument type="service"
+                id="Shopware\Core\Framework\DataAbstractionLayer\Indexing\ChildCountUpdater" />
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+            <argument type="service"
+                id="Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory" />
+            <argument type="service" id="rental_product.repository" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\DAL\RentalProductCheapestPriceUpdater" />
+            <argument type="service"
+                id="Shopware\Core\Framework\DataAbstractionLayer\Indexing\InheritanceUpdater" />
+
+            <tag name="shopware.entity_indexer" />
+        </service>
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\DAL\RentalProductCheapestPriceQuantitySelector" />
+
+        <service
+            id="Rhiem\RhiemRentalProducts\Components\RentalProduct\DAL\RentalProductCheapestPriceUpdater">
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+            <argument type="service"
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\DAL\RentalProductCheapestPriceQuantitySelector" />
+        </service>
+    </services>
+</container>

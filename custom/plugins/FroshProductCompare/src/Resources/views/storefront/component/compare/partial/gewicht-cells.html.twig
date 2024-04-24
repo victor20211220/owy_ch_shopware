@@ -1,0 +1,9 @@
+{% block frosh_product_compare_artikel_cells %}
+    {% for product in products %}
+        {% block frosh_product_compare_artikel_cell %}
+            <td>
+                {{ product.productNumber }}
+            </td>
+        {% endblock %}
+    {% endfor %}
+{% endblock %}

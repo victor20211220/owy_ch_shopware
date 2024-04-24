@@ -1,0 +1,43 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-image-slider.html.twig' %}
+
+{% block element_image_slider %}
+    {% set customSlider = element.config.customSlider.value %}
+    {% if customSlider == true %}
+        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+            <div class="carousel-inner">
+                {% set i = 0 %}
+                {% for image in element.data.sliderItems %}
+                    <div class="carousel-item {% if i == 0 %} active {% endif %}">
+                        <a href="{% if image.url %}{{ image.url }}{% else %}#{% endif %}">
+                            <img src="{{ image.media.url }}" class="d-block w-100" alt="Slide 1" height="auto" width="100%">
+                        </a>
+                    </div>
+                 {% set i = i+1 %}
+                {% endfor %}
+            </div>
+            <div class="carousel-indicators">
+                {% set j = 0 %}
+                {% for image in element.data.sliderItems %}
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ j }}" {% if j == 0 %} class="active" {% endif %}  aria-current="true" aria-label="Slide {{ j }}">
+                        <span></span>
+                    </button>
+                {% set j= j+1 %}
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    {% else %}
+    {{ parent() }}
+
+    {% endif %}
+
+
+{% endblock %}

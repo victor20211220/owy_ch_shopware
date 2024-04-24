@@ -1,0 +1,57 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% block page_checkout_confirm_errors %}
+    {% for error in page.cart.errors %}
+        {% set snippetName = "error.#{error.messageKey}" %}
+
+{#        TODO umstellen auf reguläre Fehlerausgabe, sobald Möglichkeit besteht mehrere Parameter mitzugeben, statt nur %name% #}
+{#        Ticketnummer: NEXT-7281 #}
+        {% if snippetName is same as ("error.rhiem-rental-products.rentNoLongerPossible") %}
+            {% set params = error.message|split('$Split$Here$') %}
+            {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                type: "danger",
+                content: snippetName|trans({
+                    '%name%': params[0],
+                    '%rentStart%': params[1]|date("d.m.Y H:i", false),
+                    '%rentEnd%': params[2]|date("d.m.Y H:i", false)
+                })|sw_sanitize
+            } %}
+
+        {% else %}
+        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+            type: "danger",
+            content: snippetName|trans({'%name%': error.name})|sw_sanitize
+        } %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block page_checkout_confirm_tos_control %}
+    {{ parent() }}
+    {% set containsRentalProduct = 0 %}
+
+    {% for item in page.cart.lineItems %}
+        {% if item.type == "rentalProduct" %}
+            {% set containsRentalProduct = 1 %}
+        {% endif %}
+    {% endfor %}
+
+    <br/>
+    {% if config('RhiemRentalProducts.config.showRentalTerms') and containsRentalProduct %}
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox"
+                   class="checkout-confirm-tos-checkbox custom-control-input{% if formViolations.getViolations('/rentalTerms') is not empty %} is-invalid{% endif %}"
+                   required="required"
+                   id="rentalTerms"
+                   form="confirmOrderForm"
+                   name="rentalTerms"/>
+
+            <label for="rentalTerms"
+                   class="checkout-confirm-tos-label custom-control-label">
+                {{ "checkout.rental-product-terms"|trans({
+                    '%url%': path('frontend.cms.page',{ id: config('RhiemRentalProducts.config.rentalTerms') })
+                })|raw }}
+            </label>
+        </div>
+    {% endif %}
+{% endblock %}

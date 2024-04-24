@@ -1,0 +1,241 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="sendinblue.base_url">https://plugin.brevo.com</parameter>
+    </parameters>
+
+    <services>
+        <service id="NewsletterSendinblue\Service\SIBCookieProviderService" decorates="Shopware\Storefront\Framework\Cookie\CookieProviderInterface">
+            <argument type="service" id="NewsletterSendinblue\Service\SIBCookieProviderService.inner" />
+        </service>
+
+        <service id="NewsletterSendinblue\Service\IntegrationService">
+            <argument type="service" id="integration.repository"/>
+            <argument type="service" id="acl_role.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service class="NewsletterSendinblue\Service\ConfigService" id="NewsletterSendinblue\Service\ConfigService">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument>%sendinblue.base_url%</argument>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\CallbackController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\CustomerFieldController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry"/>
+            <argument type="service" id="Shopware\Core\System\CustomField\Aggregate\CustomFieldSet\CustomFieldSetDefinition"/>
+            <argument type="service" id="customer.repository"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\ProductFieldController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="Sendinblue.logger"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry"/>
+            <argument type="service" id="Shopware\Core\System\CustomField\Aggregate\CustomFieldSet\CustomFieldSetDefinition"/>
+            <argument type="service" id="Shopware\Core\Content\Product\ProductDefinition"/>
+            <argument type="service" id="Shopware\Storefront\Framework\Routing\Router"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\ProductController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="Sendinblue.logger"/>
+            <argument type="service" id="NewsletterSendinblue\Controller\Api\ProductFieldController"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="currency.repository"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\CustomerController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Controller\Api\CustomerFieldController"/>
+            <argument type="service" id="system_config.repository"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Customer\AllCustomerService"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\BackendController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="NewsletterSendinblue\Service\IntegrationService"/>
+            <argument type="service" id="sales_channel.repository"/>
+            <argument type="service" id="NewsletterSendinblue\Service\VersionProvider"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\SendInBlueController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument>%sendinblue.service_worker_path%</argument>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\PluginController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\VersionProvider"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\ConversionTrackingController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\ConfigController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="system_config.repository"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\GroupController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ApiClientService"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Controller\Api\SendTestMailController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="NewsletterSendinblue\Service\VersionProvider"/>
+            <argument type="service" id="system_config.repository"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Subscriber\MarketingAutomationSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Subscriber\AbandonedCartSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Cart\CartEventProducer"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Cart\SendinblueCartProcessorService"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Subscriber\CartOrderSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Cart\CartEventProducer"/>
+        </service>
+
+        <service id="Sendinblue.logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">Sendinblue</argument>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\VersionProvider">
+            <argument>%kernel.shopware_version%</argument>
+            <argument type="service" id="plugin.repository"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\ApiClientService">
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="Sendinblue.logger"/>
+            <argument type="service" id="NewsletterSendinblue\Service\VersionProvider"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\Cart\SendinblueCartProcessorService" shared="true">
+            <tag name="shopware.cart.processor" priority="10"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Cart\CartEventProducer"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\Cart\CartEventProducer">
+            <argument type="service" id="NewsletterSendinblue\Service\Cart\CartPayloadCollector"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ApiClientService"/>
+            <argument type="service" id="newsletter_recipient.repository"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\Cart\CartPayloadCollector">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="Shopware\Storefront\Framework\Routing\Router"/>
+            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlPlaceholderHandlerInterface"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Subscriber\NewsletterRecipientSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="NewsletterSendinblue\Service\NewsletterRecipient\NewsletterRecipientProducer"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Customer\CustomerProducer"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="mail_template.repository"/>
+            <argument type="service" id="request_stack"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Subscriber\MailerSettingsChangeSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ApiClientService"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\NewsletterRecipient\NewsletterRecipientProducer">
+            <argument type="service" id="NewsletterSendinblue\Service\ApiClientService"/>
+            <argument type="service" id="newsletter_recipient.repository"/>
+            <argument type="service" id="NewsletterSendinblue\Service\NewsletterRecipient\NewsletterRecipientPayloadCollector"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <service id="NewsletterSendinblue\Service\NewsletterRecipient\NewsletterRecipientPayloadCollector" >
+            <argument type="service" id="NewsletterSendinblue\Controller\Api\CustomerFieldController"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <!-- CUSTOMER -->
+        <service id="NewsletterSendinblue\Service\Customer\CustomerProducer">
+            <argument type="service" id="NewsletterSendinblue\Service\ApiClientService"/>
+            <argument type="service" id="customer.repository"/>
+            <argument type="service" id="NewsletterSendinblue\Service\Customer\CustomerPayloadCollector"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+        <service id="NewsletterSendinblue\Service\Customer\CustomerPayloadCollector" >
+            <argument type="service" id="NewsletterSendinblue\Controller\Api\CustomerFieldController"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+        <service id="NewsletterSendinblue\Service\Customer\AllCustomerService">
+            <argument type="service" id="customer.repository"/>
+            <argument type="service" id="newsletter_recipient.repository"/>
+            <argument type="service" id="Sendinblue.logger"/>
+        </service>
+
+        <!-- Decorators -->
+        <service id="NewsletterSendinblue\Content\Newsletter\SalesChannel\NewsletterSubscribeRoute"
+                 decorates="Shopware\Core\Content\Newsletter\SalesChannel\NewsletterSubscribeRoute"
+                 public="false">
+            <argument type="service" id="NewsletterSendinblue\Content\Newsletter\SalesChannel\NewsletterSubscribeRoute.inner"/>
+            <argument type="service" id="NewsletterSendinblue\Service\ConfigService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="request_stack"/>
+        </service>
+
+    </services>
+</container>

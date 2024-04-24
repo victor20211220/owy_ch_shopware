@@ -1,0 +1,82 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set heading = config.heading.value %}
+    {% set org1image = config.org1image.value %}
+    {% set org1title1 = config.org1title1.value %}
+    {% set org1title2 = config.org1title2.value %}
+    {% set org1title3 = config.org1title3.value %}
+
+    {% set org2image = config.org2image.value %}
+    {% set org2title1 = config.org2title1.value %}
+    {% set org2title2 = config.org2title2.value %}
+    {% set org2title3 = config.org2title3.value %}
+
+    {% if org1image %}
+        {% set mediaCollection = searchMedia([org1image], context.context) %}
+        {% set orgImage1 = mediaCollection.get(org1image).url %}
+    {% else %}
+        {% set orgImage1 = '' %}
+    {% endif %}
+
+
+    {% if org2image %}
+        {% set mediaCollection = searchMedia([org2image], context.context) %}
+        {% set orgImage2 = mediaCollection.get(org2image).url %}
+    {% else %}
+        {% set orgImage2 = '' %}
+    {% endif %}
+
+    <div class="container">
+        <div class="row organisation-warraper">
+           {% if heading and heading != "LEER" %}
+                <div class="title">{{ heading }}</div>
+           {% endif %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 org-box ">
+                {% if org1image %}
+                    <picture>
+                        <img class="img-fluid"  src="{{ orgImage1 }}" alt="Oraganization Image 1" width="" height="">
+                    </picture>
+                {% endif %}
+
+                {% if org1title1 %}
+                    <div class="organ-content">
+                        <ul>
+                            {% if org1title1 %}
+                                <li class="name">{{ org1title1  }}</li>
+                            {% endif %}
+                            {% if org1title2 %}
+                                <li class="post">{{ org1title2  }}</li>
+                            {% endif %}
+                            {% if org1title3 %}
+                                <li class="email"><a href="mailto:{{ org1title3 }}">{{ org1title3 }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 org-box ">
+                {% if org2image %}
+                    <picture>
+                        <img class="img-fluid"  src="{{ orgImage2 }}" alt="organization Image 2" width="" height="">
+                    </picture>
+                {% endif %}
+
+                {% if org2title1 %}
+                    <div class="organ-content">
+                        <ul>
+                            {% if org2title1 %}
+                                <li class="name">{{ org2title1  }}</li>
+                            {% endif %}
+                            {% if org2title2 %}
+                                <li class="post">{{ org2title2  }}</li>
+                            {% endif %}
+                            {% if org2title3 %}
+                                <li class="email"><a href="mailto:{{ org2title3 }}">{{ org2title3 }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

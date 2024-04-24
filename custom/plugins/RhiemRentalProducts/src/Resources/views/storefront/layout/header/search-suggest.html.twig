@@ -1,0 +1,27 @@
+{% sw_extends '@Storefront/storefront/layout/header/search-suggest.html.twig' %}
+
+
+{% block layout_search_suggest_result_price %}
+    {% set isRentalProduct = product.extensions.rentalProduct.extensions.isRentalProduct %}
+    {% if isRentalProduct %}
+        <div class="col-auto search-suggest-product-price">
+            {% if product.priceRange %}
+                {{ product.calculatedListingPrice.from.unitPrice|currency }}{% if product.calculatedListingPrice.from.extensions.rentalProduct %} / {% if product.extensions.rentalProduct.mode == 1 %}{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}{% else %}{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}{% endif %}{% else %}{%if product.calculatedListingPrice.to.extensions.rentalProduct %} / {{ "detail.rhiem-rental-products.piece"|trans|sw_sanitize }}{% endif %}{% endif %}
+                -
+                {{ product.calculatedListingPrice.to.unitPrice|currency }}{% if product.calculatedListingPrice.to.extensions.rentalProduct %} / {% if product.extensions.rentalProduct.mode == 1 %}{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}{% else %}{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}{% endif %}{% else %}{%if product.calculatedListingPrice.from.extensions.rentalProduct %} / {{ "detail.rhiem-rental-products.piece"|trans|sw_sanitize }}{% endif %}{% endif %}
+            {% elseif product.calculatedPrices|length == 1 %}
+                {{ product.calculatedPrices.first.unitPrice|currency }}{% if product.calculatedPrices.first.extensions.rentalProduct%} / {% if product.extensions.rentalProduct.mode == 1 %}{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}{% else %}{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}{% endif %}{% endif %}
+            {% else %}
+                {{ product.calculatedPrice.unitPrice|currency }}{% if product.calculatedPrice.extensions.rentalProduct%} / {% if product.extensions.rentalProduct.mode == 1 %}{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}{% else %}{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}{% endif %}{% endif %}
+            {% endif %}
+            {% if product.calculatedPrice.referencePrice is not null %}
+                <br><small
+                    class="search-suggest-product-reference-price">({{ product.calculatedPrice.referencePrice.price|currency }}{{ "general.star"|trans|sw_sanitize }}
+                / {{ product.calculatedPrice.referencePrice.referenceUnit }}
+                &nbsp;{{ product.calculatedPrice.referencePrice.unitName }})</small>
+            {% endif %}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set owydate = config.owydate.value %}
+    {% set longdesc = config.longdesc.value %}
+    {% set infoeditor = config.infoeditor.value %}
+    {% set splitdate = owydate|split('T') %}
+
+    <div class="row">
+        <span>{{ splitdate[0] }}</span>
+        <div class="col-lg-7">
+            <p>{{ longdesc|raw }}</p>
+        </div>
+        <div class="col-lg-5 newsimagebox">
+          {{ infoeditor|raw }} 
+        </div>
+    </div>
+</div>

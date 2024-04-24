@@ -1,0 +1,31 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+    level: 8
+    tmpDir: ../../../var/cache/phpstan
+    inferPrivatePropertyTypeFromConstructor: true
+    checkGenericClassInNonGenericObjectType: false
+    bootstrapFiles:
+            - tests/TestBootstrap.php
+    # run `php tests/TestBootstrap.php` to create the container
+    symfony:
+        constantHassers: false
+        containerXmlPath: '../../../var/cache/test/Shopware_Core_DevOps_StaticAnalyze_StaticAnalyzeKernelTestDebugContainer.xml'
+        consoleApplicationLoader: ../../../src/Core/DevOps/StaticAnalyze/PHPStan/console-application.php
+    excludePaths:
+        - vendor
+        - var
+    type_coverage:
+        return_type: 100
+        param_type: 96
+        property_type: 100
+
+    ignoreErrors:
+        -   # Services in tests are all public
+            message: '#Service ".*" is private#'
+            path: tests/**/*.php
+
+    paths:
+        - src
+        - tests

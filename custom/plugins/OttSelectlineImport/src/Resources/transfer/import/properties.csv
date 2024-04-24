@@ -1,0 +1,52 @@
+techname;shopname
+angle;Bildwinkel (Vollformat)
+angleaps;Bildwinkel (APS-C)
+aperture;Kleinste Blende
+artikel;Artikelnummer alt
+bayonet;Bajonett (P/V)
+brands;Marke
+brightness;Helligkeit
+cablelen;Kabellänge
+cabletype;Kabeltyp
+capacity;Leistung
+casediameter;Gehäusedurchmesser
+casesize;Gehäusegrösse
+clothsize;Tuchgrösse
+clothtype;Tuchsorte
+color;Farbe
+compatibility;Kompatibilität
+connect;Anschluss
+construction;Optischer Aufbau
+conv14;Konvertertauglich (1,4x)
+conv20;Konvertertauglich (2x)
+diameter;Filterdurchmesser
+diaphragm;Blendenlamellen
+dimension;Abmessungen - AD x Länge
+features;Features
+focal;Brennweite
+focalaps;Brennweite (APS-C)
+focus;Naheinstellgrenze
+format;Kamerasystem/Format
+formatf;Format
+kits;Einzelgeräte/Kits
+length;Gesamtlänge
+lens;Objektivart
+lenstype;Passend zu
+light;Lichtformer
+line;Produktelinie
+luminosity;Lichtstärke
+manufacturer;Marke (Filter)
+mount;Fassung
+picture;Bildgrösse
+price;Verkaufspreis (Brutto)
+propulsion;Antrieb
+refund;Vergütung
+resolution;Auflösung
+ring;Blendenring
+scale;Grösster Abbildungsmassstab
+screen;Bildschirmdiagonale
+size;Gesamtgrösse
+typet;Zubehör Typ
+unit;Einheit
+weight;Gewicht
+weight_nonnumeric;Gewicht LP

@@ -1,0 +1,42 @@
+{% block sw_product_detail_rental_base %}
+    {% block sw_product_detail_rental_base_content %}
+        <div slot="content" class="rental" v-if="!isLoading && !isLoadingRental">
+            {% block sw_product_detail_rental_base_content_variant %}
+{#                Vorbereitung für Zukünftige Version#}
+{#                <sw-card :title="$tc('rhiem-rental-products.detail.variantFormTitle')">#}
+{#                    <rental-variant-form/>#}
+{#                </sw-card>#}
+            {% endblock %}
+
+            {% block sw_product_detail_rental_base_content_settings %}
+                <sw-card :title="$tc('rhiem-rental-products.detail.settingFormTitle')" position-identifier="rhiem-rental-settings">
+                    <rental-settings-form/>
+                </sw-card>
+            {% endblock %}
+
+            {% block sw_product_detail_rental_base_content_price %}
+                <sw-card :title="$tc('rhiem-rental-products.detail.priceFormTitle')" position-identifier="rhiem-rental-price">
+                    <rental-price-form/>
+                </sw-card>
+            {% endblock %}
+
+            {% block sw_product_detail_rental_base_content_bail %}
+                <sw-card :title="$tc('rhiem-rental-products.detail.bailFormTitle')" position-identifier="rhiem-rental-bail">
+                    <rental-bail-form/>
+                </sw-card>
+            {% endblock %}
+
+            {% block sw_product_detail_rental_base_content_restrictions %}
+                <sw-card :title="$tc('rhiem-rental-products.detail.restrictionsFormTitle')" position-identifier="rhiem-rental-restrictions">
+                    <rental-restrictions-form/>
+                </sw-card>
+            {% endblock %}
+
+            {% block sw_product_detail_rental_base_content_calendar %}
+                <sw-card v-if="product.childCount === 0 || isChild" :title="$tc('rhiem-rental-products.detail.calendarFormTitle')" position-identifier="rhiem-rental-calendar">
+                    <rental-calendar-form />
+                </sw-card>
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

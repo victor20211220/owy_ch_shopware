@@ -1,0 +1,15 @@
+{% block sw_order_line_items_grid_grid_columns_label_link %}
+    <router-link v-else-if="item.payload && item.payload.rentalProduct"
+                        :title="$tc('sw-order.detailBase.contextMenuShowProduct')"
+                        :to="{ name: 'sw.product.detail', params: { id: item.productId } }">
+                        {{ item.label }}
+
+                        <br/>
+                        <span>
+                            {{ $tc('rhiem-rental-products.order.detail.rentalPeriod') }}:
+                            {{ item.payload.rentalProduct.rentalTimePayload.startDate|date("d.m.Y", false) }} -
+                            {{ item.payload.rentalProduct.rentalTimePayload.endDate|date("d.m.Y", false) }}
+                        </span>
+    </router-link>
+    {% parent %}
+{% endblock %}

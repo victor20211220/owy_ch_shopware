@@ -1,0 +1,10 @@
+.nYIcLASS {
+	.container-main {
+		padding: 0;
+		.breadcrumb {
+			&.cms-breadcrumb {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{% block cbax_lexicon_page_table_contents %}
+	<div class="lexicon-table-contents">
+
+        <div class="cms-element-text">
+
+            {% block cbax_lexicon_page_table_contents_entries %}
+                {% for entry in lexiconEntries %}
+                    {% block cbax_lexicon_page_table_contents_entry %}
+                        {% if entry.countEntries %}
+                            <h3>{{ entry.char }}</h3> <span>{{ entry.items|length  }} {{ "cbaxLexicon.page.listing.entryHeadline"|trans }}</span>
+
+                            <div class="row lexicon-table-contents-row">
+                                {% for items in entry.items %}
+                                    <div class="{{ contentBoxStyle }}">
+                                        <a href="{{ seoUrl('frontend.cbax.lexicon.detail', { id: items.id }) }}" class="lexicon-table-content-link" title="{{ items.translated.title }}">{{ items.translated.title }}</a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                        {% endif %}
+                    {% endblock %}
+                {% endfor %}
+            {% endblock %}
+
+        </div>
+
+    </div>
+{% endblock %}

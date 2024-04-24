@@ -1,0 +1,23 @@
+@import "~scss/variables";
+
+@mixin acris-component-placeholder {
+    background: $color-gray-100;
+    border: 1px dashed $color-gray-300;
+
+    &:after {
+        width: 100%;
+        margin-top: -10px;
+        position: absolute;
+        top: 50%;
+        content: "Placeholder";
+        text-align: center;
+        line-height: 20px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-semi-bold;
+        color: $color-gray-700;
+    }
+
+    &:lang(de):after {
+        content: "Platzhalter";
+    }
+}

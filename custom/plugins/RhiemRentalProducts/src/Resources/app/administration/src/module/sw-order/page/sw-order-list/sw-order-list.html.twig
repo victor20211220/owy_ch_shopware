@@ -1,0 +1,13 @@
+{% block sw_order_list_sidebar_filter_items %}
+    {% parent %}
+
+    {% block sw_order_list_sidebar_filter_rental_products %}
+        <sw-checkbox-field
+                id="rentalProductsFilter"
+                :label="$tc('rhiem-rental-products.order.list.checkboxFilterName')"
+                @change="onlyRentalItems"
+                :value="rentalFilter"
+        ></sw-checkbox-field>
+    {% endblock %}
+
+{% endblock %}

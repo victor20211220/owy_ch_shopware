@@ -1,0 +1,20 @@
+.search-suggest-container:not(.netzp-search-suggest-container) {
+  &::after {
+    content: none;
+  }
+}
+
+.search-results {
+  .card-img-top {
+    height: 12rem;
+    object-fit: contain;
+  }
+}
+
+.search-suggest-container.netzp-search-suggest-container {
+  margin-top: 1rem;
+}
+
+ul.search-suggest-container {
+  top: unset !important;
+}

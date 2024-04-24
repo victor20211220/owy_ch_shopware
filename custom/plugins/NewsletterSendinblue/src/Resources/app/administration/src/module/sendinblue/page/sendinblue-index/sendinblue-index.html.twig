@@ -1,0 +1,50 @@
+{% block sendinblue_index %}
+    <sw-page class="sendinblue-container">
+
+        {# header start #}
+        {% block sendinblue_index_header %}
+            <template slot="smart-bar-header">
+                <h2> {{ $tc('sendinblue.general.mainHeader') }}</h2>
+            </template>
+        {% endblock %}
+        {# header start #}
+
+        {# content start #}
+        {% block sendinblue_index_content %}
+            <sw-card-view slot="content">
+
+                {% block sendinblue_account_configuration %}
+                    <sw-card :title="$tc('sendinblue.general.accountConfigurationTitle')" :isLoading="isLoading">
+                        <sw-container columns="1fr 1fr 1fr">
+                            <div></div>
+                            {# sales channel start #}
+                            {% block sendinblue_sales_channel %}
+                                <sw-sales-channel-switch
+                                        :label="$tc('sendinblue.settingForm.salesChannels')"
+                                        @change-sales-channel-id="onSalesChannelChanged"
+                                />
+                            {% endblock %}
+                            {# sales channel end #}
+                        </sw-container>
+
+                        <sw-container columns="1fr 1fr 1fr">
+                            <div></div>
+                            {# main button start #}
+                            {% block sendinblue_main_button %}
+                                <sw-button variant="primary" target="_blank" :link="setting.mainButtonLink" class="sendinblue-main-button">
+                                    {{ isConnected ? $tc('sendinblue.settingForm.pluginSettings'): $tc('sendinblue.settingForm.connectToSib') }}
+                                </sw-button>
+                            {% endblock %}
+                            {# main button end #}
+                        </sw-container>
+                        <div></div>
+
+                    </sw-card>
+                {% endblock %}
+
+            </sw-card-view>
+
+        {% endblock %}
+        {# content end #}
+    </sw-page>
+{% endblock %}

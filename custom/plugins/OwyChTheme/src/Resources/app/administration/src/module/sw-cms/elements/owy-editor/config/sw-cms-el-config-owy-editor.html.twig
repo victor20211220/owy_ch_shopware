@@ -1,0 +1,17 @@
+{% block sw_cms_el_config_owy_editor %}
+    <template>
+        <sw-container class="sw-cms-el-config-owy-inquiry-form">
+            <sw-card :hero="false" :isloading="false" :large="false">
+
+                <sw-textarea-field
+                        v-model="element.config.description.value"
+                        type="textarea"
+                        label="Description"
+                >
+                </sw-textarea-field>
+            </sw-card>
+        </sw-container>
+    </template>
+
+
+{% endblock %}

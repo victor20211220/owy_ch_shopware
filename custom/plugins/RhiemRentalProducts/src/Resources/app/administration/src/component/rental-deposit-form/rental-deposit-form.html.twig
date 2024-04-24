@@ -1,0 +1,51 @@
+{% block sw_product_detail_rental_base_content_deposit_form %}
+    <div class="rental-deposit-form">
+        {% block sw_product_detail_rental_base_content_deposit_form_upper %}
+            <div class="rental-deposit-form-upper">
+                {% block sw_product_detail_rental_base_content_deposit_form_upper_price %}
+                    <div class="rental-deposit-form-deposit-price">
+                        <sw-inherit-wrapper v-model="product.purchasePrice"
+                                            :hasParent="!!parentProduct.id"
+                                            :inheritedValue="parentProduct.purchasePrice"
+                                            :label="$tc('rental-deposit-form.depositPriceFieldHeadline')">
+                            <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                                <sw-field type="number"
+                                          :error="productPurchasePriceError"
+                                          :min="0"
+                                          :disabled="isInherited"
+                                          :placeholder="$tc('rental-deposit-form.depositPriceField')"
+                                          :value="currentValue"
+                                          @change="updateCurrentValue">
+                                    <template #suffix>
+                                        <span class="rental-deposit-form-deposit-price-currency" v-if="defaultCurrency">{{ defaultCurrency.symbol }}</span>
+                                    </template>
+                                </sw-field>
+                            </template>
+                        </sw-inherit-wrapper>
+                    </div>
+                {% endblock %}
+                {% block sw_product_detail_rental_base_content_deposit_form_price_currency_dependend %}
+                    <div class="rental-deposit-form-deposit-price_dependend_currency">
+                        <div class="rental-deposit-form-deposit-price_depended_currency_wrapper">
+                            <a @click.prevent="displayMaintainCurrencies = true" v-if="product.price" class="sw-card__quick-link">
+                                {{ $tc('rental-deposit-form.depositCurrencyDependantLink') }} <sw-icon name="regular-long-arrow-right" small></sw-icon>
+                            </a>
+                        </div>
+                        <sw-maintain-currencies-modal v-if="displayMaintainCurrencies"
+                                                      :currencies="currencies"
+                                                      :prices="product.price"
+                                                      :defaultPrice="defaultPrice"
+                                                      :taxRate="productTaxRate"
+                                                      @modal-close="onMaintainCurrenciesClose">
+                        </sw-maintain-currencies-modal>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block sw_product_detail_rental_base_content_deposit_form_lower %}
+            <div class="rental-deposit-form-lower">
+                <!-- Zukünftige Version: Preisregeln hinzufügen -->
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

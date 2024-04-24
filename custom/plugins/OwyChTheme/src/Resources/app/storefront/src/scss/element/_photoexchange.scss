@@ -1,0 +1,10 @@
+.sorting-pagination-wraper {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .sorting-pagination-wraper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

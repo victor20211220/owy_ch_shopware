@@ -1,0 +1,22 @@
+#flatpickr-wrapper {
+    input.form-control.flatpickr-input.rangeMode.form-control {
+        display: none;
+    }
+
+    padding-bottom: 15px;
+}
+
+span.flatpickr-day {
+    &.nextMonthDay,
+    &.prevMonthDay {
+        color: rgba(57, 57, 57, 0.6);
+    }
+
+    &.flatpickr-disabled,
+    &.flatpickr-disabled:hover,
+    &.notSelectable,
+    &.notSelectable:hover {
+        cursor: not-allowed;
+        color: rgba(57, 57, 57, .2);
+    }
+}

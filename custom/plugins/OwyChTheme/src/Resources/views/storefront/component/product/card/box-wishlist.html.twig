@@ -1,0 +1,156 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-wishlist.html.twig' %}
+
+{% block component_product_box_content %}
+
+
+	<div class="row wishlisth-header-row">
+		<div class="col-4 owy-img-title">
+			<div class="line-item-img-container">
+				{% set productLink =  seoUrl('frontend.detail.page', { 'productId': product.id }) %}
+				{% set productLabel = product.translated.name %}
+				<a href="{{ productLink }}" class="line-item-img-link" title="{{ productLabel }}">
+					{% sw_thumbnails 'line-item-img-thumbnails' with {
+						media: product.cover.media,
+						sizes: {
+							'default': '100px'
+						},
+						attributes: {
+							'class': 'img-fluid line-item-img',
+							'alt': (product.cover.media.translated.alt ?: ''),
+							'title': (product.cover.media.translated.title ?: ''),
+							'loading': 'lazy'
+						}
+					} %}
+				</a>
+			</div>
+			<div class="owy-productnm">
+				<a href="{{ productLink }}" class="line-item-label" title="{{ productLabel }}">
+					{{ productLabel|u.truncate(60, '...', false)|raw }}
+				</a>
+				{% if product.stock >= 2  %}
+					<div class="green">
+						<span class="icon--green"></span>
+						{{ 'OwyChTheme.listing.alerts.lable2' |trans |sw_sanitize}}
+					</div>
+
+				{% elseif product.stock == 1 %}
+					<div class="yellow">
+						<span class="icon--yellow"></span>
+						{{ 'OwyChTheme.listing.alerts.lable3' |trans |sw_sanitize}}
+					</div>
+				{% else %}
+					<div class="red">
+						<span class="icon--red-stock"></span>
+						{{ 'OwyChTheme.listing.alerts.lable4' |trans |sw_sanitize}}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+		<div class="col-2 owy-articlenumber">
+			<span class="wishlisth-header-label">{{ 'OwyChTheme.wishlist.listing.label2' |trans |sw_sanitize}}</span>
+
+			{{ product.productNumber }}
+		</div>
+		<div class="col-2 owy-menge">
+			<span class="wishlisth-header-label">{{ 'OwyChTheme.wishlist.listing.label3' |trans |sw_sanitize}}</span>
+			<div class="lsiting-actions-container">
+				<div class="selectQuantitybox">
+					{% set selectQuantityThreshold = 100 %}
+					<div class="input-group product-detail-quantity-group quantity-selector-group" data-quantity-selector="true">
+						<input type="number" name="lineItems[{{ product.id }}][quantity]" class="form-control js-quantity-selector quantity-selector-group-input" min="{{ product.minPurchase }}" max="{{ product.calculatedMaxPurchase }}" step="{{ product.purchaseSteps }}" value="{{ product.minPurchase }}"/>
+
+						<button type="button" class="btn btn-outline-light btn-plus js-btn-plus" id="{{ product.id }}">
+							{% sw_icon 'plus' style {'size': 'xs'}  %}
+						</button>
+						<button type="button" class="btn btn-outline-light btn-minus js-btn-minus" id="{{ product.id }}">
+							{% sw_icon 'minus' style {'size': 'xs'} %}
+						</button>
+						{% if product.translated.packUnit %}
+							<span class="input-group-text">
+								{% if product.minPurchase > 1 and product.translated.packUnitPlural %}
+									{{ product.translated.packUnitPlural }}
+								{% elseif product.translated.packUnit %}
+									{{ product.translated.packUnit }}
+								{% endif %}
+							</span>
+						{% endif %}
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-2 owy-unitprice">
+			<span class="wishlisth-header-label">{{ 'OwyChTheme.wishlist.listing.label4' |trans |sw_sanitize}}</span>
+			{% set owyPrice = product.calculatedPrices.last %}
+			{% set price = owyPrice is not null ? owyPrice.unitPrice : product.price.elements.gross %}
+			<div class="owy-wishlist-price">
+				{{ price|currency }}
+			</div>
+			{# <span class="owy-unit-price">{{ product.calculatedPrice.unitPrice }}</span>€ #}
+		</div>
+		<div class="col-2 owy-sumprice">
+			<span class="wishlisth-header-label">{{ 'OwyChTheme.wishlist.listing.label5' |trans |sw_sanitize}}</span>
+			<span class="owy-tot-price" data-price="{{ price }}" id="myprice-{{ product.id }}">{{ price|currency }}</span>
+			<div class="remove-wishlistitems">
+				{% block component_product_wishlist_remove_form %}
+					{% set size = size ?? 'md' %}
+
+					<form action="{{ path('frontend.wishlist.product.delete', {'id': id}) }}" method="post" class="product-wishlist-form">
+
+						{% block component_product_wishlist_remove_redirect %}
+							<input type="hidden" name="redirectTo" value="frontend.wishlist.page">
+						{% endblock %}
+
+						{% block component_product_wishlist_remove_submit %}
+							<button type="submit" class="btn product-wishlist-btn product-wishlist-btn-remove">
+								{% sw_icon 'x' style { 'class': 'icon-wishlist icon-wishlist-remove', 'size': size, 'pack': 'solid' } %}
+							</button>
+						{% endblock %}
+					</form>
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-md-9 col-lg-9"></div>
+		<div class="col-sm-6 col-md-3 col-lg-3">
+			<div class="d-grid">
+
+				<form action="{{ path('frontend.checkout.line-item.add') }}" method="post" class="buy-widget" data-add-to-cart="true">
+
+					{% block component_product_box_action_form %}
+
+						{% block component_product_box_action_buy_redirect_input %}
+							{# fallback redirect back to detail page is deactivated via js #}
+							<input type="hidden" name="redirectTo" value="frontend.detail.page">
+
+							<input type="hidden" name="redirectParameters" data-redirect-parameters="true" value='{"productId": "{{ product.id }}"}'>
+						{% endblock %}
+
+						{% block page_product_detail_buy_product_buy_info %}
+							<input type="hidden" name="lineItems[{{ id }}][id]" value="{{ id }}">
+							<input type="hidden" name="lineItems[{{ id }}][referencedId]" value="{{ id }}">
+							<input type="hidden" name="lineItems[{{ id }}][type]" value="product">
+							<input type="hidden" name="lineItems[{{ id }}][stackable]" value="1">
+							<input type="hidden" name="lineItems[{{ id }}][removable]" value="1">
+							<input type="hidden" name="lineItems[{{ id }}][quantity]" id="myval-{{ product.id }}" value="{{ product.minPurchase }}">
+						{% endblock %}
+
+						{% block page_product_detail_product_buy_meta %}
+							<input type="hidden" name="product-name" value="{{ product.translated.name }}">
+						{% endblock %}
+
+						{% block page_product_detail_product_buy_button %}
+							<div class="d-grid">
+								<button class="btn btn-buy" title="{{ "listing.boxAddProduct"|trans|striptags }}">
+									{{ "listing.boxAddProduct"|trans|sw_sanitize }}
+								</button>
+							</div>
+						{% endblock %}
+					{% endblock %}
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+.awards-warraper {
+  border-top: 1px solid $sw-border-color;
+  padding   : 15px 0;
+
+  h2 {
+    font-weight: 700;
+    margin     : 0;
+    padding    : 0;
+  }
+
+  p {
+    font-size  : 16px;
+    line-height: 22px;
+  }
+
+  .events {
+    font-size  : 16px;
+    line-height: 22px;
+
+    a {
+      color: $sw-color-brand-primary;
+    }
+
+    p {
+      a {
+        color: $sw-color-brand-primary;
+      }
+    }
+  }
+
+  .details {
+    margin-bottom: 10px;
+  }
+}
+.productimage-container {
+  display: flex;
+  justify-content: center;
+  img{
+    max-height: 220px;
+    max-width: 120px;
+  }
+}
+.awards-img{
+  img{
+    max-width: 140px;
+    max-height: 140px;
+  }
+}
+.cms-element-owy-awards-widget a {
+  //color: inherit;
+  //text-decoration: none;
+}
+@media (min-width: 567px) {
+  .padleft0 {
+    padding-left   : 0;
+    display        : flex;
+    flex-direction : column;
+    justify-content: flex-end;
+  }
+
+}
+
+@media (max-width: 567px) {
+  .productimage-container {
+    text-align: center;
+  }
+}

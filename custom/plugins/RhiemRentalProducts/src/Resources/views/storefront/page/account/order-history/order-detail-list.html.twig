@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/page/account/order-history/order-detail-list.html.twig' %}
+
+{% block page_account_order_item_detail_reorder_button %}
+    {% set hasRentalProduct = false %}
+    {% for lineItem in orderDetails %}
+        {% if lineItem.payload.rentalProduct %}
+            {% set hasRentalProduct = true %}
+        {% endif %}
+    {% endfor %}
+
+    {% if hasRentalProduct %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

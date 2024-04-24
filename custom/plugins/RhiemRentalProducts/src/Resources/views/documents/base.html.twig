@@ -1,0 +1,12 @@
+{% sw_extends '@Framework/documents/base.html.twig' %}
+
+
+{% block document_line_item_table_row_label %}
+    <td class="line-item-breakable">{{ lineItem.label }} <br/>
+        {% if lineItem.payload.rentalProduct.rentalTime.getStartDate() is defined %}
+            {{ "rhiem-rental-products.rentPeriod"|trans|striptags }}:
+            {{ lineItem.payload.rentalProduct.rentalTime.getStartDate()|date("d.m.Y", false)  }} -
+            {{ lineItem.payload.rentalProduct.rentalTime.getEndDate()|date("d.m.Y", false)  }}
+        {% endif %}
+    </td>
+{% endblock %}

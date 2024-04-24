@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/page/checkout/finish/finish-details.html.twig' %}
+
+{% block page_checkout_finish_order_address %}
+    {% if page.order.deliveries.first.extensions.acrisOrderDeliveryStore %}
+        {% sw_include '@Storefront/storefront/page/checkout/finish/custom/acris-finish-details.html.twig' %}
+    {% endif %}
+    {{ parent() }}
+{% endblock %}

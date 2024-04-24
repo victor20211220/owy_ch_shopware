@@ -1,0 +1,23 @@
+{
+  "netzp-searchadvanced6-synonyms": {
+    "menuLabel": "Such-Synonyme/Wortersetzungen",
+    "detail": {
+      "saveButtonText": "Speichern",
+      "cancelButtonText": "Abbruch",
+      "title": "Synonym bearbeiten",
+      "label": {
+        "synonym": "Synonym",
+        "replace": "Ersetzung"
+      },
+      "helpText": "Das eingetragene Synonym-Wort wird bei Suchanfragen durch die entsprechende Ersetzung ausgetauscht."
+    },
+
+    "list": {
+      "addButtonText": "Neu",
+      "columns": {
+        "synonym": "Synonym",
+        "replace": "Ersetzung"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{% block owy_category_list %}
+    <sw-page class="owy-category-list">
+        {% block owy_category_list_smart_bar_actions %}
+            <template slot="smart-bar-actions">
+                <sw-button variant="primary" :routerLink="{ name: 'category.module.create' }">
+
+        {{ $t('owy-category-module.list.data.button') }}
+                </sw-button>
+            </template>
+
+        {% endblock %}
+
+        {% block owy_category_list_smart_bar_header %}
+            <template #smart-bar-header>
+                {% block owy_category_list_smart_bar_header_title %}
+                    <h2>
+                        {% block owy_category_list_smart_bar_header_title_text %}
+                            {{ $t('owy-category-module.list.data.heading') }}
+
+                            {% endblock %}
+
+                            {% block bc_faq_list_smart_bar_header_amount %}
+                            <span v-if="!isLoading" class="sw-page__smart-bar-amount">
+                                ({{ Category.total }})
+                            </span>
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+
+        <template slot="content">
+            {% block owy_category_list_content %}
+                <sw-entity-listing
+                    v-if="Category"
+                    :items="Category"
+                    :repository="repository"
+                    :showSelection="true"
+                    :columns="columns"
+                    :isLoading="isLoading"
+                    detailRoute="category.module.detail">
+                </sw-entity-listing>
+            {% endblock %}
+        </template>
+    </sw-page>
+{% endblock %}

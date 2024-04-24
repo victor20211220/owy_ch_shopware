@@ -1,0 +1,52 @@
+<div class="calendar-day">
+	<div class="calendar-detail-button">
+		<div class="calendar-day-number" :class="{ 'is-current-day': isCurrentDay }" @click="onShowMoreClick()">
+			{{ day.day }}
+		</div>
+	</div>
+
+	<div v-for="index in eventShowCount" :key="index" class="calendar-entry" :class="getEventClass(index)" :data-id="getEventParam(index, 'id')" @click="onEventClick(index)" @mouseover="onEventMouseOver(index)" @mouseleave="onEventMouseLeave(index)">
+		<span v-if="showEventText(index)" class="event-text">
+			{{ getEventParam(index, 'comment') }}
+		</span>
+	</div>
+
+	<div v-if="showMore" @click="onShowMoreClick()" class="calendar-detail-button">
+		<div class="calendar-more-entries-dots">
+			<sw-icon name="regular-ellipsis-h" color="#52667A"></sw-icon>
+		</div>
+	</div>
+
+	{% block rental_calendar_event_overview %}
+                <sw-modal
+                    v-if="showAllEventsModal"
+                    :title="dayDate.toLocaleString()"
+                    @modal-close="onCloseEventOverviewModal"
+                >
+                    <sw-data-grid
+                        :show-selection="false"
+                        :show-actions="true"
+                        :data-source="events"
+                        :columns="overviewColumns">
+
+						<template #column-type="{ item }">
+							{{ $tc('rental-calendar-form.event-overview-modal.type_' + item.type) }}
+						</template>
+
+                        <template slot="actions" slot-scope="{ item }">
+                            <sw-context-menu-item
+                                v-if="item.type === 'rent'"
+                                @click="openOrder(item.comment)">
+                                {{ $tc('rental-calendar-form.event-overview-modal.openOrder') }}
+                            </sw-context-menu-item>
+
+                            <sw-context-menu-item
+                                v-if="item.type === 'block'"
+                                @click="openBlockModal(item)">
+                                {{ $tc('rental-calendar-form.event-overview-modal.editBlock') }}
+                            </sw-context-menu-item>
+                        </template>
+                    </sw-data-grid>
+                </sw-modal>
+            {% endblock %}
+</div>

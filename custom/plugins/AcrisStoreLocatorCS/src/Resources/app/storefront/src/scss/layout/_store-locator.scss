@@ -1,0 +1,201 @@
+.acris-store-locator-selection-card {
+    margin-bottom: 30px;
+}
+
+.cms-element-acris-store-headline-google-map {
+    .acris-store-headline-google-map-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.acris-store-locator {
+    position: relative;
+
+    .acris-store-locator-detail-information {
+        word-wrap: break-word;
+    }
+
+    .gm-style .gm-style-iw-c {
+        overflow-y: scroll;
+    }
+
+    .gm-style .gm-style-iw-d {
+        box-sizing: border-box;
+        overflow: unset !important;
+        max-height: unset!important;
+    }
+
+    .acris-store-locator-searchbar {
+        background-color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        z-index: 1;
+        top: auto;
+        left: 50%;
+        max-width: 90vw;
+        transform: translateX(-50%);
+
+        .alert {
+            width: 100%;
+        }
+    }
+
+    .acris-store-locator-searchbar-no-distance {
+        background-color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        z-index: 1;
+        top: auto;
+        left: 50%;
+        max-width: 90vw;
+        transform: translateX(-50%);
+
+        .alert {
+            width: 100%;
+        }
+    }
+
+    .acris-store-locator-searchbar-content {
+        margin-top: 4%;
+    }
+
+    .acris-store-locator-google-map {
+        height: 75vh;
+        width: 100vw;
+    }
+
+    .acris-store-locator-google-map-content {
+        height: 75vh;
+    }
+
+    .acris-store-locator-input-field {
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    .acris-store-locator-button-search--submit {
+        width: 100%;
+        text-align: center;
+    }
+
+    .acris-store-locator-group-table {
+        margin-top: 15px;
+        display: none;
+        .acris-store-locator-group-table-head-column-cell {
+            border: 0;
+        }
+
+        .acris-store-locator-group-table-cover {
+            width: 8rem;
+        }
+        .acris-store-locator-group-table-body {
+            .acris-store-locator-group-table-body-column-cell {
+                border: none;
+                font-size: 14px;
+                font-family: Arial, "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
+                font-weight: 500;
+                color: #929191;
+                text-rendering: optimizeLegibility;
+            }
+        }
+
+        .acris-store-locator-group-table-head-column {
+            background: #929191;
+            color: #fff;
+            font-weight: 600;
+        }
+    }
+
+    .acris-store-locator-group-table-body-column-second {
+        background: #f5f5f5;
+    }
+
+    .acris-store-locator-group-mobile-table-entry {
+        margin: 25px 0 25px 0;
+        .acris-store-locator-group-mobile-table {
+            border: 1px solid #bcc1c7;
+            .acris-store-locator-group-mobile-table-value {
+                text-align: right;
+                word-break: break-word;
+            }
+        }
+    }
+
+    .acris-store-locator-group-icons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .acris-store-locator-group-button-wrapper{
+            display: block;
+            width: 50%;
+            text-align: center;
+            padding: 25px;
+            .acris-store-locator-group-name {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        }
+        .acris-store-locator-group-icon {
+            max-width: 80px;
+        }
+    }
+
+    .acris-store-locator-email-icon {
+        margin-left: 0.5rem;
+    }
+}
+
+.sw-cms-el-acris-store-details__details {
+    .acris-store-locator-email-icon {
+        margin-left: 0.5rem;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .acris-store-locator-group-table {
+        display: table !important;
+    }
+
+    .acris-store-locator-group-mobile-table-entry {
+        display: none;
+    }
+
+    .acris-store-locator {
+        .acris-store-locator-searchbar {
+            max-width: 75vw;
+        }
+
+        .acris-store-locator-searchbar-no-distance {
+            max-width: 50vw;
+        }
+
+        .acris-store-locator-searchbar-content {
+            margin-top: 2%;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .acris-store-locator {
+        .acris-store-locator-searchbar {
+            max-width: 45vw;
+        }
+
+        .acris-store-locator-searchbar-no-distance {
+            max-width: 30vw;
+        }
+
+        .gm-style .gm-style-iw-c {
+            overflow-y: unset;
+        }
+    }
+}
+
+
+
+
+

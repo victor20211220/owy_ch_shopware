@@ -1,0 +1,92 @@
+{% block sw_product_detail_rental_base_content_bail_form %}
+    <div class="rental-bail-form-switches" v-if="!isLoadingRental">
+        {% block sw_product_detail_rental_base_content_bail_form_switch_active %}
+            <div class="rental-bail-form-switches-active">
+                <sw-inherit-wrapper v-model="rentalProduct.bailActive"
+                                    :inheritedValue="hasParentRentalProduct ?
+                                                        parentRentalProduct.bailActive
+                                                        : rentalProduct.bailActive"
+                                    :hasParent="isChild"
+                                    label=" "
+                >
+                    <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                        <sw-switch-field :disabled="isInherited"
+                                         bordered
+                                         class="rental-bail-form-switch_field_active"
+                                         :label="$tc('rental-bail-form.switchLabelActive')"
+                                         :help-text="$tc('rental-bail-form.rentalBailHelptext')"
+                                         :value="currentValue"
+                                         @change="updateCurrentValue">
+
+                        </sw-switch-field>
+                    </template>
+                </sw-inherit-wrapper>
+            </div>
+        {% endblock %}
+
+        {% block sw_product_detail_rental_base_content_bail_form_active %}
+            <div class="rental-price-form">
+                {% block sw_product_detail_rental_base_content_bail_form_active_price_grid %}
+                    <sw-container columns="1fr 2fr" gap="0px 30px" class="rental-price-form-price_container">
+                        {% block sw_product_detail_rental_base_content_bail_form_active_tax_field %}
+                            <sw-inherit-wrapper v-model="rentalProduct.bailTaxId"
+                                                :inheritedValue="hasParentRentalProduct ?
+                                                                        parentRentalProduct.bailTaxId
+                                                                    : rentalProduct.bailTaxId"
+                                                :hasParent="isChild"
+                                                label=" "
+                                                :customRemoveInheritanceFunction="customRemoveBailTaxInheritance"
+                                                :customRestoreInheritanceFunction="customBailTaxRestoreInheritance"
+                                                class="one-line-inheritance-linker"
+                                                :class="{ 'is-variant': isChild }"
+                            >
+                                <template #content="{ currentValue, updateCurrentValue, isInherited }">
+
+                                    <sw-field :disabled="isInherited"
+                                              type="select"
+                                              name="sw-field--rental-product-bail-taxId"
+                                              :placeholder="$tc('sw-product.priceForm.placeholderTaxRate')"
+                                              :label="$tc('sw-product.priceForm.labelTaxRate')"
+                                              :value="currentValue"
+                                              @change="updateCurrentValue"
+                                              validation="required">
+                                        <option v-for="tax in taxes"
+                                                :key="tax.id"
+                                                :value="tax.id"
+                                                :selected="currentValue === tax.id">
+                                            {{ tax.name }}
+                                        </option>
+                                    </sw-field>
+                                </template>
+                            </sw-inherit-wrapper>
+                        {% endblock %}
+
+                        {% block sw_product_detail_rental_base_content_bail_form_active_price_field %}
+                            <sw-inherit-wrapper v-model="rentalProduct.bailPrice"
+                                                :inheritedValue="hasParentRentalProduct ?
+                                                                    parentRentalProduct.bailPrice
+                                                                : rentalProduct.bailPrice"
+                                                :hasParent="isChild"
+                                                class="bail-price-wrapper"
+                                                label=" "
+                                                ref="rentalBailPriceInheritanceWrapper"
+                                                :customRemoveInheritanceFunction="customRemoveBailPriceInheritance"
+                                                :customRestoreInheritanceFunction="customRestoreBailPriceInheritance"
+                            >
+                                <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                                    <sw-price-field :disabled="isInherited"
+                                                    :price="currentValue"
+                                                    required
+                                                    :vertical="true"
+                                                    :taxRate="bailTaxRate"
+                                                    :currency="defaultCurrency">
+                                    </sw-price-field>
+                                </template>
+                            </sw-inherit-wrapper>
+                        {% endblock %}
+                    </sw-container>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Mandant>
+  <MandantName>A001</MandantName>
+  <PreisOptPreis>2</PreisOptPreis>
+  <PreisOptLpSonst>0</PreisOptLpSonst>
+  <PreisOptWaehrung>1</PreisOptWaehrung>
+  <PreisOptRabattstaffel>1</PreisOptRabattstaffel>
+  <PreisOptMrBremse>0</PreisOptMrBremse>
+  <PreisOptKpMitRg>0</PreisOptKpMitRg>
+  <PreisOptKpMitMr>0</PreisOptKpMitMr>
+  <PreisOptApMitRg>0</PreisOptApMitRg>
+  <PreisOptApMitMr>0</PreisOptApMitMr>
+</Mandant>

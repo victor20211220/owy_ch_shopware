@@ -1,0 +1,27 @@
+{% block sw_cms_element_acris_store_details_config %}
+<div class="sw-cms-el-config-acris-store-details">
+    {% block sw_cms_element_buy_box_config_content_warning %}
+    <sw-alert
+        v-if="isStorePage"
+        class="sw-cms-el-config-buy-box__warning"
+        variant="info"
+    >
+        {{ $tc('acris-stores.cms.elements.acris-store-details.tooltipSettingDisabled') }}
+    </sw-alert>
+    {% endblock %}
+
+    {% block sw_cms_element_buy_box_config_store_select_details %}
+    <sw-entity-single-select
+        v-if="!isStorePage"
+        ref="cmsStoreSelection"
+        v-model="element.config.store.value"
+        entity="acris_store_locator"
+        :label="$tc('acris-stores.cms.elements.acris-store-details.labelStore')"
+        :placeholder="$tc('acris-stores.cms.elements.acris-store-details.placeholderStore')"
+        :criteria="storeCriteria"
+        @change="onStoreChange"
+    >
+    </sw-entity-single-select>
+    {% endblock %}
+</div>
+{% endblock %}

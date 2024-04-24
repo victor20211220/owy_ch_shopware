@@ -1,0 +1,22 @@
+{% block cbax_lexicon_page_detail_text %}
+	<div class="lexicon-text-detail">
+        <div class="cms-element-text">
+
+            {% block cbax_lexicon_page_detail_text_title %}
+                <div class="lexicon-detail-title">
+                    <h1>{{ lexiconEntry.translated.title }}</h1>
+                </div>
+            {% endblock %}
+
+            {% block cbax_lexicon_page_detail_text_description %}
+                {% if lexiconEntry.translated.descriptionLong %}
+                    <div class="lexicon-detail-description">{{ lexiconEntry.translated.descriptionLong|raw }}</div>
+                {% else %}
+                    <div class="lexicon-detail-description">{{ lexiconEntry.translated.description|raw }}</div>
+                {% endif %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{
+    "OwyChTheme": {
+        "navigation": {
+            "shopnav": {
+                "link1": "Search",
+                "link2": "Account",
+                "link3": "Watchlist",
+                "link4": "Cart",
+                "link5": "Compare"
+                
+            }
+        },
+        "footer": {
+            "bottomnav": {
+                "link1": "Ott + Wyss AG",
+                "link2": "Napfweg 3",
+                "link3": "4800 Zofingen",
+                "link4": "<a href=\"#\">Tel. 062 746 01 00</a>",
+                "link5": "<a href=\"#\">info@owy.ch</a>",
+                "link6": "<a href=\"#\">www.owy.ch</a>"
+            }
+        },
+        "listing": {
+            "count":{
+                "lable1": "from",
+                "lable2": "Products"
+            },
+            "sorting":{
+                "lable1": "Sort by:",
+                "lable2": "Products per page:"
+            },
+            "alerts":{
+                "lable1": "Compare",
+                "lable2": "Available",
+                "lable3": "Just available",
+                "lable4": "Not available"                
+            },
+            "pricetag":{
+                "lable": "<span> Price in CHF</span> incl. VAT."
+
+            },
+            "product":{
+                "article": "Article no.",
+                "soldOut":"Soldout",
+                "miete": "Rent"
+
+            }
+        },
+        "detail": {
+            "addToWishlist":{
+                "merken": "Remember"
+            },
+            "tabsSections":{
+                "tabs1":"Article Description",
+                "properties": "Technical data"
+            },
+            "tabsnames":{
+                "lable1": "Overview",
+                "lable2": "Description",
+                "lable3": "Technical data",
+                "lable4": "Reference images"
+            }
+        },
+        "wishlist": {
+            "listing":{
+                "label": "Watchlist",
+                "labelproduct": "Product",
+                "label1": "Available",
+                "label2": "Item no.",
+                "label3": "Quantity",
+                "label4": "Price in CHF",
+                "label5": "Total"
+            }
+        },
+        "newsletter": {
+            "form":{
+                "label": "Would you like to be regularly and well informed about photo tips and tricks, product news and offers? Then subscribe to our newsletter today",               
+                "label1": "If you are not interested, you can unsubscribe from the photo technology newsletter at any time using this link. We guarantee that your data will not be passed on to third parties.",
+                "label2": "We regret that you no longer wish to subscribe to our newsletters and hope to be able to serve you again at a later date.",
+                "label3": "Please enter your e-mail address to unsubscribe from the newsletter.",
+                "label4": "E-mail *",
+                "label5": "* mandatory input field",
+                "label6": "Send"
+            }
+        },
+        "widgets": {
+            "form":{
+                "label1": "Support request",
+                "label2": "Your request *",
+                "label3": "Your message *",
+                "label4": "Company",
+                "label5": "Name *",
+                "label6": "First name *",
+                "label7": "Street / No.",
+                "label8": "Postcode / City",
+                "label9": "Tel",
+                "label10": "E-mail *",
+                "note": "* mandatory input fields",
+                "btn": "Send"
+                
+            },
+            "broucher":{
+                "btn": " Download PDF"
+                
+            },
+            "awards":{
+                "label": "Awards"
+                
+            },
+            "compare":{
+                "label": "compare",
+                "label1": "compare",
+                "label2": "Remove all"
+                
+            }
+        }
+ 
+    }
+}

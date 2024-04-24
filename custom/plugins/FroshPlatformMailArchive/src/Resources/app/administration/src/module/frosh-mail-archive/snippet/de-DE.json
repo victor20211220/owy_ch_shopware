@@ -1,0 +1,68 @@
+{
+    "frosh-mail-archive": {
+        "title": "Mail Archiv",
+        "list": {
+            "columns": {
+                "sentDate": "Versanddatum",
+                "subject": "Betreff",
+                "receiver": "Empfänger",
+                "action": "Anzeigen",
+                "transportFailed": "Versand der E-Mail fehlgeschlagen"
+            },
+            "sidebar": {
+                "refresh": "Neuladen",
+                "filter": "Filter",
+                "filters": {
+                    "search": "Suche",
+                    "customer": "Kunde",
+                    "salesChannel": "Verkaufskanal",
+                    "resetFilter": "Filter zurücksetzen"
+                }
+            }
+        },
+        "detail": {
+            "toolbar": {
+                "customer": "Kunden öffnen",
+                "resend": "E-Mail erneut versenden",
+                "downloadEml": "Download E-Mail"
+            },
+            "metadata": {
+                "title": "Metadaten",
+                "sentDate": "Versanddatum",
+                "sender": "Absender",
+                "receiver": "Empfänger",
+                "subject": "Betreff",
+                "salesChannel": "Verkaufskanal"
+            },
+            "content": {
+                "title": "Inhalt"
+            },
+            "alert": {
+                "transportFailed": "E-Mail-Versand fehlgeschlagen. Bitte überprüfe deine Mailer-Einstellungen und versuche es erneut."
+            },
+            "resend-success-notification": {
+              "message": "Der E-Mail-Versand wurde gestartet.",
+              "title": "Mail Archiv"
+            },
+            "resend-error-notification": {
+              "title": "Mail Archiv",
+              "message": "Fehler beim Senden der E-Mail"
+            },
+            "resend-grid": {
+              "navigate": "Anzeigen",
+              "success-label": "erfolgreich",
+              "failed-label": "fehlgeschlagen",
+              "column-created-at": "Gesendet am",
+              "column-state": "Status",
+              "currently-selected": "ausgewählt",
+              "title": "Sendeverlauf",
+              "pending-label": "ausstehend",
+              "unknown-label": "unbekannt"
+            }
+        },
+        "missingMigration": {
+            "title": "FroshMailArchive muss migriert werden",
+            "description":"Wir haben die gespeicherten E-Mail optimiert. Diese sollten auf dem Speicher ablegt werden, anstelle der Datenbank.<br>Bitte migrieren Sie die Mails über die CLI mit dem Befehl:<br>bin/console frosh:mailarchive:migrate"
+        }
+    }
+}

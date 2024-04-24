@@ -1,0 +1,361 @@
+{
+    "name": "OwyChTheme",
+    "author": "SchujaIt GmbH",
+    "description": {
+        "de-DE": "Das Visare ist ein ansprechendes, responsives Shopware 6 Theme",
+        "en-GB": "The Visare is an appealing, responsive and multi-purpose Shopware 6 theme"
+    },
+    "previewMedia": "app/storefront/dist/assets/defaultThemePreview.jpg",
+    "views": [
+        "@Storefront",
+        "@OwyChTheme",
+        "@Plugins"
+
+
+    ],
+    "style": [
+        "app/storefront/src/scss/overrides.scss",
+        "@Storefront",
+        "app/storefront/src/scss/base.scss",
+        "@Plugins"
+    ],
+    "script": [
+        "@Storefront",
+        "app/storefront/dist/storefront/js/jQuery/jQuery.js",
+        "app/storefront/dist/storefront/js/owy-ch-theme.js",
+        "app/storefront/dist/storefront/js/owy-custom-script.js",
+        "app//storefront/dist/storefront/js/owychtheme-fototech.js"
+
+    ],
+    "asset": [
+        "@Storefront",
+        "app/storefront/dist/assets"
+    ],
+    "config": {
+        "tabs": {
+            "header": {
+                "label": {
+                    "en-GB": "Header",
+                    "de-DE": "Header"
+                }
+            },
+            "mainnav": {
+                "label": {
+                    "en-GB": "Menu",
+                    "de-DE": "Menü"
+                }
+            },
+            "footer": {
+                "label": {
+                    "en-GB": "Footer",
+                    "de-DE": "Footer"
+                }
+            },
+
+            "listing": {
+                "label": {
+                    "en-GB": "Product list",
+                    "de-DE": "Produktliste"
+                }
+            },
+            "SliderTab": {
+                "label": {
+                    "en-GB": "Slider",
+                    "de-DE": "Schieberegler"
+                }
+            }
+        },
+        "blocks": {
+            "themeColors": {
+                "label": {
+                    "en-GB": "Theme colours",
+                    "de-DE": "Theme-Farben"
+                }
+            },
+            "TypographyMain": {
+                "label": {
+                    "en-GB": "General Typography",
+                    "de-DE": "Allgemeine Typografie"
+                }
+            },
+            "eCommerce": {
+                "label": {
+                    "en-GB": "E-Commerce",
+                    "de-DE": "E-Commerce"
+                }
+            },
+            "statusColors": {
+                "label": {
+                    "en-GB": "Status messages",
+                    "de-DE": "Status-Ausgaben"
+                }
+            },
+            "blockLogo": {
+                "label": {
+                    "en-GB": "Logo",
+                    "de-DE": "Logo"
+                }
+            },
+            "blockSharefav": {
+                "label": {
+                    "en-GB": "Share- & Favicon",
+                    "de-DE": "Share- & Favicon"
+                }
+            },
+            "header": {
+                "header": {
+                    "en-GB": "Header",
+                    "de-DE": "Header"
+                }
+            },
+            "mainnav": {
+                "nav": {
+                    "en-GB": "Main navigation",
+                    "de-DE": "Hauptnavigation"
+                },
+                "flyout": {
+                    "en-GB": "Drop-down menu",
+                    "de-DE": "Dropdown-Menü"
+                }
+            },
+            "forms": {
+                "base": {
+                    "en-GB": "Forms",
+                    "de-DE": "Formular"
+                },
+                "focus": {
+                    "en-GB": "Input focus",
+                    "de-DE": "Input focus"
+                }
+            },
+            "listing": {
+                "listing": {
+                    "en-GB": "Product list",
+                    "de-DE": "Produktliste"
+                }
+                
+               
+            },
+            "footer": {
+                "footer": {
+                    "en-GB": "Footer",
+                    "de-DE": "Footer"
+                }
+            },
+            "blockSocials": {
+                "label": {
+                    "en-GB": "Social Media",
+                    "de-DE": "Social Media"
+                }
+            },
+            "MainSlider": {
+                "label": {
+                    "en-GB": "Slider (Homepage)",
+                    "de-DE": "Schieberegler (Homepage)"
+                }
+            }
+        },
+        "fields": {
+            "sw-color-brand-primary": {
+                "label": {
+                    "en-GB": "Primary Colour",
+                    "de-DE": "Primärfarbe"
+                },
+                "type": "color",
+                "value": "#E41D1A",
+                "editable": true,
+                "block": "themeColors",
+                "order": 100
+            },
+            "sw-color-brand-secondary": {
+                "label": {
+                    "en-GB": "Secondary Colour",
+                    "de-DE": "Sekundärfarbe"
+                },
+                "type": "color",
+                "value": "#2B2E34",
+                "editable": true,
+                "block": "themeColors",
+                "order": 200
+            },
+            "sw-border-color": {
+                "label": {
+                    "en-GB": "Border",
+                    "de-DE": "Rahmen"
+                },
+                "type": "color",
+                "value": "#9A9B9F",
+                "editable": true,
+                "block": "themeColors",
+                "order": 300
+            },
+            "theme-base-link-color": {
+                "label": {
+                    "en-GB": "Link Color",
+                    "de-DE": "Linkfarbe"
+                },
+                "type": "color",
+                "value": "#2B2E34",
+                "editable": true,
+                "block": "themeColors",
+                "order": 400
+            },
+            "theme-base-link-hover-color": {
+                "label": {
+                    "en-GB": "Link Color hover",
+                    "de-DE": "Linkfarbe aktiv"
+                },
+                "type": "color",
+                "value": "#E41D1A",
+                "editable": true,
+                "block": "themeColors",
+                "order": 500
+            },
+            "theme-base-btn-bgcolor": {
+                "label": {
+                    "en-GB": "Button Background color",
+                    "de-DE": "Schaltfläche Hintergrundfarbe"
+                },
+                "type": "color",
+                "value": "#6F6E6E",
+                "editable": true,
+                "block": "themeColors",
+                "order": 500
+            },
+
+            "sw-logo-desktop": {
+                "label": {
+                    "en-GB": "Desktop",
+                    "de-DE": "Desktop"
+                },
+                "helpText": {
+                    "en-GB": "Displayed for viewports of above 991px",
+                    "de-DE": "Wird über einem Viewport von 991px angezeigt"
+                },
+                "type": "media",
+                "value": "app/storefront/dist/assets/logo/logo.png",
+                "editable": true,
+                "block": "blockLogo",
+                "order": 100
+            },
+            "sw-logo-tablet": {
+                "label": {
+                    "en-GB": "Tablet",
+                    "de-DE": "Tablet"
+                },
+                "helpText": {
+                    "en-GB": "Displayed between a viewport of 767px to 991px",
+                    "de-DE": "Wird zwischen einem viewport von 767px bis 991px angezeigt"
+                },
+                "type": "media",
+                "value": "app/storefront/dist/assets/logo/logo.png",
+                "editable": true,
+                "block": "blockLogo",
+                "order": 200
+            },
+            "sw-logo-mobile": {
+                "label": {
+                    "en-GB": "Mobile",
+                    "de-DE": "Mobil"
+                },
+                "helpText": {
+                    "en-GB": "Displayed up to a viewport of 767px",
+                    "de-DE": "Wird bis zu einem Viewport von 767px angezeigt"
+                },
+                "type": "media",
+                "value": "app/storefront/dist/assets/logo/logo.png",
+                "editable": true,
+                "block": "blockLogo",
+                "order": 300
+            },
+            "sw-logo-share": {
+                "label": {
+                    "en-GB": "App & share icon",
+                    "de-DE": "App- & Share-Icon"
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "blockSharefav",
+                "order": 400
+            },
+            "sw-logo-favicon": {
+                "label": {
+                    "en-GB": "Favicon",
+                    "de-DE": "Favicon"
+                },
+                "type": "media",
+                "value": "app/storefront/dist/assets/logo/favicon.png",
+                "editable": true,
+                "block": "blockSharefav",
+                "order": 500
+            },
+            "owy-slide-one": {
+                "label": {
+                    "en-GB": "Image 1",
+                    "de-DE": "Bild 1"
+                },
+                "helpText": {
+                    "en-GB": "Make sure that the image has a minimum width of 1400px.",
+                    "de-DE": "Stellen Sie sicher, dass das Bild eine Mindestbreite von 1400px aufweist."
+                },
+                "type": "media",
+                "value": "public/storefront/assets/images/frontpages_sports_60_600mm.png",
+                "editable": true,
+                "block": "MainSlider",
+                "tab": "SliderTab",
+                "order": 100
+            },
+            "owy-slide-two": {
+                "label": {
+                    "en-GB": "Image 2",
+                    "de-DE": "Bild 2"
+                },
+                "helpText": {
+                    "en-GB": "Make sure that the image has a minimum width of 1400px.",
+                    "de-DE": "Stellen Sie sicher, dass das Bild eine Mindestbreite von 1400px aufweist."
+                },
+                "type": "media",
+                "value": "public/storefront/assets/images/slide-new2.jpg",
+                "editable": true,
+                "block": "MainSlider",
+                "tab": "SliderTab",
+                "order": 200
+            },
+            "owy-slide-three": {
+                "label": {
+                    "en-GB": "Image 3",
+                    "de-DE": "Bild 3"
+                },
+                "helpText": {
+                    "en-GB": "Make sure that the image has a minimum width of 1400px.",
+                    "de-DE": "Stellen Sie sicher, dass das Bild eine Mindestbreite von 1400px aufweist."
+                },
+                "type": "media",
+                "value": "public/storefront/assets/images/slide-new3.jpg",
+                "editable": true,
+                "block": "MainSlider",
+                "tab": "SliderTab",
+                "order": 300
+            },
+            "owy-slide-four": {
+                "label": {
+                    "en-GB": "Image 4",
+                    "de-DE": "Bild 4"
+                },
+                "helpText": {
+                    "en-GB": "Make sure that the image has a minimum width of 1400px.",
+                    "de-DE": "Stellen Sie sicher, dass das Bild eine Mindestbreite von 1400px aufweist."
+                },
+                "type": "media",
+                "value": "",
+                "editable": true,
+                "block": "MainSlider",
+                "tab": "SliderTab",
+                "order": 400
+            }
+
+
+        }
+    }
+}

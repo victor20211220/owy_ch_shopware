@@ -1,0 +1,148 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set broucher1image = config.broucher1image.value %}
+    {% set broucher1title1 = config.broucher1title1.value %}
+    {% set broucher1title2 = config.broucher1title2.value %}
+    {% set broucher1pdf = config.broucher1pdf.value %}
+
+    {% if broucher1image %}
+        {% set mediaCollection = searchMedia([broucher1image], context.context) %}
+        {% set broucher1Img = mediaCollection.get(broucher1image).url %}
+    {% else %}
+        {% set broucher1Img = '' %}
+    {% endif %}
+
+    {% if broucher1pdf %}
+        {% set mediaCollection = searchMedia([broucher1pdf], context.context) %}
+        {% set pdf1 = mediaCollection.get(broucher1pdf).url %}
+    {% else %}
+        {% set pdf1 = '' %}
+    {% endif %}
+
+    {% set broucher2image = config.broucher2image.value %}
+    {% set broucher2title1 = config.broucher2title1.value %}
+    {% set broucher2title2 = config.broucher2title2.value %}
+    {% set broucher2pdf = config.broucher2pdf.value %}
+
+    {% if broucher2image %}
+        {% set mediaCollection = searchMedia([broucher2image], context.context) %}
+        {% set broucher2Img = mediaCollection.get(broucher2image).url %}
+    {% else %}
+        {% set broucher2Img = '' %}
+    {% endif %}
+
+    {% if broucher2pdf %}
+        {% set mediaCollection = searchMedia([broucher2pdf], context.context) %}
+        {% set pdf2 = mediaCollection.get(broucher2pdf).url %}
+    {% else %}
+        {% set pdf2 = '' %}
+    {% endif %}
+
+    {% set broucher3image = config.broucher3image.value %}
+    {% set broucher3title1 = config.broucher3title1.value %}
+    {% set broucher3title2 = config.broucher3title2.value %}
+    {% set broucher3pdf = config.broucher3pdf.value %}
+
+    {% if broucher3image %}
+        {% set mediaCollection = searchMedia([broucher3image], context.context) %}
+        {% set broucher3Img = mediaCollection.get(broucher3image).url %}
+    {% else %}
+        {% set broucher3Img = '' %}
+    {% endif %}
+
+    {% if broucher3pdf %}
+        {% set mediaCollection = searchMedia([broucher3pdf], context.context) %}
+        {% set pdf3 = mediaCollection.get(broucher3pdf).url %}
+    {% else %}
+        {% set pdf3 = '' %}
+    {% endif %}
+
+    {% set broucher4image = config.broucher4image.value %}
+    {% set broucher4title1 = config.broucher4title1.value %}
+    {% set broucher4title2 = config.broucher4title2.value %}
+    {% set broucher4pdf = config.broucher4pdf.value %}
+
+    {% if broucher4image %}
+        {% set mediaCollection = searchMedia([broucher4image], context.context) %}
+        {% set broucher4Img = mediaCollection.get(broucher4image).url %}
+    {% else %}
+        {% set broucher4Img = '' %}
+    {% endif %}
+
+    {% if broucher4pdf %}
+        {% set mediaCollection = searchMedia([broucher4pdf], context.context) %}
+        {% set pdf4 = mediaCollection.get(broucher4pdf).url %}
+    {% else %}
+        {% set pdf4 = '' %}
+    {% endif %}
+
+    {% if broucher1image %}
+        <div class="row cms-listing-row js-listing-wrapper">
+            {% if broucher1image and broucher1pdf %}
+                <div class="cms-listing-col col-sm-6 col-md-4 col-lg-4 col-xl-3 ">
+                    <div class="card product-box box-standard">
+                        <div class="card-body">
+                            <div class="product-image-wrapper">
+                                <img src="{{ broucher1Img }}" width="" height="" alt=""/>
+                            </div>
+                            <div class="title1">{{ broucher1title1 }}</div>
+                            <div class="title1">{{ broucher1title2 }}</div>
+                            <a href="{{ pdf1 }}" download class="text-bg-success rounded mx-auto border-0 shadow rounded" style="width: 100%; height: 100%; margin-top: 30px;">
+                                {{ "OwyChTheme.widgets.broucher.btn"|trans }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if broucher2image and broucher2pdf %}
+                <div class="cms-listing-col col-sm-6 col-md-4 col-lg-4 col-xl-3 ">
+                    <div class="card product-box box-standard">
+                        <div class="card-body">
+                            <div class="product-image-wrapper">
+                                <img src="{{ broucher2Img }}" width="" height="" alt=""/>
+                            </div>
+                            <div class="title1">{{ broucher2title1 }}</div>
+                            <div class="title1">{{ broucher2title2 }}</div>
+                            <a href="{{ pdf2 }}" download class="text-bg-success rounded mx-auto border-0 shadow rounded" style="width: 100%; height: 100%; margin-top: 30px;">
+                               {{ "OwyChTheme.widgets.broucher.btn"|trans }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if broucher3image and broucher3pdf %}
+                <div class="cms-listing-col col-sm-6 col-md-4 col-lg-4 col-xl-3 ">
+                    <div class="card product-box box-standard">
+                        <div class="card-body">
+                            <div class="product-image-wrapper">
+                                <img src="{{ broucher3Img }}" width="" height="" alt=""/>
+                            </div>
+                            <div class="title1">{{ broucher3title1 }}</div>
+                            <div class="title1">{{ broucher3title2 }}</div>
+                            <a href="{{ pdf3 }}" download class="text-bg-success rounded mx-auto border-0 shadow rounded" style="width: 100%; height: 100%; margin-top: 30px;">
+                                {{ "OwyChTheme.widgets.broucher.btn"|trans }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if broucher4image and broucher4pdf %}
+                <div class="cms-listing-col col-sm-6 col-md-4 col-lg-4 col-xl-3 ">
+                    <div class="card product-box box-standard">
+                        <div class="card-body">
+                            <div class="product-image-wrapper">
+                                <img src="{{ broucher4Img }}" width="" height="" alt=""/>
+                            </div>
+                            <div class="title1">{{ broucher4title1 }}</div>
+                            <div class="title1">{{ broucher4title2 }}</div>
+                            <a href="{{ pdf4 }}" download class="text-bg-success rounded mx-auto border-0 shadow rounded" style="width: 100%; height: 100%; margin-top: 30px;">
+                                {{ "OwyChTheme.widgets.broucher.btn"|trans }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+</div>

@@ -1,0 +1,40 @@
+{% sw_extends '@Storefront/storefront/page/wishlist/wishlist-pagelet.html.twig' %}
+{% block block_wishlist_listing %}
+	<div class="col-12">
+		{% if searchResult.total > 0 %}
+			{% block block_wishlist_listing_header %}
+            <div class="wishlisth-breadcrumb ">Merkliste</div>
+            <h1 class="cart-main-header">
+                Merkliste
+            </h1>
+				<div class="wishlisth-table-header">
+					<div class="row wishlisth-header-row">
+						<div class="col-6 wishlisth-header-info">
+							Produkt
+						</div>
+
+
+						<div class="col-2 wishlisth-header-articleNo">
+							Artikel Nr.
+						</div>
+						<div class="col-2 wishlisth-header-quantity">
+							Preis in CHF
+						</div>
+
+						<div class="col-2 wishlisth-header-unit-price">
+							Summe
+						</div>
+
+						 
+					</div>
+				</div>
+			{% endblock %}
+		{% endif %}
+
+		{% block block_wishlist_listing_inner %}
+			<div class="merkliste-container">
+            {{ parent() }}
+            </div>
+		{% endblock %}
+	</div>
+{% endblock %}

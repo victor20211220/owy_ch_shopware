@@ -1,0 +1,10 @@
+{% block sw_cms_create_wizard_page_type_options_product_list %}
+    {% parent %}
+    {% block acris_cms_stores_create_wizard_page_type_options_product_list %}
+    <div class="sw-cms-create-wizard__page-type" @click="onPageTypeSelect('cms_stores')">
+        <sw-icon name="default-building-home" size="24"></sw-icon>
+        <p>{{ $tc('acris-stores.cms.pageTypeCmsInCmsStores') }}</p>
+    </div>
+    {% endblock %}
+{% endblock %}
+

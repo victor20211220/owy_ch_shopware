@@ -1,0 +1,31 @@
+{% block frosh_product_compare_properties_cells %}
+    {% for product in products %}
+        {% set matchProperty = false %}
+        {% for group in product.sortedProperties %}
+            {% if group.id == linePropertyId %}
+                {% set matchProperty = true %}
+                {% block frosh_product_compare_properties_cell %}
+                    <td class="properties-value">
+                        {% apply spaceless %}
+                            {% for option in group.options %}
+
+                                {% sw_include '@Storefront/storefront/component/compare/partial/property-item.html.twig' with {
+                                    i: loop.index0,
+                                    property: option,
+                                    displayType: group.displayType,
+                                } %}
+                            {% endfor %}
+                        {% endapply %}
+                    </td>
+                {% endblock %}
+            {% endif %}
+        {% endfor %}
+        {% if not matchProperty %}
+            <td class="properties-value">
+                {% block frosh_product_compare_properties_item_notset %}
+                    <span>{{ 'froshProductCompare.section.specification.notSpecified'|trans|sw_sanitize }}</span>
+                {% endblock %}
+            </td>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

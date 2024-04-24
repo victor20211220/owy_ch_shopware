@@ -1,0 +1,31 @@
+{% block acris_store_locator_store %}
+    <p>
+        {% if customer.customFields.acris_store_locator_assigned_store and customer.extensions.acrisStoreLocatorAssignedStore %}
+            {% set store = customer.extensions.acrisStoreLocatorAssignedStore %}
+            {% set displayOption = config('AcrisStoreLocatorCS.config').singleSelectionDisplayMyStore %}
+            {% set displayValue = '' %}
+
+            {% if displayOption == 'optionOne' %}
+                {% set displayValue = store.translated.name %}
+            {% elseif displayOption == 'optionTwo' %}
+                {% set displayValue = store.translated.name~", "~store.zipcode~", "~store.city %}
+            {% elseif displayOption == 'optionThree' %}
+                {% set displayValue = store.translated.name~", "~store.street~", "~store.zipcode~", "~store.city %}
+            {% elseif displayOption == 'optionFour' %}
+                {% if store.state %}
+                    {% set displayValue = store.translated.name~", "~store.street~", "~store.zipcode~", "~store.city~", "~store.country.name~", "~store.state.name %}
+                {% else %}
+                    {% set displayValue = store.translated.name~", "~store.street~", "~store.zipcode~", "~store.city~", "~store.country.name %}
+                {% endif %}
+            {% else %}
+                {% set displayValue = store.translated.name %}
+            {% endif %}
+
+            {% if store.cmsPageId %}{{ displayValue }}. <a id="acris-store-cms-page" href="{{ path('frontend.storeLocator.detail', {'storeId': store.id}) }}">
+                {{ "acrisStoreLocator.account.assignedStore"|trans|sw_sanitize }}
+            </a>{% else %}{{ displayValue }}{% endif %}
+        {% else %}
+            {{ "acrisStoreLocator.account.noAssignedStore"|trans|sw_sanitize }}
+        {% endif %}
+    </p>
+{% endblock %}

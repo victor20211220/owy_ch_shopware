@@ -1,0 +1,65 @@
+{% block acris_store_locator_index %}
+    <sw-page class="acris-store-locator-index sw-settings-index">
+        {% block acris_store_locator_index_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block acris_store_locator_index_smart_bar_header_title %}
+                    <h2>
+                        {% block acris_store_locator_index_smart_bar_header_title_text %}
+                            {{ $tc('acris-store-locator.index.textHeadline') }}
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block acris_store_locator_index_content %}
+            <template #content>
+                {% block acris_store_locator_index_content_card_view %}
+                    <sw-card-view>
+                        {% block acris_store_locator_index_content_card %}
+                            <sw-card class="acris-store-locator_index__card">
+                                {% block acris_store_locator_index_content_grid %}
+                                    <div class="sw-settings__content-grid">
+                                        {% block acris_store_locator_index_card_item %}
+                                            {% block acris_store_locator_index_card_item_stores %}
+                                                <sw-settings-item
+                                                    :label="$tc('acris-stores.general.mainMenuItemGeneral')"
+                                                    :to="{ name: 'acris.stores.index' }"
+                                                    class="acris-settings-item">
+                                                    <template slot="icon">
+                                                        <sw-icon name="regular-home"></sw-icon>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block acris_store_locator_index_card_item_groups %}
+                                                <sw-settings-item
+                                                    :label="$tc('acris-store-groups.general.mainMenuItemGeneral')"
+                                                    :to="{ name: 'acris.store.groups.index' }"
+                                                    class="acris-settings-item">
+                                                    <template slot="icon">
+                                                        <sw-icon name="regular-users"></sw-icon>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block acris_store_locator_index_card_item_settings %}
+                                                {% set baseUrl = app.request.getScheme() ~ '://' ~ app.request.getHost() %}
+                                                <sw-settings-item
+                                                    id="acris.store.locator"
+                                                    :label="$tc('acris-store-locator.general.mainMenuItemMoreSettings')"
+                                                    :to="{name: 'sw.extension.config', params: { namespace: 'AcrisStoreLocatorCS' }}">
+                                                    <template slot="icon">
+                                                        <sw-icon name="regular-cog"></sw-icon>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+                            </sw-card>
+                        {% endblock %}
+                    </sw-card-view>
+                {% endblock %}
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

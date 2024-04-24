@@ -1,0 +1,52 @@
+<ul>
+	{% for wishlistItem in getwishlistData %}
+		<li class="owy-wishlist-inner-items">
+			<div class="owy-wishlist-product-item">
+				<div class="owy-wishlist-product-info">
+					<div class="owy-wishlist-product-detail-box">
+						<div class="owy-wishlist-product-image">
+							<img src="{{ wishlistItem.cover.media.url }}" width="100px" height="100px" alt="scroll">
+                        </div>
+						<div class="owy-wishlist-product-description">
+							<div class="owy-wishlist-product-name">
+								{{ wishlistItem.translated.name }}
+							</div>
+							<div class="owy-wishlist-product-variant"></div>
+						</div>
+					</div>
+					<div class="owy-wishlist-product-price">
+						{% set owyPrice = wishlistItem.calculatedPrices.last %}
+                        {% if owyPrice != null %}
+                            <div class="owy-wishlist-price">  {{ owyPrice.unitPrice|currency }}</div>
+                        {% else %}
+                            {% set owyPrice = wishlistItem.price.elements|first %}
+                            <div class="owy-wishlist-price">  {{ owyPrice.gross|currency }}</div>
+                        {% endif %}  
+					</div>
+				</div>
+			</div>
+			<div class="wishlist-right">
+				<div class="wishlist-item-remove">
+					<span class="deleteWishlist btn btn-sm btn-light line-item-remove-button" data-delurl="{{ appUrl }}wishlist/product/delete/{{ wishlistItem.id }}" data-prdid="{{ wishlistItem.id }}">
+						<span class="icon icon-x icon-sm"></span>
+					</span>
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+</ul>
+<div class="owy_cart-footer-link">
+	<div class="owy_footer-fav-link">
+		{% if app.request.locale == 'en-GB' %}
+			<a class="footer-cat-nav-link" href="{{ appUrl }}en/wishlist">
+				Go to Wishlist
+
+			</a>
+		{% else %}
+			<a class="footer-cat-nav-link" href="{{ appUrl }}wishlist">
+				Zum Merkliste
+
+			</a>
+		{% endif %}
+	</div>
+</div>

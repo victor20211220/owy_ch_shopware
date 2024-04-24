@@ -1,0 +1,12 @@
+{
+    "rental-restrictions-form": {
+        "minimumDaysFieldHeadline": "Minimum Miet Tage",
+        "minimumDaysHelptext": "Die minimale Mietdauer in Tagen.",
+        "minimumDaysField": "Minimale Anzahl an Miet Tagen",
+        "maximumDaysFieldHeadline": "Maximum Miet Tage",
+        "maximumDaysHelptext": "Die maximale Mietdauer in Tagen",
+        "maximumDaysField": "Maximale Anzahl an Miet Tagen",
+        "fixedPeriodFieldHeadline": "Festgelegter Mietzeitraum",
+        "fixedPeriodHelptext": "Ist diese Option aktiv, ist die maximale Mietdauer gleich der minimalen Mietdauer und der Mietzeitraum wird im Frontend automatisch belegt, sobald ein Datum gewählt wird."
+    }
+}

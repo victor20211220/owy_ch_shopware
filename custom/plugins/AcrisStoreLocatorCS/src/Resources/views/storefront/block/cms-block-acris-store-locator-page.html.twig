@@ -1,0 +1,24 @@
+{% block block_acris_store_locator_page %}
+    {% block block_acris_store_locator_page_column %}
+        <div class="col-12" data-cms-element-id="{{ element.id }}">
+            <div class="cms-element-acris-store-locator-page">
+                <div class="d-lg-flex">
+                    {% block block_acris_store_locator_page_column_slider %}
+                        <div class="m-0 w-100">
+                            {% block block_acris_store_locator_page_column_slider_row %}
+                                <div class="row boxgrid-slider-wrapper half-gutters swiper-wrapper acris-store-locator-page-grid">
+                                    {% block block_acris_store_locator_page_column_inner %}
+                                        {% block block_acris_store_locator_page_column_inner_column1 %}
+                                            {% set element = block.slots.getSlot('column1') %}
+                                            {% sw_include "@Storefront/storefront/element/cms-element-" ~ element.type ~ ".html.twig" ignore missing %}
+                                        {% endblock %}
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

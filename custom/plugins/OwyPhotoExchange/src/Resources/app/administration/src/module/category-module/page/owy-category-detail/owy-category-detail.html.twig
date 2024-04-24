@@ -1,0 +1,32 @@
+{% block owy_category_detail %}
+	<sw-page class="faq-module-detail">
+		<template slot="smart-bar-actions">
+			<sw-button :routerLink="{ name: 'category.module.list' }">
+				{{ $t('owy-category-module.detail.data.cancel') }}
+			</sw-button>
+			<sw-button-process :isLoading="isLoading" :processSuccess="processSuccess" variant="primary"
+							   @process-finish="saveFinish" @click="onClickSave">
+				{{ $t('owy-category-module.detail.data.save') }}
+			</sw-button-process>
+		</template>
+
+		<template slot="content">
+			<sw-card-view>
+				<sw-card v-if="Category" :isLoading="isLoading" positionIdentifier="owy-category-detail">
+					<sw-field :label="$t('owy-category-module.detail.data.name')" required
+							  v-model="Category.name"
+							  :placeholder="$t('owy-category-module.detail.data.namePlaceholder')">
+
+					</sw-field>
+					<sw-switch-field v-model="Category.isActive"
+									 :label="$t('owy-category-module.detail.data.status')"></sw-switch-field>
+				
+
+
+				</sw-card>
+
+			</sw-card-view>
+		</template>
+
+	</sw-page>
+{% endblock %}

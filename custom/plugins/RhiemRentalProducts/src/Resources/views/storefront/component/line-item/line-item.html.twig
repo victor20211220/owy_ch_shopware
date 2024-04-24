@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/component/line-item/line-item.html.twig' %}
+
+{% block component_line_item_type_include %}
+	{% set RENTAL_PRODUCT_LINE_ITEM_TYPE = "rentalProduct" %}
+	{% set RENTAL_BAIL_LINE_ITEM_TYPE = "rentalProductBail" %}
+
+	{% if lineItem.type == RENTAL_PRODUCT_LINE_ITEM_TYPE %}
+		{% sw_include '@Storefront/storefront/component/line-item/type/rental-product.html.twig' %}
+	{% elseif lineItem.type == RENTAL_BAIL_LINE_ITEM_TYPE %}
+		{% sw_include '@Storefront/storefront/component/line-item/type/rental-bail.html.twig' %}
+	{% else %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}

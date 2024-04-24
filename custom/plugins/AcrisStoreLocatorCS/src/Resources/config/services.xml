@@ -1,0 +1,279 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+<!--         Image Gallery / Slider extension -->
+        <service id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\ImageGallerySliderResolver" decorates="Shopware\Core\Content\Media\Cms\Type\ImageSliderTypeDataResolver">
+            <tag name="shopware.cms.data_resolver" />
+            <argument type="service" id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\ImageGallerySliderResolver.inner"/>
+        </service>
+
+        <!-- Make image gallery extend our resolver extension -->
+        <service id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\GalleryTypeResolver" decorates="Shopware\Core\Content\Media\Cms\Type\ImageGalleryTypeDataResolver">
+            <tag name="shopware.cms.data_resolver" />
+            <argument type="service" id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\GalleryTypeResolver.inner"/>
+        </service>
+
+        <!-- Entities -->
+        <service id="Acris\StoreLocator\Custom\StoreLocatorDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_locator"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\Aggregate\StoreLocatorTranslation\StoreLocatorTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_locator_translation"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\OrderDeliveryStoreDefinition">
+            <tag name="shopware.entity.definition" entity="acris_order_delivery_store"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\StoreGroupDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_group"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\Aggregate\StoreGroupTranslation\StoreGroupTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_group_translation"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\StoreMediaDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_media"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\Aggregate\StoreLocatorSalesChannelDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_sales_channel" />
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\Aggregate\StoreLocatorRuleDefinition">
+            <tag name="shopware.entity.definition" entity="acris_store_rule" />
+        </service>
+
+        <!-- Hydrator -->
+        <service id="Acris\StoreLocator\Custom\StoreMediaHydrator" public="true">
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <!-- Controllers -->
+        <service id="Acris\StoreLocator\Storefront\Controller\StoreLocatorController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
+            <argument type="service" id="Acris\StoreLocator\Components\Locator"/>
+            <argument type="service" id="Acris\StoreLocator\Storefront\Page\AcrisStoreLocator\StoreLocatorPageLoader"/>
+            <argument type="service" id="Acris\StoreLocator\Storefront\Page\AcrisStoreGroup\StoreGroupPageLoader"/>
+            <argument type="service" id="Acris\StoreLocator\Storefront\Page\AcrisStoreLocatorDetail\StoreLocatorDetailPageLoader"/>
+            <argument type="service" id="Acris\StoreLocator\Storefront\Page\AcrisStoreLocator\StoreLocatorSelectionPageLoader"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorService"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Core\Checkout\Cart\SalesChannel\CartOrderRoute" decorates="Shopware\Core\Checkout\Cart\SalesChannel\CartOrderRoute" public="true">
+            <argument type="service" id="Acris\StoreLocator\Core\Checkout\Cart\SalesChannel\CartOrderRoute.inner"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Administration\Controller\AcrisGetCoords" public="true">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Acris\StoreLocator\Components\Geocoder"/>
+            <argument type="service" id="acris_store_locator.repository" />
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <!-- Own Locator Service -->
+        <service id="Acris\StoreLocator\Components\Locator">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Components\Geocoder">
+        </service>
+
+        <service id="Acris\StoreLocator\Storefront\Page\AcrisStoreLocator\StoreLocatorPageLoader" public="true">
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="media.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <argument type="service" id="Shopware\Core\System\Snippet\SnippetService"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorService"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Storefront\Page\AcrisStoreLocator\StoreLocatorSelectionPageLoader" public="true">
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorService"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Storefront\Page\AcrisStoreGroup\StoreGroupPageLoader" public="true">
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="media.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <argument type="service" id="Shopware\Core\System\Snippet\SnippetService"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorService"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Components\StoreLocatorGateway">
+            <argument type="service" id="acris_store_locator.repository"/>
+            <argument type="service" id="acris_order_delivery_store.repository"/>
+            <argument type="service" id="acris_store_group.repository"/>
+            <argument type="service" id="media.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Components\StoreLocatorService" public="true">
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorGateway"/>
+            <argument id="Shopware\Core\Content\Cms\SalesChannel\SalesChannelCmsPageLoader" type="service"/>
+            <argument id="Acris\StoreLocator\Custom\StoreLocatorDefinition" type="service"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="cms_page.repository"/>
+            <argument type="service" id="customer.repository"/>
+        </service>
+
+        <!-- Subscriber -->
+        <service id="Acris\StoreLocator\Subscriber\ConfirmPageSubscriber">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <!-- Storefront snippets -->
+        <service id="Acris\StoreLocator\Resources\snippet\de_DE\SnippetFile_de_DE">
+            <tag name="shopware.snippet.file"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Resources\snippet\en_GB\SnippetFile_en_GB">
+            <tag name="shopware.snippet.file"/>
+        </service>
+
+        <!-- Extensions -->
+        <service id="Acris\StoreLocator\Custom\OrderDeliveryExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\MediaExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\CmsPageExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\CountryStateExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\SalesChannelExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Custom\RuleExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- PageLoader -->
+        <service id="Acris\StoreLocator\Storefront\Page\AcrisStoreLocatorDetail\StoreLocatorDetailPageLoader" public="true">
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorService"/>
+        </service>
+
+        <!-- Indexer -->
+        <service id="Acris\StoreLocator\Core\Content\StoreLocator\DataAbstractionLayer\StoreIndexer">
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory"/>
+            <argument type="service" id="acris_store_locator.repository"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Indexing\InheritanceUpdater"/>
+            <argument type="service" id="event_dispatcher"/>
+            <tag name="shopware.entity_indexer" priority="100"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Core\Content\StoreLocator\DataAbstractionLayer\StoreGroupIndexer">
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory"/>
+            <argument type="service" id="acris_store_group.repository"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Indexing\InheritanceUpdater"/>
+            <argument type="service" id="event_dispatcher"/>
+            <tag name="shopware.entity_indexer" priority="100"/>
+        </service>
+
+        <!-- SEO url route -->
+        <service id="Acris\StoreLocator\Storefront\Framework\Seo\SeoUrlRoute\StoreSeoUrlUpdateListener">
+            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlUpdater"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Indexing\EntityIndexerRegistry"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Storefront\Framework\Seo\SeoUrlRoute\StoreGroupSeoUrlUpdateListener">
+            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlUpdater"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Indexing\EntityIndexerRegistry"/>
+        </service>
+
+        <!-- SEO route -->
+        <service id="Acris\StoreLocator\Storefront\Framework\Seo\SeoUrlRoute\StorePageSeoUrlRoute">
+            <argument type="service" id="Acris\StoreLocator\Custom\StoreLocatorDefinition"/>
+            <tag name="shopware.seo_url.route"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Storefront\Framework\Seo\SeoUrlRoute\StoreGroupPageSeoUrlRoute">
+            <argument type="service" id="Acris\StoreLocator\Custom\StoreGroupDefinition"/>
+            <tag name="shopware.seo_url.route"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Core\Framework\DataAbstractionLayer\Write\WriteCommandExtractor"
+                 decorates="Shopware\Core\Framework\DataAbstractionLayer\Write\WriteCommandExtractor">
+
+            <argument type="service" id="Acris\StoreLocator\Core\Framework\DataAbstractionLayer\Write\WriteCommandExtractor.inner"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry"/>
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <!-- Resolvers -->
+        <service id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\StoreLocatorPageResolver">
+            <argument type="service" id="media.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorGateway"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\StoreLocatorDetailResolver">
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorGateway"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\StoreLocatorMapResolver">
+            <argument type="service" id="media.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="Acris\StoreLocator\Components\StoreLocatorGateway"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Acris\StoreLocator\Core\Content\Cms\DataResolver\Element\StoreLocatorGroupResolver">
+            <argument type="service" id="service_container"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <!-- Cookie provider -->
+        <service id="Acris\StoreLocator\Framework\Cookie\StoreLocatorCookieProvider" decorates="Shopware\Storefront\Framework\Cookie\CookieProviderInterface">
+            <argument type="service" id="Acris\StoreLocator\Framework\Cookie\StoreLocatorCookieProvider.inner" />
+        </service>
+
+        <!-- Overwritten resolved path -->
+        <service id="Acris\StoreLocator\Core\Content\Seo\CachedSeoResolver" public="true" decorates="Shopware\Core\Content\Seo\CachedSeoResolver" decoration-priority="-1000">
+            <argument type="service" id="Acris\StoreLocator\Core\Content\Seo\CachedSeoResolver.inner"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <!-- Rules -->
+        <service id="Acris\StoreLocator\Core\Checkout\StoreLocator\Rule\LocationRule">
+            <tag name="shopware.rule.definition"/>
+        </service>
+    </services>
+</container>

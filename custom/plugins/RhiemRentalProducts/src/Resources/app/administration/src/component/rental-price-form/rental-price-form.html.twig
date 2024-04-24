@@ -1,0 +1,99 @@
+{% block sw_product_detail_rental_base_content_price_form %}
+    <div class="rental-price-form">
+        {% block sw_product_detail_rental_base_content_price_form_price_grid %}
+            <sw-container columns="1fr 2fr" gap="0px 30px" class="rental-price-form-price_container" v-if="!isLoadingRental">
+                {% block sw_product_detail_rental_base_content_price_form_tax_field %}
+                    <sw-inherit-wrapper v-model="rentalProduct.taxId"
+                                        :inheritedValue="parentProduct.extensions ?
+                                                            parentProduct.extensions.rentalProduct ?
+                                                                parentProduct.extensions.rentalProduct.taxId
+                                                                : undefined
+                                                            : undefined"
+                                        :customRemoveInheritanceFunction="customRemoveTaxInheritance"
+                                        :customRestoreInheritanceFunction="customRestoreInheritance"
+                                        label=" "
+                                        class="sw-product-price-form__tax-rate one-line-inheritance-linker"
+                                        :class="{ 'is-variant': isChild }"
+                                        >
+                        <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                            <sw-field :disabled="isInherited"
+                                      type="select"
+                                      name="sw-field--product-taxId"
+                                      :placeholder="$tc('sw-product.priceForm.placeholderTaxRate')"
+                                      :label="$tc('sw-product.priceForm.labelTaxRate')"
+                                      validation="required"
+                                      :value="currentValue"
+                                      :error="productTaxIdError"
+                                      @change="updateCurrentValue"
+                                      required
+                            >
+                                <option v-for="tax in taxes"
+                                        :key="tax.id"
+                                        :value="tax.id"
+                                        :selected="currentValue === tax.id">
+                                    {{ tax.name }}
+                                </option>
+                            </sw-field>
+                        </template>
+                    </sw-inherit-wrapper>
+                {% endblock %}
+
+                {% block sw_product_detail_rental_base_content_price_form_price_field %}
+                    <sw-inherit-wrapper v-if="!isLoading"
+                                        v-model="rentalProduct.price"
+                                        :hasParent="isChild"
+                                        :inheritedValue="parentRentalProduct.price ?
+                                                                parentRentalProduct.price
+                                                            : rentalProduct.price"
+                                        class="price-wrapper"
+                                        ref="rentalPriceInheritanceWrapper"
+                                        label=" "
+                                        :customRemoveInheritanceFunction="customRemovePriceInheritance"
+                                        :customRestoreInheritanceFunction="customRestorePriceInheritance"
+                    >
+                        <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                            <sw-price-field :disabled="isInherited"
+                                            :price="currentValue"
+                                            required
+                                            :vertical="true"
+                                            :taxRate="priceTaxRate"
+                                            :currency="defaultCurrency"
+                            >
+                            </sw-price-field>
+                        </template>
+                    </sw-inherit-wrapper>
+                {% endblock %}
+            </sw-container>
+
+            <sw-container columns="1fr" justify="end" class="sw-product-price-form__links">
+                {% block sw_product_price_form_advanced_prices_link %}
+                    <router-link  :to="{ name: 'sw.product.detail.rentalPrices', params: { id: $route.params.id } }"
+                                  v-if="!product._isNew"
+                                  class="sw-card__quick-link">
+                        {{ $tc('sw-product.detail.tabAdvancedPrices') }} <sw-icon name="regular-long-arrow-right" small></sw-icon>
+                    </router-link>
+                {% endblock %}
+
+                {% block sw_product_detail_rental_base_content_deposit_form_price_currency_dependend %}
+                    <div class="rental-deposit-form-deposit-price_dependend_currency">
+                        <div class="rental-deposit-form-deposit-price_depended_currency_wrapper">
+                            <a @click.prevent="displayMaintainCurrencies = true" v-if="rentalProduct.price" class="sw-card__quick-link" style="display: block;text-align: right">
+                                {{ $tc('rental-deposit-form.depositCurrencyDependantLink') }} <sw-icon name="regular-long-arrow-right" small></sw-icon>
+                            </a>
+                        </div>
+                        <sw-maintain-currencies-modal v-if="displayMaintainCurrencies"
+                                                      :currencies="currencies"
+                                                      :prices="rentalProduct.price"
+                                                      :defaultPrice="defaultPrice"
+                                                      :taxRate="productTaxRate"
+                                                      @modal-close="onMaintainCurrenciesClose">
+                        </sw-maintain-currencies-modal>
+                    </div>
+                {% endblock %}
+
+
+            </sw-container>
+
+        {% endblock %}
+    </div>
+{% endblock %}

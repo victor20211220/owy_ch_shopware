@@ -1,0 +1,34 @@
+{
+    "rhiem-rental-products": {
+        "config": {
+            "title": "Mieteinstellungen",
+            "description": "Globale Einstellungen des Mietplugins",
+            "general": {
+                "title": "Allgemeine Einstellungen",
+                "showBadge": "Badge anzeigen",
+                "showBadgeTooltip": "Mietprodukte im Listing werden mit einem Badge versehen, ähnlich dem „Neu“-Badge",
+                "showRentalTerms": "Zeige Checkbox „Mietbedingungen bestätigen“",
+                "showRentalTermsTooltip": "Dem Kunden wird im Bestellabschluss ein Kästchen zur Bestätigung der hinterlegten Mietbedingungen angezeigt",
+                "rentalTerms": "Mietbedingungen",
+                "uniformRentalPeriods": "Einheitliche Mietzeiträume pro Bestellung",
+                "uniformRentalPeriodsTooltip": "Ist diese Option aktiv, können Kunden pro Bestellung nur einen Mietzeitraum auswählen. Wird für eine Position der Mietzeitraum verändert, werden alle anderen Mietpositionen ebenfalls aktualisiert."
+            },
+            "blockedDays": {
+                "title": "Daten sperren",
+                "removeBlockedDays": "Gesperrte Tage vom Mietzeitraum abziehen",
+                "removeBlockedDaysTooltip": "Ist diese Option aktiv, werden geblockte Tage vom gesamten Mietzeitraum abgezogen",
+                "blockedWeekdays": "Wochentage sperren",
+                "blockableDays": {
+                    "monday": "Montag",
+                    "tuesday": "Dienstag",
+                    "wednesday": "Mittwoch",
+                    "thursday": "Donnerstag",
+                    "friday": "Freitag",
+                    "saturday": "Samstag",
+                    "sunday": "Sonntag"
+                },
+                "blockedDates": "Daten sperren"
+            }
+        }
+    }
+}

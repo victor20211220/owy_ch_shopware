@@ -1,0 +1,12 @@
+{% macro input(name, value, label = '', type = 'text', extra = '', pattern = '', size = 20, inline = true, classLabel = '', classInput = '') %}
+    <div class="form-group {% if inline %}form-inline{% endif %}">
+        <label for="{{ name }}" class="{{ classLabel }}">
+            {% if label != '' %}
+                {{ label }}
+            {% else %}
+                {{ name }}
+            {% endif %}
+        </label>
+        <input type="{{ type }}" name="{{ name }}" id="{{ name }}" value="{{ value|e }}" size="{{ size }}" {{ extra }} {% if pattern %}pattern="{{ pattern }}" {% endif %}class="form-control {{ classInput }}"/>
+    </div>
+{% endmacro %}

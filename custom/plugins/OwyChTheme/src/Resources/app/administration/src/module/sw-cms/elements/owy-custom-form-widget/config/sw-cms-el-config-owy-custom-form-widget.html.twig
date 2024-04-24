@@ -1,0 +1,82 @@
+{% block sw_cms_el_config_owy_custom_form_widget %}
+    <template>
+        <sw-container class="sw-cms-el-config-owy-custom-form-widget">
+            <sw-card :hero="false" :isloading="false" :large="false">
+
+                <sw-text-field
+                        v-model="element.config.heading.value"
+                        label="Heading"
+
+                />
+
+                <sw-textarea-field
+                        v-model="element.config.desc1.value"
+                        type="textarea"
+                        label="Description 1"
+                >
+                </sw-textarea-field>
+
+                <sw-textarea-field
+                        v-model="element.config.desc2.value"
+                        type="textarea"
+                        label="Description 2"
+                >
+                </sw-textarea-field>
+
+                <sw-text-field
+                        v-model="element.config.ShortHeading.value"
+                        label="Short heading"
+
+                />
+                <sw-select-field v-model="element.config.selectFormType.value" label="Select">
+                    <option value="Anfrage">
+                        Anfrage
+                    </option>
+                    <option value="Mitteilung">
+                        Mitteilung
+                    </option>
+
+                </sw-select-field>
+
+                <sw-field
+                        v-model="element.config.firma.value"
+                        type="switch"
+                        label="Firma"
+                />
+                <sw-field
+                        v-model="element.config.name.value"
+                        type="switch"
+                        label="Name"
+                />
+                <sw-field
+                        v-model="element.config.vorname.value"
+                        type="switch"
+                        label="Vorname"
+                />
+                <sw-field
+                        v-model="element.config.strasse.value"
+                        type="switch"
+                        label="Strasse"
+                />
+                <sw-field
+                        v-model="element.config.plz.value"
+                        type="switch"
+                        label="PLZ"
+                />
+                <sw-field
+                        v-model="element.config.telephone.value"
+                        type="switch"
+                        label="Telephone"
+                />
+                <sw-field
+                        v-model="element.config.email.value"
+                        type="switch"
+                        label="Email"
+                />
+
+
+            </sw-card>
+        </sw-container>
+    </template>
+
+{% endblock %}

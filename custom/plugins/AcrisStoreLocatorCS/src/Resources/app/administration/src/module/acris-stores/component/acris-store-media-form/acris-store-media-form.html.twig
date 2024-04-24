@@ -1,0 +1,75 @@
+{% block sw_product_media_form %}
+    <div
+        class="acris-store-media-form"
+    >
+        {% block acris_store_media_form_upload %}
+            <sw-upload-listener
+                v-if="!isLoading"
+                :upload-tag="store.id"
+                auto-upload
+                @media-upload-finish="successfulUpload"
+                @media-upload-fail="onUploadFailed"
+            />
+
+            <sw-media-upload-v2
+                v-if="!isLoading"
+                variant="regular"
+                :upload-tag="store.id"
+                :scroll-target="$parent.$el"
+                :default-folder="store.getEntityName()"
+                @media-upload-sidebar-open="onOpenMedia"
+            />
+        {% endblock %}
+
+        {% block acris_store_media_form_grid %}
+            <div class="acris-store-media-form__previews">
+                <div class="acris-store-media-form__cover-container acris-store-media-form__column">
+                    {% block acris_store_media_form_cover_preview %}
+                        <div
+                            v-if="store.cover || cover"
+                            class="acris-store-media-form__preview-cover"
+                        >
+                            <div class="preview-cover">
+                                {% block acris_store_media_form_cover_image %}
+                                    <sw-media-preview-v2
+                                        class="acris-store-media-form__cover-image"
+                                        :source="cover ? cover.mediaId : store.cover.mediaId"
+                                    />
+                                {% endblock %}
+                                <span>{{ $tc('acris-stores.mediaForm.coverSubline') }}</span>
+                            </div>
+                        </div>
+                        <div
+                            v-else
+                            class="acris-store-media-form__cover-image is--placeholder"
+                        >
+                            {{ $tc('acris-stores.mediaForm.coverSubline') }}
+                        </div>
+                    {% endblock %}
+                </div>
+
+                <div
+                    v-if="!isLoading"
+                    class="acris-store-media-form__grid acris-store-media-form__column"
+                    :style="gridAutoRows"
+                >
+                    {%  block acris_store_media_form_grid_items %}
+                        <acris-store-image
+                            v-for="mediaItem in mediaItems"
+                            :key="mediaItem.id"
+                            v-draggable="{ dragGroup: 'store-media', data: mediaItem, onDragEnter: onMediaItemDragSort }"
+                            v-droppable="{ dragGroup: 'store-media', data: mediaItem }"
+                            :is-cover="isCover(mediaItem)"
+                            :is-placeholder="mediaItem.isPlaceholder"
+                            :media-id="mediaItem.mediaId"
+                            :show-cover-label="showCoverLabel"
+                            @acris-store-image-delete="removeFile(mediaItem)"
+                            @acris-store-image-cover="markMediaAsCover(mediaItem)"
+                        />
+                    {% endblock %}
+                </div>
+                <sw-loader v-else />
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

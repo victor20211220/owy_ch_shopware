@@ -1,0 +1,171 @@
+{% block acris_stores_list %}
+
+<sw-page class="acris-stores-list">
+
+
+    {% block acris_stores_list_search_bar %}
+        <template slot="search-bar">
+            <sw-search-bar initialSearchType="Stores"
+                           :placeholder="$tc('acris-stores.general.placeholderSearchBar')"
+                           :initialSearch="term"
+                           @search="onSearch" id="store">
+            </sw-search-bar>
+        </template>
+    {% endblock %}
+
+
+    {% block acris_stores_list_smart_bar_header %}
+        <template slot="smart-bar-header">
+            {% block acris_stores_list_smart_bar_header_title %}
+                <h2>
+                    {% block acris_stores_list_smart_bar_header_title_text %}
+                        {{ $tc('acris-stores.list.textStores') }}
+                        {% endblock %}
+
+                        {% block acris_stores_list_smart_bar_header_amount %}
+                        <span v-if="!isLoading" class="sw-page__smart-bar-amount">
+                        ({{ total }})
+                        </span>
+                    {% endblock %}
+                </h2>
+            {% endblock %}
+        </template>
+    {% endblock %}
+
+    {% block acris_stores_list_smart_bar_language %}
+        <template #language-switch>
+            <sw-language-switch @on-change="onChangeLanguage"></sw-language-switch>
+        </template>
+    {% endblock %}
+
+    {% block acris_stores_list_smart_bar_actions %}
+    <template slot="smart-bar-actions">
+    {% block acris_stores_list_smart_bar_actions_add %}
+    <sw-button variant="primary" :routerLink="{ name: 'acris.stores.create' }">
+    {{ $tc('acris-stores.list.buttonAddStores') }}
+    </sw-button>
+    {% endblock %}
+    {% block acris_stores_list_smart_bar_actions_calculate %}
+    <sw-button variant="secondary" v-on:click="onClickGetCoords()">
+        {{ $tc('acris-stores.list.buttonCalcLatLong') }}
+    </sw-button>
+    {% endblock %}
+    </template>
+    {% endblock %}
+
+
+    {% block acris_stores_list_cardview %}
+    <template slot="content">
+        <div class="acris-stores-list__content">
+            {% block acris_stores_list_content %}
+            <sw-entity-listing class="acris-stores-list-grid"
+                               v-if="items"
+                               :items="items"
+                               :repository="storeRepository"
+                               :showSeleciton="true"
+                               :isLoading="isLoading"
+                               :columns="storeColumns">
+
+                {% block acris_stores_list_grid_columns_active %}
+                <template #column-active="{ item, isInlineEdit }">
+                    {% block acris_stores_list_grid_columns_active_inline_edit %}
+                    <template v-if="isInlineEdit">
+                        <sw-checkbox-field v-model="item.active"></sw-checkbox-field>
+                    </template>
+                    {% endblock %}
+
+                    {% block acris_stores_list_grid_columns_active_content %}
+                    <template v-else>
+                        <sw-icon v-if="item.active" name="regular-checkmark-xs" small
+                                 class="is-active"></sw-icon>
+                        <sw-icon v-else name="regular-times-s" small class="is-inactive"></sw-icon>
+                    </template>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                {% block acris_stores_list_grid_columns_priority %}
+                <template #column-priority="{ item, isInlineEdit }">
+                    {% block acris_stores_list_grid_columns_priority_inline_edit %}
+                    <template v-if="isInlineEdit">
+                        <sw-number-field class="acris-stores-list-priority-inline" numberType="float" :min="0" v-model="item.priority"></sw-number-field>
+                    </template>
+                    {% endblock %}
+
+                    {% block acris_stores_list_grid_columns_priority_content %}
+                    <template v-else>
+                        <a class="acris-stores-list-priority-inline-link" @click="onClickPriority(item.id)" v-if="item.priority > 0">
+                            {{ item.priority }}
+                        </a>
+                        <a class="acris-stores-list-priority-inline-link" @click="onClickPriority(item.id)" v-else>
+                            0
+                        </a>
+                    </template>
+                    {% endblock %}
+                </template>
+                {% endblock %}
+
+                <template #pagination>
+
+                    {% block acris_stores_list_progressbar_modal %}
+                    <sw-modal v-if="showProgressModal"
+                              @modal-close="onCloseProgressModal"
+                              :title="$tc('acris-stores.list.labelProgressModal')"
+                              variant="small">
+                        {% block acris_stores_list_progressbar_text %}
+                        <div class="acris-stores-progress__progress-bar-stats">
+                            <p>{{ offsetProgress }} / {{ items.total }} Stores</p>
+                        </div>
+                        {% endblock %}
+                        {% block acris_stores_list_progressbar_bar %}
+                            <div class="acris-stores-progress__progress-bar">
+                                <sw-progress-bar :value="percentageProgress"
+                                                 class="acris-stores-progress__progress-bar-bar"
+                                                 :class="progressBarClasses">
+                                </sw-progress-bar>
+                            </div>
+
+                        {% endblock %}
+                    </sw-modal>
+                    {% endblock %}
+
+                    {% block acris_stores_list_grid_pagination %}
+                        <sw-pagination :page="page"
+                                       :limit="limit"
+                                       :total="total"
+                                       :total-visible="7"
+                                       @page-change="onPageChange">
+                        </sw-pagination>
+                    {% endblock %}
+                </template>
+
+
+            </sw-entity-listing>
+            {% endblock %}
+
+            {% block acris_stores_list_empty_state %}
+                <sw-empty-state v-if="!isLoading && !items"
+                                :title="$tc('acris-stores.list.contentEmpty')"></sw-empty-state>
+            {% endblock %}
+
+        </div>
+    </template>
+    {% endblock %}
+
+    {% block acris_stores_list_sidebar %}
+        <template #sidebar>
+            <sw-sidebar class="acris-stores-list__sidebar">
+                {% block acris_stores_list_sidebar_item %}
+                    <sw-sidebar-item
+                        icon="regular-undo"
+                        :title="$tc('acris-stores.list.titleSidebarItemRefresh')"
+                        @click="onRefresh">
+                    </sw-sidebar-item>
+                {% endblock %}
+            </sw-sidebar>
+        </template>
+    {% endblock %}
+
+
+</sw-page>
+{% endblock %}

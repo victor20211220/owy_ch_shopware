@@ -1,0 +1,1 @@
+import template from './sw-cms-block-owy-news-widget.html.twig';const { Component } = Shopware;Component.register('sw-cms-block-owy-news-widget', {    template});

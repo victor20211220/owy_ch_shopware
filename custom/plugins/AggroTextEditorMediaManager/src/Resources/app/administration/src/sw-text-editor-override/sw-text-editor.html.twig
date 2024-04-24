@@ -1,0 +1,9 @@
+{% block sw_text_editor_box %}
+    {% parent %}
+    <sw-media-modal-v2
+        v-if="mediaModalIsOpen"
+        :allow-multi-select="false"
+        @modal-close="mediaModalIsOpen = false"
+        @media-modal-selection-change="onModalClosed"
+    />
+{% endblock %}

@@ -1,0 +1,150 @@
+.category-navigation-link {
+	padding: 14px 5px 1px 1px;
+	&.is-active {
+		color: $sw-color-brand-secondary;
+		font-weight: bold;
+	}
+}
+.category-navigation-entry {
+	a {
+		&.category-navigation-link {
+			position: relative;
+			font-size: 16px;
+			font-weight: 400;
+			&.in-path {
+				font-weight: bold;
+				svg {
+					transform: rotate(90deg);
+				}
+			}
+			svg {
+				height: 10px;
+				width: 6px;
+				position: absolute;
+				right: 2px;
+				top: 17px;
+			}
+			&.is-active {
+				svg {
+					transform: rotate(90deg);
+				}
+			}
+		}
+	}
+}
+.filter-panel-heading {
+	padding: 0px 0 30px 0;
+}
+
+.category-navigation-entry {
+	a {
+		&.category-navigation-link {
+			&.is-active {
+				color: $sw-color-brand-secondary;
+				font-weight: bold;
+				//border-bottom: 1px solid #9A9B9F;
+			}
+		}
+	}
+}
+.category-navigation {
+	&.level-0 {
+		& > .category-navigation-entry {
+			border-bottom: 1px solid $sw-border-color;
+		}
+		.category-navigation-entry {
+			a {
+				&.category-navigation-link {
+					&.in-path {
+						border-bottom: 1px solid $sw-border-color;
+					}
+				}
+			}
+		}
+	}
+	&.level-1 {
+		& > .category-navigation-entry {
+			border-bottom: 1px solid $sw-border-color;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		.category-navigation-entry {
+			a {
+				&.category-navigation-link {
+					&.in-path {
+						border-bottom: 1px solid $sw-border-color;
+					}
+					&.is-active {
+						//border-bottom: 1px solid $sw-border-color;
+					}
+				}
+			}
+		}
+	}
+	&.level-2 {
+		& > .category-navigation-entry {
+			border-bottom: 1px solid $sw-border-color;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		.category-navigation-entry {
+			a {
+				&.category-navigation-link {
+					&.is-active {
+						svg {
+							transform: rotate(0deg);
+						}
+					}
+				}
+			}
+		}
+	}
+	&.level-3 {
+		& > .category-navigation-entry {
+			border-bottom: 1px solid $sw-border-color;
+			a {
+				&.category-navigation-link {
+					svg {
+						display: none;
+					}
+				}
+			}
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+}
+
+.offcanvas {
+	.offcanvas-close {
+		background: $sw-color-brand-primary;
+		color: $white;
+		.icon {
+			background: $sw-color-brand-primary;
+			color: $white;
+		}
+	}
+}
+
+@media (min-width: 1200px){
+    .cms-section {
+        .cms-section-sidebar {
+            .cms-section-sidebar-sidebar-content{
+                &.col-xl-3 { 
+                    width: 20%;
+                    padding-left: 0;
+                    margin-bottom: 100px;
+                }
+                
+            }
+            .cms-section-sidebar-main-content.col-lg-8.col-xl-9{
+                width: 80%;
+                padding-right: 0;
+            }
+            
+        }        
+    }    
+}

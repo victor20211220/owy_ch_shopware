@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% block page_checkout_confirm_address %}
+    {% if page.extensions.acrisStoreLocatorConfig and page.extensions.acrisStoreLocatorStores and config('AcrisStoreLocatorCS.config').checkoutSelectionPosition == 'belowTerms' %}
+        {% block page_checkout_confirm_store_selection_container %}
+            <div class="confirm-store-selection-container">
+                <div class="row">
+                    {% block page_checkout_confirm_store_selection %}
+                        <div class="col-12 confirm-store-selection">
+                            {% sw_include '@Storefront/storefront/page/checkout/confirm/confirm-store-selection.html.twig' %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
+
+
+{% block page_checkout_aside_actions %}
+    {% if config('AcrisStoreLocatorCS.config').checkoutSelectionPosition != 'belowTerms' %}
+        <div data-acris-form-validation-helper="true"
+             data-acris-form-validation-helper-options='{"inputId": "{{ constant('Acris\\StoreLocator\\Subscriber\\ConfirmPageSubscriber::STORE_LOCATOR_STORE_SELECTION_KEY')}}"}'
+        >
+            {{ parent() }}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% block frosh_product_compare_add_to_compare_box %}
+    {% set showIconOnly = config('FroshProductCompare.config.showIconOnly') %}
+    {# @var product \Shopware\Core\Content\Product\SalesChannel\SalesChannelProductEntity #}
+    <div class="compare-button d-grid">
+        {% set addToCompareOptions = {
+            productId: product.id,
+            showIconOnly: showIconOnly,
+            defaultText: "froshProductCompare.general.addToCompare"|trans|sw_sanitize,
+            addedText: "froshProductCompare.general.removeFromCompare"|trans|sw_sanitize
+        } %}
+        {% block frosh_product_compare_add_to_compare_button %}
+            {% if showIconOnly %}
+               <button data-add-to-compare-button="true"
+                        data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+                        class="btn-custom compare btn-compare"
+                        title="{{ "froshProductCompare.general.addToCompare"|trans|striptags }}">
+                       {# <img src="{{ asset('storefront/assets/images/icons/vergleichen.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+                       <label>   {{ "OwyChTheme.widgets.compare.label"|trans }} </label> #}
+                       
+                        <span class="icon icon-bag-product icon-sm icon-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21.005" height="17.284" viewBox="0 0 21.005 17.284">
+                                <g id="Group_446" data-name="Group 446" transform="translate(0.5 0.5)">
+                                    <rect id="Rectangle_71" data-name="Rectangle 71" width="8.002" height="6.602" rx="2.835" transform="translate(0 0)" fill="rgba(239,239,240,0)" stroke="#2b2e34" stroke-miterlimit="10" stroke-width="1"/>
+                                    <rect id="Rectangle_72" data-name="Rectangle 72" width="8.002" height="6.602" rx="2.835" transform="translate(12.003 0)" fill="rgba(239,239,240,0)" stroke="#2b2e34" stroke-miterlimit="10" stroke-width="1"/>
+                                    <line id="Line_181" data-name="Line 181" x2="8.002" transform="translate(0 10.362)" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                                    <line id="Line_182" data-name="Line 182" x2="8.002" transform="translate(0 13.323)" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                                    <line id="Line_183" data-name="Line 183" x2="8.002" transform="translate(0 16.284)" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                                    <line id="Line_184" data-name="Line 184" x2="8.002" transform="translate(12.003 10.362)" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                                    <line id="Line_185" data-name="Line 185" x2="8.002" transform="translate(12.003 13.323)" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                                    <line id="Line_186" data-name="Line 186" x2="8.002" transform="translate(12.003 16.284)" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+                                </g>
+                                </svg>
+
+                        </span>
+                    {# {% sw_icon 'bag-product' style { 'size': 'sm', 'color': 'primary' } %} #}
+                </button>
+            {% else %}
+                <button data-add-to-compare-button="true"
+                        data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+                        class="btn btn-block btn-compare"
+                        title="{{ "froshProductCompare.general.addToCompare"|trans|striptags }}">
+                    {{ "froshProductCompare.general.addToCompare"|trans|sw_sanitize }}
+                </button>
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}

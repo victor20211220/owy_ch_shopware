@@ -1,0 +1,43 @@
+{
+  "name": "ott/base",
+  "description": "Base/Foundation plugin",
+  "version": "1.3.1",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ottscho-IT, Daniel Naumann",
+      "homepage": "https://ottscho-it-service.de"
+    }
+  ],
+  "require": {
+    "shopware/core": "~6.5",
+    "ext-curl": "*"
+  },
+  "extra": {
+    "shopware-plugin-class": "Ott\\Base\\Base",
+    "plugin-icon": "src/plugin.png",
+    "copyright": "(c) by shopware AG",
+    "label": {
+      "de-DE": "Basis",
+      "en-GB": "Base"
+    },
+    "description": {
+      "de-DE": "Base/Foundation plugin",
+      "en-GB": "Base/Foundation plugin"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://store.shopware.com/ottscho-it.html",
+      "en-GB": "https://store.shopware.com/en/ottscho-it.html"
+    },
+    "supportLink": {
+      "de-DE": "https://www.ottscho-it-service.de/",
+      "en-GB": "https://www.ottscho-it-service.de/"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Ott\\Base\\": "src/"
+    }
+  }
+}

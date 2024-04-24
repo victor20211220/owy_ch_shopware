@@ -1,0 +1,23 @@
+{% block cbax_lexicon_page_box_keyword_listing %}
+
+    <div class="cms-element {{ lexiconClass }}">
+
+        {% block cbax_lexicon_page_box_keyword_listing_headline %}
+            {% if lexiconPage == 'index' %}
+                <h2>{{ boxKeywordHeadline }}</h2>
+            {%  else %}
+                <h1>{{ boxKeywordHeadline }}</h1> <span>{{ lexiconEntries|length  }} {{ "cbaxLexicon.page.listing.entryHeadline"|trans }}</span>
+            {% endif %}
+        {% endblock %}
+
+        {% block cbax_lexicon_page_box_keyword_listing_entries %}
+            <div class="column-list row">
+                {% for entry in lexiconEntries %}
+                    {% sw_include '@Storefront/storefront/cbax-lexicon/component/box-keyword.html.twig' %}
+                {% endfor %}
+            </div>
+        {% endblock %}
+
+    </div>
+
+{% endblock %}

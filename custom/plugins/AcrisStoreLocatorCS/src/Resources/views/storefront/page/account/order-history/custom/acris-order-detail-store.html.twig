@@ -1,0 +1,36 @@
+{% block acris_order_detail_store %}
+    {% for delivery in order.deliveries %}
+        {% if delivery.extensions.acrisOrderDeliveryStore %}
+            {% set store = delivery.extensions.acrisOrderDeliveryStore %}
+            <div class="address">
+                {% if store.name %}
+                    {{ store.name }} <br/>
+                {% endif %}
+                {% if store.department %}
+                    {{ store.department }}<br/>
+                {% endif %}
+                {% if store.street %}
+                    {{ store.street }} <br/>
+                {% endif %}
+                {% if store.zipcode %}
+                    {{ store.zipcode }} {% if store.city %}{{ store.city }}{% endif %}<br/>
+                {% endif %}
+                {% if store.country.name %}
+                    {{ store.country.name }} <br/>
+                {% endif %}
+                {% if store.phone %}
+                    {{ store.phone }} <br/>
+                {% endif %}
+                {% if store.email %}
+                    <a href="mailto:{{ store.email }}"> {{ store.email }} </a> <br/>
+                {% endif %}
+                {% if store.url %}
+                    <a href="{{ store.url }}"> {{ store.url }} </a> <br/>
+                {% endif %}
+                {% if store.openingHours %}
+                    {{ store.openingHours|raw }} <br/>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,89 @@
+{% block sw_product_detail_rental_base_content_restrictions_form %}
+    <div class="rental-restrictions-form">
+        {% block sw_product_detail_rental_base_content_restrictions_form_days %}
+            <div class="rental-restrictions-form-days">
+                {% block sw_product_detail_rental_base_content_restrictions_form_days_minimum %}
+                    <div class="rental-restrictions-form-days_minimum">
+                        <sw-inherit-wrapper v-if="!isLoading"
+                                            v-model="rentalProduct.minPeriod"
+                                            :inheritedValue="parentProduct.extensions ?
+                                                                parentProduct.extensions.rentalProduct ?
+                                                                    parentProduct.extensions.rentalProduct.minPeriod : rentalProduct.minPeriod
+                                                                : rentalProduct.minPeriod"
+                                            :hasParent="isChild"
+                                            :label="$tc('rental-restrictions-form.minimumDaysFieldHeadline')"
+                                            :help-text="$tc('rental-restrictions-form.minimumDaysHelptext')"
+                        >
+                            <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                                <sw-number-field class="rental-restrictions-form-minimum_days_field"
+                                                 :disabled="isInherited"
+                                                 :placeholder="$tc('rental-restrictions-form.minimumDaysField')"
+                                                 :copyable="false"
+                                                 :copyableTooltip="false"
+                                                 numberType="int"
+                                                 :value="currentValue"
+                                                 @change="updateCurrentValue($event); minPeriodChanged($event)"
+                                >
+                                </sw-number-field>
+                            </template>
+                        </sw-inherit-wrapper>
+                    </div>
+
+                {% endblock %}
+
+                {% block sw_product_detail_rental_base_content_restrictions_form_days_maximum %}
+                    <div class="rental-restrictions-form-days_maximum">
+                        <sw-inherit-wrapper v-if="!isLoading"
+                                            v-model="rentalProduct.maxPeriod"
+                                            :inheritedValue="parentProduct.extensions ?
+                                                                parentProduct.extensions.rentalProduct ?
+                                                                    parentProduct.extensions.rentalProduct.maxPeriod : rentalProduct.maxPeriod
+                                                                : rentalProduct.maxPeriod"
+                                            :hasParent="isChild"
+                                            :label="$tc('rental-restrictions-form.maximumDaysFieldHeadline')"
+                                            :help-text="$tc('rental-restrictions-form.maximumDaysHelptext')"
+                        >
+                            <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                                <sw-number-field :disabled="isInherited || !!rentalProduct.fixedPeriod"
+                                                 :placeholder="$tc('rental-restrictions-form.maximumDaysField')"
+                                                 class="rental-restrictions-form-maximum_days_field"
+                                                 :copyable="false"
+                                                 :copyableTooltip="false"
+                                                 numberType="int"
+                                                 :value="currentValue"
+                                                 @change="updateCurrentValue"
+                                >
+                                </sw-number-field>
+                            </template>
+                        </sw-inherit-wrapper>
+                    </div>
+                {% endblock %}
+
+                {% block sw_product_detail_rental_base_content_restrictions_form_fixed_period %}
+                    <div class="rental-restrictions-form-fixed_period">
+                        <sw-inherit-wrapper v-if="!isLoading"
+                                            v-model="rentalProduct.fixedPeriod"
+                                            :inheritedValue="parentProduct.extensions ?
+                                                                parentProduct.extensions.rentalProduct ?
+                                                                    parentProduct.extensions.rentalProduct.fixedPeriod : rentalProduct.fixedPeriod
+                                                                : rentalProduct.fixedPeriod"
+                                            :hasParent="isChild"
+                        >
+                            <template #content="{ currentValue, updateCurrentValue, isInherited }">
+                                <sw-switch-field :disabled="isInherited"
+                                         bordered
+                                         class="rental-restrictions-form-fixed_period_field"
+                                         :value="currentValue"
+                                         :label="$tc('rental-restrictions-form.fixedPeriodFieldHeadline')"
+                                         :help-text="$tc('rental-restrictions-form.fixedPeriodHelptext')"
+                                         @change="updateCurrentValue($event); handleFixedPeriod($event)">
+                        </sw-switch-field>
+                                </sw-number-field>
+                            </template>
+                        </sw-inherit-wrapper>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

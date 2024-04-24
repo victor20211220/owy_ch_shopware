@@ -1,0 +1,227 @@
+{% if page.groupId and page.group %}
+    {% set group = page.group %}
+{% endif %}
+
+{% set listingTypeDisplay = 'map_listing' %}
+
+{% if page is empty or page.groupId is empty or page.group is empty %}
+    {% set group = element.data %}
+{% endif %}
+
+{% if element.config.displayType.value %}
+    {% set listingTypeDisplay = element.config.displayType.value %}
+{% endif %}
+
+<div class="acris-store-locator {% if config('AcrisStoreLocatorCS.config').displayFullMapWidth or group %}container{% endif %}"
+     data-acris-store-locator="true"
+     data-acris-store-locator-options='{
+"customerUrl": "{{ path('frontend.storeLocator.getStoreInformation') }}",
+"mapCenterLocation": "{{ config('AcrisStoreLocatorCS.config').storeLocatorDefaultLocation }}",
+"zoomFactor": "{% if group %}{{ group.groupZoomFactor }}{% else %}{{ config('AcrisStoreLocatorCS.config').storeLocatorZoomFactor }}{% endif %}",
+"widthInfowindow": "{{ config('AcrisStoreLocatorCS.config').windowWidth }}",
+"heightInfowindow": "{{ config('AcrisStoreLocatorCS.config').windowHeight }}",
+"showCompanyName": "{{ config('AcrisStoreLocatorCS.config').windowCompanyName }}",
+"showDepartment": "{{ config('AcrisStoreLocatorCS.config').windowDepartment }}",
+"showStreet": "{{ config('AcrisStoreLocatorCS.config').windowStreet }}",
+"showZipcode": "{{ config('AcrisStoreLocatorCS.config').windowZipcode }}",
+"showCity": "{{ config('AcrisStoreLocatorCS.config').windowCity }}",
+"showCountry": "{{ config('AcrisStoreLocatorCS.config').windowCountry }}",
+"showPhoneNumber": "{{ config('AcrisStoreLocatorCS.config').windowPhoneNumber }}",
+"showMail": "{{ config('AcrisStoreLocatorCS.config').windowMail }}",
+"showURL": "{{ config('AcrisStoreLocatorCS.config').windowURL }}",
+"showOpening": "{{ config('AcrisStoreLocatorCS.config').windowOpening }}",
+"storeIcon": "{% if group and group.iconId %}{{ group.icon.url }}{% else %}{{ page.mediaStore|first().url }}{% endif %}",
+"homeIcon": "{{ page.mediaHome|first().url }}",
+"encryptedMail": "{{ config('AcrisStoreLocatorCS.config').encryptMail }}",
+"privacyMode": "{{ config('AcrisStoreLocatorCS.config').privacyMode }}",
+"apiKey": "{{ config('AcrisStoreLocatorCS.config').storeLocatorGoogleApiKey }}"
+{% if group %}, "groupId": "{{ group.id }}"{% endif %}
+{% if config('AcrisStoreLocatorCS.config').storeInformationHeadline %}, "storeInformationHeadline": "{{ config('AcrisStoreLocatorCS.config').storeInformationHeadline }}"{% endif %}
+{% if group and group.iconWidth %}, "iconWidth": "{{ group.iconWidth }}"{% else %}{% if config('AcrisStoreLocatorCS.config').windowHomeIconWidth %}, "iconWidth": "{{ config('AcrisStoreLocatorCS.config').windowHomeIconWidth }}"{% endif %}{% endif %}
+{% if group and group.iconHeight %}, "iconHeight": "{{ group.iconHeight }}"{% else %}{% if config('AcrisStoreLocatorCS.config').windowHomeIconHeight %}, "iconHeight": "{{ config('AcrisStoreLocatorCS.config').windowHomeIconHeight }}"{% endif %}{% endif %}
+{% if group and group.iconAnchorLeft %}, "iconAnchorLeft": "{{ group.iconAnchorLeft }}"{% else %}{% if config('AcrisStoreLocatorCS.config').windowHomeIconLeftAnchor %}, "iconAnchorLeft": "{{ config('AcrisStoreLocatorCS.config').windowHomeIconLeftAnchor }}"{% endif %}{% endif %}
+{% if group and group.iconAnchorRight %}, "iconAnchorRight": "{{ group.iconAnchorRight }}"{% else %}{% if config('AcrisStoreLocatorCS.config').windowHomeIconTopAnchor %}, "iconAnchorRight": "{{ config('AcrisStoreLocatorCS.config').windowHomeIconTopAnchor }}"{% endif %}{% endif %}
+}'>
+
+    {% if listingTypeDisplay == 'map_listing' %}
+        {% block acris_store_locator_cookie_not_accepted_message_index %}
+            <div class="container acris-store-locator-cookie-not-accepted d-none">
+                {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                    type: "info",
+                    content: "acrisStoreLocator.cookieNotAccepted"|trans|sw_sanitize
+                } %}
+            </div>
+        {% endblock %}
+
+        <div class="acris-store-locator-map-container-inner">
+            {% if group and group.extensions.displayType is empty %}
+                {% block acris_store_locator_group_breadcrumb %}
+                    <nav aria-label="breadcrumb">
+                        {% block layout_breadcrumb_list %}
+                            <ol class="breadcrumb"
+                                itemscope
+                                itemtype="https://schema.org/BreadcrumbList">
+                                <li class="breadcrumb-item"
+                                    aria-current="page"
+                                    itemprop="itemListElement"
+                                    itemscope
+                                    itemtype="https://schema.org/ListItem">
+                                    <a href="{{ path('frontend.storeLocator.index') }}"
+                                       class="breadcrumb-link is-active"
+                                       title="{{ "acrisStoreLocator.storeLocatorPageBreadcrumb"|trans }}"
+                                       itemprop="item">
+                                        <link itemprop="url"
+                                              href="{{ path('frontend.storeLocator.index') }}"/>
+                                        <span class="breadcrumb-title"
+                                              itemprop="name">{{ "acrisStoreLocator.storeLocatorPageBreadcrumb"|trans }}</span>
+                                    </a>
+                                    <meta itemprop="position" content="{{ group.id }}"/>
+                                </li>
+                            </ol>
+                        {% endblock %}
+                    </nav>
+                {% endblock %}
+            {% endif %}
+
+            {% block frontend_acris_store_locator_searchbar %}
+                {% if group.extensions.displayType is empty %}
+                    <div class="container {% if config('AcrisStoreLocatorCS.config').displayDistanceField != true %}acris-store-locator-searchbar-no-distance{% else %}acris-store-locator-searchbar{% endif %}">
+                        {% block frontend_acris_store_locator_searchbar_content %}
+                            <div class="acris-store-locator-searchbar-content">
+                                {% block frontend_acris_store_locator_searchbar_content_form %}
+                                    <form method="post" id="search-stores" name="searchstores">
+                                        {% block frontend_acris_store_locator_searchbar_content_form_hidden %}
+                                            <div class="is--hidden">
+                                                <input type="hidden" id="lat" name="locator[lat]" value="{{ sLat }}"
+                                                       aria-label="locator[lat]"/>
+                                                <input type="hidden" id="lng" name="locator[lng]" value="{{ sLng }}"
+                                                       aria-label="locator[lng]"/>
+                                                <input type="hidden" id="initSearch" name="locator[initSearch]"
+                                                       aria-label="locator[initSearch]"
+                                                       value="false"/>
+                                            </div>
+                                        {% endblock %}
+                                        {% block frontend_acris_store_locator_searchbar_content_form_visible %}
+                                            <div class="form-row d-flex justify-content-between">
+                                                {% block frontend_acris_store_locator_searchbar_content_form_visible_input_city_text %}
+                                                    <div class="form-group {% if config('AcrisStoreLocatorCS.config').displayDistanceField != true %}col-md-8{% else %}col-md-5{% endif %}">
+                                                        <input type="text" required="required" aria-required="true"
+                                                               id="city"
+                                                               class=" form-control"
+                                                               name="locator[place]"
+                                                               aria-label="locator[place]"
+                                                               placeholder="{{ "acrisStoreLocatorForm.city"|trans }}*">
+                                                    </div>
+                                                {% endblock %}
+                                                {% block frontend_acris_store_locator_searchbar_content_form_visible_input_distance_options %}
+                                                    <div class="form-group col-md-5 {% if config('AcrisStoreLocatorCS.config').displayDistanceField != true %}d-none{% endif %}">
+                                                        <select id="inputState" class="form-control"
+                                                                name="locator[distance]"
+                                                                aria-label="locator[distance]">
+                                                            <option selected
+                                                                    value="0">{{ "acrisStoreLocatorForm.distance"|trans }}</option>
+                                                            <option
+                                                                    value="50">{{ "acrisStoreLocatorForm.distanceUnit1"|trans }}</option>
+                                                            <option
+                                                                    value="100">{{ "acrisStoreLocatorForm.distanceUnit2"|trans }}</option>
+                                                            <option
+                                                                    value="150">{{ "acrisStoreLocatorForm.distanceUnit3"|trans }}</option>
+                                                            <option
+                                                                    value="200">{{ "acrisStoreLocatorForm.distanceUnit4"|trans }}</option>
+                                                        </select>
+                                                    </div>
+                                                {% endblock %}
+                                                {% block frontend_acris_store_locator_searchbar_content_form_visible_input_button_submit %}
+                                                    <div class="form-group {% if config('AcrisStoreLocatorCS.config').displayDistanceField != true %}col-md-4{% else %}col-md-2{% endif %}">
+                                                        <button type="submit" id="submitButton"
+                                                                class="btn btn-primary acris-store-locator-button-search--submit">{{ "acrisStoreLocatorForm.button"|trans }}</button>
+                                                    </div>
+                                                {% endblock %}
+                                            </div>
+                                        {% endblock %}
+                                    </form>
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+
+                        {% block frontend_acris_store_locator_error_message %}
+                            {% block frontend_acris_store_locator_error_messages_data %}
+                                <div class="mb-0 pt-2" id="error_data" style="display: none">
+                                    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                                        type:"danger",
+                                        content: 'acrisStoreLocator.noStoreAvailableErrorMessageData'|trans} %}
+                                </div>
+                            {% endblock %}
+                            {% block frontend_acris_store_locator_error_messages_permission %}
+                                <div class="mb-0 pt-2" id="error_permission" style="display: none">
+                                    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                                        type:"danger",
+                                        content: 'acrisStoreLocator.noStoreAvailableErrorMessagePermission'|trans} %}
+                                </div>
+                            {% endblock %}
+                        {% endblock %}
+
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% if group.extensions.displayType is empty %}
+                <div class="acris-store-locator-group-icons-next-to-search">
+                    {% for group in page.groups %}
+                        {% if group.position == 'search' %}
+                            <div class="acris-store-locator-group-button-wrapper-next-to-search">
+                                <a href="{{ path('frontend.storeLocator.storeGroup', {'groupId': group.id}) }}"
+                                   class="acris-store-locator-group-button-next-to-search"
+                                   title="{{ group.translated.name }}">
+                                    <img src="{{ group.media.url }}"
+                                         style="max-width: 80px;"
+                                         class="acris-store-locator-group-icon-next-to-search"
+                                         alt="{% if group.media %}{{ group.media.translated.alt ?: '' }}{% else %}{{ group.translated.name ?: '' }}{% endif %}"
+                                         title="{% if group.media %}{{ group.media.translated.title ?: '' }}{% else %}{{ group.translated.name ?: '' }}{% endif %}"/>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% block frontend_acris_store_locator_map %}
+                {% if group.extensions.displayType is empty %}
+                    <div class="{% if config('AcrisStoreLocatorCS.config').displayFullMapWidth or group %}acris-store-locator-google-map-container{% else %}conatiner-fluid fluid-width{% endif %}">
+                        {% block frontend_acris_store_locator_map_script %}
+                            <div id="acris-store-locator-map-initialization">
+
+                            </div>
+                        {% endblock %}
+                        {% block frontend_acris_store_locator_map_img %}
+                            <div class="{% if config('AcrisStoreLocatorCS.config').displayFullMapWidth or group %}acris-store-locator-google-map-content{% else %}acris-store-locator-google-map{% endif %}"
+                                 id='gmap_canvas'></div>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+
+    {% if group.displayBelowMap or group.extensions.displayType %}
+        {% sw_include '@AcrisStoreLocatorCS/storefront/page/store-locator/acris-store-locator-group-details.html.twig' %}
+    {% endif %}
+    <div class="acris-store-locator-group-icons">
+        {% for group in page.groups %}
+            {% if group.position == 'belowMap' %}
+                <div class="acris-store-locator-group-button-wrapper">
+                    <a href="{{ path('frontend.storeLocator.storeGroup', {'groupId': group.id}) }}"
+                       class="acris-store-locator-group-button"
+                       title="{{ group.translated.name }}">
+                        <img src="{% if group and group.media and group.media.url %}{{ group.media.url }}{% elseif page.mediaStore|first().url %}{{ page.mediaStore|first().url }}{% else %}{{ asset('static/img/cms/store_group_default_image.png', '@AcrisStoreLocatorCS') }}{% endif %}"
+                             style="max-width: 80px;"
+                             class="acris-store-locator-group-icon"
+                             alt="{% if group.media %}{{ group.media.translated.alt ?: '' }}{% else %}{{ group.translated.name ?: '' }}{% endif %}"
+                             title="{% if group.media %}{{ group.media.translated.title ?: '' }}{% else %}{{ group.translated.name ?: '' }}{% endif %}"/>
+                    </a>
+                    <div class="acris-store-locator-group-name">{{ group.translated.name }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

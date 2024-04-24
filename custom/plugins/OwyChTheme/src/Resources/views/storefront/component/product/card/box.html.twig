@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box.html.twig' %}
+{% block component_product_box_include %}
+
+	{% set boxLayout = slot.config['boxLayout']['value'] %}
+
+	{% if layout is empty %}
+		{% set layout = boxLayout %}
+	{% endif %}
+	{% if layout == 'standard' %}
+		{% sw_include "@Storefront/storefront/component/product/card/box-standard.html.twig" %}
+	{% elseif layout == 'list' %}
+		{% sw_include "@Storefront/storefront/component/product/card/box-list.html.twig" %}
+	{% elseif layout == 'image' %}
+		{% sw_include "@Storefront/storefront/component/product/card/box-image.html.twig" %}
+	{% elseif layout == 'minimal' %}
+		{% sw_include "@Storefront/storefront/component/product/card/box-minimal.html.twig" %}
+	{% elseif layout == 'wishlist' %}
+		{% sw_include "@Storefront/storefront/component/product/card/box-wishlist.html.twig" %}
+	{% else %}
+		{% set template = "@Storefront/storefront/component/product/card/box-" ~ boxLayout ~ ".html.twig" %}
+		{% sw_include template ignore missing %}
+	{% endif %}
+{% endblock %}

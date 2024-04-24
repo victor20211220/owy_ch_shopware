@@ -1,0 +1,184 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_content %}
+	<div class="cms-sections">
+		<div class="cms-section  pos-0 cms-section-sidebar">
+			<div class="cms-section-sidebar cms-section-sidebar-mobile-wrap boxed row">
+				<div class="cms-section-sidebar-sidebar-content col-lg-4 col-xl-3">
+					{% sw_include '@Storefront/storefront/component/navigation.html.twig' %}
+				</div>
+				<div class="cms-section-sidebar-main-content col-lg-8 col-xl-9">
+					<div class="cms-block  pos-0 cms-block-owy-editor" style="">
+
+
+						<div class="cms-block-container" style="">
+
+							<div class="cms-block-container-row row cms-row ">
+								<div class="w-100 pl-sm-4 pl-lg-4 pr-sm-4 pr-lg-4" data-cms-element-id="affe5be93b7c46fea66010379c0678b3">
+									<div class="cms-element-owy-editor">
+
+										<div class="row" style="width: 100%;">
+											<nav class="categorybreadcrumb" aria-label="breadcrumb">
+												<ol class="breadcrumb">
+													<li class="breadcrumb-item" itemprop="itemListElement" itemscope="">
+														<a href="#" class="breadcrumb-link " title="{{ 'OWY.photo_exchange.title'|trans }}" itemprop="item">
+															<span class="breadcrumb-title" itemprop="name">{{ "OWY.photo_exchange.title"|trans }}</span>
+														</a>
+														<meta itemprop="position" content="1">
+													</li>
+													<div class="breadcrumb-placeholder">
+														<span class="icon icon-arrow-medium-right icon-fluid">
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewbox="0 0 16 16">
+																<use transform="rotate(-90 8 8)" xlink:href="#icons-solid-arrow-medium-right" fill="#758CA3" fill-rule="evenodd"></use>
+															</svg>
+														</span>
+													</div>
+													<li class="breadcrumb-item" itemprop="itemListElement" itemscope="">
+														<a href="#" class="breadcrumb-link " title="{{ 'OWY.photo_exchange.create'|trans }}" itemprop="item">
+
+															<span class="breadcrumb-title" itemprop="name">{{ "OWY.photo_exchange.create"|trans }}</span>
+														</a>
+														<meta itemprop="position" content="2">
+													</li>
+												</ol>
+											</nav>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					{# todo: folloiwng content should come from database #}
+					<div id="jumbotron">
+						<h2 class="shoptitleTwo">{{ "OWY.photo_exchange.create"|trans }}</h2>
+						<p>
+							<strong>
+								{{ "OWY.photo_exchange_create.label"|trans }}
+							</strong>
+						</p>
+						{% if "OWY.photo_exchange_create.label1" !="" %}
+						<p>{{ "OWY.photo_exchange_create.label1"|trans|raw }}</p>
+						{% endif %}
+						<p>{{ "OWY.photo_exchange_create.label2"|trans }}</p>
+						<p style="color: #e41d1a;" class="owy-warning">
+							{{ "OWY.photo_exchange_create.label3"|trans }}
+                        </p>
+					</div>
+					<hr>
+
+					<form action="{{ appUrl }}/photo-exchange/createPost" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="id" value="{{ post.id }}">
+						<div class="form-group row">
+							<label for="category" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.category"|trans }}</label>
+							<div class="col-sm-7">
+								<select name="category" id="category" class="form-control form-select">
+									{% for category in categories %}
+										<option value="{{ category.id }}" {{ category.id == post.id ? 'selected' : '' }}>{{ category.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="headline" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.headline"|trans }}</label>
+							<div class="col-sm-7">
+								<input type="text" name="headline" class="form-control" id="headline" value="{{ post.headline }}">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="body" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.body"|trans }}</label>
+							<div class="col-sm-7">
+								<textarea rows="5" name="body" class="form-control" id="body">{{ post.body|trim }}</textarea>
+							</div>
+						</div>
+
+						{% set mediaCollection = {} %}
+						{% if post %}
+							{% set mediaCollection = searchMedia(post.images, context.context) %}
+						{% endif %}
+
+						<div class="form-group row">
+							<label for="picture_1" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.upload_image"|trans }}
+								1</label>
+							<div
+								class="col-sm-7">
+								{# todo make all 5 files submitted as array#}
+								<input type="file" name="picture_1" class="form-control-file" id="picture_1">
+								<div id="warningMessage1" style="color: red;"></div>
+								{% if post %}
+									<p><img src="{{ mediaCollection.get(post.images[0]).url }}" alt="" class="rounded border" style="max-width: 9%;"></p>
+									<input type="hidden" name="picture_1_id" , value="{{ post.images[0] }}">
+								{% endif %}
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="picture_2" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.upload_image"|trans }}
+								2</label>
+							<div class="col-sm-7">
+								<input type="file" name="picture_2" class="form-control-file" id="picture_2">
+								<div id="warningMessage2" style="color: red;"></div>
+								{% if post %}
+									<p><img src="{{ mediaCollection.get(post.images[1]).url }}" alt="" class="rounded border" style="max-width: 9%;"></p>
+									<input type="hidden" name="picture_2_id" , value="{{ post.images[1] }}">
+								{% endif %}
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="picture_3" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.upload_image"|trans }}
+								3</label>
+							<div class="col-sm-7">
+								<input type="file" name="picture_3" class="form-control-file" id="picture_3">
+								<div id="warningMessage3" style="color: red;"></div>
+								{% if post %}
+									<p><img src="{{ mediaCollection.get(post.images[2]).url }}" alt="" class="rounded border" style="max-width: 9%;"></p>
+									<input type="hidden" name="picture_3_id" , value="{{ post.images[2] }}">
+								{% endif %}
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="picture_4" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.upload_image"|trans }}
+								4</label>
+							<div class="col-sm-7">
+								<input type="file" name="picture_4" class="form-control-file" id="picture_4">
+								<div id="warningMessage4" style="color: red;"></div>
+								{% if post %}
+									<p><img src="{{ mediaCollection.get(post.images[3]).url }}" alt="" class="rounded border" style="max-width: 9%;"></p>
+									<input type="hidden" name="picture_4_id" , value="{{ post.images[3] }}">
+								{% endif %}
+							</div>
+						</div>
+						<div class="form-group row">
+
+							<label for="picture_5" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange_create.upload_image"|trans }}
+								5</label>
+							<div class="col-sm-7">
+								<input type="file" name="picture_5" class="form-control-file" id="picture_5">
+								<div id="warningMessage5" style="color: red;"></div>
+								{% if post %}
+									<p><img src="{{ mediaCollection.get(post.images[4]).url }}" alt="" class="rounded border" style="max-width: 9%;"></p>
+									<input type="hidden" name="picture_5_id" , value="{{ post.images[4] }}">
+								{% endif %}
+								<p>
+									<br>{{ "OWY.photo_exchange_create.label5"|trans }}
+								</p>
+							</div>
+						</div>
+
+						<hr>
+						<p>{{ "OWY.photo_exchange_create.label9"|trans }}</p>
+						<div class="form-group row">
+							<div class="col"  style="display: flex; justify-content: flex-end;">
+								<button type="submit" class="btn btn-primary" id="pxbtn">{{ "OWY.photo_exchange_create.btn"|trans }}</button>
+							</div>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

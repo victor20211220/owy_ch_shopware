@@ -1,0 +1,24 @@
+{% block cbax_lexicon_page_navigation %}
+	<div class="lexicon-navigation">
+
+        {% block cbax_lexicon_page_navigation_char %}
+            <div class="lexicon-navigation-panel">
+                {% for entry in lexiconEntriesData %}
+                    {% if entry.countEntries %}
+                        <a href="{{ entry.link }}" class="btn btn-secondary btn-sm" title="{{ entry.char }}">{{ entry.char }}</a>
+                    {% else %}
+                        <button class="btn disabled btn-sm" disabled>{{ entry.char }}</button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endblock %}
+
+        {% block cbax_lexicon_page_navigation_link %}
+            <div class="lexicon-link-panel">
+                <a href="{{ seoUrl('frontend.cbax.lexicon.index') }}" class="lexicon-link-index" title="{{ "cbaxLexicon.page.navigation.linkIndex"|trans }}">{{ "cbaxLexicon.page.navigation.linkIndex"|trans }}</a> |
+                <a href="{{ seoUrl('frontend.cbax.lexicon.content') }}" class="lexicon-link-content" title="{{ "cbaxLexicon.page.navigation.linkContent"|trans }}">{{ "cbaxLexicon.page.navigation.linkContent"|trans }}</a>
+            </div>
+        {% endblock %}
+
+    </div>
+{% endblock %}

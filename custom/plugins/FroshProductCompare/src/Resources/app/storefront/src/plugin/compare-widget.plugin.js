@@ -1,0 +1,101 @@
+import Plugin from 'src/plugin-system/plugin.class';
+import HttpClient from 'src/service/http-client.service';
+import ElementLoadingIndicatorUtil from 'src/utility/loading-indicator/element-loading-indicator.util';
+import CompareLocalStorageHelper from '../helper/compare-local-storage.helper';
+
+export default class CompareWidgetPlugin extends Plugin {
+    init() {
+        this._client = new HttpClient();
+        this._clearBtn = this.el.querySelector('.btn-clear');
+        this._printBtn = this.el.querySelector('.btn-printer');
+        this.registerShowDifferencesBtnEvent();
+        this.insertStoredContent();
+        this._registerEvents();
+    }
+
+    /**
+     *
+     */
+    registerShowDifferencesBtnEvent()
+    {
+        const btnShowDifferences = document.querySelector('.btn-show-differences');
+        btnShowDifferences.addEventListener('change', () => {
+
+            const propertyRows = document.querySelectorAll('div.comparison-table tbody tr.property');
+            if (btnShowDifferences.checked) {
+                propertyRows.forEach(row => {
+                    const columns = row.querySelectorAll('td');
+                    if(columns[0].textContent.trim() === columns[1].textContent.trim()){
+                        row.style.display = 'none';
+                    }
+                });
+            } else {
+                propertyRows.forEach(row => {
+                    row.style.display = 'table-row';
+                });
+            }
+        });
+
+    }
+
+    /**
+     * reads the persisted content
+     * from the session cache an renders it
+     * into the element
+     */
+    insertStoredContent() {
+        this.fetch();
+    }
+
+    fetch() {
+        const data = {};
+
+        data.productIds = CompareLocalStorageHelper.getAddedProductsList();
+
+        ElementLoadingIndicatorUtil.create(this.el);
+
+        this._client.post(window.router['frontend.compare.content'], JSON.stringify(data), (response) => {
+            ElementLoadingIndicatorUtil.remove(this.el);
+
+            this.renderCompareProducts(response);
+
+            this.$emitter.publish('insertStoredContent', { response });
+        });
+    }
+
+    renderCompareProducts(html) {
+        this.el.querySelector('.compare-product-content').innerHTML = html;
+        window.PluginManager.initializePlugins();
+    }
+
+    _registerEvents() {
+        document.$emitter.subscribe('removeCompareProduct', (event) => {
+            const table = this.el.querySelector('table');
+            const rows = table.rows;
+
+            if (table.querySelectorAll('thead tr td').length === 2) {
+                table.style.display = 'none';
+                CompareLocalStorageHelper.clear();
+                this.insertStoredContent();
+                return;
+            }
+
+            for (let i = 0; i < rows.length; i += 1) {
+                try {
+                    rows[i].deleteCell(event.detail.product.productRow);
+                } catch (e) {
+                    // nth
+                }
+            }
+        });
+
+        this._clearBtn.addEventListener('click', () => {
+            CompareLocalStorageHelper.clear();
+            this.fetch();
+        });
+
+        this._printBtn.addEventListener('click', () => {
+            window.print();
+        });
+    }
+}

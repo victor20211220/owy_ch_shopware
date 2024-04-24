@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service id="Rhiem\RhiemRentalProducts\Subscriber\FrontendListing">
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Subscriber\Product">
+            <argument
+                id="Rhiem\RhiemRentalProducts\Components\RentalProduct\RentalProductPriceCalculator"
+                type="service" />
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+            <argument type="service" id="request_stack" />
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Subscriber\FrontendDetail">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService" />
+            <argument type="service" id="Rhiem\RhiemRentalProducts\Components\Cart\CartHelper" />
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Subscriber\FrontendCheckout">
+            <argument type="service" id="order_line_item.repository" />
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="Rhiem\RhiemRentalProducts\Subscriber\RentalProduct">
+            <argument type="service" id="rental_product.repository" />
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+    </services>
+</container>

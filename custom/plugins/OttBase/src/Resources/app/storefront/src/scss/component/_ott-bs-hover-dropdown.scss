@@ -1,0 +1,7 @@
+[data-ott-bs-hover-dropdown=true] {
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none !important;
+  }
+}

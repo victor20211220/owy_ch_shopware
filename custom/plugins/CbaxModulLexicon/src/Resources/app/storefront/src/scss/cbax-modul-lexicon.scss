@@ -1,0 +1,307 @@
+// @include media-breakpoint-up(xs) 0em			0px
+// @include media-breakpoint-up(sm) 36em		576px
+// @include media-breakpoint-up(md) 48em		768px
+// @include media-breakpoint-up(lg) 62em		992px
+// @include media-breakpoint-up(xl) 75em		1200px
+
+$background-color-lexicon-navigation: #eeeeee;
+
+.is-lexicon {
+
+	.lexicon-newest-entries h2,
+	.lexicon-most-read-entries h2 {
+		font-size: 24px;
+	}
+
+	.lexicon-listing-entries h1 {
+		display: inline-block;
+		font-size: 24px;
+	}
+
+	.column-list {
+		display: flex;
+		flex-wrap: wrap;
+
+		.cms-listing-col {
+			display: flex;
+		}
+
+		&.newest-entries,
+		&.most-read-entries {
+			margin-bottom: 20px;
+		}
+	}
+
+	.lexicon-text-index {
+		h1, h2, h3 {
+			font-size: 24px;
+		}
+	}
+
+	.keyword-box {
+		min-height: 240px;
+		border: 1px solid $sw-border-color;
+		margin-bottom: 20px;
+		background: #ffffff;
+		width: 100%;
+
+		.card-body {
+			padding: 16px;
+		}
+
+		.keyword-name a {
+			color: $sw-text-color;
+			text-decoration: none;
+			font-size: 18px;
+		}
+
+		.keyword-description {
+			margin-bottom: 40px;
+		}
+
+		.keyword-action {
+			position:absolute;
+			bottom:10px;
+		}
+	}
+
+	.cbax-lexicon-entry-navigation {
+		display: none;
+
+		.card-title {
+			margin-bottom: 0;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		.cbax-lexicon-entry-navigation {
+			display:block;
+		}
+	}
+
+	.lexicon-detail-title h1 {
+		font-size: 24px;
+	}
+
+	.lexicon-detail-product-headline h2 {
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	// Buchstaben-Navigation Desktop
+	.cms-element-cbax-lexicon-navigation {
+		display: none;
+		text-align: center;
+
+		.lexicon-navigation-panel {
+			background: $background-color-lexicon-navigation;
+			border: 1px solid $sw-border-color;
+			border-radius: 3px;
+			padding: 10px;
+			font-size: 14px;
+			line-height: 24px;
+
+			.btn {
+				line-height: 15px;
+				padding: 5px;
+				margin-right: 1px;
+			}
+			.page-link {
+				margin-right: .625rem;
+			}
+			a:hover {
+				text-decoration: none;
+			}
+		}
+
+		.lexicon-link-panel {
+			text-align: right;
+			margin-top: 10px;
+			padding-right: 5px;
+
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.lexicon-pagination {
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+
+		.cms-element-cbax-lexicon-navigation {
+			display: block;
+		}
+
+		.cms-element-cbax-lexicon-filter {
+			display: none;
+		}
+	}
+
+	.lexicon-sidebar-category {
+		.lexicon-sidebar-category-headline h3 {
+			border-bottom: 1px solid $sw-border-color;
+			font-size: 24px;
+			padding: 0 20px 8px 20px;
+			margin-bottom: 20px;
+		}
+		
+		.lexicon-sidebar-category-headline h3 {
+			border-bottom: 1px solid $sw-border-color;
+			font-size: 24px;
+			padding: 0 20px 8px 20px;
+			margin-bottom: 20px;
+		}
+		
+		.lexicon-sidebar-category-link {
+			display: block;
+			padding: 8px 20px;
+			font-weight: $font-weight-normal;
+			color: $sw-text-color;
+		
+			&:hover {
+				text-decoration: none;
+			}
+		
+			&.is-active {
+				color: $sw-color-brand-primary;
+				font-weight: $font-weight-bold;
+			}
+		
+			&.in-path {
+				font-weight: $font-weight-bold;
+			}
+		}
+	}
+
+	.lexicon-table-contents {
+		line-height: 25px;
+
+		h1 {
+			font-size: 24px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		h3 {
+			font-size: 24px;
+			display: inline-block;
+		}
+
+		a {
+			color: $sw-text-color;
+			text-decoration: none;
+		}
+
+		.lexicon-table-contents-row {
+			border: 1px solid $sw-border-color;
+			border-radius: 3px;
+			background: #ffffff;
+			padding: 20px 0;
+			margin: 0 0 20px 0;
+		}
+	}
+	
+	/* Produkt Listing */
+	.cms-element-product-listing {
+		.listing_1col {
+			display: block;
+			
+			.cms-listing-col {
+				width: 100%
+			}
+		}
+		
+		.listing_2col {
+			
+			@include media-breakpoint-up(md) {
+				.cms-listing-col {
+					width: 50%;
+				}
+			}
+		}
+	}
+}
+
+/* mobile Filter Button */
+.cms-element-cbax-lexicon-filter {
+	margin-bottom: 20px;
+	
+	.lexicon-filter-panel-wrapper-toggle {
+		width: 100%;
+	}
+}
+
+.offcanvas {
+	.lexicon-filter-panel {
+		.btn {
+			width: 100%;
+			margin-bottom: 8px;
+		}
+	}
+}
+
+.modal-body {
+	padding-top: 0;
+
+	.ajax-keyword-box {
+		min-height: 200px;
+		padding: 0 20px 20px 20px;
+
+		h2 {
+			font-size: 28px;
+		}
+
+		h3 {
+			font-size: 24px;
+		}
+
+		.ajax-keyword-box-action {
+			text-align: right;
+			margin: 10px 0 -10px 0;
+
+			.btn {
+				border-color: $sw-border-color;
+			}
+		}
+	}
+}
+
+.lexicon-modal a {
+	text-decoration: underline;
+}
+
+.cbax-lexicon-tooltip-inner {
+    &.tooltip-inner {
+        max-width: 350px;
+    }
+}
+
+.cbax-lexicon-link {
+    &.lexicon-tooltip {
+        text-decoration: underline !important;
+	    color: $sw-color-brand-primary !important;
+    }
+}
+
+.cbax-tooltip-link {
+   color: white;
+   &:hover {
+       color: #FFFAF0;
+   }
+}
+
+.tooltip {
+    z-index: 99999;
+}
+
+.cms-block-cbax-lexicon-navigation {
+	margin-bottom: 20px;
+}
+

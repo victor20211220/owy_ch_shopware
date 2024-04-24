@@ -1,0 +1,39 @@
+{% sw_extends '@Storefront/storefront/page/wishlist/wishlist-pagelet.html.twig' %}
+{% block block_wishlist_listing %}
+	<div class="col-12">
+		{% if searchResult.total > 0 %}
+			{% block block_wishlist_listing_header %}
+				<div class="wishlisth-breadcrumb ">{{ 'OwyChTheme.wishlist.listing.label' |trans |sw_sanitize}}</div>
+				<h2 class="cart-main-header">
+					{{ 'OwyChTheme.wishlist.listing.label' |trans |sw_sanitize}}
+				</h2>
+				<div class="wishlisth-table-header">
+					<div class="row wishlisth-header-row">
+						<div class="col-4 wishlisth-header-info">
+							{{ 'OwyChTheme.wishlist.listing.labelproduct' |trans |sw_sanitize}}
+							
+						</div>
+						<div class="col-2 wishlisth-header-articleNo">
+							{{ 'OwyChTheme.wishlist.listing.label2' |trans |sw_sanitize}}
+						</div>
+						<div class="col-2 wishlisth-header-articleNo">
+							{{ 'OwyChTheme.wishlist.listing.label3' |trans |sw_sanitize}}
+						</div>
+						<div class="col-2 wishlisth-header-quantity">
+							{{ 'OwyChTheme.wishlist.listing.label4' |trans |sw_sanitize}}
+						</div>
+						<div class="col-2 wishlisth-header-unit-price">
+							{{ 'OwyChTheme.wishlist.listing.label5' |trans |sw_sanitize}}
+						</div>
+					</div>
+				</div>
+			{% endblock %}
+		{% endif %}
+
+		{% block block_wishlist_listing_inner %}
+			<div class="merkliste-container">
+            {{ parent() }}
+            </div>
+		{% endblock %}
+	</div>
+{% endblock %}

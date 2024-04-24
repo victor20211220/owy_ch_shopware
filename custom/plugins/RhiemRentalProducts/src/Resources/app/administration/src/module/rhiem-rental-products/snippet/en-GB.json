@@ -1,0 +1,34 @@
+{
+    "rhiem-rental-products": {
+        "config": {
+            "title": "Rental settings",
+            "description": "Global settings for the rental plugin",
+            "general": {
+                "title": "General settings",
+                "showBadge": "Show badge",
+                "showBadgeTooltip": "Rental products in the listing are provided with a badge, similar to the „New“ badge",
+                "showRentalTerms": "Show checkbox „Confirm rental conditions“",
+                "showRentalTermsTooltip": "The customer needs to confirm the rental conditions in the order overview",
+                "rentalTerms": "Rental conditions",
+                "uniformRentalPeriods": "Uniform rental periods per order",
+                "uniformRentalPeriodsTooltip": "If this option is active, customers can only select one rental period per order. If the rental period is changed for an item, all other rental items are also updated."
+            },
+            "blockedDays": {
+                "title": "Block dates",
+                "removeBlockedDays": "Subtract  blocked days from rental period",
+                "removeBlockedDaysTooltip": "If this option is active, blocked days are subtracted from the total rental period",
+                "blockedWeekdays": "Block weekdays",
+                "blockableDays": {
+                    "monday": "Monday",
+                    "tuesday": "Tuesday",
+                    "wednesday": "Wednesday",
+                    "thursday": "Thursday",
+                    "friday": "Friday",
+                    "saturday": "Saturday",
+                    "sunday": "Sunday"
+                },
+                "blockedDates": "Block dates"
+            }
+        }
+    }
+}

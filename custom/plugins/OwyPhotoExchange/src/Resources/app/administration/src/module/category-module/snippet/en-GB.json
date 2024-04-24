@@ -1,0 +1,35 @@
+{
+    "owy-category-module": {
+        "name": "Photo Exchange Category",
+        "title": "Photo Exchange Category",
+        "description": "Photo Exchange Category Module",
+        "navigationLabel": "Photo Exchange Category",
+        "list": {
+            "data": {
+                "button": "Add Category",
+                "heading": "Category",
+                "status": "Status",
+                "name": "Category Name",
+                "active": "Active"
+            }
+        },
+        "detail": {
+            "data": {
+                "status": "Active",
+                "active": "Active",
+                "inactive": "Inactive",
+                "name": "Name",
+                "heading": " Category",
+                "button": "Add Category",
+                "cancel": "Cancel",
+                "save": "Save",
+                "error": "Unable to add Category",
+                "success": "Success",
+                "successMessage": "Post Category added successfully",
+                "UpdateSuccessMessage": "Post Category updated successfully",
+                "namePlaceholder": "Enter name here...",
+                "requiredField": "Required fields should not be empty"
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/component/product/card/action.html.twig' %}
+
+{% block component_product_box_action_inner %}
+    {% set id = product.id %}
+
+
+        <div class="product-action">
+            {% set isVariant = product.parentId is not null %}
+            {% set isParent = product.childCount > 0 %}
+            {% set isAvailable = not product.isCloseout or (product.availableStock >= product.minPurchase) %}
+            {% set isRentalProduct = product.extensions.rentalProduct.active %}
+
+            {% if isAvailable and not isParent and not isVariant and not isRentalProduct %}
+
+                {% block component_product_box_action_buy %}
+                    {{ parent() }}
+                {% endblock %}
+            {% else %}
+                {% block component_product_box_action_detail %}
+                    {{ parent() }}
+                {% endblock %}
+            {% endif %}
+        </div>
+
+{% endblock %}

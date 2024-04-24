@@ -1,0 +1,7 @@
+{
+    "acrisStoreLocator": {
+        "condition": {
+            "locationRule": "Standort"
+        }
+    }
+}

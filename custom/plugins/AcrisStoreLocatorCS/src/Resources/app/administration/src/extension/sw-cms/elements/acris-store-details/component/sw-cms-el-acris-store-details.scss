@@ -1,0 +1,20 @@
+@import "~scss/variables";
+
+.sw-cms-el-acris-store-details {
+    padding: 10px;
+
+    .sw-cms-el-acris-store-details__store_headline {
+        h2 {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .sw-cms-el-acris-store-details__details {
+        p {
+            line-height: 15px;
+            font-size: 15px;
+        }
+    }
+}

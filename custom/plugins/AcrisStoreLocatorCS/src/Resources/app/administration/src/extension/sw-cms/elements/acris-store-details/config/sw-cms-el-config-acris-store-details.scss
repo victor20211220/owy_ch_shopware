@@ -1,0 +1,17 @@
+.sw-cms-el-config-acris-store-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0 32px;
+
+    .sw-cms-el-config-acris-store-details-full {
+        grid-column: 1 / -1;
+    }
+
+    .sw-media-upload-v2 {
+        margin-bottom: 22px;
+
+        .sw-media-upload-v2__header {
+            display: none;
+        }
+    }
+}

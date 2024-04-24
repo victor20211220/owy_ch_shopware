@@ -1,0 +1,76 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set generalheading = config.generalheading.value %}
+
+    <div>
+        {% if generalheading and generalheading != '--' %}
+            <h2 class="shoptitle" style="border-bottom: none;">{{ "OwyChTheme.widgets.awards.label"|trans }}</h2>
+        {% endif %}
+
+        {% for i in 1..5 %}
+            {% set awardImage1 = config['award' ~ i ~ 'image1'].value %}
+            {% set awardImage2 = config['award' ~ i ~ 'image2'].value %}
+            {% set awardTitle1 = config['award' ~ i ~ 'title1'].value %}
+            {% set awardDesc = config['award' ~ i ~ 'desc'].value %}
+            {% set awardTitle3 = config['award' ~ i ~ 'title3'].value %}
+            {% set awardTitle4 = config['award' ~ i ~ 'title4'].value %}
+            {% set awardLink = config['award' ~ i ~ 'link' ~ i].value %}
+			
+			
+            <!-- Award display -->
+            {% if awardImage1 %}
+            {% set mediaCollection = searchMedia([awardImage1], context.context) %}
+            {% set awardImg1 = mediaCollection.get(awardImage1) %}
+                <div class="row awards-warraper">
+                    <div class="col-xs-12 col-sm-4 col-md-3 productimage-container">
+                        <a href="{% if awardLink %}{{ awardLink }}{% else %}#{% endif %}" target="_blank">
+                            {% sw_thumbnails 'award-Image1' with {
+                                media: awardImg1,
+                                sizes: { 'default': '220px' }
+                            } %}
+                        </a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-8 col-md-9 awards-img">
+                        {% if awardTitle1 or awardDesc %}
+                            <div class="row">
+                                <div class="col-12 details">
+                                    {% if awardTitle1 %}
+                                        <h2>{{ awardTitle1 }}</h2>
+                                    {% endif %}
+                                    {% if awardDesc %}
+                                        <p>{{ awardDesc|raw }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            {% if awardImage2 %}
+                            {% set mediaCollection = searchMedia([awardImage2], context.context) %}
+                            {% set awardImg2 = mediaCollection.get(awardImage2) %}
+                                <div class="col-sm-4 col-md-3">
+                                    <a href="{% if awardLink %}{{ awardLink }}{% else %}#{% endif %}" target="_blank">
+                                        {% sw_thumbnails 'award-Image2' with {
+                                            media: awardImg2,
+                                            sizes: { 'default': '120px' }
+                                        } %}
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {% if awardTitle3 or awardTitle4 %}
+                                <div class="col-md-9 col-sm-8 padleft0">
+                                    {% if awardTitle3 %}
+                                        <div class="events">{{ awardTitle3 }}</div>
+                                    {% endif %}
+                                    {% if awardTitle4 %}
+                                        <div class="events">{{ awardTitle4 }}</div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "sw-cms": {
+        "blocks": {
+            "textimage": {
+                "categoryTreeTeaser": {
+                    "title": "Kategorie-Teaser",
+                    "label": "Kategorie-Teaser",
+                    "displayName": "kategorie-Name"
+                }
+            },
+            "form": {
+                "owy-inquiry-form": {
+                    "title" : "Anfrage-Formular"
+                }
+            }
+        },
+        "config": {
+            "owy-sub-cat": {
+                "categoryTreeTeaser" : {
+                    "subheading" : "Überschrift"
+                }
+            }
+        }
+    }
+}

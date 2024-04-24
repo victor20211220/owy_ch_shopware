@@ -1,0 +1,39 @@
+@import "~scss/variables";
+
+.sw-cms-preview-owy-category-tree-teaser {
+    width: 100%;
+    background: #ffffff;
+    font-size: 22px;
+    color: #94948e;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 20px 20px;
+
+    .sw-cms-block-category-placeholder-listing {
+        .sw-cms-block-owy-category-tree-teaser__placeholder--container {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .sw-cms-block-owy-category-tree-teaser__placeholder--container--item{
+                .sw-cms-block-owy-category-tree-teaser__placeholder {
+
+                    margin: 10px 0 0 0;
+                    height: 2.7em;
+                    border-radius: 4px;
+                    width: 90px;
+                    display: inline-block;
+                    background-color: #F5F5F5;
+                }
+
+                p{
+                    text-align: center;
+                    font-size: 11px;
+                }
+            }
+        }
+
+    }
+
+}

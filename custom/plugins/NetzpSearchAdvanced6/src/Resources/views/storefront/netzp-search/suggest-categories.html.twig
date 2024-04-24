@@ -1,0 +1,62 @@
+{% for category in page.extensions.netzpSearch.categories.data %}
+    <li class="search-suggest-product js-result">
+        {% if category.hasExtension('link') and category.getExtension('link').value %}
+            <a href="{{ category.getExtension('link').value }}"
+               title="{{ category.title }}"
+               class="search-suggest-product-link">
+        {% else %}
+            <a href="{{ seoUrl('frontend.navigation.page', {'navigationId': category.getId}) }}"
+               title="{{ category.title }}"
+               class="search-suggest-product-link">
+        {% endif %}
+
+            <div class="row align-items-center g-0">
+                <div class="col-auto search-suggest-product-image-container">
+                    {% if category.media.url %}
+                        {% sw_thumbnails 'product-image-thumbnails' with {
+                            media: category.media,
+                            attributes: {
+                                'class': 'search-suggest-product-image',
+                                'alt':   category.media.translated.alt ?: '',
+                                'title': category.media.translated.title ?: ''
+                            }
+                        } %}
+                    {% else %}
+                        {% sw_icon 'placeholder' style {
+                            'size': 'lg'
+                        } %}
+                    {% endif %}
+                </div>
+
+                <div class="col search-suggest-product-name">
+                    {{ category.title|raw|sw_sanitize }}
+                    {% if category.breadcrumb|length > 2 %}
+                        {% set breadcrumb = category.breadcrumb|slice(1, category.breadcrumb|length - 2) %}
+                        {% set delimiter = "netzp.search.delimiter"|trans %}
+                        <br>
+                        <small style="font-weight: normal">{{ breadcrumb|join(delimiter) }}</small>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+    </li>
+{% endfor %}
+
+<li class="js-result search-suggest-total">
+    <div class="row align-items-center {{ gridNoGuttersClass }}">
+        <div class="col">
+            <a href="{{ path('frontend.search.page') }}?search={{ page.searchTerm }}&tab=categories"
+               title="{{ "header.searchAllResults"|trans|striptags }}"
+               class="search-suggest-total-link">
+                {% sw_icon 'arrow-head-right' style { 'size': 'sm' } %}
+                {{ "header.searchAllResults"|trans|sw_sanitize }}
+            </a>
+        </div>
+
+        <div class="col-auto search-suggest-total-count">
+            {{ "header.searchResults"|trans({
+                '%count%': page.extensions.netzpSearch.categories.total,
+            })|sw_sanitize }}
+        </div>
+    </div>
+</li>

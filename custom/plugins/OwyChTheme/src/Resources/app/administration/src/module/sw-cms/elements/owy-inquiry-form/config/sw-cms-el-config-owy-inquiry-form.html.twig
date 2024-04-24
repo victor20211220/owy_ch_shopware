@@ -1,0 +1,52 @@
+{% block sw_cms_el_config_owy_inquiry_form_config %}
+	<template>
+		<sw-container class="sw-cms-el-config-owy-inquiry-form">
+			<sw-card :hero="false" :isloading="false" :large="false">
+
+				<sw-text-field
+						v-model="element.config.title.value"
+						label="title"
+
+				/>
+
+
+				<sw-checkbox-field
+					v-model="element.config.rubrikActive.value"
+					label="Rubrik"
+				/>
+
+
+				<sw-checkbox-field
+					v-model="element.config.uberschriftActive.value"
+					label="Uberschrift"
+				/>
+
+				<sw-checkbox-field
+					v-model="element.config.eintragActive.value"
+					label="Eintrag"
+				/>
+
+				<sw-checkbox-field
+						v-model="element.config.bildladenAtive1.value"
+						label="Bild laden"
+				/>
+
+				<sw-checkbox-field
+						v-model="element.config.bildladenAtive2.value"
+						label="Bild laden"
+				/>
+
+				<sw-checkbox-field
+						v-model="element.config.bildladenAtive3.value"
+						label="Bild laden"
+				/>
+				<sw-checkbox-field
+						v-model="element.config.bildladenAtive4.value"
+						label="Bild laden"
+				/>
+
+			</sw-card>
+		</sw-container>
+	</template>
+
+{% endblock %}

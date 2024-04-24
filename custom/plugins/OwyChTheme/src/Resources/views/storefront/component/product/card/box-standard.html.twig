@@ -1,0 +1,207 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
+
+{% block component_product_box %}
+	{% if product %}
+		{% set name = product.translated.name %}
+		{% set id = product.id %}
+		{% set cover = product.cover.media %}
+		{% set variation = product.variation %}
+
+		{% if layout == 'wishlist' %}
+			<div class="card product-box box-list owy-listbox">
+    	{% else %}
+			<div class="card product-box box-{{ layout }} owy-listbox">
+        {% endif %}
+			{% block component_product_box_content %}
+				<div class="card-body">
+					{% block component_product_box_badges %}
+						{# % sw_include '@Storefront/storefront/component/product/card/badges.html.twig' % #}
+					{% endblock %}
+ 				
+				{% if product.translated.customFields.custom_additonal_badges_title !='' %}
+				<div class="product-badges">
+                                        <div class="badge-custom">
+                                            <span class="badge bg-green badge-new" style="background-color: {{ product.translated.customFields.custom_additonal_badges_bg_color  }} !important; color: {{ page.product.translated.customFields.custom_additonal_badges_color }}">
+                                           {{ product.translated.customFields.custom_additonal_badges_title }}
+                                            </span>
+                                        </div>
+
+
+                                    </div>
+				{% endif %}
+					{% block component_product_box_image %}
+						<div class="product-image-wrapper">
+						
+							{# fallback if display mode is not set #}
+							{% set displayMode = displayMode ?: 'standard' %}
+
+							{# set display mode 'cover' for box-image with standard display mode #}
+							{% if layout == 'image' and displayMode == 'standard' %}
+								{% set displayMode = 'cover' %}
+							{% endif %}
+
+							<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" title="{{ name }}" class="product-image-link is-{{ displayMode }}">
+								{% if cover.url %}
+									{% set attributes = {
+                                        'class': 'product-image is-'~displayMode,
+                                        'alt': (cover.translated.alt ?: name),
+                                        'title': (cover.translated.title ?: name)
+                                    } %}
+
+									{% if displayMode == 'cover' or displayMode == 'contain' %}
+										{% set attributes = attributes|merge({ 'data-object-fit': displayMode }) %}
+									{% endif %}
+
+									{% sw_thumbnails 'product-image-thumbnails' with {
+                                        media: cover,
+                                        sizes: sizes
+                                    } %}
+								{% else %}
+									<div class="product-image-placeholder">
+										{% sw_icon 'placeholder' style {
+                                            'size': 'fluid'
+                                        } %}
+									</div>
+								{% endif %}
+							</a>
+
+							{% if config('core.cart.wishlistEnabled') %}
+								{% block component_product_box_wishlist_action %}
+									{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
+                                        appearance: 'circle',
+                                        productId: id
+                                    } %}
+								{% endblock %}
+							{% endif %}
+							 {% if app.request.attributes.get('_route') != 'frontend.compare.content' %}
+								{% block component_product_box_action_add_to_compare_button %}
+									{% sw_include '@Storefront/storefront/component/product/card/compare-button.html.twig' %}
+								{% endblock %}
+							{% endif  %}
+						</div>
+					{% endblock %}
+
+					{% block component_product_box_info %}
+						<div class="product-info">
+							{% block component_product_box_name %}
+								<a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" class="product-name" title="{{ name }}">
+									{{ name }}
+								</a>
+							{% endblock %}
+							<div class="product-number">
+							   {{ 'OwyChTheme.listing.product.article' |trans |sw_sanitize}} {{ product.productNumber }}
+							</div>
+
+							{% block component_product_box_variant_characteristics %}{% endblock %}
+
+							{% block component_product_box_price %}
+								{% if layout == 'wishlist' %}
+									<div class="product-number">
+										{{ product.productNumber }}
+									</div>
+								{% else %}									
+								{% endif %}
+							
+
+								<div class="product-box-price-container">
+
+                                    {% if context.taxState == 'gross' %}
+										<div class="pricetitle">
+											{{ 'OwyChTheme.listing.pricetag.lable' |trans |sw_sanitize}}
+										</div>
+                                    {% else %}
+										<div class="pricetitle">
+                                            {{ 'OwyChTheme.listing.pricetag.net' |trans |sw_sanitize}}
+
+										</div>
+                                    {% endif %}
+
+									<div class="priceunit">
+									{% sw_include '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+								</div>
+								</div>
+							{% endblock %}
+							<div class="merkliste-box">
+								
+								{% if config('core.cart.wishlistEnabled') %}								 
+									{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
+                                        appearance: 'circle',
+                                        productId: id
+                                    } %}
+								 
+							{% endif %}
+							</div>
+
+							<div class="vergleichen-box">
+								{# <span class="icon--empty"></span> #}
+								{# <span class="icon--red"></span>#}
+								 {# {{ 'OwyChTheme.listing.alerts.lable1' |trans |sw_sanitize}} #}
+
+								<!-- additional work -->
+                                {% set showIconOnly = config('FroshProductCompare.config.showIconOnly') %}
+
+								<div class="compare-button owy_clicked">
+                                    {% set addToCompareOptions = {
+                                        productId: product.id,
+                                        showIconOnly: showIconOnly,
+                                        defaultText: "froshProductCompare.general.addToCompare"|trans|sw_sanitize,
+                                        addedText: "froshProductCompare.general.removeFromCompare"|trans|sw_sanitize
+                                    } %}
+
+                                    {% if showIconOnly %}
+										<button data-add-to-compare-button="true"
+												data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+												class="btn-custom compare btn-compare"
+												title="{{ "froshProductCompare.general.addToCompare"|trans|striptags }}">
+
+										<span class="icon--empty"></span> 
+								 		{{ 'OwyChTheme.listing.alerts.lable1' |trans |sw_sanitize}}
+
+										</button>
+                                    {% else %}
+										<button data-add-to-compare-button="true"
+												data-add-to-compare-button-options="{{ addToCompareOptions|json_encode }}"
+												class="btn-custom compare btn-compare"
+												title="{{ "froshProductCompare.general.addToCompare"|trans|striptags }}">
+											<span class="icon--empty"></span> 
+								 		{{ 'OwyChTheme.listing.alerts.lable1' |trans |sw_sanitize}}
+
+										</button>
+                                    {% endif %}
+
+								</div>
+
+								<!-- end here -->
+
+							</div>
+							<div class="avaliblebox">
+
+								{% if product.stock >= 2 %}
+								<div class="green">
+										<span class="icon--green"></span>  {{ 'OwyChTheme.listing.alerts.lable2' |trans |sw_sanitize}}
+								</div>
+								{% endif %}
+								{% if product.stock == 1  %}
+								<div class="yellow">
+									<span class="icon--yellow"></span>  {{ 'OwyChTheme.listing.alerts.lable3' |trans |sw_sanitize}}
+								</div>
+								{% endif %}
+								{% if product.stock <= 0 %}
+								<div class="red">
+									<span class="icon--red-stock"></span>  {{ 'OwyChTheme.listing.alerts.lable4' |trans |sw_sanitize}}
+								</div>
+								{% endif %}
+
+							</div>
+
+							<div class="product--btn-action">							     
+								{% sw_include '@Storefront/storefront/component/product/card/action.html.twig' %}
+							</div>
+
+						</div>
+					{% endblock %}
+				</div>
+			{% endblock %}
+		</div>
+	{% endif %}
+{% endblock %}

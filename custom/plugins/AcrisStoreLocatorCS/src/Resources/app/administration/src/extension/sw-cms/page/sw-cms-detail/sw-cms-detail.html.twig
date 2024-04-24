@@ -1,0 +1,13 @@
+{% block sw_cms_detail_missing_element_modal %}
+    <template v-if="page.type == 'cms_stores'">
+        <acris-cms-missing-element-modal
+            v-if="showMissingElementModal && page.type == 'cms_stores'"
+            :missing-elements="missingElements"
+            @modal-close="onCloseMissingElementModal"
+            @modal-save="onSaveMissingElementModal"
+        />
+    </template>
+    <template v-else>
+        {% parent %}
+    </template>
+{% endblock %}

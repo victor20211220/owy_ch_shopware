@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{% block component_offcanvas_cart_actions_checkout %}
+	{{parent()}}
+
+	{% if config('RhiemRentalProducts.config.uniformRentalPeriods') and page.cart.extensions.rentalInformation.containsRentalItems %}
+		<div class="d-grid">
+			<a href="{{ path('frontend.checkout.cart.page') }}" class="btn btn-light mt-2">{{ "rhiem-rental-products.changeRentPeriod"|trans }}</a>
+		</div>
+	{% endif %}
+{% endblock %}

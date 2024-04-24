@@ -1,0 +1,262 @@
+{% block sw_cms_el_config_owy_awards_widget %}
+    <sw-tabs class="sw-cms-el-config-owy_awards_widget_slider__tabs" defaultItem="tab1">
+
+        <template slot-scope="{ active }" >
+            {% block sw_cms_el_config_owy_awards_widget_tab_tab1 %}
+            <sw-tabs-item title="Tab 1"
+                          name="tab1"
+                          :activeTab="active">
+               General
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_awards_widget_tab2 %}
+            <sw-tabs-item title="Tab 2"
+                          name="tab2"
+                          :activeTab="active">
+                I
+            </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_awards_widget_tab3 %}
+                <sw-tabs-item title="Tab 3"
+                              name="tab3"
+                              :activeTab="active">
+                   II
+                </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_awards_widget_tab4 %}
+                <sw-tabs-item title="Tab 4"
+                              name="tab4"
+                              :activeTab="active">
+                    III
+                </sw-tabs-item>
+            {% endblock %}
+            {% block sw_cms_el_config_owy_awards_widget_tab5 %}
+                <sw-tabs-item title="Tab 5"
+                              name="tab5"
+                              :activeTab="active">
+                    IV
+                </sw-tabs-item>
+            {% endblock %}
+
+            {% block sw_cms_el_config_owy_awards_widget_tab6 %}
+                <sw-tabs-item title="Tab 6"
+                              name="tab6"
+                              :activeTab="active">
+                    V
+                </sw-tabs-item>
+            {% endblock %}
+        </template>
+
+
+        <template slot="content" slot-scope="{ active }">
+            {% block sw_cms_el_owy_awards_widget_config_tab1 %}
+            <sw-container v-if="active === 'tab1'" class="sw-cms-el-config-owy_awards_widget__tab-tab1">
+                <sw-text-field
+                        v-model="element.config.generalheading.value"
+                        label="Heading"
+                       />
+
+            </sw-container>
+            {% endblock %}
+
+            {# general settings tab ends #}
+
+            {% block sw_cms_el_owy_awards_widget_config_tab2 %}
+            <sw-container v-if="active === 'tab2'" class="sw-cms-el-config-owy_awards_widget__tab-tab2">
+                <sw-media-field required v-model="element.config.award1image1.value" label="Upload Image"/>
+                <sw-text-field
+                        v-model="element.config.award1title1.value"
+                        label="Heading"
+                />
+                
+                <sw-textarea-field
+                        v-model="element.config.award1desc.value"
+                        type="textarea"
+                        label="Descriptions"
+                >
+                </sw-textarea-field>
+
+                <sw-media-field required v-model="element.config.award1image2.value"
+                                label="Upload Image 2"/>
+
+                <sw-text-field
+                        v-model="element.config.award1title3.value"
+                        label="Award date"
+                />
+                <sw-text-field
+                        v-model="element.config.award1title4.value"
+                        label="Award Title"
+                />
+
+                <sw-url-field
+                        label="Link 1"
+                        v-model="element.config.award1link1.value"
+                        placeholder="Link 1"
+                        :error="null"
+                        :omitUrlHash="false"
+                        :omitUrlSearch="false"
+                >
+                </sw-url-field>
+
+            </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_awards_widget_config_tab3 %}
+                <sw-container v-if="active === 'tab3'" class="sw-cms-el-config-owy_awards_widget__tab-tab2">
+                    <sw-media-field required v-model="element.config.award2image1.value" label="Upload Image"/>
+                    <sw-text-field
+                            v-model="element.config.award2title1.value"
+                            label="Heading"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.award2desc.value"
+                            type="textarea"
+                            label="Description"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-media-field required v-model="element.config.award2image2.value"
+                                    label="Upload Image 2"/>
+
+                    <sw-text-field
+                            v-model="element.config.award2title3.value"
+                            label="Award date"
+                    />
+                    <sw-text-field
+                            v-model="element.config.award2title4.value"
+                            label="Award Title"
+                    />
+                    <sw-url-field
+                            label="Link 2"
+                            v-model="element.config.award2link2.value"
+                            placeholder="Link 1"
+                            :error="null"
+                            :omitUrlHash="false"
+                            :omitUrlSearch="false"
+                    >
+                    </sw-url-field>
+                </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_awards_widget_config_tab4 %}
+                <sw-container v-if="active === 'tab4'" class="sw-cms-el-config-owy_awards_widget__tab-tab4">
+                    <sw-media-field required v-model="element.config.award3image1.value" label="Upload Image"/>
+                    <sw-text-field
+                            v-model="element.config.award3title1.value"
+                            label="Heading"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.award3desc.value"
+                            type="textarea"
+                            label="Description"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-media-field required v-model="element.config.award3image2.value"
+                                    label="Upload Image 2"/>
+
+                    <sw-text-field
+                            v-model="element.config.award3title3.value"
+                            label="Award date"
+                    />
+                    <sw-text-field
+                            v-model="element.config.award3title4.value"
+                            label="Award Title"
+                    />
+                    <sw-url-field
+                            label="Link 3"
+                            v-model="element.config.award3link3.value"
+                            placeholder="Link 3"
+                            :error="null"
+                            :omitUrlHash="false"
+                            :omitUrlSearch="false"
+                    >
+                    </sw-url-field>
+
+                </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_awards_widget_config_tab5 %}
+                <sw-container v-if="active === 'tab5'" class="sw-cms-el-config-owy_awards_widget__tab-tab5">
+                    <sw-media-field required v-model="element.config.award4image1.value" label="Upload Image"/>
+                    <sw-text-field
+                            v-model="element.config.award4title1.value"
+                            label="Heading"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.award4desc.value"
+                            type="textarea"
+                            label="Description"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-media-field required v-model="element.config.award4image2.value"
+                                    label="Upload Image 2"/>
+
+                    <sw-text-field
+                            v-model="element.config.award4title3.value"
+                            label="Award date"
+                    />
+                    <sw-text-field
+                            v-model="element.config.award4title4.value"
+                            label="Award Title"
+                    />
+
+                    <sw-url-field
+                            label="Link 4"
+                            v-model="element.config.award4link4.value"
+                            placeholder="Link 4"
+                            :error="null"
+                            :omitUrlHash="false"
+                            :omitUrlSearch="false"
+                    >
+                    </sw-url-field>
+
+                </sw-container>
+            {% endblock %}
+
+            {% block sw_cms_el_owy_awards_widget_config_tab6 %}
+                <sw-container v-if="active === 'tab6'" class="sw-cms-el-config-owy_awards_widget__tab-tab6">
+                    <sw-media-field required v-model="element.config.award5image1.value" label="Upload Image"/>
+                    <sw-text-field
+                            v-model="element.config.award5title1.value"
+                            label="Heading"
+                    />
+                    <sw-textarea-field
+                            v-model="element.config.award5desc.value"
+                            type="textarea"
+                            label="Description"
+                    >
+                    </sw-textarea-field>
+
+                    <sw-media-field required v-model="element.config.award5image2.value"
+                                    label="Upload Image 2"/>
+
+                    <sw-text-field
+                            v-model="element.config.award5title3.value"
+                            label="Award date"
+                    />
+                    <sw-text-field
+                            v-model="element.config.award5title4.value"
+                            label="Award Title"
+                    />
+
+                    <sw-url-field
+                            label="Link 5"
+                            v-model="element.config.award5link5.value"
+                            placeholder="Link 5"
+                            :error="null"
+                            :omitUrlHash="false"
+                            :omitUrlSearch="false"
+                    >
+                    </sw-url-field>
+
+                </sw-container>
+            {% endblock %}
+        </template>
+    </sw-tabs>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% sw_extends "@storefront/storefront/layout/navigation/flyout.html.twig" %}
+{% block layout_navigation_flyout %}
+    {% set category = navigationTree.category %}
+    {% set name = category.translated.name %}
+
+    {% if navigationTree.children|length > 0 %}
+        {% sw_include '@Storefront/storefront/layout/navigation/flyout_level.html.twig' with {
+            category: category,
+            name: name,
+            children: navigationTree.children
+
+        } %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+
+{% endblock %}

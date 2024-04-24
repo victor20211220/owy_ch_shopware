@@ -1,0 +1,23 @@
+{
+  "OWY": {
+    "photo_exchange_create": {
+      "category": "Rubrik",
+      "headline": "Überschrift",
+      "body": "Eintrag",
+      "upload_image": "Bild laden",
+      "submit": "Absenden",
+      "label": "Herzlichen Dank für Ihr Interesse an der Fotobörs",
+      "label1": "Die Fotobörse ist eine kostenlose Dienstleistung der Firma Ott + Wyss AG. Sie haben hier die Möglichkeit, in den entsprechenden Rubriken Fotoartikel, Dienstleistungen oder Stellen aus der Fotobranche u.s.w. anzubieten oder zu suchen. Die Firma Ott + Wyss AG, Zofingen schliesst jedoch jegliche Haftung (einschliesslich Fahrlässigkeit) aus, die sich aus dem Zugriff, bzw. dem verunmöglichten Zugriff auf das Portal oder einzelner seiner Elemente und aus der Benutzung ergeben könnten.",
+      "label2": "Dieses Forum ist ausschliesslich für fotografische Themen reserviert. Andere Einträge wie Autos, Smartphones, Meerschweinchen u.s.w. werden gelöscht. Ihre Daten werden selbstverständlich vertraulich behandelt und nicht an Dritte weitergegeben. Wir bitten Sie, Ihre Einträge in den entsrechenden Rubriken zu veröffentlichen und nach einem allfälligen Verkauf zu löschen. Anzeigen in falschen Rubriken werden gelöscht. Besten Dank für Ihr Verständnis und Ihre Mithilfe.",
+      "label3": "Vorsicht vor Betrugsversuchen (Haftung ausgeschlossen)!",
+      "label4": "Um ein Bild zusammen mit dem Eintrag hochzuladen, geben Sie bitte mit „Datei auswählen“ den Pfad an. Das Bild muss als *.jpg oder *.gif Datei abgespeichert sein und darf das Format von",
+      "label5": "Um ein Bild zusammen mit dem Eintrag hochzuladen, geben Sie bitte mit „Datei auswählen“ den Pfad an. Das Bild muss als *.jpg oder *.gif Datei abgespeichert sein und darf das Format von",
+      "label6": "Um ein Bild zusammen mit dem Eintrag hochzuladen, geben Sie bitte mit „Datei auswählen“ den Pfad an. Das Bild muss als *.jpg oder *.gif Datei abgespeichert sein und darf das Format von",
+      "label7": "Um ein Bild zusammen mit dem Eintrag hochzuladen, geben Sie bitte mit „Datei auswählen“ den Pfad an. Das Bild muss als *.jpg oder *.gif Datei abgespeichert sein und darf das Format von",
+      "label8": "Um ein Bild zusammen mit dem Eintrag hochzuladen, geben Sie bitte mit „Datei auswählen“ den Pfad an. Das Bild muss als *.jpg oder *.gif Datei abgespeichert sein und darf das Format von",
+      "label9": "* obligatorische Eingabefelde",
+      "btn": "Absenden"
+
+    }
+  }
+}

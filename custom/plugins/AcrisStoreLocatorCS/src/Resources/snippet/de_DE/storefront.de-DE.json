@@ -1,0 +1,64 @@
+{
+    "acrisStoreLocator": {
+        "noStoreAvailableErrorMessageData": "Es wurde leider keine Filiale gefunden.",
+        "noStoreAvailableErrorMessagePermission": "Der Aufruf ist leider fehlgeschlagen. Bitte überprüfen Sie Ihren Google-API-Schlüssel und ob die Anzahl der möglichen Google Maps-Aufrufe erschöpft ist.",
+        "metatitle": "Store Locator",
+        "storeGroupDetailsName": "Name",
+        "storeGroupDetailsAddress": "Adresse",
+        "storeGroupDetailsContact": "Kontakt",
+        "storeGroupDetailsDetails": "Details",
+        "storeGroupDetailsOpeningHours": "Öffnungszeiten",
+        "storeLocatorPageBreadcrumb": "Zurück zu Store Locator Hauptseite",
+        "storeLocatorPageBreadcrumbDetail": "Zurück zu ",
+        "cookieNotAccepted": "Bitte akzeptieren Sie die Datenschutzhinweise, damit die Karte von Google Maps geladen wird.",
+        "account": {
+            "overviewStoreHeader": "Meine Filiale",
+            "overviewChangeStore": "Filiale wählen",
+            "cardTitle": "Meine Filiale",
+            "storeFieldLabel": "Filiale",
+            "placeholder": "Filiale auswählen...",
+            "noSelectOption": "Keine Filialauswahl",
+            "submitButton": "Filiale wählen",
+            "storeAssignedSuccess": "Die Filiale wurde erfolgreich zugewiesen.",
+            "storeAssignedError": "Die Filiale konnte nicht zugeordnet werden. Fehler: ",
+            "assignedStore": "Klicken Sie hier für weitere Einzelheiten",
+            "noAssignedStore": "Es wurde noch keine Filiale gewählt."
+        },
+        "cookie": {
+            "name": "Store Locator (Google Maps)",
+            "description": "Dieses Cookie ist für die Anzeige von Google Maps auf der Store Locator Seite erforderlich."
+        }
+    },
+
+    "acrisStoreLocatorForm": {
+        "city": "Ort",
+        "button": "Suchen",
+        "distance": "Distanz",
+        "distanceUnit1": "50 km",
+        "distanceUnit2": "100 km",
+        "distanceUnit3": "150 km",
+        "distanceUnit4": "200 km"
+    },
+
+    "checkout": {
+        "storeLocatorSelection": {
+            "label": "Wähle ein Geschäft aus",
+            "placeholder": "Geschäft auswählen...",
+            "optionNoSelect": "Kein Geschäft ausgewählt",
+            "selectionPlaceholder": "Bitte wählen sie aus"
+        },
+        "storeLocatorDisplay": {
+            "label": "Geschäft Informationen",
+            "name": "Name:",
+            "department": "Abteilung:",
+            "street": "Straße und Hausnummer:",
+            "zipcode": "Postleitzahl:",
+            "city": "Stadt:",
+            "countryName": "Land:",
+            "phone": "Telefon:",
+            "email": "E-Mail:",
+            "url": "Url:",
+            "opening_hours": "Öffnungszeiten:"
+        }
+    }
+}

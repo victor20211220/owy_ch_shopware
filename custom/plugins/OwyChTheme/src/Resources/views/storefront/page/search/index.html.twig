@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/page/search/index.html.twig' %}
+
+{% block base_content %}
+    {% block page_search %}
+        <div class="cms-page search-page">
+            {% block page_search_headline %}
+                <h1 class="search-headline">
+                    {% block page_search_headline_text %}
+                        {{ "search.headline"|trans({
+                            '%count%': page.listing.total,
+                            '%searchTerm%': page.searchTerm,
+                        }) }}
+                    {% endblock %}
+                </h1>
+            {% endblock %}
+
+            <div class="row">
+                <div class="col-lg-3">
+
+                        {% sw_include '@Storefront/storefront/layout/sidebar/category-navigation.html.twig' with {
+                            navigationTree: page.header.navigation.tree,
+                            activeResult: page.header.navigation.active
+                        } only %}
+                </div>
+                <div class="col-lg-9">
+                    {% sw_include '@Storefront/storefront/page/search/search-pagelet.html.twig' with { page: page } %}
+                </div>
+            </div>
+
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% block confirm_store_selection %}
+    {% if page.extensions.acrisStoreLocatorConfig.checkoutSelection is not same as ('none') %}
+        {% block confirm_store_single_selection %}
+            <div class="card acris-store-locator-selection-card">
+                <div class="card-body">
+                    <div class="card-title">
+                        {% block confirm_store_single_selection_label %}
+                            <label class="form-label"
+                                   for="{{ constant('Acris\\StoreLocator\\Subscriber\\ConfirmPageSubscriber::STORE_LOCATOR_STORE_SELECTION_KEY') }}">
+                                {{ "checkout.storeLocatorSelection.label"|trans|sw_sanitize }}
+                            </label>
+                        {% endblock %}
+                    </div>
+
+                    {% block confirm_store_selection_select %}
+                        {% if page.extensions.acrisStoreLocatorConfig.checkoutSelection is same as ('singleSelect') %}
+                            {% sw_include '@Storefront/storefront/page/checkout/confirm/type/type-single-selection.html.twig' %}
+                        {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endif %}
+{% endblock %}

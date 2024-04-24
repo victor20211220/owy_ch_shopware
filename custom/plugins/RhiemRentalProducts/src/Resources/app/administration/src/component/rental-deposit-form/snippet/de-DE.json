@@ -1,0 +1,8 @@
+{
+    "rental-deposit-form": {
+        "depositPriceFieldHeadline": "Kaution (netto)",
+        "depositPriceHelptext": "Kaution Hilfe",
+        "depositPriceField": "Hier Kautionsbetrag in Netto eintragen",
+        "depositCurrencyDependantLink": "Währungsabhängige Preise"
+    }
+}

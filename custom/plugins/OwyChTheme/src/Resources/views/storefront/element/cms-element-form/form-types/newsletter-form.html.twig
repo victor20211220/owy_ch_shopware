@@ -1,0 +1,95 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-form/form-types/newsletter-form.html.twig' %}
+{% block cms_form_newsletter %}
+    {% set activeNav = page.header.navigation.active.name  %}
+
+    <form action="{{ path(action) }}"
+          method="post"
+          data-form-validation="true">
+
+        <div class="form-content">
+            {% if page.navigationId == 'aa0593c339004f178d1142f5d77b5277' %}
+                <div class="newsletter-box">
+                    <p>{{ 'OwyChTheme.newsletter.form.label' |trans |sw_sanitize}}</p>
+                    <p>{{ 'OwyChTheme.newsletter.form.label1' |trans |sw_sanitize}}</p>
+                </div>
+
+
+            {% else %}
+                <div class="newsletter-box">
+                    <p>{{ 'OwyChTheme.newsletter.form.label2' |trans |sw_sanitize}}</p>
+                    <p>{{ 'OwyChTheme.newsletter.form.label3' |trans |sw_sanitize}}</p>
+                </div>
+            {% endif %}
+
+            <div class="row">
+                {% block cms_form_newsletter_select_action %}
+                    <div class="form-group col-12"  style="display: none">
+                        <select name="option"
+                                id="newsletterAction"
+                                required="required"
+                                class="form-select"
+                                data-form-field-toggle="true"
+                                data-form-field-toggle-target=".js-field-toggle-newsletter-additional"
+                                data-form-field-toggle-value="subscribe">
+
+                            <option  {% if page.navigationId == 'aa0593c339004f178d1142f5d77b5277' %} selected="selected" {% endif %}
+                                    value="{{ constant('Shopware\\Storefront\\Controller\\FormController::SUBSCRIBE') }}">
+                                {{ "newsletter.subscribeOption"|trans }}
+                            </option>
+
+                            <option {% if page.navigationId == 'c82a5e24273d4458a2d9901c06df8eb1' %} selected="selected" {% endif %} value="{{ constant('Shopware\\Storefront\\Controller\\FormController::UNSUBSCRIBE') }}">
+                                {{ "newsletter.unsubscribeOption"|trans }}
+                            </option>
+                        </select>
+                    </div>
+                {% endblock %}
+            </div>
+
+            <div class="row">
+                <div class="form-group row newsletter-inner">
+                    <div class="col-sm-12 col-md-3">
+                        <label for="inputPassword">{{ 'OwyChTheme.newsletter.form.label4' |trans |sw_sanitize}}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                         {% sw_include '@Storefront/storefront/element/cms-element-form/form-components/cms-element-form-input.html.twig'
+                            with {
+                            fieldName: 'email',
+                            type: 'email',
+                            additionalClass: 'col-12',
+                            placeholder: 'newsletter.placeholderMail'
+                        }
+                        %}
+                    </div>
+                </div>
+
+            </div>
+
+            {% block cms_form_newsletter_additional_fields %}{% endblock %}
+
+            {% block cms_form_newsletter_captcha %}
+                {% sw_include '@Storefront/storefront/component/captcha/base.html.twig' with { additionalClass : 'col-md-4' } %}
+            {% endblock %}
+
+            {% block cms_form_newsletter_privacy %}{% endblock %}
+
+            {% block cms_form_newsletter_required_fields_info %}
+                   <div class="newsnote">{{ 'OwyChTheme.newsletter.form.label5' |trans |sw_sanitize}}</div>
+            {% endblock %}
+
+            {% block cms_form_newsletter_submit %}
+
+                    <button type="submit" class="btn btn-primary float-end">
+                        {{ 'OwyChTheme.newsletter.form.label6' |trans |sw_sanitize}}
+                    </button>
+                
+                {#{% sw_include '@Storefront/storefront/element/cms-element-form/form-components/cms-element-form-submit.html.twig' %}#}
+            {% endblock %}
+        </div>
+
+        {% block cms_form_newsletter_hidden_fields %}
+            <div class="form-hidden-fields">
+                <input type="submit" class="submit--hidden d-none">
+            </div>
+        {% endblock %}
+    </form>
+{% endblock %}

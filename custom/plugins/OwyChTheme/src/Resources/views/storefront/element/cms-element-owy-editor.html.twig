@@ -1,0 +1,56 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set description = config.description.value %}
+
+    {% if description == '[breadcrumb]' %}
+        {% if (controllerName|lower == 'navigation' and controllerAction|lower == 'index') || (controllerName|lower == 'cms' and controllerAction|lower == 'category' )%}
+            {% set breadcrumbCategories = sw_breadcrumb_full(page.header.navigation.active, context.context) %}
+            {% set categoryId = category.id %}
+            {% set breadcrumbKeys = breadcrumbCategories|keys %}
+            {% if breadcrumbCategories|length > 0 %}
+                {% if controllerName|lower  == 'navigation' and controllerAction|lower == 'index'  %}
+                    <div class="row" style="width: 100%;">
+                        <nav class="categorybreadcrumb" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                {% for breadcrumbCategory in breadcrumbCategories %}
+                                    {% set key = breadcrumbCategory.id %}
+                                    {% set name = breadcrumbCategory.translated.name %}
+                                    <li class="breadcrumb-item"
+                                        {% if key is same as(categoryId) %}aria-current="page"{% endif %}
+                                        itemprop="itemListElement"
+                                        itemscope
+                                        itemtype="https://schema.org/ListItem">
+                                        {% if breadcrumbCategory.type == 'folder' %}
+                                            <div itemprop="item">
+                                                <div itemprop="name">{{ name }}</div>
+                                            </div>
+                                        {% else %}
+                                            <a href="{{ category_url(breadcrumbCategory) }}"
+                                               class="breadcrumb-link {% if key is same as(categoryId) %} is-active{% endif %}"
+                                               title="{{ name }}"
+                                               {% if category_linknewtab(breadcrumbCategory) %}target="_blank"{% endif %}
+                                               itemprop="item">
+                                                <link itemprop="url"
+                                                      href="{{ category_url(breadcrumbCategory) }}">
+                                                <span class="breadcrumb-title" itemprop="name">{{ name }}</span>
+                                            </a>
+                                        {% endif %}
+                                        <meta itemprop="position" content="{{ loop.index }}">
+                                    </li>
+                                    {% if key != breadcrumbKeys|last %}
+                                        <div class="breadcrumb-placeholder">
+                                            {% sw_icon 'arrow-medium-right' style { 'size': 'fluid', 'pack': 'solid'} %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </ol>
+                        </nav>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% else %}
+        {{ description|raw }}
+    {% endif %}
+
+</div>

@@ -1,0 +1,42 @@
+{
+  "netzp-searchadvanced6-log": {
+    "menuLabel": "Search log",
+
+    "attention": "Attention",
+    "deleteLog": "Delete search log now? This cannot be undone.",
+    "cancel": "Cancel",
+    "ok": "OK",
+
+    "list": {
+      "exportButtonText": "Export",
+      "deleteButtonText": "Delete",
+      "groupqueries": "Group search queries",
+      "onlyempty": "Queries without hits",
+      "originsearch": "Search",
+      "originajax": "Suggest",
+
+      "columns": {
+        "query": "Query",
+        "hits": "Hits",
+        "additionalHits": "Hits (others)",
+        "count": "Count",
+        "saleschannel": "Sales channel",
+        "language": "Language",
+        "origin": "Origin",
+        "date": "Date"
+      },
+      "sidebar": {
+        "refresh": "Refresh",
+        "filter": "Filter",
+        "resetFilter": "Reset filter",
+        "saleschannel": "Sales Channel",
+        "language": "Language"
+      }
+    }
+  },
+
+  "netzp-searchadvanced6-log.additional.netzp.search.categories": "Kategorien",
+  "netzp-searchadvanced6-log.additional.netzp.search.cms": "CMS",
+  "netzp-searchadvanced6-log.additional.netzp.events.searchLabel": "Events",
+  "netzp-searchadvanced6-log.additional.netzp.blog.searchLabel": "Blog"
+}

@@ -1,0 +1,301 @@
+@import "~scss/variables";
+
+.rental-calendar-form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    border: 1px solid $color-gray-200;
+    border-radius: 8px;
+    position: relative;
+
+    &.is-disabled {
+        border: 1px solid $color-gray-100;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99;
+            background-color: transparentize(darken($color-gray-100, 2%), .2);
+        }
+    }
+
+    .rental-calendar-toolbar {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        padding: 12px;
+        border-bottom: 1px solid $color-gray-200;
+
+        .calendar-date-selection,
+        .calendar-current-date,
+        .calendar-month-selection {
+            display: table-cell;
+            padding: 4px;
+        }
+
+        .calendar-date-selection {
+            text-align: left;
+
+            .date-selection-input {
+                display: inline-block;
+                margin-bottom: 0;
+
+                input {
+                    padding: 2px 10px;
+                }
+
+                .sw-icon {
+                    line-height: 14px;
+                }
+            }
+        }
+
+        .calendar-current-date {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+
+            .calendar-current-date-text {
+                font-size: 20px;
+            }
+        }
+
+        .calendar-month-selection {
+            text-align: right;
+            padding-top: 4px;
+
+            span {
+                cursor: pointer;
+            }
+
+            .sw-icon {
+                height: 18px;
+                width: 18px;
+            }
+
+            .calendar-month-selection-right {
+                margin-left: 16px;
+            }
+        }
+    }
+
+    .rental-calendar-body {
+        .calendar-week-header {
+            display: flex;
+
+            .calendar-week-header-day {
+                padding: 6px 10px;
+                font-size: 14px;
+                flex: 1;
+                border-right: 1px solid $color-gray-200;
+                color: $color-darkgray-50;
+                user-select: none;
+
+                &.is-last-day {
+                    border-right: none;
+                }
+
+                &.is-current-day {
+                    font-weight: 500;
+                    color: $color-shopware-brand-400;
+                }
+            }
+        }
+
+        .calendar-week {
+            display: flex;
+            flex: 1;
+
+            .calendar-day {
+                display: block;
+                flex: 1;
+                border-right: 1px solid $color-gray-200;
+                border-bottom: 1px solid $color-gray-200;
+                min-height: 110px;
+                overflow: hidden;
+                user-select: none;
+                padding-bottom: 4px;
+
+                .calendar-day-number {
+                    margin: 4px;
+                    padding: 2px 6px;
+                    border-radius: 5px;
+
+                    &.first-row {
+                        padding-top: 0;
+                    }
+
+                    &.is-current-day {
+                        font-weight: 500;
+                        color: $color-shopware-brand-400;
+                    }
+
+                    &:hover {
+                        background: $color-gray-100;
+                        cursor: pointer;
+                    }
+                }
+
+                &.is-last-day {
+                    border-right: none;
+                }
+
+                .calendar-detail-button {
+                    text-decoration: none;
+                    display: inline;
+                    color: $color-darkgray-200;
+
+                    &.is-entry-button:hover {
+                        text-decoration: none;
+                    }
+
+                    &.is-placeholder {
+                        visibility: hidden;
+                        cursor: default;
+                    }
+                }
+
+                .calendar-entry {
+                    color: $color-white;
+                    padding-left: 6px;
+                    margin: 0 0px 2px;
+                    height: 14px;
+                    font-size: 11px;
+                    line-height: 1;
+                    display: flex;
+                    align-items: center;
+
+                    &.is-order-entry {
+                        background: $color-module-purple-500;
+
+                        &.highlighted {
+                            background: $color-module-purple-900;
+                        }
+                    }
+
+                    &.is-block-entry {
+                        background: $color-crimson-600;
+
+                        &.highlighted {
+                            background: $color-crimson-900;
+                        }
+                    }
+
+                    &.is-last-entry {
+                        margin-bottom: 0;
+                    }
+
+                    &.is-period-start {
+                        margin-left: 5px;
+                        border-bottom-left-radius: 2px;
+                        border-top-left-radius: 2px;
+                    }
+
+                    &.is-period-end {
+                        margin-right: 5px;
+                        border-bottom-right-radius: 2px;
+                        border-top-right-radius: 2px;
+                    }
+
+                    &:hover:not(.is-placeholder) {
+                        cursor: pointer;
+                    }
+                }
+
+                .calendar-more-entries-dots {
+                    text-align: center;
+                    cursor: pointer;
+
+                    .sw-icon {
+                        height: 19px;
+                        width: 19px;
+                    }
+                }
+            }
+
+            &.is-last-week {
+                .calendar-day {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+.create-block-modal {
+    .create-block-input-row {
+        white-space: nowrap;
+        padding-bottom: 12px;
+
+        .create-block-start-date {
+            display: inline-block;
+            width: 50%;
+            padding-right: 25px;
+        }
+
+        .create-block-end-date {
+            display: inline-block;
+            width: 50%;
+            padding-left: 25px;
+        }
+
+
+        .create-block-quantity {
+            width: 20%;
+            display: inline-block;
+            padding-right: 10px;
+        }
+
+        .create-block-comment {
+            width: 80%;
+            display: inline-block;
+            padding-left: 5px;
+        }
+    }
+
+    .create-block-modal-error.sw-alert.sw-alert--error {
+        padding: 0;
+    }
+}
+
+.edit-block-modal {
+    .edit-block-input-row {
+        white-space: nowrap;
+        padding-bottom: 12px;
+
+        .edit-block-start-date {
+            display: inline-block;
+            width: 50%;
+            padding-right: 25px;
+        }
+
+        .edit-block-end-date {
+            display: inline-block;
+            width: 50%;
+            padding-left: 25px;
+        }
+
+        .edit-block-quantity {
+            width: 20%;
+            display: inline-block;
+            padding-right: 10px;
+        }
+
+        .edit-block-comment {
+            width: 80%;
+            display: inline-block;
+            padding-left: 5px;
+        }
+    }
+
+    .edit-block-modal-error.sw-alert.sw-alert--error {
+        padding: 0;
+    }
+}

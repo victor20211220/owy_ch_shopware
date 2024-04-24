@@ -1,0 +1,27 @@
+.rental-deposit-form {
+    .rental-deposit-form-upper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .rental-deposit-form-deposit-price,
+        .rental-settings-form-deposit-price_currency_dependent {
+            padding: 10px;
+        }
+
+        .rental-deposit-form-deposit-price-currency {
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        .rental-deposit-form-deposit-price_dependend_currency {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+
+            .rental-deposit-form-deposit-price_depended_currency_wrapper {
+                display: flex;
+                justify-content: flex-end;
+                grid-row: 2;
+            }
+        }
+    }
+}

@@ -1,0 +1,270 @@
+{
+    "cbax-lexicon": {
+        "productDetail": {
+            "lexiconEntrySelection": {
+                "title": "Lexicon",
+                "label": "Coolbax Lexicon entries associated with this product",
+                "placeholder": "No entries",
+                "helpText": "Only for entries with a listing type that is not Dynamic product group."
+            }
+        },
+        "seo": {
+            "success": "Success",
+            "error": "Error",
+            "unknown": "Unknown error",
+            "text": "Create the seo urls for the lexicon pages",
+            "link": "More Informationens about the errors in the Shopware loggings",
+            "button": "Start Generate",
+            "deleteButton": "Start Delete",
+            "deleteText": "Delete all seo urls for the lexicon pages",
+            "deleteSuccess": "The lexicon seo urls have been deleted.",
+            "deleteError": "Error while deleting the lexicon seo urls!",
+            "cancelButton": "Cancel",
+            "confirmButton": "Delete",
+            "deleteInfoText": "When deleting all lexicon seo urls, their history is also lost. That's why you should only delete it if you have problems.",
+            "deleteConfirmText": "Do you really want to delete?"
+        },
+        "seoConfigInfo": {
+            "text": "For Example: Lexicon - without Domain - Call: http://www.my-shop.de/lexicon - After changing clear the cache and the SEO Urls generate new. Please note: SEO Urls can only be assigned once. For example, if you already have a Lexicon category, then this SEO Url is already taken and will not be generated again.",
+            "link": "Manual"
+        },
+        "cmsConfigInfo": {
+            "text": "You can now make the settings for the elements of the lexicon's pages directly in the corresponding elements in the Shopping Experiences!",
+            "link": "To the Shopping Experiences"
+        },
+        "sorting": {
+            "labelLexicon": "Lexicon Pages (Coolbax)"
+        },
+        "create": {
+            "labelLexicon": "Lexicon Pages (Coolbax)",
+            "labelLexiconGeneral": "Coolbax Lexicon",
+            "labelLexiconIndex": "Coolbax Lexicon Overview",
+            "labelLexiconDetail": "Coolbax Lexicon Detail",
+            "labelLexiconContent": "Coolbax Lexicon Content",
+            "labelLexiconListing": "Coolbax Lexicon Listing"
+        }
+    },
+    "blocks": {
+        "text": {
+            "cbax-lexicon-text": {
+                "general": {
+                    "label": "Lexicon Text"
+                }
+            }
+        },
+        "cbax-lexicon": {
+            "cbax-lexicon-latest-entries": {
+                "general": {
+                    "label": "Lexicon latest Entries"
+                }
+            },
+            "cbax-lexicon-sidebar": {
+                "general": {
+                    "label": "Lexicon Sidebar"
+                }
+            },
+            "cbax-lexicon-popular-entries": {
+                "general": {
+                    "label": "Lexicon most read Entries"
+                }
+            },
+            "cbax-lexicon-letter-entries": {
+                "general": {
+                    "label": "Lexicon entries for this letter"
+                }
+            },
+            "cbax-lexicon-entry": {
+                "general": {
+                    "label": "Lexicon Entry"
+                }
+            },
+            "cbax-lexicon-products": {
+                "general": {
+                    "label": "Lexicon Product Listing"
+                }
+            },
+            "cbax-lexicon-navigation": {
+                "general": {
+                    "label": "Lexicon Navigation"
+                }
+            },
+            "cbax-lexicon-content": {
+                "general": {
+                    "label": "Lexicon Table of Content"
+                }
+            }
+        }
+    },
+
+    "elements": {
+        "no-settings": "No settings",
+        "detail-page-only": "Works in lexicon detail page only!",
+        "listing-page-only": "Works in lexicon listing page only!",
+        "wrong-page-type-alert": "This element will not work here! It needs a cms page of type Coolbax Lexicon.",
+        "cbax-lexicon-text": {
+            "general": {
+                "label": "Lexicon Text"
+            },
+            "config": {
+                "content": "Text will be displayed with lexicon links in the shop"
+
+
+            }
+        },
+        "cbax-lexicon-latest-entries": {
+            "general": {
+                "label": "Lexicon latest entries"
+            },
+            "config": {
+                "label": {
+                    "headline": "Headline",
+                    "template": "Template",
+                    "entryNumber": "Number of entries"
+                },
+                "template": {
+					"listing_1col": "List",
+                    "listing_2col": "Two columns",
+                    "listing_3col": "Three column",
+                    "listing_4col": "Four column",
+                    "slider": "Slider"
+                }
+            }
+        },
+        "cbax-lexicon-popular-entries": {
+            "general": {
+                "label": "Lexicon most read entries"
+            },
+            "config": {
+                "label": {
+                    "headline": "Headline",
+                    "template": "Template",
+                    "entryNumber": "Number of entries"
+                },
+                "template": {
+					"listing_1col": "List",
+                    "listing_2col": "Two columns",
+                    "listing_3col": "Three column",
+                    "listing_4col": "Four column",
+                    "slider": "Slider"
+                }
+            }
+        },
+        "cbax-lexicon-letter-entries": {
+            "general": {
+                "label": "Lexicon entries for this letter"
+            },
+            "component": {
+                "letterHeader": " entries in this lexicon category"
+            },
+            "config": {
+                "label": {
+                    "headline": "Headline",
+                    "template": "Template",
+                    "entryNumber": "Number of entries",
+					"buttonVariant": "Button Variant",
+					"buttonSize": "Button Size"
+                },
+                "template": {
+					"listing_1col": "List",
+                    "listing_2col": "Two columns",
+                    "listing_3col": "Three column",
+                    "listing_4col": "Four column",
+                    "slider": "Slider"
+                },
+				"buttonVariant": {
+					"optionValuePrimary": "Primary",
+					"optionValueOutlinePrimary": "Outline Primary",
+					"optionValueSecondary": "Secondary",
+					"optionValueOutlineSecondary": "Outline Secondary",
+					"optionValueInfo": "Info",
+					"optionValueOutlineInfo": "Outline Info",
+					"optionValueLight": "Light",
+					"optionValueOutlineLight": "Outline Light",
+					"optionValueLink": "Link"
+                },
+				"buttonSize": {
+					"optionValueSmall": "Small",
+					"optionValueMedium": "Medium",
+					"optionValueLarge": "Large"
+                }
+            }
+        },
+        "cbax-lexicon-navigation": {
+            "general": {
+                "label": "Lexicon Navigation"
+            },
+            "config": {
+                "label": {
+                    "navigation": "Navigation",
+                    "duration": "Scrolling speed",
+                    "stop": "Scroll distance to entry"
+                },
+                "placeholder": {
+                    "navigation": "Scroll to the letters by clicking",
+                    "duration": "500",
+                    "stop": "5"
+                },
+                "navigation": {
+                    "scroll": "Scroll to the letters by clicking",
+                    "click": "Click to hide all other letters"
+                }
+            }
+        },
+        "cbax-lexicon-content": {
+            "general": {
+                "label": "Lexicon Table of Content"
+            },
+            "component": {
+                "letterHeader": " 2 entries in this lexicon category"
+            }
+        },
+        "cbax-lexicon-entry": {
+            "general": {
+                "label": "Lexicon Entry"
+            }
+        },
+        "cbax-lexicon-products": {
+            "general": {
+                "label": "Lexicon Product Listing"
+            },
+            "no-settings": "The settings are made directly on the detail pages of the lexicon entries."
+        },
+        "cbax-lexicon-sidebar": {
+            "general": {
+                "label": "Lexicon Sidebar"
+            },
+            "component": {
+                "headline": "Lexicon L"
+            }
+        }
+    },
+
+    "cbaxmodullexicon": {
+        "updateNotification": {
+            "default": {
+                "title": "Check the Settings",
+                "message": "The lexicon uses Shopping Experiences templates now for the lexicon pages. These are set in the plugin settings and designed within the Shopping Experiences. There are 4 sample templates as defaults.",
+                "action": "To the Shopping Experiences",
+                "titleImportantUpdate": "Important Update"
+            }
+        }
+    },
+
+    "sw-cms": {
+        "detail": {
+            "label": {
+                "pageType": {
+                    "cbax_lexicon": "Lexicon Page"
+                }
+            }
+        },
+        "components": {
+            "cmsListItem": {
+                "defaultLayoutLexiconDetail": "Standard Lexicon Detail",
+                "defaultLayoutLexiconIndex": "Standard Lexicon Overview",
+                "defaultLayoutLexiconListing": "Standard Lexicon Listing",
+                "defaultLayoutLexiconContent": "Standard Lexicon Content"
+            }
+        }
+    }
+}

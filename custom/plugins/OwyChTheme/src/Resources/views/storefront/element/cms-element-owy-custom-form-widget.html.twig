@@ -1,0 +1,111 @@
+<div class="cms-element-{{ element.type }}">
+    {% set config = element.translated.config %}
+    {% set heading = config.heading.value %}
+    {% set desc1 = config.desc1.value %}
+    {% set desc2 = config.desc2.value %}
+    {% set ShortHeading = config.ShortHeading.value %}
+    {% set selectFormType = config.selectFormType.value %}
+    {% set firma = config.firma.value %}
+    {% set name = config.name.value %}
+    {% set vorname = config.vorname.value %}
+    {% set strasse = config.strasse.value %}
+    {% set plz = config.plz.value %}
+    {% set telephone = config.telephone.value %}
+    {% set email = config.email.value %}
+
+
+      <h4 class="shoptitle" style="border-color: transparent; padding-bottom: 22px;">{{ heading }}</h4>
+
+        {% if selectFormType == 'Anfrage' %}
+            <p>{{ desc1|raw }}</p>
+            <p>{{ desc2|raw }}</p>
+        {% endif %}
+
+
+    <form class="wrap--contact" id="owy-form">
+        <input type="hidden" value='{{ path('frontend.action.owy_inquiry_form.send') }}' id="getUrl"/>
+        {% if selectFormType == 'Anfrage' %}
+            <input type="hidden" value='1' id="page_val"/>
+            <hr/>
+        {% else %}
+            <input type="hidden" value='2' id="page_val"/>
+        {% endif %}
+        {% if selectFormType == 'Anfrage' %}
+                <div class="lablesupport">
+                <strong>{{ "OwyChTheme.widgets.form.label1"|trans }}</strong>
+                </div>
+        {% else %} 
+        {% endif %}
+        <div class="form-group row">
+
+            <label for="body" class="col-sm-2 col-form-label">
+                {% if selectFormType == 'Anfrage' %}{{ "OwyChTheme.widgets.form.label2"|trans }}{% else %}{{ "OwyChTheme.widgets.form.label3"|trans }}{% endif %}
+            </label>
+            <div class="col-sm-7">
+                <textarea rows="5" name="message" class="form-control" id="message"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label4"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="text" name="firma" class="form-control" id="firma">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label5"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="text" name="name" class="form-control" id="name" required >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label6"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="text" name="vorname" class="form-control" id="vorname" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label7"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="text" name="strasse" class="form-control" id="strasse">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label8"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="text" name="plz" class="form-control" id="plz">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label9"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="text" name="telephone" class="form-control" id="telephone">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="headline" class="col-sm-2 col-form-label">{{ "OwyChTheme.widgets.form.label10"|trans }}</label>
+            <div class="col-sm-7">
+                <input type="email" name="email" class="form-control" id="email">
+            </div>
+        </div>
+
+        
+        <p class="alert p-2 text-light" style="display:none; color: #f1f1f1; font-size:14px;" id="response"></p>
+        <hr>
+        <p>{{ "OwyChTheme.widgets.form.note"|trans }}</p>
+        <div class="form-group row">
+            <div class="col  text-end">
+                <a href="javascript:void(0)" class="btn btn-primary" id="owy_submit">
+                    {{ "OwyChTheme.widgets.form.btn"|trans }}
+                </a>
+              
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+</div>

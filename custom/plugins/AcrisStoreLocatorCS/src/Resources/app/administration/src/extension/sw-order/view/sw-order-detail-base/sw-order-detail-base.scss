@@ -1,0 +1,28 @@
+.sw-order-detail-base__line-item-deliveries-grid-card {
+
+    .has--one-delivery{
+        padding-top: 1rem;
+        grid-template-columns: 1fr !important;
+    }
+
+    .has--multiple-deliveries{
+        padding-top: 1rem;
+    }
+
+    .store-deliveries-address {
+        padding-bottom: .5rem;
+
+        .store-name {
+            font-weight: bold;
+        }
+    }
+
+    .store-deliveries-info {
+        padding-bottom: .5rem;
+    }
+
+    .store-deliveries-opening-hours{
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+}

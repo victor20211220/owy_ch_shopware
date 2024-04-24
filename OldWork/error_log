@@ -1,0 +1,19 @@
+[11-Sep-2023 18:46:30 UTC] PHP Fatal error:  Uncaught PharException: phar "/home/hazofany/public_html/owy_production/shopware-installer.phar.php" SHA1 signature could not be verified: broken signature in /home/hazofany/public_html/owy_production/shopware-installer.phar.php:69
+Stack trace:
+#0 /home/hazofany/public_html/owy_production/shopware-installer.phar.php(69): Phar::webPhar(NULL, 'index.php', NULL, Array, 'rewrites')
+#1 {main}
+  thrown in /home/hazofany/public_html/owy_production/shopware-installer.phar.php on line 69
+[11-Sep-2023 18:46:33 UTC] PHP Fatal error:  Uncaught PharException: phar "/home/hazofany/public_html/owy_production/shopware-installer.phar.php" SHA1 signature could not be verified: broken signature in /home/hazofany/public_html/owy_production/shopware-installer.phar.php:69
+Stack trace:
+#0 /home/hazofany/public_html/owy_production/shopware-installer.phar.php(69): Phar::webPhar(NULL, 'index.php', NULL, Array, 'rewrites')
+#1 {main}
+  thrown in /home/hazofany/public_html/owy_production/shopware-installer.phar.php on line 69
+[11-Sep-2023 18:59:25 UTC] [info] Matched route "index".
+[11-Sep-2023 18:59:29 UTC] [info] Matched route "index".
+[11-Sep-2023 18:59:32 UTC] [info] Matched route "configure".
+[11-Sep-2023 18:59:37 UTC] [info] Matched route "configure".
+[11-Sep-2023 18:59:37 UTC] [info] Matched route "install".
+[11-Sep-2023 18:59:37 UTC] [info] Request: "GET https://releases.shopware.com/changelog/index.json"
+[11-Sep-2023 18:59:37 UTC] [info] Response: "200 https://releases.shopware.com/changelog/index.json"
+[11-Sep-2023 18:59:47 UTC] [info] Matched route "install_run".
+[11-Sep-2023 19:00:18 UTC] [info] Matched route "install_cleanup".

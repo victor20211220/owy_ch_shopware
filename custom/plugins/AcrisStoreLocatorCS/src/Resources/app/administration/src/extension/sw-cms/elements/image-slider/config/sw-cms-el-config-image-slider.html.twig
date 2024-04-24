@@ -1,0 +1,18 @@
+{% block sw_cms_element_image_slider_config_media_selection %}
+    <template v-if="!isStoreLocatorPage">
+        {% parent() %}
+    </template>
+
+    <template v-else>
+        <sw-cms-mapping-field
+            v-model="element.config.sliderItems"
+            entity="acris_store_media"
+            value-types="entity"
+            :label="$tc('sw-cms.elements.imageGallery.label')"
+        >
+
+            {% parent() %}
+
+        </sw-cms-mapping-field>
+    </template>
+{% endblock %}

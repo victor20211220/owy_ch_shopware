@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconTextCmsElementResolver" public="true">
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconReplacer"/>
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconLatestEntriesCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconLetterEntriesCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconPopularEntriesCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconNavigationCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconSeo"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconContentCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <argument type="service" id="Cbax\ModulLexicon\Components\LexiconSeo"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconEntryCmsElementResolver" public="true">
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconProductsCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="sales_channel.product.repository"/>
+            <argument type="service" id="Shopware\Core\Content\ProductStream\Service\ProductStreamBuilder"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+        <service id="Cbax\ModulLexicon\Core\Content\ShoppingWorlds\Cms\CbaxLexiconSidebarCmsElementResolver" public="true">
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="cbax_lexicon_entry.repository"/>
+            <tag name="shopware.cms.data_resolver"/>
+        </service>
+
+    </services>
+</container>

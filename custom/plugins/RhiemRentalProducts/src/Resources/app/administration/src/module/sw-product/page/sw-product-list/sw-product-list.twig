@@ -1,0 +1,29 @@
+{% block sw_product_list_grid_columns_stock %}
+    <template #column-stock="{ item, isInlineEdit, compact }">
+        {% block sw_product_list_grid_columns_stock_inline_edit %}
+            <template v-if="isInlineEdit && item.extensions && !item.extensions.rentalProduct && !item.extensions.rentalProduct.active">
+                <sw-number-field :size="compact ? 'small' : 'default'" v-model="item.stock"></sw-number-field>
+            </template>
+        {% endblock %}
+
+        {% block sw_product_list_grid_columns_stock_content %}
+            <template v-else-if="item.extensions && item.extensions.rentalProduct && item.extensions.rentalProduct.active">
+                {{ item.extensions.rentalProduct.originalStock }}
+            </template>
+
+            <template v-else>
+                {{ item.stock }}
+                <sw-color-badge :variant="item.stock | stockColorVariant"></sw-color-badge>
+            </template>
+        {% endblock %}
+    </template>
+
+    <template  #column-availableStock="{ item, compact }">
+        <template v-if="item.extensions && item.extensions.rentalProduct && item.extensions.rentalProduct.active">
+            {{ item.extensions.rentalProduct.originalStock }}
+        </template>
+        <template v-else>
+            {{ item.availableStock }}
+        </template>
+    </template>
+{% endblock %}

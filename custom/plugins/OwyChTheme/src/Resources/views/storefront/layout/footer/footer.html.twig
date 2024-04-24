@@ -1,0 +1,83 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+{% block layout_footer_inner_container %}
+
+	{% set owyDefaultShop = app.request.server.get('APP_URL') %}
+	{% set owyLocale = app.request.get('_locale') %}
+
+	{% set owyUrl = app.request.server.get('APP_URL')  %}
+	{% if owyLocale == 'de-DE' %}
+
+		{% set owyUrl = owyUrl ~ '' %}
+
+	{% elseif owyLocale == 'fr-FR' %}
+        {% set owyUrl = owyUrl ~ 'fr' %}
+
+	{% elseif owyLocale == 'en-GB' %}
+        {% set owyUrl = owyUrl ~ 'en' %}
+	{% else %}
+        {% set owyUrl = owyUrl ~ '' %}
+	{% endif %}
+
+
+	<div class="footer-main-emty" id="owyshopLink" data-shop-url="{{ owyUrl }}" {% if controllerName|lower == 'navigation' and controllerAction == 'home' %}data-add-to-compare-button="true"{% endif %}></div>
+	<div class="container">
+		{% block layout_footer_navigation %}{% endblock %}
+		{% block layout_footer_payment_shipping_logos %}{% endblock %}
+	</div>
+	{% set currentPageId = page.header.navigation.active.id %}
+
+	{% block layout_footer_bottom %}
+		<div class="footer-bottom customfooter">
+			{% block layout_footer_service_menu %}
+				<div class="container">
+					{% block layout_footer_service_menu_content %}
+						{% apply spaceless %}
+						<ul class="footer-service-menu-list list-unstyled">
+							{% for serviceMenuItem in page.header.serviceMenu %}
+								{% block layout_footer_service_menu_item %}
+									<li class="footer-service-menu-item {% if currentPageId == serviceMenuItem.id %}fo--active{% endif %}">
+										<a class="footer-service-menu-link" href="{{ category_url(serviceMenuItem) }}" {% if category_linknewtab(serviceMenuItem) %} target="_blank" {% endif %} title="{{ serviceMenuItem.translated.name }}">
+											{{ serviceMenuItem.translated.name }}
+										</a>
+									</li>
+								{% endblock %}
+							{% endfor %}
+						</ul>
+						{% endapply %}
+					{% endblock %}
+				</div>
+			{% endblock %}
+			{% block layout_footer_vat %}{% endblock %}
+			{% block layout_footer_copyright %}
+				<div class="footerbottomNav">
+					<div class="nav">
+						{{ 'OwyChTheme.footer.bottomnav.link1' |trans |sw_sanitize}}<span>|</span>
+					</div>
+					<div class="nav">
+						{{ 'OwyChTheme.footer.bottomnav.link2' |trans |sw_sanitize}}<span>|</span>
+					</div>
+					<div class="nav">
+						{{ 'OwyChTheme.footer.bottomnav.link3' |trans |sw_sanitize}}<span>|</span>
+					</div>
+					<div class="nav">
+						{{ 'OwyChTheme.footer.bottomnav.link4' |trans |sw_sanitize}}<span>|</span>
+					</div>
+					<div class="nav">
+						{{ 'OwyChTheme.footer.bottomnav.link5' |trans |sw_sanitize}}<span>|</span>
+					</div>
+					<div class="nav">
+						{{ 'OwyChTheme.footer.bottomnav.link6' |trans |sw_sanitize}}</div>
+					<div class="socialicon">
+						<ul>
+							<li>
+                                <a href="https://web.facebook.com/profile.php?id=100057105204512" target="_blank">
+                                    <svg id="Group_441" data-name="Group 441" xmlns="http://www.w3.org/2000/svg" width="30.957" height="30.957" viewbox="0 0 30.957 30.957"><path id="Path_306" data-name="Path 306" d="M30.957,15.478a15.478,15.478,0,1,0-17.9,15.29V19.953H9.13V15.478h3.93v-3.41c0-3.879,2.311-6.022,5.846-6.022a23.8,23.8,0,0,1,3.465.3v3.809H20.419A2.237,2.237,0,0,0,17.9,12.575v2.9H22.19L21.5,19.953H17.9V30.769A15.482,15.482,0,0,0,30.957,15.478Z"/><path id="Path_307" data-name="Path 307" d="M314.374,213.906l.686-4.474h-4.293v-2.9a2.237,2.237,0,0,1,2.522-2.417h1.952V200.3a23.8,23.8,0,0,0-3.465-.3c-3.535,0-5.846,2.143-5.846,6.022v3.41H302v4.474h3.93v10.816a15.642,15.642,0,0,0,4.837,0V213.906Z" transform="translate(-292.87 -193.954)" fill="#fff"/></svg>
+                                </a>
+                            </li>
+						</ul>
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+	{% endblock %}
+{% endblock %}

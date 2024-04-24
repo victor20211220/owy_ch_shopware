@@ -1,0 +1,22 @@
+{
+  "name": "aggrosoft/shopware-text-editor-media-manager",
+  "description": "Adds Media Manager to Shopware 6 Text Editor",
+  "version": "2.0.1",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "autoload": {
+    "psr-4": {
+      "AggroTextEditorMediaManager\\": "src/"
+    }
+  },
+  "require": {
+    "shopware/core": "~6.5.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "AggroTextEditorMediaManager\\AggroTextEditorMediaManager",
+    "label": {
+      "de-DE": "Text Editor Media Manager",
+      "en-GB": "Text Editor Media Manager"
+    }
+  }
+}

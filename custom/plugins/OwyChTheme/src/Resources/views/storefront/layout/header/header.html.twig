@@ -1,0 +1,263 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+{% block layout_header %}
+
+
+	<div class="top-bar-color">
+		<div class="header-combine">
+			{% block layout_top_bar %}
+				{% sw_include '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+			{% endblock %}
+		</div>
+	</div>
+
+	{% block layout_header_navigation %}
+		<div class="header-row-combine">
+			<div class="row align-items-center header-row">
+				{% block layout_header_logo %}
+						{% block layout_header_navigation_toggle %}
+								<div class="navigation-toggle  d-lg-none">
+									<div class="menu-button">
+										{% block layout_header_navigation_toggle_button %}
+											<button class="btn nav-main-toggle-btn header-actions-btn" type="button" data-offcanvas-menu="true" aria-label="{{ "general.menuLink"|trans|striptags }}">
+												{% block layout_header_navigation_toggle_button_icon %}
+													{% sw_icon 'stack' %}
+												{% endblock %}
+											</button>
+										{% endblock %}
+									</div>
+								</div>
+						{% endblock %}
+
+					<div class="col-12 col-lg-3 col-sm-5 col-md-6 header-logo-col">
+						{% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
+					</div>
+				{% endblock %}
+
+				{% block layout_header_actions %}
+					<div class="col-12 col-lg-5 order-1 col-sm-auto order-sm-2 header-actions-col">
+						<div class="row cart-set {{ gridNoGuttersClass }}">
+
+							{% block layout_header_search_toggle %}
+								<div class="col-auto searchcelldevice">
+									<div class="search-toggle">
+										<button class="btn header-actions-btn search-toggle-btn js-search-toggle-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse" aria-label="{{ "header.searchButton"|trans|striptags }}">
+											<div class="top-icon1">
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.231" height="24.231" viewBox="0 0 24.231 24.231">
+													<defs>
+														<clipPath id="clip-path">
+														<path id="Path_74" data-name="Path 74" d="M0,0H24.231V-24.231H0Z" fill="none"/>
+														</clipPath>
+													</defs>
+													<g id="Group_97" data-name="Group 97" transform="translate(0 24.231)">
+														<g id="Group_96" data-name="Group 96" clip-path="url(#clip-path)">
+														<g id="Group_93" data-name="Group 93" transform="translate(20.343 -13.81)">
+															<path id="Path_71" data-name="Path 71" d="M0,0A9.921,9.921,0,0,1-9.922,9.921,9.921,9.921,0,0,1-19.843,0,9.921,9.921,0,0,1-9.922-9.921,9.921,9.921,0,0,1,0,0" fill="#fff"/>
+														</g>
+														<g id="Group_94" data-name="Group 94" transform="translate(20.343 -13.81)">
+															<path id="Path_72" data-name="Path 72" d="M0,0A9.921,9.921,0,0,1-9.922,9.921,9.921,9.921,0,0,1-19.843,0,9.921,9.921,0,0,1-9.922-9.921,9.921,9.921,0,0,1,0,0Z" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-width="1"/>
+														</g>
+														<g id="Group_95" data-name="Group 95" transform="translate(17.437 -6.794)">
+															<path id="Path_73" data-name="Path 73" d="M0,0,6.294,6.294" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-width="1"/>
+														</g>
+														</g>
+													</g>
+													</svg>
+													<label> {{ 'OwyChTheme.navigation.shopnav.link1' |trans |sw_sanitize}}  </label>
+											</div>
+										</button>
+									</div>
+								</div>
+
+								 <div class="col-auto searchdesktopdevice">
+									<div class="search-toggle">
+											<form action="{{ path('frontend.search.page') }}" method="get"
+
+											{% if feature('v6.6.0.0') %}
+												data-search-widget="true"
+											{% else %}
+												data-search-form="true"
+											{% endif %}
+											data-search-widget-options='{{ searchWidgetOptions|json_encode }}'
+											data-url="{{ path('frontend.search.suggest') }}?search="
+											class="header-search-form">
+											{% block layout_header_search_input_group %}
+												<div class="input-group">
+													{% block layout_header_search_input %}
+														<div class="searchbox">
+														<input type="search"
+															name="search"
+															class="form-control header-search-input searchbox-input"
+															autocomplete="off"
+															autocapitalize="off"
+															placeholder="{{ "header.searchPlaceholder"|trans|striptags }}"
+															aria-label="{{ "header.searchPlaceholder"|trans|striptags }}"
+															value="{{ page.searchTerm }}"
+														>
+														</div>
+													{% endblock %}
+
+													{% block layout_header_search_button %}
+														<button type="submit"
+																class="btn- header-search-btn- searchbox-submit"
+																aria-label="{{ "header.searchButton"|trans|striptags }}" style="display: none;">
+															<div class="top-icon1">
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.231" height="24.231" viewBox="0 0 24.231 24.231">
+																<defs>
+																	<clipPath id="clip-path">
+																	<path id="Path_74" data-name="Path 74" d="M0,0H24.231V-24.231H0Z" fill="none"/>
+																	</clipPath>
+																</defs>
+																<g id="Group_97" data-name="Group 97" transform="translate(0 24.231)">
+																	<g id="Group_96" data-name="Group 96" clip-path="url(#clip-path)">
+																	<g id="Group_93" data-name="Group 93" transform="translate(20.343 -13.81)">
+																		<path id="Path_71" data-name="Path 71" d="M0,0A9.921,9.921,0,0,1-9.922,9.921,9.921,9.921,0,0,1-19.843,0,9.921,9.921,0,0,1-9.922-9.921,9.921,9.921,0,0,1,0,0" fill="#fff"/>
+																	</g>
+																	<g id="Group_94" data-name="Group 94" transform="translate(20.343 -13.81)">
+																		<path id="Path_72" data-name="Path 72" d="M0,0A9.921,9.921,0,0,1-9.922,9.921,9.921,9.921,0,0,1-19.843,0,9.921,9.921,0,0,1-9.922-9.921,9.921,9.921,0,0,1,0,0Z" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-width="1"/>
+																	</g>
+																	<g id="Group_95" data-name="Group 95" transform="translate(17.437 -6.794)">
+																		<path id="Path_73" data-name="Path 73" d="M0,0,6.294,6.294" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-width="1"/>
+																	</g>
+																	</g>
+																</g>
+																</svg>
+																<label> {{ 'OwyChTheme.navigation.shopnav.link1' |trans |sw_sanitize}}  </label>
+														</div>
+														</button>
+														<span class="searchbox-icon">
+															<div class="top-icon1">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.231" height="24.231" viewBox="0 0 24.231 24.231">
+																	<defs>
+																		<clipPath id="clip-path">
+																		<path id="Path_74" data-name="Path 74" d="M0,0H24.231V-24.231H0Z" fill="none"/>
+																		</clipPath>
+																	</defs>
+																	<g id="Group_97" data-name="Group 97" transform="translate(0 24.231)">
+																		<g id="Group_96" data-name="Group 96" clip-path="url(#clip-path)">
+																		<g id="Group_93" data-name="Group 93" transform="translate(20.343 -13.81)">
+																			<path id="Path_71" data-name="Path 71" d="M0,0A9.921,9.921,0,0,1-9.922,9.921,9.921,9.921,0,0,1-19.843,0,9.921,9.921,0,0,1-9.922-9.921,9.921,9.921,0,0,1,0,0" fill="#fff"/>
+																		</g>
+																		<g id="Group_94" data-name="Group 94" transform="translate(20.343 -13.81)">
+																			<path id="Path_72" data-name="Path 72" d="M0,0A9.921,9.921,0,0,1-9.922,9.921,9.921,9.921,0,0,1-19.843,0,9.921,9.921,0,0,1-9.922-9.921,9.921,9.921,0,0,1,0,0Z" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-width="1"/>
+																		</g>
+																		<g id="Group_95" data-name="Group 95" transform="translate(17.437 -6.794)">
+																			<path id="Path_73" data-name="Path 73" d="M0,0,6.294,6.294" fill="none" stroke="#2b2e34" stroke-linecap="round" stroke-width="1"/>
+																		</g>
+																		</g>
+																	</g>
+																	</svg>
+																	<label> {{ 'OwyChTheme.navigation.shopnav.link1' |trans |sw_sanitize}}  </label>
+															</div>
+														</span>
+													{% endblock %}
+												</div>
+											{% endblock %}
+										</form>
+
+									</div>
+								 </div>
+							{% endblock %}
+							{% block layout_header_actions_account %}
+								{{ parent() }}
+							{% endblock %}
+							{#{% if config('core.cart.wishlistEnabled') %}
+								{% block layout_header_actions_wishlist %}
+									{{ parent() }}
+								{% endblock %}
+							{% endif %}		#}
+                            {% if config('core.cart.wishlistEnabled') %}
+                                {% block layout_header_actions_wishlist %}
+									<div class="col-auto">
+										<div class="header-wishlist" data-wishlist="true">
+											<input type="hidden" value="{{context.customer.id}}" id="customerId"/>
+											<input type='hidden' value="{{ path('frontend.action.owy_inquiry_form.getwishlist') }}" id="wishlistUrl"/>
+											<input type='hidden' value="{{app.request.server.get('APP_URL')}}" id="baseUrl"/>
+                                            {% set showCounter = showCounter ?? true %}
+
+                                            {% set wishlistStorageOptions = {
+                                                listPath: path('frontend.wishlist.product.list'),
+                                                mergePath: path('frontend.wishlist.product.merge'),
+                                                pageletPath: path('frontend.wishlist.product.merge.pagelet'),
+                                            } %}
+
+                                            {% set wishlistWidgetOptions = { showCounter: showCounter } %}
+
+											<span class="badge bg-primary header-wishlist-badge" id="wishlist-basket" data-wishlist-storage="true" data-wishlist-storage-options="{{ wishlistStorageOptions|json_encode }}" data-wishlist-widget="true" data-wishlist-widget-options="{{ wishlistWidgetOptions|json_encode }}"></span>
+
+                                            {% if 'Mobile' not in app.request.headers.get('User-Agent') %}
+                                                {% if context.customer == null %}
+                                                    {% sw_include '@Storefront/storefront/owypage/wishlist_flyout.html.twig' %}
+                                                {% else %}
+													<div class="dropdown owy-wishlist-cart">
+														<button type="button" class="btn dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" id="wishlist-btn">
+                                                            <span class="header-wishlist-icon">
+																<img src="{{ asset('storefront/assets/images/icons/wishlist.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+																<label> {{ 'OwyChTheme.navigation.shopnav.link3' |trans |sw_sanitize}} </label>
+															</span>
+															{# {% sw_icon 'heart' %} #}
+														</button>
+														<div class="dropdown-menu swing-menu animated owy-wishlist-inner-cart"></div>
+													</div>
+                                                {% endif %}
+                                            {% else %}
+                                                {% if showCounter %}
+													<span class="header-wishlist-icon" id="wishlist-mob">
+                                                      <img src="{{ asset('storefront/assets/images/icons/wishlist.svg', '@OwyChTheme') }}"  alt="cart" height="25" width="25">
+																<label> {{ 'OwyChTheme.navigation.shopnav.link3' |trans |sw_sanitize}} </label>
+
+													    {# {% sw_icon 'heart' %} #}
+													</span>
+                                                {% endif %}
+                                            {% endif %}
+										</div>
+									</div>
+                                {% endblock %}
+                            {% endif %}
+
+							{% block layout_header_actions_cart %}
+
+								<div class="col-auto">
+
+										<div class="header-cart" data-offcanvas-cart="true">
+											<a class="btn header-cart-btn header-actions-btn" href="{{ path('frontend.checkout.cart.page') }}" data-cart-widget="true" title="{{ 'checkout.cartTitle'|trans|striptags }}" aria-label="{{ 'checkout.cartTitle'|trans|striptags }}">
+                                                {% sw_include '@Storefront/storefront/layout/header/actions/cart-widget.html.twig' %}
+											</a>
+											<div id="new-cart" class="offcanvas-cart-container offcanvas-flyoutcart-container col-12 position-absolute d-none swing-menu animated">
+
+												<span id="cart-price"></span>
+												<div id="cart-data"></div>
+											</div>
+										</div>
+                                   
+								</div>
+							{% endblock %}
+						</div>
+					</div>
+				{% endblock %}
+			</div>
+		</div>
+	{% endblock %}
+	{% block layout_header_search %}
+		<div class="col-12 order-4 col-sm header-search-col">
+			<div class="row">
+				<div class="col-sm-auto d-none d-sm-block d-lg-none">
+					{% block layout_header_navigation_toggle_tablet %}
+						<div class="nav-main-toggle">
+							{% block layout_header_navigation_toggle_tablet_button %}
+								<button class="btn nav-main-toggle-btn header-actions-btn" type="button" data-offcanvas-menu="true" aria-label="{{ "general.menuLink"|trans|striptags }}">
+									{% block layout_header_navigation_toggle_tablet_button_icon %}
+										{% sw_icon 'stack' %}
+									{% endblock %}
+								</button>
+							{% endblock %}
+						</div>
+					{% endblock %}
+				</div>
+				<div class="col search-color">
+					{% sw_include '@Storefront/storefront/layout/header/search.html.twig' %}
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+
+{% endblock %}

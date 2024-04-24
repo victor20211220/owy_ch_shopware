@@ -1,0 +1,23 @@
+{
+  "netzp-searchadvanced6-synonyms": {
+    "menuLabel": "Search synonyms",
+    "detail": {
+      "saveButtonText": "Save",
+      "cancelButtonText": "Cancel",
+      "title": "Edit Synonym",
+      "label": {
+        "synonym": "Synonym",
+        "replace": "Replacement"
+      },
+      "helpText": "The entered synonym is replaced by the given replacement in search queries."
+    },
+
+    "list": {
+      "addButtonText": "New",
+      "columns": {
+        "synonym": "Synonym",
+        "replace": "Replacement"
+      }
+    }
+  }
+}

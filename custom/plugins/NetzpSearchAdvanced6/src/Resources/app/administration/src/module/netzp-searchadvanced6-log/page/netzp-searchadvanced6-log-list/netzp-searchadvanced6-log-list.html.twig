@@ -1,0 +1,103 @@
+<sw-page class="netzp-searchadvanced6-log-list">
+    <template slot="smart-bar-header">
+        <h2>
+            {{ $tc('sw-settings.index.title') }} <sw-icon name="regular-chevron-right-xs" small></sw-icon> {{ $tc('netzp-searchadvanced6-log.menuLabel') }}
+        </h2>
+    </template>
+
+    <template slot="smart-bar-actions">
+        <sw-switch-field :noMarginTop="true" class="query-switch"
+                         :label="$tc('netzp-searchadvanced6-log.list.groupqueries')"
+                         v-model="groupQueries">
+        </sw-switch-field>
+        <sw-switch-field :noMarginTop="true" class="query-switch"
+                         :label="$tc('netzp-searchadvanced6-log.list.onlyempty')"
+                         v-model="onlyEmpty">
+        </sw-switch-field>
+        <sw-button size="small" variant="primary" :link="getExportUrl()" class="button">
+            {{ $t('netzp-searchadvanced6-log.list.exportButtonText') }}
+        </sw-button>
+        <sw-button size="small" variant="danger" @click="deleteLog" class="button" :disabled="groupQueries || onlyEmpty">
+            {{ $t('netzp-searchadvanced6-log.list.deleteButtonText') }}
+        </sw-button>
+    </template>
+
+    <template slot="content">
+        <sw-entity-listing v-if="searchlog && ! groupQueries"
+                           :columns="columns"
+                           :items="searchlog"
+                           :repository="searchLogRepository"
+                           :showSelection="false"
+                           :allowDelete="false"
+                           :allowEdit="false">
+
+            <template #column-query="{ item }">
+                <b>{{ item.query }}</b>
+            </template>
+
+            <template #column-hits="{ item }">
+                <sw-label v-if="item.hits == 0" variant="danger" appearance="pill" class="center">{{ item.hits }}</sw-label>
+                <sw-label v-else variant="neutral" appearance="pill" class="center">{{ item.hits }}</sw-label>
+            </template>
+
+            <template #column-additionalHits="{ item }">
+                <div>
+                    <sw-label v-for="hit in item.additionalHits">
+                        {{ $tc('netzp-searchadvanced6-log.additional.' + hit.name) }}: <b>{{ hit.hits }}</b>
+                    </sw-label>
+                </div>
+            </template>
+
+            <template #column-salesChannel="{ item }">
+                <span v-if="item.salesChannel">{{ item.salesChannel.name }}</span>
+            </template>
+
+            <template #column-language="{ item }">
+                <span v-if="item.language">{{ item.language.name }}</span>
+            </template>
+
+            <template #column-origin="{ item }">
+                <span v-if="item.origin == 0">{{ $tc('netzp-searchadvanced6-log.list.originsearch') }}</span>
+                <span v-if="item.origin == 1">{{ $tc('netzp-searchadvanced6-log.list.originajax') }}</span>
+            </template>
+
+            <template #column-createdAt="{ item }">
+                {{ item.createdAt|date }}
+            </template>
+        </sw-entity-listing>
+
+        <sw-data-grid v-else-if="searchgroups && groupQueries"
+                      :showActions="false" :showSelection="false"
+                      :dataSource="searchgroups" :columns="columnsGrouped">
+        </sw-data-grid>
+    </template>
+
+    <template #sidebar>
+        <sw-sidebar v-if="searchlog" class="sidebar">
+            <sw-sidebar-item icon="regular-undo"
+                             :title="$tc('netzp-searchadvanced6-log.list.sidebar.refresh')"
+                             @click="onRefresh">
+            </sw-sidebar-item>
+
+            <sw-sidebar-item icon="regular-filter"
+                             :title="$tc('netzp-searchadvanced6-log.list.sidebar.filter')">
+
+                <sw-single-select
+                        :label="$tc('netzp-searchadvanced6-log.list.sidebar.saleschannel')"
+                        :options="salesChannels" :isLoading="filterLoading" v-model="salesChannelFilter"
+                        valueProperty="id" labelProperty="name">
+                </sw-single-select>
+
+                <sw-single-select
+                        :label="$tc('netzp-searchadvanced6-log.list.sidebar.language')"
+                        :options="languages" :isLoading="filterLoading" v-model="languageFilter"
+                        valueProperty="id" labelProperty="name">
+                </sw-single-select>
+
+                <sw-button size="small" variant="info" @click="resetFilter()">
+                    {{ $t('netzp-searchadvanced6-log.list.sidebar.resetFilter') }}
+                </sw-button>
+            </sw-sidebar-item>
+        </sw-sidebar>
+    </template>
+</sw-page>

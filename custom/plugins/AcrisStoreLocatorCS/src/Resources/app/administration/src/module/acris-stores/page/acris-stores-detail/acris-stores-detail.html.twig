@@ -1,0 +1,385 @@
+{% block acris_stores_detail %}
+<sw-page class="acris-stores-detail" v-if="item">
+
+    {% block acris_stores_detail_smart_bar_header %}
+    <template slot="smart-bar-header">
+        {% block acris_stores_detail_smart_bar_header_title %}
+        <h2 v-if="item.name != null">{{ item.name }}</h2>
+        <h2 v-else>{{ $tc('acris-stores.detail.textHeadline') }}</h2>
+        {% endblock %}
+    </template>
+    {% endblock %}
+
+
+    {% block acris_stores_detail_smart_bar_language %}
+    <template #language-switch>
+        <sw-language-switch @on-change="onChangeLanguage"
+                            :disabled="$route.params.newItem || item.unknown"></sw-language-switch>
+    </template>
+    {% endblock %}
+
+
+    {% block acris_stores_detail_smart_bar_actions %}
+    <template slot="smart-bar-actions">
+        {% block acris_stores_detail_smart_bar_actions_cancel %}
+        <sw-button :disabled="item.isLoading" :routerLink="{ name: 'acris.stores.index' }">
+            {{ $tc('acris-stores.detail.buttonCancel') }}
+        </sw-button>
+        {% endblock %}
+
+        {% block acris_stores_detail_smart_bar_actions_save %}
+        <sw-button-process
+            class="acris-stores-detail__save-action"
+            :isLoading="isLoading"
+            :processSuccess="processSuccess"
+            variant="primary"
+            :disabled="item.isLoading || !item.name || !item.city || !item.zipcode || !item.street || !item.countryId || !item.storeGroupId"
+            @process-finish="saveFinish"
+            @click="onClickSave">
+            {{ $tc('acris-stores.detail.buttonSave') }}
+        </sw-button-process>
+        {% endblock %}
+    </template>
+    {% endblock %}
+
+
+    {% block acris_stores_detail_content %}
+    <sw-card-view slot="content">
+
+        {% block acris_stores_detail_content_general_card %}
+        <sw-card :isLoading="isLoading" v-if="item"
+                 :title="$tc('acris-stores.detail.cardGeneral')">
+
+            {% block acris_stores_detail_content_internal_id %}
+                <sw-text-field v-model="item.internalId"
+                               class="acris-stores-detail__item_internal_id"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelInternalId')"
+                               :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderInternalId')">
+                </sw-text-field>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_locator_active_checkbox_select %}
+            <sw-field v-model="item.active"
+                      type="switch"
+                      class="acris-stores-detail__item_active"
+                      :label="$tc('acris-stores.detail.fieldTitleLabelLocatorActive')">
+            </sw-field>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_priority %}
+            <sw-number-field v-model="item.priority"
+                             numberType="float"
+                             :min="0"
+                             class="acris-stores-detail__item_priority"
+                             :label="$tc('acris-stores.detail.fieldTitleLabelPriority')"
+                             :helpText="$tc('acris-stores.detail.fieldTitleHelpTextPriority')"
+                             :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderPriority')">
+            </sw-number-field>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_company_store_group %}
+            <sw-entity-single-select v-model="item.storeGroupId"
+                                     entity="acris_store_group"
+                                     :label="$tc('acris-stores.detail.fieldTitleLabelCompanyStoreGroup')"
+                                     required
+                                     :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderCompanyStoreGroup')">
+            </sw-entity-single-select>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_sales_channels %}
+                <sw-entity-many-to-many-select
+                    :localMode="true"
+                    :label="$tc('acris-stores.detail.fieldTitleLabelSalesChannel')"
+                    :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderSalesChannel')"
+                    :helpText="$tc('acris-stores.detail.fieldTitleHelpTextSalesChannel')"
+                    v-model="item.salesChannels">
+                </sw-entity-many-to-many-select>
+            {% endblock %}
+
+        </sw-card>
+        {% endblock %}
+
+        {% block acris_stores_detail_content_company_card %}
+        <sw-card :isLoading="isLoading" v-if="item"
+                 :title="$tc('acris-stores.detail.cardIdCompany')">
+            {% block acris_stores_detail_content_company_container_name_department %}
+            <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+                {% block acris_stores_detail_content_company_name %}
+                <sw-text-field v-model="item.name"
+                               required
+                               class="acris-stores-detail__item_name"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelCompanyName')"
+                               :placeholder="placeholder(item, 'name', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyName'))">
+                </sw-text-field>
+                {% endblock %}
+
+                {% block acris_stores_detail_content_company_department %}
+                <sw-text-field v-model="item.department"
+                               class="acris-stores-detail__item_department"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelCompanyDepartment')"
+                               :placeholder="placeholder(item, 'department', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyDepartment'))">
+                </sw-text-field>
+                {% endblock %}
+            </sw-container>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_company_street %}
+            <sw-text-field v-model="item.street"
+                           required
+                           class="acris-stores-detail__item_street"
+                           :label="$tc('acris-stores.detail.fieldTitleLabelCompanyStreet')"
+                           :placeholder="placeholder(item, 'street', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyStreet'))">
+            </sw-text-field>
+            {% endblock %}
+
+
+            {% block acris_stores_detail_content_company_container_adress %}
+            <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+                {% block acris_stores_detail_content_company_zipcode %}
+                <sw-text-field v-model="item.zipcode"
+                               required
+                               class="acris-stores-detail__item_zipcode"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelCompanyZipcode')"
+                               :placeholder="placeholder(item, 'zipcode', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyZipcode'))">
+                </sw-text-field>
+                {% endblock %}
+
+                {% block acris_stores_detail_content_company_city %}
+                <sw-text-field v-model="item.city"
+                               required
+                               class="acris-stores-detail__item_city"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelCompanyCity')"
+                               :placeholder="placeholder(item, 'city', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyCity'))">
+                </sw-text-field>
+                {% endblock %}
+            </sw-container>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_company_container_country_state_container %}
+                <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+                    {% block acris_stores_detail_content_company_country %}
+                        <sw-entity-single-select v-model="item.countryId"
+                                                 entity="country"
+                                                 :label="$tc('acris-stores.detail.fieldTitleLabelCompanyCountry')"
+                                                 required
+                                                 :criteria="countryCriteria"
+                                                 @change="onCountryChange"
+                                                 :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderCompanyCountry')">
+                        </sw-entity-single-select>
+                    {% endblock %}
+
+                    {% block acris_stores_detail_content_company_country_state %}
+                        <sw-entity-single-select v-if="showState"
+                                                 :criteria="stateCriteria"
+                                                 v-model="item.stateId"
+                                                 entity="country_state"
+                                                 :label="$tc('acris-stores.detail.fieldTitleLabelCompanyCountryState')"
+                                                 :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderCompanyCountryState')">
+                        </sw-entity-single-select>
+                    {% endblock %}
+                </sw-container>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_company_container_contact %}
+            <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+                {% block acris_stores_detail_content_company_phone %}
+                <sw-text-field v-model="item.phone"
+                               class="acris-stores-detail__item_phone"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelCompanyPhone')"
+                               :placeholder="placeholder(item, 'phone', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyPhone'))">
+                </sw-text-field>
+                {% endblock %}
+
+                {% block acris_stores_detail_content_company_email %}
+                <sw-text-field v-model="item.email"
+                               class="acris-stores-detail__item_email"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelCompanyEmail')"
+                               :placeholder="placeholder(item, 'email', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyEmail'))">
+                </sw-text-field>
+                {% endblock %}
+            </sw-container>
+
+            {% block acris_stores_detail_content_company_url %}
+            <sw-field v-model="item.url"
+                           type="url"
+                           class="acris-stores-detail__item_url"
+                           :label="$tc('acris-stores.detail.fieldTitleLabelCompanyUrl')"
+                           :placeholder="placeholder(item, 'url', $tc('acris-stores.detail.fieldTitlePlaceholderCompanyUrl'))">
+            </sw-field>
+            {% endblock %}
+
+            {% block sw_product_basic_form_description_field %}
+            <sw-text-editor v-model="item.opening_hours"
+                            class="acris-stores-detail__item_openingHours"
+                            :label="$tc('acris-stores.detail.fieldTitleLabelOpeningHours')"
+                            :placeholder="placeholder(item, 'opening_hours', $tc('acris-stores.detail.fieldTitlePlaceholderOpeningHours'))">
+            </sw-text-editor>
+            {% endblock %}
+
+
+            {% endblock %}
+        </sw-card>
+        {% endblock %}
+
+
+        {% block acris_stores_detail_content_card_checkout %}
+        <sw-card :isLoading="isLoading" v-if="item"
+                 :title="$tc('acris-stores.detail.cardCheckout')">
+            {% block acris_stores_detail_content_card_checkxout_rules %}
+                <sw-entity-many-to-many-select
+                        :localMode="true"
+                        :label="$tc('acris-stores.detail.fieldTitleLabelCheckoutRule')"
+                        :helpText="$tc('acris-stores.detail.fieldTitleHelpTextCheckoutRule')"
+                        :placeholder="$tc('acris-stores.detail.fieldTitlePlaceholderCheckoutRule')"
+                        v-model="item.rules">
+                </sw-entity-many-to-many-select>
+            {% endblock %}
+        </sw-card>
+        {% endblock %}
+
+
+        {% block acris_stores_detail_content_card_media %}
+            <sw-card :isLoading="isLoading" v-if="item"
+                     :title="$tc('acris-stores.detail.cardMedia')">
+
+                <div class="acris-stores-detail-media">
+                    {% block acris_stores_detail_content_media_form %}
+                        <acris-store-media-form
+                            v-if="mediaFormVisible"
+                            :store="item"
+                            :isLoading="isLoading"
+                            @media-open="onOpenMediaModal"
+                        />
+                    {% endblock %}
+
+                    {% block acris_stores_detail_content_media_modal %}
+                        <sw-media-modal-v2
+                            v-if="showMediaModal"
+                            :initial-folder-id="mediaDefaultFolderId"
+                            :entity-context="item.getEntityName()"
+                            @media-modal-selection-change="onAddMedia"
+                            @modal-close="onCloseMediaModal"
+                        />
+                    {% endblock %}
+                </div>
+                <div v-else>
+                    {% block acris_stores_layout_content_empty %}
+                        <sw-product-layout-assignment
+                            :cmsPage="emptyCmsPage"
+                            @modal-layout-open="openLayoutModal"
+                            @button-edit-click="openInPageBuilder"
+                            @button-delete-click="onLayoutReset">
+                        </sw-product-layout-assignment>
+                    {% endblock %}
+
+                    {% block acris_stores_layout_modal_empty %}
+                        <sw-cms-layout-modal
+                            v-if="showLayoutModal"
+                            :headline="$tc('acris-stores.detail.subtitle')"
+                            @modal-layout-select="onLayoutSelect"
+                            @modal-close="closeLayoutModal">
+                        </sw-cms-layout-modal>
+                    {% endblock %}
+                </div>
+            </sw-card>
+        {% endblock %}
+
+        {% block acris_stores_detail_content_card_layout %}
+            <sw-generic-cms-page-assignment
+                    :cms-page-id="item.cmsPageId"
+                    @update:cms-page-id="updateCmsPageId"
+                    @create-layout="onCreateLayout">
+            </sw-generic-cms-page-assignment>
+        {% endblock %}
+
+        {% block acris_stores_detail_content_card_seo %}
+        <sw-card :isLoading="isLoading" v-if="item"
+                 :title="$tc('acris-stores.detail.cardSeo')">
+
+            {% block acris_stores_detail_content_look_seo_url %}
+            <sw-text-field v-model="item.seoUrl"
+                           class="acris-stores-detail__item_seo_url"
+                           :label="$tc('acris-stores.detail.fieldTitleLabelSeoUrl')"
+                           :helpText="$tc('acris-stores.detail.fieldTitleHelpTextSeoUrl')"
+                           :placeholder="placeholder(item, 'seoUrl', $tc('acris-stores.detail.fieldTitlePlaceholderSeoUrl'))">
+            </sw-text-field>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_look_meta_title %}
+            <sw-text-field v-model="item.metaTitle"
+                           class="acris-stores-detail__item_meta_title"
+                           :label="$tc('acris-stores.detail.fieldTitleLabelMetaTitle')"
+                           :helpText="$tc('acris-stores.detail.fieldTitleHelpTextMetaTitle')"
+                           :placeholder="placeholder(item, 'metaTitle', $tc('acris-stores.detail.fieldTitlePlaceholderMetaTitle'))">
+            </sw-text-field>
+            {% endblock %}
+
+            {% block acris_stores_detail_content_look_meta_description %}
+            <sw-text-field v-model="item.metaDescription"
+                           class="acris-stores-detail__item_meta_description"
+                           :label="$tc('acris-stores.detail.fieldTitleLabelMetaDescription')"
+                           :helpText="$tc('acris-stores.detail.fieldTitleHelpTextMetaDescription')"
+                           :placeholder="placeholder(item, 'metaDescription', $tc('acris-stores.detail.fieldTitlePlaceholderMetaDescription'))">
+            </sw-text-field>
+            {% endblock %}
+
+        </sw-card>
+        {% endblock %}
+
+        {% block acris_stores_detail_content_locator_card %}
+        <sw-card :isLoading="isLoading" v-if="item"
+                 :title="$tc('acris-stores.detail.cardIdStoreLocator')">
+
+            {% block acris_stores_detail_content_locator_container %}
+            <sw-button :disabled="item.isLoading"
+                       class="acris-stores-detail__locator-button"
+                       v-on:click="onClickGetCoords">
+               {{ $tc('acris-stores.detail.buttonCalculate') }}
+            </sw-button>
+
+            <sw-container columns="repeat(auto-fit, minmax(250px, 1fr))" gap="0px 32px">
+
+                {% block acris_stores_detail_content_locator_lat %}
+                <sw-text-field v-model="item.latitude"
+                               class="acris-stores-detail__item_latitude"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelLocatorLat')"
+                               :placeholder="placeholder(item, 'latitude', $tc('acris-stores.detail.fieldTitlePlaceholderLocatorLat'))"
+                               :helpText="$tc('acris-stores.detail.fieldTitleHelptextLocatorLat')">
+                </sw-text-field>
+                {% endblock %}
+
+                {% block acris_stores_detail_content_locator_lng %}
+                <sw-text-field v-model="item.longitude"
+                               class="acris-stores-detail__item_longitude"
+                               :label="$tc('acris-stores.detail.fieldTitleLabelLocatorLng')"
+                               :placeholder="placeholder(item, 'longitude', $tc('acris-stores.detail.fieldTitlePlaceholderLocatorLng'))"
+                               :helpText="$tc('acris-stores.detail.fieldTitleHelptextLocatorLng')">
+                </sw-text-field>
+                {% endblock %}
+
+                <sw-select-field v-model="item.handlerpoints" label="Select Handler">
+
+                    <option value="Alle Handler">
+                        Alle Händler
+                    </option>
+                    <option value="Handler mit Cine-Produkten">
+                        Händler mit Cine-Produkten
+                    </option>
+                    <option value="Handler ohne Cine-Produkte">
+                        Händler ohne Cine-Produkte
+                    </option>
+
+                    
+                </sw-select-field>
+
+            </sw-container>
+            {% endblock %}
+
+        </sw-card>
+        {% endblock %}
+
+    </sw-card-view>
+    {% endblock %}
+
+</sw-page>
+{% endblock %}

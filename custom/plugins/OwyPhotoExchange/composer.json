@@ -1,0 +1,27 @@
+{
+  "name": "owy/photo-exchange",
+  "description": "Photo exchange service by OWY",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Khalid Anwar"
+    }
+  ],
+  "require": {
+    "shopware/core": "6.5.*"
+  },
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "OwyPhotoExchange\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "OwyPhotoExchange\\OwyPhotoExchange",
+    "label": {
+      "de-DE": "Owy Fotobörse",
+      "en-GB": "Owy Photo Exchange"
+    }
+  }
+}

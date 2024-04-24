@@ -1,0 +1,109 @@
+ 	 {% set activateslides1 = theme_config('owy-slide-one') %}
+	 {% set activateslides2 = theme_config('owy-slide-two') %}
+	 {% set activateslides3 = theme_config('owy-slide-three') %}
+	 {% set activateslides4 = theme_config('owy-slide-four') %}
+{% if (activateslides1) or (activateslides2) or (activateslides3) or (activateslides4) %}
+	<div id="carouselExampleControls" class="carousel slide"  data-bs-ride="carousel">  
+		<div class="carousel-inner">
+			{% if activateslides1 %}
+				<div class="carousel-item active">
+					<div class="carousel-image">
+						<img class="d-block" src="{{ activateslides1 }}" alt="First slide">
+					</div>
+					<div class="container slideone-wrapper">
+						<div class="carousel-caption d-md-block">
+							<div class="brandlogo">
+								<div class="logoone">
+								<img src="https://owy.sitdemocms.com/media/4b/7d/01/1689623277/sigmalogo.png" alt=""> 
+								</div>
+								<div class="logotwo">
+								<img src="https://owy.sitdemocms.com/media/c9/8f/9f/1689720375/brand-logo.jpg" alt=""> 
+								</div>
+							</div>						
+							
+							<div class="modelwrapper">
+								<div class="brandicon"><img src="https://owy.sitdemocms.com/media/a5/96/6f/1689720375/brand-icon.jpg" alt=""></div>
+								<div class="brandname">
+									<span>60-600mm F4.5-6.3</span>
+									<span>DG DN OS</span>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if activateslides2 %}
+				<div class="carousel-item">
+				<div class="carousel-image">
+					<img class="d-block" src="{{ activateslides2 }}" alt="second slide">
+				</div>
+				<div class="container slidetwo-wrapper">
+					<div class="carousel-caption d-md-block">
+							<div class="brandlogo">
+								<div class="logoone">
+									<img src="https://owy.sitdemocms.com/media/4b/7d/01/1689623277/sigmalogo.png" alt=""> 
+								</div>								
+							</div>						
+							
+							<div class="modelwrapper">
+								<div class="contentone">
+								 SIGMA GLOBAL VISION 
+								</div>
+								<div class="contenttwo">
+								Mehr uber SIGMA GLOBAL VISION erfahren Sie <a href="#"> hier</a>
+								</div>
+							</div>						
+						</div>
+				</div>
+			</div>
+			{% endif %}
+			{% if activateslides3 %}
+				<div class="carousel-item slide3bg">
+				<div class="carousel-image">
+					<img class="d-block" src="{{ activateslides3 }}" alt="third slide">
+				</div>
+				<div class="container slidethree-wrapper">
+					    <div class="carousel-caption d-md-block">
+							 				
+							
+							 	
+						</div>
+				</div>
+			</div>
+			{% endif %}
+			{% if activateslides4 %}
+				<div class="carousel-item">
+				<div class="carousel-image">
+					<img class="d-block" src="{{ activateslides4 }}" alt="forth slide">
+				</div>
+				<div class="container">
+					<div class="carousel-caption d-md-block">
+						 
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+		</div>
+
+	 
+		<div class="indicators-container container">
+			<ol class="carousel-indicators">
+				{% if activateslides1 %}
+					<li data-bs-target="#carouselExampleControls" data-bs-slide-to="0"  class="active"></li>
+				{% endif %}
+				{% if activateslides2 %}
+					<li data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></li>
+				{% endif %}
+				{% if activateslides3 %}
+					<li data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></li>
+				{% endif %}
+				{% if activateslides4 %}
+					<li data-bs-target="#carouselExampleControls" data-bs-slide-to="3"></li>
+				{% endif %}
+			</ol>
+		</div>
+	</div>
+	{% endif %}
