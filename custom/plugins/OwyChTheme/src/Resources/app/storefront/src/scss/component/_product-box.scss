@@ -12,9 +12,11 @@
         .product-info{
             .product--btn-action{
                 .btn-light{
-                    border-color: #6F6E6E;
+                    background: $theme-base-btn-bgcolor;
+                    border-color: $theme-base-btn-bgcolor;
                     font-weight: 400;
                     font-size: 16px;
+                    --bs-btn-color: #fff;
                     &:hover{
                         background: $sw-color-brand-primary;
                         border-color: $sw-color-brand-primary;
@@ -104,6 +106,7 @@
                             margin     : 0;
                             line-height: normal;
                             min-height : unset;
+                            display: none;
                         }
                     }
                 }

@@ -289,6 +289,7 @@ class RentalProductCartProcessor implements CartDataCollectorInterface, CartProc
             'propertyIds' => $product->getPropertyIds(),
             'optionIds' => $product->getOptionIds(),
             'options' => $this->getOptions($product),
+            'stock' => $product->getAvailableStock(),
         ];
 
         $payload = array_replace_recursive($payload, $lineItem->getPayload());

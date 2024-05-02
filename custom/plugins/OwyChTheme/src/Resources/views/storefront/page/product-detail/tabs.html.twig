@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="infocontent">
 			<div class="techdata">{{ "OwyChTheme.detail.tabsnames.lable2"|trans }}</div>
-           	{{ page.product.translated.description|striptags('<br><p><a><b><strong><ul><li>')|spaceless|nl2br|raw }}
+			{{ page.product.translated.description|striptags('<br><p><a><b><strong><ul><li>')|spaceless|nl2br|raw }}
 		</div>
 	</div>
 </div>
@@ -81,191 +81,189 @@
 		</div>
 	</div>
 	-->
-    {% set portraitshootingImage = page.product.customFields.custom_product_detail_portraitshooting_img %}
-    {% set portraitshootingDesc = page.product.customFields.custom_product_detail_portraitshooting_desc %}
-	{% if portraitshootingImage || portraitshootingDesc %}
-		<div id="section3" class="detailsections">
-			<div class="container">
-				<div class="infocontent">
-					<div class="row ">
-						{% if portraitshootingImage %}
-                            {% set mediaCollection = searchMedia([portraitshootingImage], context.context) %}
-                            {% set portraitshootingImg = mediaCollection.get(portraitshootingImage).url %}
-							<div class="col-md-6">
-								<img src="{{ portraitshootingImg }}" alt="Tabs Information">
-							</div>
-						{% endif %}
-						{% if portraitshootingDesc %}
-							<div class="col-md-6">
-								{{ portraitshootingDesc|raw }}
-							</div>
-						{% endif %}
-					</div>
+{% set portraitshootingImage = page.product.customFields.custom_product_detail_portraitshooting_img %}
+{% set portraitshootingDesc = page.product.customFields.custom_product_detail_portraitshooting_desc %}
+{% if portraitshootingImage || portraitshootingDesc %}
+	<div id="section3" class="detailsections">
+		<div class="container">
+			<div class="infocontent">
+				<div class="row ">
+					{% if portraitshootingImage %}
+						{% set mediaCollection = searchMedia([portraitshootingImage], context.context) %}
+						{% set portraitshootingImg = mediaCollection.get(portraitshootingImage).url %}
+						<div class="col-md-6">
+							<img src="{{ portraitshootingImg }}" alt="Tabs Information">
+						</div>
+					{% endif %}
+					{% if portraitshootingDesc %}
+						<div class="col-md-6">
+							{{ portraitshootingDesc|raw }}
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
-	{% endif %}
+	</div>
+{% endif %}
 
-    {% set aubergewohnlicheImage = page.product.customFields.custom_product_detail_aubergewohnliche_img %}
-    {% set aubergewohnlicheDesc = page.product.customFields.custom_product_detail_aubergewohnliche_desc %}
-    {% if aubergewohnlicheImage || aubergewohnlicheDesc %}
-		<div id="section4" class="detailsections">
-			<div class="container">
-				<div class="infocontent">
-					<div class="row">
-						<div class="col-md-6">
-							{{ aubergewohnlicheDesc|raw }}
-						</div>
-    					{% if aubergewohnlicheImage %}
+{% set aubergewohnlicheImage = page.product.customFields.custom_product_detail_aubergewohnliche_img %}
+{% set aubergewohnlicheDesc = page.product.customFields.custom_product_detail_aubergewohnliche_desc %}
+{% if aubergewohnlicheImage || aubergewohnlicheDesc %}
+	<div id="section4" class="detailsections">
+		<div class="container">
+			<div class="infocontent">
+				<div class="row">
+					<div class="col-md-6">
+						{{ aubergewohnlicheDesc|raw }}
+					</div>
+					{% if aubergewohnlicheImage %}
 						{% set mediaCollection = searchMedia([aubergewohnlicheImage], context.context) %}
 						{% set aubergewohnlicheImg = mediaCollection.get(aubergewohnlicheImage).url %}
-							<div class="col-md-6">
-								<img src="{{ aubergewohnlicheImg }}" alt="Tabs Information"  class="img-fluid">
-							</div>
+						<div class="col-md-6">
+							<img src="{{ aubergewohnlicheImg }}" alt="Tabs Information" class="img-fluid">
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if page.product.sortedProperties|length > 0 %}
+	<div id="section5" class="detailsections techcontainer">
+		<div class="container">
+			<div class="infocontent">
+				<div class="techdata">{{ "OwyChTheme.detail.tabsSections.properties"|trans }}</div>
+				{% sw_include '@Storefront/storefront/page/product-detail/properties.html.twig' %}
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% set objektivkonstruktiontitle = page.product.customFields.custom_product_detail_objektivkonstruktion_title %}
+{% set objektivkonstruktionImage = page.product.customFields.custom_product_detail_objektivkonstruktion_img %}
+{% set leistungsmerkmaletitle = page.product.customFields.custom_product_detail_leistungsmerkmale_title %}
+{% set leistungsmerkmaleheading1 = page.product.customFields.custom_product_detail_leistungsmerkmale_heading1 %}
+{% set leistungsmerkmaleheading2 = page.product.customFields.custom_product_detail_leistungsmerkmale_headin2 %}
+{% set leistungsmerkmaleImage1 = page.product.customFields.custom_product_detail_leistungsmerkmale_img1 %}
+{% set leistungsmerkmaleImage2 = page.product.customFields.custom_product_detail_leistungsmerkmale_img2 %}
+
+
+{% if objektivkonstruktiontitle || leistungsmerkmaletitle %}
+	<div id="section6" class="detailsections techcontainer">
+		<div class="container">
+			<div class="infocontent">
+				<div class="row">
+					<div class="col-md-12">
+						{% if objektivkonstruktiontitle %}
+							<h3>{{ objektivkonstruktiontitle }}</h3>
+						{% endif %}
+						{% if objektivkonstruktionImage %}
+							{% set mediaCollection = searchMedia([objektivkonstruktionImage], context.context) %}
+							{% set objektivkonstruktionImg = mediaCollection.get(objektivkonstruktionImage).url %}
+							<img src="{{ objektivkonstruktionImg }}" alt="objektivkonstruktionImg" class="img-fluid">
 						{% endif %}
 					</div>
-				</div>
-			</div>
-		</div>
-	{% endif %}
-
-	{% if page.product.sortedProperties|length > 0 %}
-		<div id="section5" class="detailsections techcontainer">
-			<div class="container">
-				<div class="infocontent">
-					<div class="techdata">{{ "OwyChTheme.detail.tabsSections.properties"|trans }}</div>
-					{% sw_include '@Storefront/storefront/page/product-detail/properties.html.twig' %}
-				</div>
-			</div>
-		</div>
-	{% endif %}
-
-    {% set objektivkonstruktiontitle = page.product.customFields.custom_product_detail_objektivkonstruktion_title %}
-    {% set objektivkonstruktionImage = page.product.customFields.custom_product_detail_objektivkonstruktion_img %}
-    {% set leistungsmerkmaletitle = page.product.customFields.custom_product_detail_leistungsmerkmale_title %}
-    {% set leistungsmerkmaleheading1 = page.product.customFields.custom_product_detail_leistungsmerkmale_heading1 %}
-    {% set leistungsmerkmaleheading2 = page.product.customFields.custom_product_detail_leistungsmerkmale_headin2 %}
-    {% set leistungsmerkmaleImage1 = page.product.customFields.custom_product_detail_leistungsmerkmale_img1 %}
-    {% set leistungsmerkmaleImage2 = page.product.customFields.custom_product_detail_leistungsmerkmale_img2 %}
-
-
-	{% if objektivkonstruktiontitle || leistungsmerkmaletitle %}
-		<div id="section6" class="detailsections techcontainer">
-			<div class="container">
-				<div class="infocontent">
-					<div class="row">
-						<div class="col-md-12">
-							{% if objektivkonstruktiontitle %}
-								<h3>{{ objektivkonstruktiontitle }}</h3>
-							{% endif %}
-							{% if objektivkonstruktionImage %}
-                                {% set mediaCollection = searchMedia([objektivkonstruktionImage], context.context) %}
-                                {% set objektivkonstruktionImg = mediaCollection.get(objektivkonstruktionImage).url %}
-								<img src="{{ objektivkonstruktionImg }}" alt="objektivkonstruktionImg"  class="img-fluid">
-							{% endif %}
-						</div>
-						<div class="col-md-12 graphbox
-						">
-    						{% if leistungsmerkmaletitle %}
-								<h3>{{ leistungsmerkmaletitle }}</h3>
-							{% endif %}
-							<div class="row">
-								<div class="col-md-6">
-    								{% if leistungsmerkmaleheading1 %}
-										<label>{{ leistungsmerkmaleheading1 }}</label>
-									{% endif %}
-    								{% if leistungsmerkmaleImage1 %}
-                                        {% set mediaCollection = searchMedia([leistungsmerkmaleImage1], context.context) %}
-                                        {% set leistungsmerkmaleImg1 = mediaCollection.get(leistungsmerkmaleImage1).url %}
-										<img class="img-fluid" src="{{ leistungsmerkmaleImg1 }}" alt="leistungsmerkmale Image">
-									{% endif %}
-								</div>
-								<div class="col-md-6">
-    								{% if leistungsmerkmaleheading2 %}
-										<label>{{ leistungsmerkmaleheading2 }}</label>
-									{% endif %}
-    								{% if leistungsmerkmaleImage2 %}
-                                        {% set mediaCollection = searchMedia([leistungsmerkmaleImage2], context.context) %}
-                                        {% set leistungsmerkmaleImg2 = mediaCollection.get(leistungsmerkmaleImage2).url %}
-										<img class="img-fluid" src="{{ leistungsmerkmaleImg1 }}" alt="leistungsmerkmale Image">
-									{% endif %}
-								</div>
+					<div class="col-md-12 graphbox
+													">
+						{% if leistungsmerkmaletitle %}
+							<h3>{{ leistungsmerkmaletitle }}</h3>
+						{% endif %}
+						<div class="row">
+							<div class="col-md-6">
+								{% if leistungsmerkmaleheading1 %}
+									<label>{{ leistungsmerkmaleheading1 }}</label>
+								{% endif %}
+								{% if leistungsmerkmaleImage1 %}
+									{% set mediaCollection = searchMedia([leistungsmerkmaleImage1], context.context) %}
+									{% set leistungsmerkmaleImg1 = mediaCollection.get(leistungsmerkmaleImage1).url %}
+									<img class="img-fluid" src="{{ leistungsmerkmaleImg1 }}" alt="leistungsmerkmale Image">
+								{% endif %}
+							</div>
+							<div class="col-md-6">
+								{% if leistungsmerkmaleheading2 %}
+									<label>{{ leistungsmerkmaleheading2 }}</label>
+								{% endif %}
+								{% if leistungsmerkmaleImage2 %}
+									{% set mediaCollection = searchMedia([leistungsmerkmaleImage2], context.context) %}
+									{% set leistungsmerkmaleImg2 = mediaCollection.get(leistungsmerkmaleImage2).url %}
+									<img class="img-fluid" src="{{ leistungsmerkmaleImg1 }}" alt="leistungsmerkmale Image">
+								{% endif %}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	{% endif %}
-    {% set galleryTitle = page.product.customFields.custom_product_gallery_title %}
-    {% set galleryImage1 = page.product.customFields.custom_product_gallery_img1 %}
-    {% set galleryImage2 = page.product.customFields.custom_product_gallery_img2 %}
-    {% set galleryImage3 = page.product.customFields.custom_product_gallery_img3 %}
-    {% set galleryImage4 = page.product.customFields.custom_product_gallery_img4 %}
-    {% set galleryImage5 = page.product.customFields.custom_product_gallery_img5 %}
-    {% set galleryImage6 = page.product.customFields.custom_product_gallery_img6 %}
+	</div>
+{% endif %}
+{% set galleryTitle = page.product.customFields.custom_product_gallery_title %}
+{% set galleryImage1 = page.product.customFields.custom_product_gallery_img1 %}
+{% set galleryImage2 = page.product.customFields.custom_product_gallery_img2 %}
+{% set galleryImage3 = page.product.customFields.custom_product_gallery_img3 %}
+{% set galleryImage4 = page.product.customFields.custom_product_gallery_img4 %}
+{% set galleryImage5 = page.product.customFields.custom_product_gallery_img5 %}
+{% set galleryImage6 = page.product.customFields.custom_product_gallery_img6 %}
 
-    {% if galleryTitle || galleryImage1 %}
+{# {% if galleryTitle || galleryImage1 %}
 	<div id="section7" class="detailsections gallerycollection">
 		<div class="container">
-			{# <div class="infocontent"> #}
-				{% if galleryTitle %}
-					<div class="maintitle">
-						{{ galleryTitle }}
-					</div>
-				{% endif %}
-			{# </div> #}
+			{% if galleryTitle %}
+				<div class="maintitle">
+					{{ galleryTitle }}
+				</div>
+			{% endif %}
 		</div>
 		<div class="galleryslider">
 			<div class=" owl-carousel owl-theme detailgallery-slider">
 				{% if galleryImage1 %}
-                    {% set mediaCollection = searchMedia([galleryImage1], context.context) %}
-                    {% set galleryImage1 = mediaCollection.get(galleryImage1).url %}
+					{% set mediaCollection = searchMedia([galleryImage1], context.context) %}
+					{% set galleryImage1 = mediaCollection.get(galleryImage1).url %}
 					<div class="item">
-						 <img src="{{ galleryImage1 }}" alt="Image 1">
+						<img src="{{ galleryImage1 }}" alt="Image 1">
 					</div>
 				{% endif %}
-                {% if galleryImage2 %}
-                    {% set mediaCollection = searchMedia([galleryImage2], context.context) %}
-                    {% set galleryImage2 = mediaCollection.get(galleryImage2).url %}
+				{% if galleryImage2 %}
+					{% set mediaCollection = searchMedia([galleryImage2], context.context) %}
+					{% set galleryImage2 = mediaCollection.get(galleryImage2).url %}
 					<div class="item">
 						<img src="{{ galleryImage2 }}" alt="Image 2">
 					</div>
-                {% endif %}
-                {% if galleryImage3 %}
-                    {% set mediaCollection = searchMedia([galleryImage3], context.context) %}
-                    {% set galleryImage3 = mediaCollection.get(galleryImage3).url %}
+				{% endif %}
+				{% if galleryImage3 %}
+					{% set mediaCollection = searchMedia([galleryImage3], context.context) %}
+					{% set galleryImage3 = mediaCollection.get(galleryImage3).url %}
 					<div class="item">
 						<img src="{{ galleryImage3 }}" alt="Image 3">
 					</div>
-                {% endif %}
-                {% if galleryImage4 %}
-                    {% set mediaCollection = searchMedia([galleryImage4], context.context) %}
-                    {% set galleryImage4 = mediaCollection.get(galleryImage4).url %}
+				{% endif %}
+				{% if galleryImage4 %}
+					{% set mediaCollection = searchMedia([galleryImage4], context.context) %}
+					{% set galleryImage4 = mediaCollection.get(galleryImage4).url %}
 					<div class="item">
 						<img src="{{ galleryImage4 }}" alt="Image 4">
 					</div>
-                {% endif %}
-                {% if galleryImage5 %}
-                    {% set mediaCollection = searchMedia([galleryImage5], context.context) %}
-                    {% set galleryImage5 = mediaCollection.get(galleryImage5).url %}
+				{% endif %}
+				{% if galleryImage5 %}
+					{% set mediaCollection = searchMedia([galleryImage5], context.context) %}
+					{% set galleryImage5 = mediaCollection.get(galleryImage5).url %}
 					<div class="item">
 						<img src="{{ galleryImage5 }}" alt="Image 5">
 					</div>
-                {% endif %}
-                {% if galleryImage6 %}
-                    {% set mediaCollection = searchMedia([galleryImage6], context.context) %}
-                    {% set galleryImage6 = mediaCollection.get(galleryImage6).url %}
+				{% endif %}
+				{% if galleryImage6 %}
+					{% set mediaCollection = searchMedia([galleryImage6], context.context) %}
+					{% set galleryImage6 = mediaCollection.get(galleryImage6).url %}
 					<div class="item">
 						<img src="{{ galleryImage6 }}" alt="Image 6">
 					</div>
-                {% endif %}
+				{% endif %}
 
-        	</div>
+			</div>
 		</div>
 	</div>
-    {% endif %}
-	{# <div id="section8" class="detailsections">
+{% endif %} #}
+{# <div id="section8" class="detailsections">
 		<div class="container">
 			<div class="infocontent">
 				{% block page_product_detail_tabs_content_review %}
@@ -278,5 +276,4 @@
 				{% endblock %}
 			</div>
 		</div>
-	</div> #}
-{% endblock %}
+	</div> #}{% endblock %}

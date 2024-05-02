@@ -19,7 +19,11 @@
             {% set isListPrice = price.listPrice.percentage > 0 %}
 
             <span class="product-price{% if isListPrice and not displayFrom %} with-list-price{% endif %}">
-                        {{ price.unitPrice|currency }}{{ "general.star"|trans|sw_sanitize }}{% if price.extensions.rentalProduct%} / {% if product.extensions.rentalProduct.mode == 1 %}{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}{% else %}{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}{% endif %}{% endif %}
+                        {# {{ price.unitPrice|currency }} #}
+                        {% for calculatedPrice in product.calculatedPrices|slice(0, 1) %}
+                            {{ calculatedPrice.unitPrice|currency }}
+                        {% endfor %}
+                        {{ "general.star"|trans|sw_sanitize }}{% if price.extensions.rentalProduct%} / {% if product.extensions.rentalProduct.mode == 1 %}{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}{% else %}{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}{% endif %}{% endif %}
 
                 {% if isListPrice and not displayFrom %}
                     {% set afterListPriceSnippetExists = "listing.afterListPrice"|trans|length > 0 %}

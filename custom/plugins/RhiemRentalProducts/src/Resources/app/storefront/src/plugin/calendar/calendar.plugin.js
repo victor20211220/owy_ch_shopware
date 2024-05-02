@@ -50,8 +50,8 @@ export default class RentalCalendar extends DateRange {
         this._createFormatter();
         this._getRentData();
         this._createCalendar();
-
         this._registerEvents();
+        this._showTwoPrices();
     }
 
     /**
@@ -82,6 +82,7 @@ export default class RentalCalendar extends DateRange {
                 }
             }.bind(this),
             onChange: function (selectedDates) {
+                console.log("$(`[data-rental-calendar]`).val():", $(`[data-rental-calendar]`).val());
                 let that = this,
                     notSelectable = false;
 
@@ -126,8 +127,9 @@ export default class RentalCalendar extends DateRange {
                         periodEnd = this._toUTCDate(selectedDates[1]),
                         minAvailable = parseInt(this._rentQuantity.getAttribute('max'));
 
+                    const periodDates = this._parseDateRange();
                     // Get the rent duration from the selected dates
-                    this._rentDuration = this._getDateDifference(periodStart, periodEnd);
+                    this._rentDuration = this._getDateDifference(periodDates[0], periodDates[1]);
                     // Change the end date if the minimum number of days is not reached
                     /*if (this._rentDuration < this.options.minDuration) {
                         this._flatpickr.setDate([
@@ -381,4 +383,49 @@ export default class RentalCalendar extends DateRange {
 
         return true;
     }
+
+    _parseDateRange(){
+        const dateRange = $(`[data-rental-calendar]`).val();
+        let separator;
+        switch (document.documentElement.lang) {
+            case "en-GB":
+                separator = " to ";
+                break;
+            case "de-CH":
+                separator = " bis ";
+                break;
+            case "fr-FR":
+                separator = " au ";
+                break;
+            default:
+                separator = " bis ";
+                break;
+        }
+        const arr = dateRange.split(separator);
+        const startDate = arr[0];
+        const endDate =  arr.length === 1 ? startDate: arr[1];
+        return [new Date(startDate), new Date(endDate)];
+    }
+
+    _showTwoPrices(){
+        $(`.product-block-prices-body tr:last-child .product-block-prices-quantity`).html(2);
+        const basePrice = $(`.product-block-prices-body tr:first-child .product-block-prices-cell meta[itemprop="price"]`).attr(`content`);
+        const dailyAddonPrice = Math.round(basePrice * 0.15);
+        const dailyAddonPriceSelector = $(`.product-block-prices-body tr:last-child .product-block-prices-cell meta[itemprop="price"]`);
+        dailyAddonPriceSelector.attr(`content`, dailyAddonPrice);
+        $(`.product-block-prices-body tr:last-child  .product-block-prices-cell div`).html(this._formatCHF(dailyAddonPrice));
+        $(`.product-block-prices-body tr:last-child`).css(`display`, `table-row`);
+    }
+    
+    _formatCHF(number){
+        let formattedNumber = new Intl.NumberFormat(document.documentElement.lang, {
+            style: 'currency',
+            currency: 'CHF',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(number);
+    
+        // Ensure there is a space after 'CHF' if needed
+        return formattedNumber;
+    };
 }

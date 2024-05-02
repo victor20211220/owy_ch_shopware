@@ -13,15 +13,6 @@
 					<div class="row align-items-center product-detail-headline">
 						{% sw_include '@Storefront/storefront/page/product-detail/headline.html.twig' %}
 					</div>
-					{# <div class="tabsnavigation-content">
-											<ul>
-												<li data-scroll="section1">{{ "OwyChTheme.detail.tabsnames.lable1"|trans }}</li>
-												<li data-scroll="section2">{{ "OwyChTheme.detail.tabsnames.lable2"|trans }}</li>
-												<li data-scroll="section6">{{ "OwyChTheme.detail.tabsnames.lable3"|trans }}</li>
-												<li data-scroll="section7">{{ "OwyChTheme.detail.tabsnames.lable4"|trans }}</li>
-												 
-											</ul>
-										</div> #}
 				{% endblock %}
 
 				{% set mediaItems = page.product.media.media %}
@@ -89,4 +80,46 @@
 
 	</div>
 
+{% endblock %}
+{% block base_body_script %}
+	{{ parent() }}
+	<script type="text/javascript">
+		let element, stickyElement, headerBottom;
+		
+		const setStickyProductNavPosition = () => {
+			elementDomRect = element.getBoundingClientRect();
+			const paddingLeft = window.getComputedStyle(element).getPropertyValue('padding-left');
+			const paddingRight = window.getComputedStyle(element).getPropertyValue('padding-right');
+			stickyElement.style.width = `${elementDomRect.width}px`;
+			stickyElement.style.left = `${elementDomRect.left}px`;
+			stickyElement.style.paddingLeft = paddingLeft;
+			stickyElement.style.paddingRight = paddingRight;
+			if(headerBottom > elementDomRect.top){ // scrolled down
+				console.log(`scrolled down`)
+				element.style.opacity = 0;
+				stickyElement.style.opacity = 1;
+			}else{ // scrolled over
+				console.log(`scrolled up`)
+				element.style.opacity = 1;
+				stickyElement.style.opacity = 0;
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			element = document.querySelector('.tabsnavigation-content');
+			stickyElement = element.cloneNode(true); // Deep clone the element
+			stickyElement.classList.add('sticky-tabsnavigation-content');
+			const headerDomRect = document.querySelector('#mainNavigation').getBoundingClientRect();
+			headerBottom = headerDomRect.y + headerDomRect.height + 1;
+			stickyElement.style.top = `${headerBottom}px`;
+			setStickyProductNavPosition();
+			document.body.appendChild(stickyElement);
+		});
+
+		window.onresize = setStickyProductNavPosition;
+		window.addEventListener('scroll', function() {
+			setStickyProductNavPosition();
+		});
+
+	</script>
 {% endblock %}
