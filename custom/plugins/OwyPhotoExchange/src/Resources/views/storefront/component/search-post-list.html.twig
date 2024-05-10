@@ -25,11 +25,11 @@
                     {% if context.customer is not null and not context.customer.guest ? 1 : 0 and context.customer.id == post.customer.id %}
                         <h5>Kontakt: <a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a></h5>
                         <div id="more-action">
-                            {{ post.createdAt|date }} | <a href="{{ appUrl }}/photo-exchange/edit?id={{ post.id }}">Bearbeiten</a> | <a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('Are you sure?')">Löschen</a>
+                            {{ post.created_date|date }} | <a href="{{ appUrl }}/photo-exchange/edit?id={{ post.id }}">Bearbeiten</a> | <a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('Are you sure?')">Löschen</a>
                         </div>
                     {% else %}
                         <div id="more-action">
-                            {{ post.createdAt|date }} | Bearbeiten | Löschen
+                            {{ post.created_date|date }} | Bearbeiten | Löschen
                         </div>
                     {% endif %}
                 </div>

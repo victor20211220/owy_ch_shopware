@@ -72,17 +72,17 @@
                 {% if context.customer is not null and  context.customer.id == post.customer.id %}
 
                     <div id="more-action">
-                        {{ post.createdAt|date('d-m-Y H:i') }} | <a href="/photo-exchange/edit?id={{ post.id }}">{{ "OWY.photo_exchange.edit"|trans }}</a> | <a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('{{ 'OWY.photo_exchange.delete'|trans }}')">{{ "OWY.photo_exchange.delete"|trans }}</a>
+                        {{ post.created_date|date('d-m-Y H:i') }} | <a href="/photo-exchange/edit?id={{ post.id }}">{{ "OWY.photo_exchange.edit"|trans }}</a> | <a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('{{ 'OWY.photo_exchange.delete'|trans }}')">{{ "OWY.photo_exchange.delete"|trans }}</a>
                     </div>
                 {% elseif context.customer is not null and  context.customer.id != post.customer.id %}
 
                     <div id="more-action">
-                        {{ post.createdAt|date('d-m-Y H:i') }}  | <a href="javascript:void(0)">{{ "OWY.photo_exchange.edit"|trans }} </a> | <a href="javascript:void(0)">{{ "OWY.photo_exchange.delete"|trans }}</a>
+                        {{ post.created_date|date('d-m-Y H:i') }}  | <a href="javascript:void(0)">{{ "OWY.photo_exchange.edit"|trans }} </a> | <a href="javascript:void(0)">{{ "OWY.photo_exchange.delete"|trans }}</a>
                     </div>
                 {% else %}
 
                     <div id="more-action">
-                        {{ post.createdAt|date('d-m-Y H:i') }}  | <a href="/account/login">{{ "OWY.photo_exchange.edit"|trans }} </a> | <a href="/account/login">{{ "OWY.photo_exchange.delete"|trans }}</a>
+                        {{ post.created_date|date('d-m-Y H:i') }}  | <a href="/account/login">{{ "OWY.photo_exchange.edit"|trans }} </a> | <a href="/account/login">{{ "OWY.photo_exchange.delete"|trans }}</a>
                     </div>
                 {% endif %}
             </div>

@@ -81,12 +81,11 @@ class PostService
         $criteria = new Criteria();
         $this->handlePagination($request, $criteria);
         $criteria->addSorting(new FieldSorting('id', FieldSorting::ASCENDING));
-
         $criteria->addAssociation("category");
         $criteria->addAssociation("customer");
-        return $this->postRepository->search($criteria, $context);
+        $posts = $this->postRepository->search($criteria, $context);
+        return $this->addCreateDate($posts);
     }
-
     public function searchPosts(Context $context, Request $request): EntitySearchResult
     {
         $criteria = new Criteria();
@@ -98,8 +97,19 @@ class PostService
         $criteria->addFilter(new EqualsFilter("categoryId", $request->get("category", null)));
         $criteria->addAssociation("category");
         $criteria->addAssociation("customer");
-        return $this->postRepository->search($criteria, $context);
+        $posts = $this->postRepository->search($criteria, $context);
+        return $this->addCreateDate($posts);
     }
+
+    public function addCreateDate($posts){
+        $elements = $posts->getElements();
+        foreach($elements as $key=> $element){
+            $elements[$key]->created_date = $element->createdAt;
+        }
+        $posts->assign(['elements' => $elements]);
+        return $posts;
+    }
+
 
     public function deletePost(Context $context, Request $request): void
     {

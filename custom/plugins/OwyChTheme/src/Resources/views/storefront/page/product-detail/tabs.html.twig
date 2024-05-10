@@ -8,79 +8,6 @@
 		</div>
 	</div>
 </div>
-<!--<div id="section2" class="detailsections">
-		<div class="container">
-			<div class="infocontent">
-				{% block page_product_detail_tabs_navigation %}{% endblock %}
-				{% block page_product_detail_tabs_content_description %}
-					<div class="row">
-
-						{% if  page.product.customFields.custom_product_detail_artikelbeschreibung_heading %}
-							<div class="col-12">
-
-								<div class="detaoldescription">
-									<h2>{{ "OwyChTheme.detail.tabsSections.tabs1"|trans }}</h2>
-                                    {% if page.product.customFields.custom_product_detail_artikelbeschreibung_heading %}
-										<h3>{{  page.product.customFields.custom_product_detail_artikelbeschreibung_heading }}</h3>
-									{% endif %}
-									{% if page.product.customFields.custom_product_detail_artikelbeschreibung_img1 %}
-
-										<div class="row">
-											{% set artikelbeschreibungImage1 = page.product.customFields.custom_product_detail_artikelbeschreibung_img1 %}
-                                            {% set artikelbeschreibungImage2 = page.product.customFields.custom_product_detail_artikelbeschreibung_img2 %}
-                                            {% set artikelbeschreibungImage3 = page.product.customFields.custom_product_detail_artikelbeschreibung_img3 %}
-                                            {% if artikelbeschreibungImage1 %}
-
-                                                {% set mediaCollection = searchMedia([artikelbeschreibungImage1], context.context) %}
-                                                {% set artikelbeschreibungImg1 = mediaCollection.get(artikelbeschreibungImage1).url %}
-
-												<div class="col-md-3 col">
-													<img src="{{ artikelbeschreibungImg1 }}" alt="Image 1">
-												</div>
-                                            {% endif %}
-                                            {% if artikelbeschreibungImage2 %}
-
-                                                {% set mediaCollection = searchMedia([artikelbeschreibungImage2], context.context) %}
-                                                {% set artikelbeschreibungImg2 = mediaCollection.get(artikelbeschreibungImage2).url %}
-
-												<div class="col-md-6 col">
-													<img src="{{ artikelbeschreibungImg2 }}" alt="Image 2">
-												</div>
-                                            {% endif %}
-                                            {% if artikelbeschreibungImage3 %}
-
-                                                {% set mediaCollection = searchMedia([artikelbeschreibungImage3], context.context) %}
-                                                {% set artikelbeschreibungImg3 = mediaCollection.get(artikelbeschreibungImage3).url %}
-
-												<div class="col-md-3 col">
-													<img src="{{ artikelbeschreibungImg3 }}" alt="Image 3">
-												</div>
-                                            {% endif %}
-										</div>
-									{% endif %}
-									{% set artikelbeschreibungdesc1 = page.product.customFields.custom_product_detail_artikelbeschreibung_desc1 %}
-                                    {% set artikelbeschreibungdesc2 = page.product.customFields.custom_product_detail_artikelbeschreibung_desc2 %}
-
-									{% if artikelbeschreibungdesc1 || artikelbeschreibungdesc2  %}
-										<div class="row product-detail-description">
-											{% if artikelbeschreibungdesc1 %}
-												<div class="col-lg-6 rightpadding product-detail-description-text">{{ artikelbeschreibungdesc1|raw }}</div>
-											{% endif %}
-											{% if artikelbeschreibungdesc2 %}
-												<div class="col-lg-6 laftpading product-detail-description-text">{{ artikelbeschreibungdesc2|raw }}</div>
-											{% endif %}
-										</div>
-									{% endif %}
-								</div>
-							</div>
-						{% endif %}
-					</div>
-
-				{% endblock %}
-			</div>
-		</div>
-	</div>
-	-->
 {% set portraitshootingImage = page.product.customFields.custom_product_detail_portraitshooting_img %}
 {% set portraitshootingDesc = page.product.customFields.custom_product_detail_portraitshooting_desc %}
 {% if portraitshootingImage || portraitshootingDesc %}
@@ -129,6 +56,77 @@
 	</div>
 {% endif %}
 
+{% set galleryTitle = page.product.customFields.custom_product_gallery_title %}
+{% set galleryImages = [
+    page.product.customFields.custom_product_gallery_img1,
+    page.product.customFields.custom_product_gallery_img2,
+    page.product.customFields.custom_product_gallery_img3,
+    page.product.customFields.custom_product_gallery_img4,
+    page.product.customFields.custom_product_gallery_img5,
+    page.product.customFields.custom_product_gallery_img6
+] %}
+{% if page.product.customFields.custom_product_gallery_img1!='' %}
+	<div id="section9" class="detailsections techgallery">
+		<div class="card card-tabs" data-cross-selling="true">
+			{# <div class="card-header techdata">
+				{{ galleryTitle }}
+			</div> #}
+			<div class="card-body">
+				<div class="product-detail-tabs product-detail-cross-selling">
+					<div class="product-detail-tabs-content">
+						<div class="cms-element-product-slider">
+							<div class="cms-element-alignment align-self-start">
+								<div class="base-slider product-slider has-nav" data-product-slider="true" data-product-slider-options="{&quot;productboxMinWidth&quot;:&quot;450px&quot;,&quot;slider&quot;:{&quot;gutter&quot;:30,&quot;autoplayButtonOutput&quot;:false,&quot;nav&quot;:false,&quot;mouseDrag&quot;:false,&quot;controls&quot;:true,&quot;autoplay&quot;:false}}">
+									<div class="cms-element-title">
+										<p class="cms-element-title-paragraph"></p>
+									</div>
+									<div class="product-slider-container" data-product-slider-container="true">
+										{% for imageId in galleryImages %}
+											{% if imageId %}
+												{% set mediaCollection = searchMedia([imageId], context.context) %}
+												{% set imageUrl = mediaCollection.get(imageId).url %}
+												<div class="product-slider-item">
+													<div class="card product-box box-standard owy-listbox">
+														<div class="card-body">
+															<div class="gallery-image-wrapper">
+																<a href="javascript:void(0)" class="product-image-link is-minimal">
+																	<img src="{{ imageUrl }}" class="gallery-image is-minimal" alt="Gallery Images"/>
+																</a>
+															</div>
+															<div class="product-info"></div>
+														</div>
+													</div>
+												</div>
+											{% endif %}
+										{% endfor %}
+									</div>
+									<div class="product-slider-controls-container">
+										<div class="base-slider-controls" data-product-slider-controls="true">
+											<button class="base-slider-controls-prev product-slider-controls-prev">
+												<span class="icon icon-arrow-head-left">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewbox="0 0 24 24">
+														<use transform="matrix(0 1 1 0 .5 -.5)" xlink:href="#icons-default-arrow-head-left" fill="#758CA3" fill-rule="evenodd"/>
+													</svg>
+												</span>
+											</button>
+											<button class="base-slider-controls-next product-slider-controls-next">
+												<span class="icon icon-arrow-head-right">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewbox="0 0 24 24">
+														<use transform="rotate(90 11.5 12)" xlink:href="#icons-default-arrow-head-right" fill="#758CA3" fill-rule="evenodd"/>
+													</svg>
+												</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
 {% if page.product.sortedProperties|length > 0 %}
 	<div id="section5" class="detailsections techcontainer">
 		<div class="container">
@@ -165,7 +163,7 @@
 						{% endif %}
 					</div>
 					<div class="col-md-12 graphbox
-													">
+																																																																																							">
 						{% if leistungsmerkmaletitle %}
 							<h3>{{ leistungsmerkmaletitle }}</h3>
 						{% endif %}
@@ -197,72 +195,6 @@
 		</div>
 	</div>
 {% endif %}
-{% set galleryTitle = page.product.customFields.custom_product_gallery_title %}
-{% set galleryImage1 = page.product.customFields.custom_product_gallery_img1 %}
-{% set galleryImage2 = page.product.customFields.custom_product_gallery_img2 %}
-{% set galleryImage3 = page.product.customFields.custom_product_gallery_img3 %}
-{% set galleryImage4 = page.product.customFields.custom_product_gallery_img4 %}
-{% set galleryImage5 = page.product.customFields.custom_product_gallery_img5 %}
-{% set galleryImage6 = page.product.customFields.custom_product_gallery_img6 %}
-
-{# {% if galleryTitle || galleryImage1 %}
-	<div id="section7" class="detailsections gallerycollection">
-		<div class="container">
-			{% if galleryTitle %}
-				<div class="maintitle">
-					{{ galleryTitle }}
-				</div>
-			{% endif %}
-		</div>
-		<div class="galleryslider">
-			<div class=" owl-carousel owl-theme detailgallery-slider">
-				{% if galleryImage1 %}
-					{% set mediaCollection = searchMedia([galleryImage1], context.context) %}
-					{% set galleryImage1 = mediaCollection.get(galleryImage1).url %}
-					<div class="item">
-						<img src="{{ galleryImage1 }}" alt="Image 1">
-					</div>
-				{% endif %}
-				{% if galleryImage2 %}
-					{% set mediaCollection = searchMedia([galleryImage2], context.context) %}
-					{% set galleryImage2 = mediaCollection.get(galleryImage2).url %}
-					<div class="item">
-						<img src="{{ galleryImage2 }}" alt="Image 2">
-					</div>
-				{% endif %}
-				{% if galleryImage3 %}
-					{% set mediaCollection = searchMedia([galleryImage3], context.context) %}
-					{% set galleryImage3 = mediaCollection.get(galleryImage3).url %}
-					<div class="item">
-						<img src="{{ galleryImage3 }}" alt="Image 3">
-					</div>
-				{% endif %}
-				{% if galleryImage4 %}
-					{% set mediaCollection = searchMedia([galleryImage4], context.context) %}
-					{% set galleryImage4 = mediaCollection.get(galleryImage4).url %}
-					<div class="item">
-						<img src="{{ galleryImage4 }}" alt="Image 4">
-					</div>
-				{% endif %}
-				{% if galleryImage5 %}
-					{% set mediaCollection = searchMedia([galleryImage5], context.context) %}
-					{% set galleryImage5 = mediaCollection.get(galleryImage5).url %}
-					<div class="item">
-						<img src="{{ galleryImage5 }}" alt="Image 5">
-					</div>
-				{% endif %}
-				{% if galleryImage6 %}
-					{% set mediaCollection = searchMedia([galleryImage6], context.context) %}
-					{% set galleryImage6 = mediaCollection.get(galleryImage6).url %}
-					<div class="item">
-						<img src="{{ galleryImage6 }}" alt="Image 6">
-					</div>
-				{% endif %}
-
-			</div>
-		</div>
-	</div>
-{% endif %} #}
 {# <div id="section8" class="detailsections">
 		<div class="container">
 			<div class="infocontent">
