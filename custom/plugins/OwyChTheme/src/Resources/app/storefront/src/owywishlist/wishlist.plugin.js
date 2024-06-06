@@ -12,7 +12,7 @@ export default class OwyWishlist extends Plugin {
 
                 var owyLink = $('#owyshopLink').attr('data-shop-url');
 
-                window.location.replace(owyLink + "/cart");
+                window.location.replace(owyLink + "/checkout/cart");
 
 
             });

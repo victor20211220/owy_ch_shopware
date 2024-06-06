@@ -2,7 +2,6 @@
 
 namespace Swag\Security\Api;
 
-use GuzzleHttp\Client;
 use Shopware\Core\Framework\Adapter\Cache\CacheIdLoader;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -11,7 +10,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Log\Package;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Uuid\Uuid;
-use Swag\Security\Components\AbstractSecurityFix;
 use Swag\Security\Components\State;
 use Swag\Security\SwagPlatformSecurity;
 use Symfony\Component\Filesystem\Filesystem;
@@ -19,6 +17,7 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[Route(defaults: ['_routeScope' => ['api']])]
 #[Package('services-settings')]
@@ -28,12 +27,11 @@ class SecurityController
         private readonly State $state,
         private readonly EntityRepository $pluginRepository,
         private readonly string $cacheDir,
-        private readonly Client $client,
+        private readonly HttpClientInterface $client,
         private readonly CacheIdLoader $cacheIdLoader
     ) {
     }
 
-    #[Route(path: '/api/v{version}/_action/swag-security/available-fixes')]
     #[Route(path: '/api/_action/swag-security/available-fixes')]
     public function getFixes(): JsonResponse
     {
@@ -43,12 +41,12 @@ class SecurityController
         ]);
     }
 
-    #[Route(path: '/api/v{version}/_action/swag-security/update-available')]
     #[Route(path: '/api/_action/swag-security/update-available')]
     public function updateAvailable(Context $context): JsonResponse
     {
-        $res = $this->client->get('https://api.shopware.com/pluginStore/pluginsByName?locale=en_GB&shopwareVersion=6.0.0&technicalNames=SwagPlatformSecurity');
-        $apiResponse = json_decode((string) $res->getBody(), true);
+        $apiResponse = $this->client
+            ->request('GET', 'https://api.shopware.com/pluginStore/pluginsByName?locale=en_GB&shopwareVersion=6.0.0&technicalNames=SwagPlatformSecurity')
+            ->toArray();
 
         if (isset($apiResponse[0])) {
             $apiResponse = $apiResponse[0];
@@ -80,7 +78,6 @@ class SecurityController
         return new JsonResponse($response);
     }
 
-    #[Route(path: '/api/v{version}/_action/swag-security/clear-container-cache')]
     #[Route(path: '/api/_action/swag-security/clear-container-cache')]
     public function clearContainerCache(): Response
     {

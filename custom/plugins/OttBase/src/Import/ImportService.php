@@ -3142,6 +3142,7 @@ class ImportService
             \IMAGETYPE_XBM     => 'xbm',
             \IMAGETYPE_ICO     => 'ico',
             \IMAGETYPE_WEBP    => 'webp',
+            \IMAGETYPE_AVIF    => 'avif',
         ];
 
         if (false !== strpos($imagePath, '.svg')) {

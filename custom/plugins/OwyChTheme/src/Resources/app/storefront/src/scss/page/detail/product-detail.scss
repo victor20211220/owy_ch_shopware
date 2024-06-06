@@ -585,10 +585,43 @@
     }
 }
 
-.infocontent {
-    padding: 20px;
-}
-
 .product-block-prices-body tr:not(:first-child){
     display: none;
+}
+
+@media (min-width: 1500px) {
+.infocontent {
+    padding: 20px;
+	}
+}
+
+/* Base styles for the container */
+.techgallery .container {
+    max-width: 1200px; /* Set the max-width for the container */
+    margin: auto; /* Center the container */
+    padding: 15px; /* Add some padding around the content */
+    display: flex; /* Enables the use of flexbox */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: flex-start; /* Aligns items to the start of the flex container */
+}
+
+.techgallery .item {
+    flex: 0 0 50%; /* Flex-grow, flex-shrink and flex-basis */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    margin-bottom: 20px; /* Space between rows */
+    padding: 0 10px; /* Padding on the left and right */
+}
+
+.techgallery .item img {
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Removes bottom space/gap */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) { /* Adjust this breakpoint according to your design requirements */
+    .techgallery .item {
+        flex-basis: 100%; /* On mobile, item takes full width */
+        padding: 0 10px; /* Adjust padding if necessary */
+    }
 }

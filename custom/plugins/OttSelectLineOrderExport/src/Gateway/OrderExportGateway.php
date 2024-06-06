@@ -96,7 +96,7 @@ class OrderExportGateway
     public function getOrderDetails(string $orderId): array
     {
         $statement = <<<'SQL'
-            SELECT ol.quantity, ol.unit_price, ol.total_price, ol.label, p.product_number, p.weight, JSON_UNQUOTE(JSON_EXTRACT( pt.custom_fields, '$.custom_discount_')) AS voucher
+            SELECT ol.quantity, ol.total_price, ol.label, p.product_number, p.weight
             FROM order_line_item ol
             LEFT JOIN product p on ol.product_id = p.id AND ol.product_version_id = p.version_id
             LEFT JOIN promotion_translation pt ON pt.name = ol.label AND product_id IS NULL

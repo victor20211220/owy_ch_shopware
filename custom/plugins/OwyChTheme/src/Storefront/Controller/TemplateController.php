@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 namespace OwyChTheme\Storefront\Controller;
 use Exception;
 use Shopware\Core\Content\Mail\Service\AbstractMailService;
@@ -19,6 +19,8 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Response;
 use Shopware\Core\Framework\Context;
 use Frosh\FroshProductCompare\Page\CompareProductPageLoader;
+use Shopware\Core\Content\Product\Cart\ProductGatewayInterface;
+use Shopware\Storefront\Page\GenericPageLoaderInterface;
 
 /**
  * @Route(defaults={"_routeScope"={"storefront"}})
@@ -32,7 +34,7 @@ class TemplateController extends StorefrontController
     public $productRepository;
 
 
-    public function __construct(AbstractMailService $mailService, Connection $connection, SalesChannelCmsPageLoader $cmsPageLoader, SystemConfigService $systemConfigService, EntityRepository $productRepository)
+    public function __construct(private readonly CompareProductPageLoader $compareProductPageLoader, AbstractMailService $mailService, Connection $connection, SalesChannelCmsPageLoader $cmsPageLoader, SystemConfigService $systemConfigService, EntityRepository $productRepository)
     {
         $this->mailService = $mailService;
         $this->connection = $connection;
@@ -96,28 +98,30 @@ class TemplateController extends StorefrontController
                         <b>Firma: </b>'.$firma.'<br/>
                         <b>Strasse / Nr.: </b>'.$strasse.'<br/>
                         <b>PLZ / Ort: </b>'.$plz.'<br/>
-                        <b>Phone: </b>'.$telephone.'<br/>
-                        <b>Message: </b>'.$message;
+                        <b>Telefon: </b>'.$telephone.'<br/>
+                        <b>Nachricht: </b>'.$message;
 
         $shopName = $salesChannelContext->getSalesChannel()->getName();
         $shopEmail = $this->systemConfigService->get('core.basicInformation.email', $salesChannelContext->getSalesChannel()->getId());
         try {
             $data = new ParameterBag();
-            $data->set(
+            /*$data->set(
                 'recipients',
                 [
                     $shopEmail => $shopName
                 ]
-            );
+            );*/
 
             $data->set('senderName', $formData['name'] ?: $formData['email']);
 
             $data->set('contentHtml', $contentHtml);
             $data->set('contentPlain', strip_tags($contentHtml));
             if ($page_val == 1){
-                $data->set('subject', 'Support Email');
+            	$data->set('recipients', ['support@owy.ch' => 'Ott+Wyss AG']);
+                $data->set('subject', 'Support Anfrage');
             }else{
-                $data->set('subject', 'Kontakt Us Email');
+            	$data->set('recipients', ['info@owy.ch' => 'Ott+Wyss AG']);
+                $data->set('subject', 'Kontakt Anfrage');
             }
 
             $data->set('salesChannelId', $salesChannelContext->getSalesChannel()->getId());
@@ -158,7 +162,7 @@ class TemplateController extends StorefrontController
             foreach($products as $product){
                 $productIds[] = $product['productId'];
             }
-            $page = $compareProductPageLoader->loadPreview($productIds, $request, $context);
+            $page = $this->compareProductPageLoader->loadPreview($productIds, $request, $context);
             $productsData = $page->getProducts()->getElements();
                 $data =  $this->renderStorefront('@Storefront/storefront/component/compare/wishlist.html.twig', [
                     'getwishlistData' => $productsData,

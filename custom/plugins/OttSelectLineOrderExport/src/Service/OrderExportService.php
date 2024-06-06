@@ -26,7 +26,10 @@ class OrderExportService
     {
         $order['billing'] = $this->gateway->getBillingAddress($order['id']);
         $order['shipping'] = $this->gateway->getShippingAddress($order['id']);
-        if ($order['shipping']['id'] === $order['billing']['id']) {
+        if (
+            $order['shipping']['id'] === $order['billing']['id']
+            && 6 !== \strlen($order['customer_number'])
+        ) {
             $order['shipping'] = [
                 'salutation'               => '',
                 'title'                    => '',
@@ -43,7 +46,39 @@ class OrderExportService
             ];
         }
 
+        if (6 === \strlen($order['customer_number'])) {
+            $order['billing'] = [
+                'salutation'               => '',
+                'title'                    => '',
+                'first_name'               => '',
+                'last_name'                => '',
+                'company'                  => '',
+                'department'               => '',
+                'additional_address_line1' => '',
+                'additional_address_line2' => '',
+                'street'                   => '',
+                'country_code'             => '',
+                'zipcode'                  => '',
+                'city'                     => '',
+                'phone_number'             => '',
+                'vat_id'                   => '',
+            ];
+        }
+
         $order['details'] = $this->gateway->getOrderDetails($order['id']);
+
+        $orderTotalPrice = 0;
+        foreach ($order['details'] as $detail) {
+            $orderTotalPrice = $orderTotalPrice + $detail['total_price'];
+        }
+
+        if (1000 > $orderTotalPrice) {
+            $order['details'][] = [
+                'quantity'       => 1,
+                'product_number' => 'PP',
+                'weight'         => 0,
+            ];
+        }
 
         $this->builder->build($order);
 

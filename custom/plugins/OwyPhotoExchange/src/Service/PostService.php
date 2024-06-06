@@ -80,9 +80,10 @@ class PostService
     {
         $criteria = new Criteria();
         $this->handlePagination($request, $criteria);
-        $criteria->addSorting(new FieldSorting('id', FieldSorting::ASCENDING));
+        $criteria->addSorting(new FieldSorting('id', FieldSorting::DESCENDING));
         $criteria->addAssociation("category");
         $criteria->addAssociation("customer");
+        $criteria->addFilter(new EqualsFilter('isActive', 1));
         $posts = $this->postRepository->search($criteria, $context);
         return $this->addCreateDate($posts);
     }
@@ -97,6 +98,7 @@ class PostService
         $criteria->addFilter(new EqualsFilter("categoryId", $request->get("category", null)));
         $criteria->addAssociation("category");
         $criteria->addAssociation("customer");
+        $criteria->addFilter(new EqualsFilter('isActive', 1));
         $posts = $this->postRepository->search($criteria, $context);
         return $this->addCreateDate($posts);
     }

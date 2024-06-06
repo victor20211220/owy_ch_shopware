@@ -127,17 +127,27 @@
                                  {% if zoomModal %}data-zoom-modal="true"{% endif %}>
                                 {# option "magnifierOverGallery" shows zoom container over gallery #}
                                 <div class="base-slider gallery-slider{% if navigationArrows == "outside" %} has-nav-outside{% endif %}{% if navigationDots == "outside" %} has-dots-outside{% endif %}{% if magnifierOverGallery %} js-magnifier-zoom-image-container{% endif %}">
-                                    {% if page.product.translated.customFields.custom_additonal_badges_title %}
-                                    <div class="product-badges">
+								{% if page.product.translated.customFields.custom_additonal_badges_title !='' %}
+				
+								{% if page.product.translated.customFields.custom_additonal_badges_title=='Miete' %}
+									{% set badge = 'OwyChTheme.listing.product.rent_badge'|trans|sw_sanitize %}
+								{% elseif page.product.translated.customFields.custom_additonal_badges_title=='Neuheit' %}
+									{% set badge = 'OwyChTheme.listing.product.new_badge'|trans|sw_sanitize %}
+								{% elseif page.product.translated.customFields.custom_additonal_badges_title=='Ausverkauf' %}
+									{% set badge = 'OwyChTheme.listing.product.sale_badge'|trans|sw_sanitize %}
+								{% else %}
+									{% set badge = page.product.translated.customFields.custom_additonal_badges_title %}
+								{% endif %}
+				<div class="product-badges">
                                         <div class="badge-custom">
                                             <span class="badge bg-green badge-new" style="background-color: {{ page.product.translated.customFields.custom_additonal_badges_bg_color  }} !important; color: {{ page.product.translated.customFields.custom_additonal_badges_color }}">
-                                           {{ page.product.translated.customFields.custom_additonal_badges_title }}
+                                           {{ badge }}
                                             </span>
                                         </div>
 
 
                                     </div>
-                                    {% endif %}
+				{% endif %}
                                     {% block element_image_gallery_inner_wrapper %}
                                         {% if imageCount > 1 %}
                                             {% block element_image_gallery_inner_multiple_slides %}

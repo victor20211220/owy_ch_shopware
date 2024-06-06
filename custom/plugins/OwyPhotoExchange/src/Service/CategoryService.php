@@ -22,7 +22,7 @@ class CategoryService
     {
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter("isActive", 1));
-        $criteria->addSorting(new FieldSorting('createdAt', FieldSorting::ASCENDING));
+        $criteria->addSorting(new FieldSorting('createdAt', FieldSorting::DESCENDING));
         return $this->categoryRepository->search($criteria, $context);
     }
 }

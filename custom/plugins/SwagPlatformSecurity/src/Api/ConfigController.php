@@ -25,7 +25,6 @@ class ConfigController
     ) {
     }
 
-    #[Route(path: '/api/v{version}/_action/swag-security/save-config')]
     #[Route(path: '/api/_action/swag-security/save-config')]
     public function saveConfig(RequestDataBag $requestDataBag, Context $context): Response
     {

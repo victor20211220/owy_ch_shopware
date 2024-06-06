@@ -14,8 +14,11 @@ class RemoveDisabledServicesCompilerPass implements CompilerPassInterface
         $services = $container->findTaggedServiceIds('swag.security.fix');
         $activeFixes = (array) $container->getParameter('SwagPlatformSecurity.activeFixes');
 
+        /**
+         * @var class-string<AbstractSecurityFix> $id
+         */
         foreach ($services as $id => $tag) {
-            $ticket = $tag[0]['ticket'];
+            $ticket = $id::getTicket();
 
             if (!\in_array($ticket, $activeFixes, true)) {
                 $container->removeDefinition($id);

@@ -1,6 +1,5 @@
 {% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
 {% block component_product_badges %}
-    <div class="product-badges">
         {% block component_product_badges_discount %}
            {{ parent() }}
         {% endblock %}
@@ -32,7 +31,7 @@
                 </div>
             {% endif %}
 
-            {% if product.translated.customFields.custom_additonal_badges_title !='' %}
+            {#% if product.translated.customFields.custom_additonal_badges_title !='' %#}
                 <div class="product-badges">
                     <div class="badge-custom">
 							<span class="badge bg-green badge-new" style="background-color: {{ product.translated.customFields.custom_additonal_badges_bg_color  }} !important; color: {{ page.product.translated.customFields.custom_additonal_badges_color }}">
@@ -42,7 +41,6 @@
 
 
                 </div>
-            {% endif %}
+            {#% endif %#}
         {% endblock %}
-    </div>
 {% endblock %}

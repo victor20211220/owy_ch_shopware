@@ -11,16 +11,26 @@
 			<div class="product-image-wrapper">
 				{#% sw_include '@Storefront/storefront/component/product/card/badges.html.twig' %#}
 				{% if product.translated.customFields.custom_additonal_badges_title !='' %}
-					<div class="product-badges">
-											<div class="badge-custom">
-												<span class="badge bg-green badge-new" style="background-color: {{ product.translated.customFields.custom_additonal_badges_bg_color  }} !important; color: {{ page.product.translated.customFields.custom_additonal_badges_color }}">
-											   {{ product.translated.customFields.custom_additonal_badges_title }}
-												</span>
-											</div>
+				
+				{% if product.translated.customFields.custom_additonal_badges_title=='Miete' %}
+					{% set badge = 'OwyChTheme.listing.product.rent_badge'|trans|sw_sanitize %}
+					{% elseif product.translated.customFields.custom_additonal_badges_title=='Neuheit' %}
+					{% set badge = 'OwyChTheme.listing.product.new_badge'|trans|sw_sanitize %}
+					{% elseif product.translated.customFields.custom_additonal_badges_title=='Ausverkauf' %}
+					{% set badge = 'OwyChTheme.listing.product.sale_badge'|trans|sw_sanitize %}
+					{% else %}
+					{% set badge = product.translated.customFields.custom_additonal_badges_title %}
+				{% endif %}
+				<div class="product-badges">
+                                        <div class="badge-custom">
+                                            <span class="badge bg-green badge-new" style="background-color: {{ product.translated.customFields.custom_additonal_badges_bg_color  }} !important; color: {{ page.product.translated.customFields.custom_additonal_badges_color }}">
+                                           {{ badge }}
+                                            </span>
+                                        </div>
 
 
-										</div>
-					{% endif %}
+                                    </div>
+				{% endif %}
 				{# fallback if display mode is not set #}
 				{% set displayMode = displayMode ?: 'standard' %}
 

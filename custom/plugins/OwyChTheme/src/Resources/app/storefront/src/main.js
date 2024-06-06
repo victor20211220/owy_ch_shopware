@@ -1,5 +1,6 @@
 import OwyCustomOffcanvasCart from './offcanvas-cart/owy-offcanvas-cart.plugin';
 import OwyWishlist from './owywishlist/wishlist.plugin';
+import OwyCustomQuantitySelector from './js/custom-quantity-selector.js';
 import './js/owl.carousel.min.js';
 
 const PluginManager = window.PluginManager;
@@ -10,3 +11,5 @@ if (screen.width > 991) {
 } else {
     console.log('Less than 500 mobile cart hit');
 }
+
+PluginManager.override('QuantitySelector', OwyCustomQuantitySelector, '[data-quantity-selector]');

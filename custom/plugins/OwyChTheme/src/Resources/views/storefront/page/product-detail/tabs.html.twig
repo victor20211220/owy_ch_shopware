@@ -55,21 +55,31 @@
 		</div>
 	</div>
 {% endif %}
+{% if page.product.sortedProperties|length > 0 %}
+	<div id="section5" class="detailsections techcontainer">
+		<div class="container">
+			<div class="infocontent">
+				<div class="techdata">{{ "OwyChTheme.detail.tabsSections.properties"|trans }}</div>
+				{% sw_include '@Storefront/storefront/page/product-detail/properties.html.twig' %}
+			</div>
+		</div>
+	</div>
+{% endif %}
 
-{% set galleryTitle = page.product.customFields.custom_product_gallery_title %}
+{% set galleryTitle = page.product.translated.customFields.custom_product_gallery_title %}
 {% set galleryImages = [
-    page.product.customFields.custom_product_gallery_img1,
-    page.product.customFields.custom_product_gallery_img2,
-    page.product.customFields.custom_product_gallery_img3,
-    page.product.customFields.custom_product_gallery_img4,
-    page.product.customFields.custom_product_gallery_img5,
-    page.product.customFields.custom_product_gallery_img6
+    page.product.translated.customFields.custom_product_gallery_img1,
+    page.product.translated.customFields.custom_product_gallery_img2,
+    page.product.translated.customFields.custom_product_gallery_img3,
+    page.product.translated.customFields.custom_product_gallery_img4,
+    page.product.translated.customFields.custom_product_gallery_img5,
+    page.product.translated.customFields.custom_product_gallery_img6
 ] %}
-{% if page.product.customFields.custom_product_gallery_img1!='' %}
+{% if page.product.translated.customFields.custom_product_gallery_img1!='' %}
 	<div id="section9" class="detailsections techgallery">
 		<div class="card card-tabs" data-cross-selling="true">
 			{# <div class="card-header techdata">
-				{{ galleryTitle }}
+				{{ galleryTitle }} 
 			</div> #}
 			<div class="card-body">
 				<div class="product-detail-tabs product-detail-cross-selling">
@@ -89,7 +99,7 @@
 													<div class="card product-box box-standard owy-listbox">
 														<div class="card-body">
 															<div class="gallery-image-wrapper">
-																<a href="javascript:void(0)" class="product-image-link is-minimal">
+																<a href="{{ imageUrl }}" class="product-image-link is-minimal" target="_blank">
 																	<img src="{{ imageUrl }}" class="gallery-image is-minimal" alt="Gallery Images"/>
 																</a>
 															</div>
@@ -123,16 +133,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-{% endif %}
-{% if page.product.sortedProperties|length > 0 %}
-	<div id="section5" class="detailsections techcontainer">
-		<div class="container">
-			<div class="infocontent">
-				<div class="techdata">{{ "OwyChTheme.detail.tabsSections.properties"|trans }}</div>
-				{% sw_include '@Storefront/storefront/page/product-detail/properties.html.twig' %}
 			</div>
 		</div>
 	</div>

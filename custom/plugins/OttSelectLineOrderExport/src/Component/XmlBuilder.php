@@ -26,21 +26,15 @@ class XmlBuilder
         return sprintf(
             OrderSchemeProvider::ORDER_HEAD_SCHEME,
             $order['order_number'],
-            false !== strpos($order['customer_number'], 'Gast') ? 999999 : $order['customer_number'],
+            6 === \strlen($order['customer_number']) ? $order['customer_number'] : '099999',
             (new \DateTime($order['order_date_time']))->format('Y-m-d H:i:s'),
             $order['email'],
             $order['billing']['phone_number'],
             $order['billing']['vat_id'],
-            'Keine Angabe' === $order['billing']['salutation']
-                ? ''
-                : $order['billing']['salutation'],
+            6 === \strlen($order['customer_number']) ? '' : $this->hexUmlauts($order['billing']['salutation']),
             $this->hexUmlauts($order['billing']['title']),
-            'no' === $this->hexUmlauts($order['billing']['first_name'])
-                ? ''
-                : $this->hexUmlauts($order['billing']['first_name']),
-            'data' === $this->hexUmlauts($order['billing']['last_name'])
-                ? ''
-                : $this->hexUmlauts($order['billing']['last_name']),
+            6 === \strlen($order['customer_number']) ? '' : $this->hexUmlauts($order['billing']['first_name']),
+            6 === \strlen($order['customer_number']) ? '' : $this->hexUmlauts($order['billing']['last_name']),
             $this->hexUmlauts($order['billing']['company']),
             $this->hexUmlauts($order['billing']['department']),
             $this->hexUmlauts($order['billing']['additional_address_line1']),
@@ -49,16 +43,10 @@ class XmlBuilder
             $order['billing']['country_code'],
             $order['billing']['zipcode'],
             $this->hexUmlauts($order['billing']['city']),
-            'Keine Angabe' === $order['shipping']['salutation']
-                ? ''
-                : $order['shipping']['salutation'],
+            6 === \strlen($order['customer_number']) ? '' : $this->hexUmlauts($order['shipping']['salutation']),
             $this->hexUmlauts($order['shipping']['title']),
-            'no' === $this->hexUmlauts($order['shipping']['first_name'])
-                ? ''
-                : $this->hexUmlauts($order['shipping']['first_name']),
-            'data' === $this->hexUmlauts($order['shipping']['last_name'])
-                ? ''
-                : $this->hexUmlauts($order['shipping']['last_name']),
+            6 === \strlen($order['customer_number']) ? '' : $this->hexUmlauts($order['shipping']['first_name']),
+            6 === \strlen($order['customer_number']) ? '' : $this->hexUmlauts($order['shipping']['last_name']),
             $this->hexUmlauts($order['shipping']['company']),
             '',
             $this->hexUmlauts($order['shipping']['additional_address_line1']),
@@ -67,7 +55,8 @@ class XmlBuilder
             $order['shipping']['country_code'] ?? '',
             $order['shipping']['zipcode'] ?? '',
             $this->hexUmlauts($order['shipping']['city']),
-            (int) $order['shipping']['differsFromBilling']
+            (int) $order['shipping']['differsFromBilling'],
+            $order['order_number']
         );
     }
 
@@ -78,10 +67,8 @@ class XmlBuilder
             $orderPosition .= sprintf(
                 OrderSchemeProvider::POSITION_SCHEME,
                 $key + 1,
-                $detail['product_number'] ?? $detail['voucher'],
+                $detail['product_number'],
                 $detail['quantity'],
-                $this->forceDecimalNumber((float) $detail['unit_price']),
-                $this->forceDecimalNumber((float) $detail['total_price']),
                 (new \DateTime($earliestShippingDate))->format('d.m.Y'),
                 $this->forceDecimalNumber((float) $detail['weight'], 6)
             );
@@ -92,7 +79,7 @@ class XmlBuilder
 
     private function hexUmlauts(?string $value): string
     {
-        if (null === $value) {
+        if (null === $value || '' === $value) {
             return '';
         }
 

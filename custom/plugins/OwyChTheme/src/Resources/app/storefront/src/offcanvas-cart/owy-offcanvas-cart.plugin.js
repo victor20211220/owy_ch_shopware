@@ -1,10 +1,13 @@
 import ViewportDetection from 'src/helper/viewport-detection.helper';
 import OffCanvasCartPlugin from 'src/plugin/offcanvas-cart/offcanvas-cart.plugin';
 import AjaxOffCanvas from '../offcanvas/ajax-offcanvas.plugin';
+import ElementLoadingIndicatorUtil from 'src/utility/loading-indicator/element-loading-indicator.util';
+import DeviceDetection from 'src/helper/device-detection.helper';
 
 export default class OwyCustomOffcanvasCart extends OffCanvasCartPlugin {
 
     init() {
+        const _this = this;
         $(document).on('click', '.btn-link', function (event) {
             event.preventDefault();
             event.stopPropagation();
@@ -93,12 +96,14 @@ export default class OwyCustomOffcanvasCart extends OffCanvasCartPlugin {
 
         if ($('body').hasClass('is-ctl-checkout is-act-cartpage') !== true) {
             $(document).on('click', '.line-item-remove-button', function (event) {
+                ElementLoadingIndicatorUtil.create($(`#new-cart .owy-nav-cart`)[0]);
                 event.preventDefault();
                 event.stopPropagation();
                 event.stopImmediatePropagation();
                 let form = $(this).parent();
                 let action = $(form).attr('action');
                 $.post(action, function () {
+                    _this.reloadCart();
                 });
             });
         }
@@ -113,8 +118,13 @@ export default class OwyCustomOffcanvasCart extends OffCanvasCartPlugin {
 
         function changeQty(action, data) {
             $.post(action, data, function () {
+                _this.reloadCart();
             });
         }
+    }
+
+    reloadCart(){
+        this._onOpenOffCanvasCart(new Event(`click`));
     }
 
 
@@ -126,27 +136,43 @@ export default class OwyCustomOffcanvasCart extends OffCanvasCartPlugin {
      * @param {function|null} callback
      */
     openOffCanvas(url, data, callback) {
+        // console.log(`event:`, event);
+        //if($(event.target).closest(`.line-item-row`).length) return;
         const isFullwidth = ViewportDetection.isXS();
         AjaxOffCanvas.open(
             url, 
             data, 
-            this._onOffCanvasOpened.bind(this, callback), 
+            () => {
+                // console.log(`start callback`);
+                this._onOffCanvasOpened.call(this, callback);
+                // console.log(`end callback`);
+                var cartData = $("body").find('.offcanvas-cart');
+                if (cartData.length > 1) {
+                    cartData = cartData[cartData.length - 1];
+                }
+                $(cartData).removeClass("d-none");
+                $("#cart-data").html(cartData).removeClass('d-none');
+                if (data != false) {
+                    $("#new-cart").removeClass('d-none').addClass(`show`);
+                }
+            },
             this.options.offcanvasPosition, 
             undefined, 
             undefined, 
             isFullwidth
         );
         AjaxOffCanvas.setAdditionalClassName(this.options.additionalOffcanvasClass);
-        setTimeout(function () {
-            var cartData = $("body").find('.offcanvas-cart');
-            if (cartData.length > 1) {
-                cartData = cartData[cartData.length - 1];
-            }
-            $(cartData).removeClass("d-none");
-            $("#cart-data").html(cartData).removeClass('d-none');
-            if (data != false) {
-                $("#new-cart").removeClass('d-none').addClass(`show`);
-            }
-        }, 1 * 1000);
+    }
+
+    /**
+     * Register events to handle opening the Cart OffCanvas
+     * by clicking a defined trigger selector
+     *
+     * @private
+     */
+    _registerOpenTriggerEvents() {
+        const event = (DeviceDetection.isTouchDevice()) ? 'touchstart' : 'click';
+        console.log('register cart click event');
+        this.el.querySelector(`a.header-cart-btn`).addEventListener(event, this._onOpenOffCanvasCart.bind(this));
     }
 }

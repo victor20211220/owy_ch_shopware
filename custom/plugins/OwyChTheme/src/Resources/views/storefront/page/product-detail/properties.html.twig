@@ -6,7 +6,7 @@
                     {% block page_product_detail_properties_table %}
                         <table class="table table-striped product-detail-properties-table">
                             <tbody>
-                            {% if page.product.weight !== '' %}
+                            {% if page.product.weight !== '' and page.product.weight > 0 %}
                             		<tr class="properties-row"><th class="properties-label">{{ "component.product.feature.label.weight"|trans }}</th>
                                      <td class="properties-value">
                                                         <span>{{ page.product.weight|sw_sanitize }} kg</span>
@@ -34,6 +34,20 @@
                                     </tr>
                                 {% endblock %}
                             {% endfor %}
+                            {% if page.product.ean !== '' %}
+                            		<tr class="properties-row"><th class="properties-label">{{ "component.product.feature.label.ean"|trans }}</th>
+                                     <td class="properties-value">
+                                                        <span>{{ page.product.ean|sw_sanitize }}</span>
+                                    </td>
+                            </tr>
+                            {% endif %}
+                            {% if page.product.manufacturerNumber !== '' %}
+                            		<tr class="properties-row"><th class="properties-label">{{ "component.product.feature.label.manufacturerNumber"|trans }}</th>
+                                     <td class="properties-value">
+                                                        <span>{{ page.product.manufacturerNumber|sw_sanitize }}</span>
+                                    </td>
+                            </tr>
+                            {% endif %}
                             </tbody>
                         </table>
                     {% endblock %}

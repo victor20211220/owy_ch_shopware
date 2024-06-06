@@ -88,6 +88,27 @@
             </div>
                 <hr>
             {% endfor %}
+            
+            <div class="sorting-pagination-wraper">
+            <div class="sorting-wraper">
+                {{ "OWY.photo_exchange.items_per_page"|trans }}
+                <select id="product-limit" class="sorting form-select {{ formSelectClass }}" aria-label="{{ 'general.sortingLabel'|trans|striptags }}">
+                    <option value="10">{{ "OWY.photo_exchange.select_limit"|trans }}</option>
+                    {% for limit in productLimit %}
+                        <option {% if posts.limit == limit %} selected {% endif %} value="{{limit}}">
+                            {{limit}}
+                        </option>
+                    {% endfor %}
+                    <option value="1000">{{ "OWY.photo_exchange.items_all"|trans }}</option>
+                </select>
+            </div>
+            {% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+                entities: posts,
+                criteria: posts.criteria,
+                paginationLocation: 'bottom',
+            } %}
+		</div>
+		<hr>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 {
   "name": "ott/base",
   "description": "Base/Foundation plugin",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "authors": [

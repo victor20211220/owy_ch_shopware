@@ -396,7 +396,7 @@ aside#bar-fixed ul li.activeli {
 }
 @media (min-width: 1260px) {
     .detailsections {
-        min-height: 400px;
+        min-height: auto;
 
         .container {
             display        : flex;

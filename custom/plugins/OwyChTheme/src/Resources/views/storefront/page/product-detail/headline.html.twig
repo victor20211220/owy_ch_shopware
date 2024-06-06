@@ -67,4 +67,52 @@
         {% endblock %}
     </div>
 {% endblock %}
+	{% block page_product_detail_manufacturer %}
+    {% if page.product.manufacturer %}
+        {% set lang = page.metaInformation.xmlLang %}
+        {% if page.product.manufacturer.translated.name == 'B+W' %}
+			
+			{% if lang == 'en-GB' %}
+				{% set manufacturer_link = '/en/Products/All-B-W-products/' %}
+			{% elseif lang == 'fr-FR' %}
+    			{% set manufacturer_link = '/fr/Produits/Tous-les-produits-B-W/' %}
+    		{% else %}
+    			{% set manufacturer_link = '/Produkte/Alle-B-W-Produkte/' %}
+    		{% endif %}
+    
+   		{% elseif page.product.manufacturer.translated.name == 'SIGMA' %}
 
+			{% if lang == 'en-GB' %}
+				{% set manufacturer_link = '/en/Products/All-SIGMA-products/' %}
+			{% elseif lang == 'fr-FR' %}
+    			{% set manufacturer_link = '/fr/Produits/Tous-les-produits-SIGMA/' %}
+    		{% else %}
+    			{% set manufacturer_link = '/Produkte/Alle-SIGMA-Produkte/' %}
+    		{% endif %}
+    		
+    	{% endif %}
+            <div class="col-md-auto product-detail-manufacturer">
+                {% block page_product_detail_manufacturer_inner %}
+                    {% block page_product_detail_manufacturer_link %}
+                        <a href="{{ manufacturer_link }}"
+                           class="product-detail-manufacturer-link"
+                           rel="noreferrer noopener"
+                           target="_blank"
+                           title="{{ page.product.manufacturer.translated.name }}">
+                            {% if page.product.manufacturer.media %}
+                                {% block page_product_detail_manufacturer_logo %}
+                                    <img src="{{ page.product.manufacturer.media|sw_encode_media_url }}"
+                                         class="product-detail-manufacturer-logo"
+                                         alt="{{ page.product.manufacturer.translated.name }}"/>
+                                {% endblock %}
+                            {% else %}
+                                {% block page_product_detail_manufacturer_text %}
+                                    {{ page.product.manufacturer.translated.name }}
+                                {% endblock %}
+                            {% endif %}
+                        </a>
+                    {% endblock %}
+                {% endblock %}
+            </div>
+		{% endif %}
+    {% endblock %}

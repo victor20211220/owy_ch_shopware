@@ -5,20 +5,24 @@
 	{% if isRentalProduct %}
 		<tr class="product-block-prices-row">
 			<th scope="col" class="product-block-prices-cell">
+				{#
 				{% if page.product.extensions.rentalProduct.extensions.rentalPriceMode[0] == 0 %}
 					{{ "detail.dataColumnQuantity"|trans|sw_sanitize }}
 				{% else %}
 					{{ "detail.rhiem-rental-products.rentPeriod"|trans|sw_sanitize }}
 				{% endif %}
+				#}
 			</th>
 			<th scope="col" class="product-block-prices-cell">
-				{{ "detail.dataColumnPrice"|trans|sw_sanitize }}
+				{{ "OwyChTheme.rental.price"|trans|sw_sanitize }}
+				{#
 				/
 				{% if page.product.extensions.rentalProduct.mode == 1 %}
 					{{ "detail.rhiem-rental-products.day"|trans|sw_sanitize }}
 				{% else %}
 					{{ "detail.rhiem-rental-products.hour"|trans|sw_sanitize }}
 				{% endif %}
+				#}
 			</th>
 		</tr>
 	{% else %}
@@ -36,9 +40,9 @@
 						<meta itemprop="priceCurrency" content="{{ page.header.activeCurrency.translated.shortName }}"/>
 						<meta itemprop="price" content="{{ price.unitPrice }}"/>
                         {% if loop.first %}
-                            Basispreis
+                            {{ "OwyChTheme.rental.baseprice"|trans|sw_sanitize }}
                         {% else %}
-                            zusätzlich / Tag
+                            {{ "OwyChTheme.rental.additionalprice"|trans|sw_sanitize }}
                         {% endif %}
 						{# {% if loop.last %}
 							{{ "detail.priceDataInfoFrom"|trans|sw_sanitize }}

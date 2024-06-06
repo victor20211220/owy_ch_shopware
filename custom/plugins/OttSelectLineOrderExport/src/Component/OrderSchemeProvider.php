@@ -59,6 +59,7 @@ class OrderSchemeProvider
                 <LAplz>%s</LAplz>
                 <LAort>%s</LAort>
                 <AbweichendeLieferadresse>%s</AbweichendeLieferadresse>
+                <Auftragsnummer>Bestellung: %s</Auftragsnummer>
             </kopfdaten>
         XML;
     public const POSITION_SCHEME = <<<'XML'
@@ -69,9 +70,9 @@ class OrderSchemeProvider
                 <Menge>%s</Menge>
                 <Mengeneinheit />
                 <Preismenge>1</Preismenge>
-                <Rabatt>0</Rabatt>
-                <Einzelpreis>%s</Einzelpreis>
-                <Gesamtpreis>%s</Gesamtpreis>
+                <Rabatt />
+                <Einzelpreis />
+                <Gesamtpreis />
                 <Liefertermin>%s</Liefertermin>
                 <Gewicht>%s</Gewicht>
                 <Bezeichnung />

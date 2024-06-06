@@ -17,6 +17,22 @@
             "NEXT-23915": {
                 "label": "NEXT-23915 - Behebt Löschung von Bestellungen bei schnellem Abbruch der Bestellbearbeitung",
                 "tooltip": ""
+            },
+            "NEXT-32887": {
+                "label": "NEXT-32887 - Behebt einen SQL Injection Fehler in der API",
+                "tooltip": ""
+            },
+            "NEXT-32889": {
+                "label": "NEXT-32889 - Behebt ignorierte ACL-Berechtigungen bei State-Machine-Aktionen",
+                "tooltip": ""
+            },
+            "NEXT-32886": {
+                "label": "NEXT-32886 - Behebt einen SSRF Lücke in der Webhook Action im Flow Builder (SwagCommercial plugin)",
+                "tooltip": ""
+            },
+            "NEXT-34608": {
+                "label": "NEXT-34608 - Behebt das die Logout Funktion in store-api nicht funktioniert",
+                "tooltip": ""
             }
         }
     }

@@ -42,9 +42,13 @@
 				Go to Wishlist
 
 			</a>
+		{% elseif app.request.locale == 'fr-FR' %}
+			<a class="footer-cat-nav-link" href="{{ appUrl }}fr/wishlist">
+				Aller à la liste
+			</a>
 		{% else %}
-			<a class="footer-cat-nav-link" href="{{ appUrl }}wishlist">
-				Zum Merkliste
+			<a class="footer-cat-nav-link" href="{{ appUrl }}/wishlist">
+				Zur Merkliste
 
 			</a>
 		{% endif %}

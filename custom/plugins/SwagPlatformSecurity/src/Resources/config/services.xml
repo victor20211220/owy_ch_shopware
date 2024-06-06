@@ -7,6 +7,10 @@
     <parameters>
         <parameter key="SwagPlatformSecurity.knownIssues" type="collection">
             <parameter>Swag\Security\Fixes\NEXT23915\SecurityFix</parameter>
+            <parameter>Swag\Security\Fixes\NEXT32887\NEXT32887Fix</parameter>
+            <parameter>Swag\Security\Fixes\NEXT32889\NEXT32889Fix</parameter>
+            <parameter>Swag\Security\Fixes\NEXT32886\NEXT32886Fix</parameter>
+            <parameter>Swag\Security\Fixes\NEXT34608\LogoutSecurityFix</parameter>
         </parameter>
     </parameters>
 
@@ -20,7 +24,7 @@
             <argument type="service" id="Swag\Security\Components\State"/>
             <argument type="service" id="plugin.repository" />
             <argument>%kernel.cache_dir%</argument>
-            <argument type="service" id="GuzzleHttp\Client"/>
+            <argument type="service" id="http_client"/>
             <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheIdLoader"/>
         </service>
 
@@ -42,9 +46,28 @@
         </service>
 
         <service id="Swag\Security\Fixes\NEXT23915\SecurityFix" public="true">
-            <tag name="swag.security.fix" ticket="\Swag\Security\Fixes\NEXT24679\SecurityFix::class"/>
+            <tag name="swag.security.fix"/>
         </service>
 
-        <service id="GuzzleHttp\Client"/>
+        <service id="Swag\Security\Fixes\NEXT32887\NEXT32887Fix" public="true">
+            <tag name="swag.security.fix"/>
+        </service>
+
+        <service id="Swag\Security\Fixes\NEXT32886\NEXT32886Fix" public="true">
+            <tag name="swag.security.fix"/>
+        </service>
+
+        <service id="Swag\Security\Fixes\NEXT32889\NEXT32889Fix" public="true">
+            <tag name="swag.security.fix"/>
+        </service>
+
+        <service id="Swag\Security\Fixes\NEXT34608\LogoutSecurityFix" public="true">
+            <tag name="swag.security.fix"/>
+        </service>
+
+        <service id="Swag\Security\Fixes\NEXT34608\FixLogoutRoute" decorates="Shopware\Core\Checkout\Customer\SalesChannel\LogoutRoute">
+            <argument type="service" id=".inner"/>
+            <argument type="service" id="Shopware\Core\System\SalesChannel\Context\SalesChannelContextPersister"/>
+        </service>
     </services>
 </container>

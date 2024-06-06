@@ -465,7 +465,7 @@ export default class AcrisStoreLocatorPlugin extends Plugin {
                     }
                 }
 
-                const markerPinColor = currentStore.handlerpoints === "Handler mit Cine-Produkten" ? "red" : "green"; 
+                const markerPinColor = currentStore.handlerpoints === "Handler mit Cine-Produkten" ? "blue" : "red"; 
 
                 const marker = new this.maps.Marker({
                     position: pos,

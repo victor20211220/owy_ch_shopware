@@ -55,3 +55,10 @@
 .cms-block-cbax-lexicon-navigation >.cms-block-container {
     padding-bottom: 0 !important;
 }
+
+body.is-ctl-frontend.is-act-listing {
+    .container-main {
+        padding-top: 0;
+    }
+}
+

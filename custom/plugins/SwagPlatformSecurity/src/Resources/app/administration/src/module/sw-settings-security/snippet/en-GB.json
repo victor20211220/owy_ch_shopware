@@ -17,6 +17,22 @@
             "NEXT-23915": {
                 "label": "NEXT-23915 - Fix order deletion on quick order edit cancellation",
                 "tooltip": ""
+            },
+            "NEXT-32887": {
+                "label": "NEXT-32887 - Fixes a SQL Injection in the Admin API and Store API",
+                "tooltip": ""
+            },
+            "NEXT-32889": {
+                "label": "NEXT-32889 - Fixes ignored ACL permissions in state machine actions",
+                "tooltip": ""
+            },
+            "NEXT-32886": {
+                "label": "NEXT-32886 - Fixes a SSRF vulnerability in the Webhook Action in Flow Builder (SwagCommercial plugin)",
+                "tooltip": ""
+            },
+            "NEXT-34608": {
+                "label": "NEXT-34608 - Fixes the logout function in store-api not working correctly",
+                "tooltip": ""
             }
         }
     }
