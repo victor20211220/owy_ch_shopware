@@ -27,7 +27,7 @@ export default class AcrisStoreLocatorPlugin extends Plugin {
         errorClass: 'has--error',
         customerUrl: '',
         mapCenterLocation: '',
-        zoomFactor: '',
+        zoomFactor: 10,
         widthInfowindow: '',
         heightInfowindow: '',
         showCompanyName: '',
@@ -83,6 +83,7 @@ export default class AcrisStoreLocatorPlugin extends Plugin {
         this.bounds = new this.maps.LatLngBounds();
         this._client = new HttpClient(window.accessKey, window.contextToken);
         this.loadingMapOnce = true;
+        this.mapLoadedTempVariable = false;
     }
 
     /**
@@ -188,9 +189,16 @@ export default class AcrisStoreLocatorPlugin extends Plugin {
      * Method to send the data to the controller
      */
     sendDataToController(lat, lng) {
+        let city = this.form.elements['locator[place]'].value + ', Schweiz';
+        let distance = this.form.elements['locator[distance]'].value;
+        if(this.mapLoadedTempVariable === false){
+            city = "";
+            distance = "0";
+            this.mapLoadedTempVariable = true;
+        }
         this._client.post(this.options.customerUrl, JSON.stringify({
-            'city': this.form.elements['locator[place]'].value + ', Schweiz',
-            'distance': this.form.elements['locator[distance]'].value,
+            'city': city,
+            'distance': distance,
             'lat': lat,
             'lng': lng,
             'handlerpoints': this.form.elements['handlerpoints'].value
@@ -341,7 +349,7 @@ export default class AcrisStoreLocatorPlugin extends Plugin {
                 this.lng = DomAccess.querySelector(this.el, this.options.lng, false);
                 this.initSearch = DomAccess.querySelector(this.el, this.options.initSearch, false);
 
-                this.mapRequest();
+                //this.mapRequest();
 
                 this.map = new this.maps.Map(this.mapDiv, {
                     zoom: parseInt(this.options.zoomFactor, 10),
@@ -392,10 +400,12 @@ export default class AcrisStoreLocatorPlugin extends Plugin {
         }
 
         //set zoom factor depending on distance
-        if (parseInt(this.form.elements['locator[distance]'].value, 10) === 200 && parseInt(this.options.zoomFactor, 10) > 3) {
-            this.map.setZoom(parseInt(this.options.zoomFactor, 10) - 2);
-        } else if (parseInt(this.form.elements['locator[distance]'].value, 10) === 150 && parseInt(this.options.zoomFactor, 10) > 2) {
-            this.map.setZoom(parseInt(this.options.zoomFactor, 10) - 1);
+        if(this.form.elements['locator[place]'].value){
+            if (parseInt(this.form.elements['locator[distance]'].value, 10) < 100 && parseInt(this.options.zoomFactor, 10) > 3) {
+                this.map.setZoom(parseInt(this.options.zoomFactor, 10) + 2);
+            } else if (parseInt(this.form.elements['locator[distance]'].value, 10) === 100 && parseInt(this.options.zoomFactor, 10) > 2) {
+                this.map.setZoom(parseInt(this.options.zoomFactor, 10) + 1);
+            }
         } else {
             this.map.setZoom(parseInt(this.options.zoomFactor, 10));
         }

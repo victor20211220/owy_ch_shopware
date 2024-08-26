@@ -70,6 +70,7 @@
 							<label for="category" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange.category"|trans }}</label>
 							<div class="col-sm-7">
 								<select name="category" id="category" class="form-control">
+									<option value="all">{{ "OWY.photo_exchange.items_all"|trans|raw }}</option>
 									{% for category in categories %}
 										<option value="{{ category.id }}">{{ category.name }}</option>
 									{% endfor %}

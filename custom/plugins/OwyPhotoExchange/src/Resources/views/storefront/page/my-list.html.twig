@@ -1,0 +1,20 @@
+{% sw_extends '@Storefront/storefront/page/account/_page.html.twig' %}
+
+{% block page_account_main_content %}
+	{% block page_account_overview %}
+		<div class="account-welcome">
+			<h1>{{ "account.photo-exchange"|trans|sw_sanitize }}</h1>
+			<p>
+				{{ "OWY.photo_exchange_create.label"|trans }}
+			</p>
+		</div>
+		<div id="search-result">
+			{% sw_include '@Storefront/storefront/component/post-list.html.twig' %}
+		</div>
+		<style>
+			.is-ctl-photoexchange .container-main {
+				padding-top: 20px;
+			}
+		</style>
+	{% endblock %}
+{% endblock %}

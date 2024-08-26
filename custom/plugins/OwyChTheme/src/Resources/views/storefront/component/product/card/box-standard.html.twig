@@ -1,5 +1,5 @@
 {% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
-
+{% set isRentalProduct = product.translated.customFields.custom_additonal_badges_title=='Miete' %}
 {% block component_product_box %}
 	{% if product %}
 		{% set name = product.translated.name %}
@@ -19,7 +19,7 @@
 					{#% endblock %#}
 				{% if product.translated.customFields.custom_additonal_badges_title !='' %}
 				
-				{% if product.translated.customFields.custom_additonal_badges_title=='Miete' %}
+				{% if isRentalProduct %}
 					{% set badge = 'OwyChTheme.listing.product.rent_badge'|trans|sw_sanitize %}
 					{% elseif product.translated.customFields.custom_additonal_badges_title=='Neuheit' %}
 					{% set badge = 'OwyChTheme.listing.product.new_badge'|trans|sw_sanitize %}
@@ -74,7 +74,7 @@
 								{% endif %}
 							</a>
 
-							{% if config('core.cart.wishlistEnabled') %}
+							{% if config('core.cart.wishlistEnabled') and not isRentalProduct %}
 								{% block component_product_box_wishlist_action %}
 									{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
                                         appearance: 'circle',
@@ -132,7 +132,7 @@
 							{% endblock %}
 							<div class="merkliste-box">
 								
-								{% if config('core.cart.wishlistEnabled') %}								 
+								{% if config('core.cart.wishlistEnabled') and not isRentalProduct %}								 
 									{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
                                         appearance: 'circle',
                                         productId: id

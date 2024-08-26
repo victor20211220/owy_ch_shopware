@@ -88,6 +88,21 @@ class PhotoExchangeController extends StorefrontController
         ]);
     }
 
+    #[Route(path: '/account/photo-exchange', name: 'frontend.account.photo-exchange', defaults: ['_loginRequired' => true, '_noStore' => true, 'XmlHttpRequest' => true], methods: ['GET'])]
+    public function myList(SalesChannelContext $context,Request $request): Response
+    {
+        $page = $this->genericPageLoader->load($request, $context);
+
+        $appUrl = $_SERVER['APP_URL'];
+        $posts = $this->postService->getMyPosts(Context::createDefaultContext(), $request, $context);
+
+        return $this->renderStorefront('@OwyPhotoExchange/storefront/page/my-list.html.twig', [
+            "posts" => $posts,
+            "appUrl" => $appUrl,
+            'page' => $page,
+        ]);
+    }
+
     /**
      * @Route("/photo-exchange/search", name="frontend.owy.px.search", methods={"GET"})
      */
@@ -96,7 +111,6 @@ class PhotoExchangeController extends StorefrontController
         $page = $this->genericPageLoader->load($request, $context);
         $categories = $this->categoryService->getActiveCategories(Context::createDefaultContext());
         $posts = $this->postService->searchPosts(Context::createDefaultContext(), $request);
-
 
         return $this->renderStorefront('@OwyPhotoExchange/storefront/page/search.html.twig', [
             'categories' => $categories,

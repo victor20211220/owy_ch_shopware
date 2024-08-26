@@ -1,115 +1,136 @@
 {% block component_post_list %}
-    {% set currentPage = ((posts.criteria.offset + 1) / posts.criteria.limit )|round(0, 'ceil') %}
+	{% set currentPage = ((posts.criteria.offset + 1) / posts.criteria.limit )|round(0, 'ceil') %}
 
 
-    {% set paginationConfig = { pages: currentPage }|json_encode %}
-    <div id="entries" class="cms-element-product-listing-wrapper" data-listing-pagination="true" data-listing-pagination-options='{{ paginationConfig }}' data-listing="true">
-        <div class="card card-image cms-element-product-listing">
+	{% set paginationConfig = { pages: currentPage }|json_encode %}
+	<div id="entries" class="cms-element-product-listing-wrapper" data-listing-pagination="true" data-listing-pagination-options='{{ paginationConfig }}' data-listing="true">
+		<div class="card card-image cms-element-product-listing">
 
-            {% set coreLimit = config('core.listing.productsPerPage') %}
-            {% set perPage = [10,20,50] %}
-            {% set productLimit = [] %}
-            {% for item in perPage|sort %}
-                {% if item not in productLimit %}
-                    {% set productLimit = productLimit|merge([item]) %}
-                {% endif %}
-            {% endfor %}
+			{% set coreLimit = config('core.listing.productsPerPage') %}
+			{% set perPage = [10,20,50] %}
+			{% set productLimit = [] %}
+			{% for item in perPage|sort %}
+				{% if item not in productLimit %}
+					{% set productLimit = productLimit|merge([item]) %}
+				{% endif %}
+			{% endfor %}
 
-
-<div class="sorting-pagination-wraper">
-            <div class="sorting-wraper">
-                {{ "OWY.photo_exchange.items_per_page"|trans }}
-                <select id="product-limit" class="sorting form-select {{ formSelectClass }}" aria-label="{{ 'general.sortingLabel'|trans|striptags }}">
-                    <option value="10">{{ "OWY.photo_exchange.select_limit"|trans }}</option>
-                    {% for limit in productLimit %}
-                        <option {% if posts.limit == limit %} selected {% endif %} value="{{limit}}">
-                            {{limit}}
-                        </option>
-                    {% endfor %}
-                    <option value="1000">{{ "OWY.photo_exchange.items_all"|trans }}</option>
-                </select>
-            </div>
-            {% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+			{% if posts|length > 0 %}
+			<div class="sorting-pagination-wraper">
+				<div class="sorting-wraper">
+					{{ "OWY.photo_exchange.items_per_page"|trans }}
+					<select id="product-limit" class="sorting form-select {{ formSelectClass }}" aria-label="{{ 'general.sortingLabel'|trans|striptags }}">
+						<option value="10">{{ "OWY.photo_exchange.select_limit"|trans }}</option>
+						{% for limit in productLimit %}
+							<option {% if posts.criteria.limit == limit %} selected {% endif %} value="{{limit}}">
+								{{limit}}
+							</option>
+						{% endfor %}
+						<option value="1000">{{ "OWY.photo_exchange.items_all"|trans }}</option>
+					</select>
+				</div>
+				{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
                 entities: posts,
                 criteria: posts.criteria,
                 paginationLocation: 'bottom',
             } %}
-</div>
-            <hr>
+			</div>
+			<hr>
+			{% endif %}
 
 
+			{% for post in posts %}
 
 
-            {% for post in posts %}
+				<div class="entry mb-2  p-2">
+					<p>{{ "OWY.photo_exchange.category"|trans }}:
+						{{ post.category.name }}</p>
+					<h2 class="photo-exchange-title" data-id="{{ post.id }}">{{ post.headline }}</h2>
+					<p>{{ post.body|nl2br }}</p>
+
+					{% if context.customer is not null and not context.customer.guest ? 1 : 0 %}
+						<h5>{{ "OWY.photo_exchange.contact"|trans }}:
+							<a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a>
+						</h5>
+
+					{% elseif context.customer is not null and  context.customer.id != post.customer.id %}
+						<h5>{{ "OWY.photo_exchange.contact"|trans }}:</h5>
+					{% else %}
+						<h5>{{ "OWY.photo_exchange.contact"|trans }}:</h5>
+						{{ "OWY.photo_exchange.not_logged_in"|trans|raw }}
+
+					{% endif %}
+					<div
+						id="images">
+						{# Single DB Hit #}
+						{% set mediaCollection = searchMedia(post.images, context.context) %}
+						{% for meidaObj in mediaCollection %}
+							<img src="{{ meidaObj.url }}" alt="" class="rounded float-left" style="max-width: 30%;">
+
+						{% endfor %}
+					</div>
 
 
-                <div class="entry mb-2  p-2">
-                <p>{{ "OWY.photo_exchange.category"|trans }}: {{ post.category.name }}</p>
-                <h2>{{ post.headline }}</h2>
-                <p>{{ post.body|nl2br }}</p>
+					{% if context.customer is not null and  context.customer.id == post.customer.id %}
 
-                {% if context.customer is not null and not context.customer.guest ? 1 : 0 %}
-                    <h5>{{ "OWY.photo_exchange.contact"|trans }}: <a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a></h5>
+						<div id="more-action">
+							{{ post.created_date|date('d-m-Y H:i') }}
+							|
+							<a href="/photo-exchange/edit?id={{ post.id }}">{{ "OWY.photo_exchange.edit"|trans }}</a>
+							|
+							<a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('{{ 'OWY.photo_exchange.delete'|trans }}')">{{ "OWY.photo_exchange.delete"|trans }}</a>
+						</div>
+					{% elseif context.customer is not null and  context.customer.id != post.customer.id %}
 
-                {% elseif context.customer is not null and  context.customer.id != post.customer.id %}
-                    <h5>{{ "OWY.photo_exchange.contact"|trans }}:</h5>
-                {% else %}
-                    <h5>{{ "OWY.photo_exchange.contact"|trans }}:</h5>
-                    {{ "OWY.photo_exchange.not_logged_in"|trans|raw }}
-                    
-                {% endif %}
-                <div id="images">
-                    {# Single DB Hit #}
-                    {% set mediaCollection = searchMedia(post.images, context.context) %}
-                    {% for meidaObj in mediaCollection %}
-                        <img src="{{ meidaObj.url }}" alt="" class="rounded float-left" style="max-width: 30%;">
+						<div id="more-action">
+							{{ post.created_date|date('d-m-Y H:i') }}
+							|
+							<a href="javascript:void(0)">{{ "OWY.photo_exchange.edit"|trans }}
+							</a>
+							|
+							<a href="javascript:void(0)">{{ "OWY.photo_exchange.delete"|trans }}</a>
+							|
+							<a href="{{ path('frontend.action.report_photo_exchange') }}" class="report-photo-exchange" data-id="{{ post.id }}">{{ "OWY.photo_exchange_create.report"|trans }}</a>
+						</div>
+                        <p class="alert p-2 text-light report-response-block"  data-id="{{ post.id }}" style="display:none; color: #f1f1f1; font-size:14px;"></p>
+					{% else %}
 
-                    {% endfor %}
-                </div>
+						<div id="more-action">
+							{{ post.created_date|date('d-m-Y H:i') }}
+							|
+							<a href="/account/login">{{ "OWY.photo_exchange.edit"|trans }}
+							</a>
+							|
+							<a href="/account/login">{{ "OWY.photo_exchange.delete"|trans }}</a>
+						</div>
+					{% endif %}
+				</div>
+				<hr>
+			{% endfor %}
 
-
-
-                {% if context.customer is not null and  context.customer.id == post.customer.id %}
-
-                    <div id="more-action">
-                        {{ post.created_date|date('d-m-Y H:i') }} | <a href="/photo-exchange/edit?id={{ post.id }}">{{ "OWY.photo_exchange.edit"|trans }}</a> | <a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('{{ 'OWY.photo_exchange.delete'|trans }}')">{{ "OWY.photo_exchange.delete"|trans }}</a>
-                    </div>
-                {% elseif context.customer is not null and  context.customer.id != post.customer.id %}
-
-                    <div id="more-action">
-                        {{ post.created_date|date('d-m-Y H:i') }}  | <a href="javascript:void(0)">{{ "OWY.photo_exchange.edit"|trans }} </a> | <a href="javascript:void(0)">{{ "OWY.photo_exchange.delete"|trans }}</a>
-                    </div>
-                {% else %}
-
-                    <div id="more-action">
-                        {{ post.created_date|date('d-m-Y H:i') }}  | <a href="/account/login">{{ "OWY.photo_exchange.edit"|trans }} </a> | <a href="/account/login">{{ "OWY.photo_exchange.delete"|trans }}</a>
-                    </div>
-                {% endif %}
-            </div>
-                <hr>
-            {% endfor %}
-            
-            <div class="sorting-pagination-wraper">
-            <div class="sorting-wraper">
-                {{ "OWY.photo_exchange.items_per_page"|trans }}
-                <select id="product-limit" class="sorting form-select {{ formSelectClass }}" aria-label="{{ 'general.sortingLabel'|trans|striptags }}">
-                    <option value="10">{{ "OWY.photo_exchange.select_limit"|trans }}</option>
-                    {% for limit in productLimit %}
-                        <option {% if posts.limit == limit %} selected {% endif %} value="{{limit}}">
-                            {{limit}}
-                        </option>
-                    {% endfor %}
-                    <option value="1000">{{ "OWY.photo_exchange.items_all"|trans }}</option>
-                </select>
-            </div>
-            {% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
+            {% if posts|length > 0 %}
+			<div class="sorting-pagination-wraper">
+				<div class="sorting-wraper">
+					{{ "OWY.photo_exchange.items_per_page"|trans }}
+					<select id="product-limit" class="sorting form-select {{ formSelectClass }}" aria-label="{{ 'general.sortingLabel'|trans|striptags }}">
+						<option value="10">{{ "OWY.photo_exchange.select_limit"|trans }}</option>
+						{% for limit in productLimit %}
+							<option {% if posts.criteria.limit == limit %} selected {% endif %} value="{{limit}}">
+								{{limit}}
+							</option>
+						{% endfor %}
+						<option value="1000">{{ "OWY.photo_exchange.items_all"|trans }}</option>
+					</select>
+				</div>
+				{% sw_include '@Storefront/storefront/component/pagination.html.twig' with {
                 entities: posts,
                 criteria: posts.criteria,
                 paginationLocation: 'bottom',
             } %}
+			</div>
+			<hr>
+            {% endif %}
 		</div>
-		<hr>
-        </div>
-    </div>
+	</div>
 
 {% endblock %}

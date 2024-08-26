@@ -1,4 +1,5 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+{% set isRentalProduct = page.product.translated.customFields.custom_additonal_badges_title=='Miete' %}
 {% block page_product_detail_buy_inner %}
 	<div class="js-magnifier-zoom-image-container">
 		{% block page_product_detail_rich_snippets %}
@@ -112,7 +113,7 @@
 
 				{% block page_product_detail_buy_form %}
                     <div class="merkliste-box">
-								{% if config('core.cart.wishlistEnabled') %}
+								{% if config('core.cart.wishlistEnabled') and not isRentalProduct %}
                                     {% block page_product_detail_wishlist %}
                                         {% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
                                         showText: true,

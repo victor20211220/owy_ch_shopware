@@ -164,29 +164,16 @@ $(document).on('change', '#product-limit', function(){
 });
 */
 
-if ($('body').hasClass('is-ctl-navigation is-act-index')) {
+if ($('body').hasClass('is-ctl-navigation is-act-index') || $('body').hasClass('is-ctl-photoexchange')) {
     $(document).on('change', '#product-limit', function () {
-
-
         var limit = $(this).val();
-        var path = window.location.href;
-        if (path.includes('limit')) {
-            var href = new URL(path);
-
-            href.searchParams.set('limit', limit);
-            path = href.toString();
-        } else if (path.includes('&')) {
-            path = path + "&limit=" + limit;
-
-        } else if (path.includes('?')) {
-            path = path + "&limit=" + limit;
-
-        } else {
-            path = path + "?limit=" + limit;
-
+        var url = new URL(window.location.href);
+        searchParams = url.searchParams;
+        if (searchParams.has('p') && searchParams.get('p') !== "1" && searchParams.get('limit') !== limit){
+            searchParams.set('p', 1);
         }
-        window.location.href = path;
-
+        searchParams.set('limit', limit);
+        window.location.href = url.href;
 
     });
 
@@ -209,6 +196,7 @@ if ($('body').hasClass('is-ctl-navigation is-act-index')) {
 }
 
 if ($('body').hasClass('is-ctl-photoexchange')) {
+    /*
     $(document).on('change', '#product-limit', function () {
 
         var limit = $(this).val();
@@ -230,6 +218,7 @@ if ($('body').hasClass('is-ctl-photoexchange')) {
         window.location.href = currentUrl;
 
     });
+    */
 }
 
 

@@ -6,6 +6,7 @@
 		{% set id = product.id %}
 		{% set cover = product.cover.media %}
 		{% set variation = product.variation %}
+		{% set isRentalProduct = product.translated.customFields.custom_additonal_badges_title=='Miete' %}
 
 		<div class="card product-box box-{{ layout }} owy-listbox">
 			{% block component_product_box_content %}
@@ -52,7 +53,7 @@
 								{% endif %}
 							</a>
 
-							{% if config('core.cart.wishlistEnabled') %}
+							{% if config('core.cart.wishlistEnabled') and not isRentalProduct %}
 								{% block component_product_box_wishlist_action %}
 									{% sw_include '@Storefront/storefront/component/product/card/wishlist.html.twig' with {
                                         appearance: 'circle',

@@ -87,6 +87,20 @@ class PostService
         $posts = $this->postRepository->search($criteria, $context);
         return $this->addCreateDate($posts);
     }
+
+    public function getMyPosts(Context $context, Request $request, SalesChannelContext $salesChannelContext): EntitySearchResult
+    {
+        $criteria = new Criteria();
+        $this->handlePagination($request, $criteria);
+        $criteria->addSorting(new FieldSorting('id', FieldSorting::DESCENDING));
+        $criteria->addAssociation("category");
+        $criteria->addAssociation("customer");
+        $criteria->addFilter(new EqualsFilter('isActive', 1));
+        $criteria->addFilter(new EqualsFilter('customerId', $salesChannelContext->getCustomerId()));
+        $posts = $this->postRepository->search($criteria, $context);
+        return $this->addCreateDate($posts);
+    }
+
     public function searchPosts(Context $context, Request $request): EntitySearchResult
     {
         $criteria = new Criteria();
@@ -95,7 +109,10 @@ class PostService
             new ContainsFilter("headline", $request->get("query", "")),
             new ContainsFilter("body", $request->get("query", "")),
         ]));
-        $criteria->addFilter(new EqualsFilter("categoryId", $request->get("category", null)));
+        $category = $request->get("category", null);
+        if($category !== "all"){
+            $criteria->addFilter(new EqualsFilter("categoryId", $request->get("category", null)));
+        }
         $criteria->addAssociation("category");
         $criteria->addAssociation("customer");
         $criteria->addFilter(new EqualsFilter('isActive', 1));

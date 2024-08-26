@@ -1,40 +1,58 @@
 {% block component_post_list %}
 
-    <div id="entries">
-        <div class="card card-image cms-element-product-listing">
-            {% for post in posts %}
-                <div class="entry mb-2 border rounded shadow p-2">
-                    <h3>Kategorie: {{ post.category.name }}</h3>
-                    <h2>{{ post.headline }}</h2>
-                    <p>{{ post.body|raw }}</p>
+	<div id="entries">
+		<div class="card card-image cms-element-product-listing">
+			{% for post in posts %}
+				<div class="entry mb-2 border rounded shadow p-2">
+					<h3>Kategorie:
+						{{ post.category.name }}</h3>
+					<h2 class="photo-exchange-title" data-id="{{ post.id }}">{{ post.headline }}</h2>
+					<p>{{ post.body|raw }}</p>
 
-                    {% if context.customer is not null and not context.customer.guest ? 1 : 0 %}
-                        <h5>Kontakt: <a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a></h5>
-                    {% else %}
-                        <h5>Kontakt: Login required!</h5>
-                    {% endif %}
-                    <div id="images">
-                        {# Single DB Hit #}
-                        {% set mediaCollection = searchMedia(post.images, context.context) %}
-                        {% for meidaObj in mediaCollection %}
-                            <img src="{{ meidaObj.url }}" alt="" class="rounded float-left" style="max-width: 30%;">
+					{% if context.customer is not null and not context.customer.guest ? 1 : 0 %}
+						<h5>Kontakt:
+							<a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a>
+						</h5>
+					{% else %}
+						<h5>Kontakt: Login required!</h5>
+					{% endif %}
+					<div
+						id="images">
+						{# Single DB Hit #}
+						{% set mediaCollection = searchMedia(post.images, context.context) %}
+						{% for meidaObj in mediaCollection %}
+							<img src="{{ meidaObj.url }}" alt="" class="rounded float-left" style="max-width: 30%;">
 
-                        {% endfor %}
-                    </div>
+						{% endfor %}
+					</div>
 
-                    {% if context.customer is not null and not context.customer.guest ? 1 : 0 and context.customer.id == post.customer.id %}
-                        <h5>Kontakt: <a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a></h5>
-                        <div id="more-action">
-                            {{ post.created_date|date }} | <a href="{{ appUrl }}/photo-exchange/edit?id={{ post.id }}">Bearbeiten</a> | <a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('Are you sure?')">Löschen</a>
-                        </div>
-                    {% else %}
-                        <div id="more-action">
-                            {{ post.created_date|date }} | Bearbeiten | Löschen
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+					{% if context.customer is not null and not context.customer.guest ? 1 : 0 and context.customer.id == post.customer.id %}
+						{% set isOthersPhotoExchange = context.customer.id != post.customer.id %}
+						<h5>Kontakt:
+							<a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a>
+						</h5>
+						<div id="more-action">
+							{{ post.created_date|date }}
+							|
+							<a href="{{ appUrl }}/photo-exchange/edit?id={{ post.id }}">Bearbeiten</a>
+							|
+							<a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('Are you sure?')">Löschen</a>
+							{% if isOthersPhotoExchange %}
+								|&nbsp;<a href="{{ path('frontend.action.report_photo_exchange') }}" class="report-photo-exchange" data-id="{{ post.id }}">{{ "OWY.photo_exchange_create.report"|trans }}</a>
+							{% endif %}
+						</div>
+						{% if isOthersPhotoExchange %}
+							<p class="alert p-2 text-light report-response-block" data-id="{{ post.id }}" style="display:none; color: #f1f1f1; font-size:14px;"></p>
+						{% endif %}
+					{% else %}
+						<div id="more-action">
+							{{ post.created_date|date }}
+							| Bearbeiten | Löschen
+						</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 
 {% endblock %}

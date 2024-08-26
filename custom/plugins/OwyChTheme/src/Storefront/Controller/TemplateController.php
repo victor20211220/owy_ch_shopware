@@ -199,6 +199,70 @@ class TemplateController extends StorefrontController
         }
     }
 
+    /**
+     *
+     * @Route("/report_photo_exchange", name="frontend.action.report_photo_exchange", options={"seo"="false"}, methods={"POST", "POST"}, defaults={"csrf_protected"=false, "XmlHttpRequest"=true})
+     */
+    public function report_photo_exchange(Request $request, SalesChannelContext $salesChannelContext)
+    {
+
+        $formData =  json_decode($request->getContent(),true);
+        $id = $formData['id'];
+        $title = $formData['title'];
+        $customer = $salesChannelContext->getCustomer();
+
+        $fullName = $customer->getFirstName() ." ".$customer->getLastName();
+        $email = $customer->getEmail();
+        $subject = "Verdächtiges Inserat: ".$title;
+
+        $contentHtml = 'Folgendes Inserate wurde als verdächtig gemeldet:
+                        <br>
+                        '.$title.' ('.$id.')
+                        <br>
+                        Gemeldet von: '.$fullName.' ('.$email.')';
+
+        $shopName = $salesChannelContext->getSalesChannel()->getName();
+        $shopEmail = $this->systemConfigService->get('core.basicInformation.email', $salesChannelContext->getSalesChannel()->getId());
+        try {
+            $data = new ParameterBag();
+            /*$data->set(
+                'recipients',
+                [
+                    $shopEmail => $shopName
+                ]
+            );*/
+
+            $data->set('senderName', $fullName ? $fullName : $email);
+            $data->set('contentHtml', $contentHtml);
+            $data->set('contentPlain', strip_tags($contentHtml));
+            $data->set('subject', $subject);
+            $data->set('recipients', ['support@owy.ch' => 'Ott+Wyss AG']);
+            $data->set('salesChannelId', $salesChannelContext->getSalesChannel()->getId());
+            $this->mailService->send(
+                $data->all(),
+                $salesChannelContext->getContext(),
+                []
+            );
+
+
+            return new Response(
+                'E-Mail erfolgreich gesendet',
+                Response::HTTP_OK
+            );
+        } catch (Exception $e) {
+            // $violations = $e->getViolations();
+            // foreach ($violations as $violation) {
+            //     echo('Email send error: ' . $violation->getMessage()."\n");
+            // }
+            return new Response(
+                'Error: ' . $e->getMessage(),
+                406,
+                ['bcErrorText'=>'Error: ' . $e->getMessage()]
+            );
+        }
+
+    }
+
 
 
 }
