@@ -104,6 +104,7 @@ class PostService
     public function searchPosts(Context $context, Request $request): EntitySearchResult
     {
         $criteria = new Criteria();
+        $criteria->addSorting(new FieldSorting('id', FieldSorting::DESCENDING));
 
         $criteria->addFilter(new OrFilter([
             new ContainsFilter("headline", $request->get("query", "")),

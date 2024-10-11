@@ -62,8 +62,7 @@
                                 {% endblock %}
                             </div>
                             <div class="listing-btn-buy-box">
-                                <button class="btn btn-buy"
-                                        title="{{ "listing.boxAddProduct"|trans|striptags }}">
+                                <button class="btn btn-buy" title="{{ "listing.boxAddProduct"|trans|striptags }}" {% if product.stock <= 0 %} disabled {% endif %}>
                                     {{ "listing.boxAddProduct"|trans|sw_sanitize }}
                                 </button>
                             </div>

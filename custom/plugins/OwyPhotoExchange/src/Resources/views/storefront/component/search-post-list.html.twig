@@ -2,19 +2,25 @@
 
 	<div id="entries">
 		<div class="card card-image cms-element-product-listing">
+			<hr>
 			{% for post in posts %}
-				<div class="entry mb-2 border rounded shadow p-2">
-					<h3>Kategorie:
-						{{ post.category.name }}</h3>
+				<div class="entry mb-2  p-2">
+					<p>{{ "OWY.photo_exchange.category"|trans }}:
+						{{ post.category.name }}</p>
 					<h2 class="photo-exchange-title" data-id="{{ post.id }}">{{ post.headline }}</h2>
-					<p>{{ post.body|raw }}</p>
+					<p>{{ post.body|nl2br }}</p>
 
 					{% if context.customer is not null and not context.customer.guest ? 1 : 0 %}
-						<h5>Kontakt:
+						<h5>{{ "OWY.photo_exchange.contact"|trans }}:
 							<a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a>
 						</h5>
+
+					{% elseif context.customer is not null and  context.customer.id != post.customer.id %}
+						<h5>{{ "OWY.photo_exchange.contact"|trans }}:</h5>
 					{% else %}
-						<h5>Kontakt: Login required!</h5>
+						<h5>{{ "OWY.photo_exchange.contact"|trans }}:</h5>
+						{{ "OWY.photo_exchange.not_logged_in"|trans|raw }}
+
 					{% endif %}
 					<div
 						id="images">
@@ -26,31 +32,42 @@
 						{% endfor %}
 					</div>
 
-					{% if context.customer is not null and not context.customer.guest ? 1 : 0 and context.customer.id == post.customer.id %}
-						{% set isOthersPhotoExchange = context.customer.id != post.customer.id %}
-						<h5>Kontakt:
-							<a href="mailto:{{ post.customer.email }}">{{ post.customer.email }}</a>
-						</h5>
+
+					{% if context.customer is not null and  context.customer.id == post.customer.id %}
+
 						<div id="more-action">
-							{{ post.created_date|date }}
+							{{ post.created_date|date('d-m-Y H:i') }}
 							|
-							<a href="{{ appUrl }}/photo-exchange/edit?id={{ post.id }}">Bearbeiten</a>
+							<a href="/photo-exchange/edit?id={{ post.id }}">{{ "OWY.photo_exchange.edit"|trans }}</a>
 							|
-							<a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('Are you sure?')">Löschen</a>
-							{% if isOthersPhotoExchange %}
-								|&nbsp;<a href="{{ path('frontend.action.report_photo_exchange') }}" class="report-photo-exchange" data-id="{{ post.id }}">{{ "OWY.photo_exchange_create.report"|trans }}</a>
-							{% endif %}
+							<a href="/photo-exchange/delete?id={{ post.id }}" onclick="return window.confirm('{{ 'OWY.photo_exchange.delete'|trans }}')">{{ "OWY.photo_exchange.delete"|trans }}</a>
 						</div>
-						{% if isOthersPhotoExchange %}
-							<p class="alert p-2 text-light report-response-block" data-id="{{ post.id }}" style="display:none; color: #f1f1f1; font-size:14px;"></p>
-						{% endif %}
-					{% else %}
+					{% elseif context.customer is not null and  context.customer.id != post.customer.id %}
+
 						<div id="more-action">
-							{{ post.created_date|date }}
-							| Bearbeiten | Löschen
+							{{ post.created_date|date('d-m-Y H:i') }}
+							|
+							<a href="javascript:void(0)">{{ "OWY.photo_exchange.edit"|trans }}
+							</a>
+							|
+							<a href="javascript:void(0)">{{ "OWY.photo_exchange.delete"|trans }}</a>
+							|
+							<a href="{{ path('frontend.action.report_photo_exchange') }}" class="report-photo-exchange" data-id="{{ post.id }}">{{ "OWY.photo_exchange_create.report"|trans }}</a>
+						</div>
+                        <p class="alert p-2 text-light report-response-block"  data-id="{{ post.id }}" style="display:none; color: #f1f1f1; font-size:14px;"></p>
+					{% else %}
+
+						<div id="more-action">
+							{{ post.created_date|date('d-m-Y H:i') }}
+							|
+							<a href="/account/login">{{ "OWY.photo_exchange.edit"|trans }}
+							</a>
+							|
+							<a href="/account/login">{{ "OWY.photo_exchange.delete"|trans }}</a>
 						</div>
 					{% endif %}
 				</div>
+				<hr>
 			{% endfor %}
 		</div>
 	</div>

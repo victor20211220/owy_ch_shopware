@@ -106,9 +106,11 @@
         ul {
             padding: 0;
             margin : 0;
+            display: flex;
 
             li {
                 list-style: none;
+                margin-right: 10px;
 
                 a {
                     display: inline-block;

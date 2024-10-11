@@ -142,7 +142,7 @@
 
 						{% block page_product_detail_product_buy_button %}
 							<div class="d-grid">
-								<button class="btn btn-buy" title="{{ "listing.boxAddProduct"|trans|striptags }}">
+								<button class="btn btn-buy" title="{{ "listing.boxAddProduct"|trans|striptags }}" {% if product.stock <= 0 %} disabled {% endif %}>
 									{{ "listing.boxAddProduct"|trans|sw_sanitize }}
 								</button>
 							</div>

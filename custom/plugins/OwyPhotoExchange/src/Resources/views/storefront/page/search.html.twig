@@ -65,14 +65,16 @@
 							{{ "OWY.photo_exchange_create.label3"|trans }}
                             </p>
 					</div>
+					{% set filterCategoryId = app.request.query.get('category') %}
 					<form action="" method="get">
 						<div class="form-group row">
 							<label for="category" class="col-sm-2 col-form-label">{{ "OWY.photo_exchange.category"|trans }}</label>
 							<div class="col-sm-7">
 								<select name="category" id="category" class="form-control">
-									<option value="all">{{ "OWY.photo_exchange.items_all"|trans|raw }}</option>
+									<option {% if filterCategoryId === "all" %} selected {% endif %} value="all">{{ "OWY.photo_exchange.items_all"|trans|raw }}</option>
 									{% for category in categories %}
-										<option value="{{ category.id }}">{{ category.name }}</option>
+										{% set categoryId = category.id %}
+										<option {% if filterCategoryId === categoryId  %} selected {% endif %} value="{{ categoryId }}">{{ category.name }}</option>
 									{% endfor %}
 								</select>
 							</div>

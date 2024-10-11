@@ -109,12 +109,19 @@
 	{% if rentalProduct.active %}
 		{% block page_product_detail_rent_button %}
 			<div class="d-grid">
-				<button class="btn btn-primary btn-buy" title="{{ "rhiem-rental-products.rentButton"|trans|striptags }}" aria-label="{{ "rhiem-rental-products.rentButton"|trans|striptags }}" id="rent-button" disabled>
+				<button {% if product.stock <= 0 %} disabled {% endif %} class="btn btn-primary btn-buy" title="{{ "rhiem-rental-products.rentButton"|trans|striptags }}" aria-label="{{ "rhiem-rental-products.rentButton"|trans|striptags }}" id="rent-button" disabled>
 					{{ "rhiem-rental-products.rentButton"|trans|sw_sanitize }}
 				</button>
 			</div>
 		{% endblock %}
 	{% else %}
-		{{ parent() }}
+		{# {{ parent() }} #}
+		<div class="d-grid">
+			<button {% if product.stock <= 0 %} disabled {% endif %} class="btn btn-primary btn-buy"
+					title="{{ "detail.addProduct"|trans|striptags }}"
+					aria-label="{{ "detail.addProduct"|trans|striptags }}">
+				{{ "detail.addProduct"|trans|sw_sanitize }}
+			</button>
+		</div>
 	{% endif %}
 {% endblock %}
